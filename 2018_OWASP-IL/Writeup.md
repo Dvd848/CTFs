@@ -50,7 +50,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הוראות האת�
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=EN-US dir=LTR><img width=126 height=126
-id="Picture 1" src="2018_OWASP-IL/images/image001.jpg"></span></p>
+id="Picture 1" src="images/image001.jpg"></span></p>
 
 <p align=center style='text-align:center'><span lang=en-IL>URL: <span
 class=MsoHyperlink><b><a href="http://challenges.owaspil.ctf.today:8089/">http://challenges.owaspil.ctf.today:8089/</a></b></span></span></p>
@@ -64,7 +64,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>לחיצה על הק
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=575 height=288
-id="Picture 2" src="2018_OWASP-IL/images/image002.jpg"></span></p>
+id="Picture 2" src="images/image002.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אפשר לעבור על ה-</span><span
@@ -80,7 +80,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>למשל, אם מח�
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=350
-id="Picture 3" src="2018_OWASP-IL/images/image003.jpg"></span></p>
+id="Picture 3" src="images/image003.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
@@ -99,7 +99,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> אינטראקטי�
 
 <p class=MsoNormal align=right dir=RTL style='text-align:left;direction:rtl;
 unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=255 height=57
-id="Picture 4" src="2018_OWASP-IL/images/image004.png"></span></p>
+id="Picture 4" src="images/image004.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>מפה הדרך אל הדגל
@@ -107,7 +107,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>מפה הדרך אל
 
 <p class=MsoNormal align=right dir=RTL style='text-align:left;direction:rtl;
 unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=362
-height=277 id="Picture 5" src="2018_OWASP-IL/images/image005.jpg"></span></p>
+height=277 id="Picture 5" src="images/image005.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הדגל: </span><b><span
@@ -141,7 +141,7 @@ href="http://challenges.owaspil.ctf.today:8099/">http://challenges.owaspil.ctf.t
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=271
-height=175 id="Picture 6" src="2018_OWASP-IL/images/image006.jpg"></span></p>
+height=175 id="Picture 6" src="images/image006.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>פתרון:</span></p>
@@ -152,7 +152,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>כניסה לאתר 
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=421
-height=292 id="Picture 11" src="2018_OWASP-IL/images/image007.png"></span></p>
+height=292 id="Picture 11" src="images/image007.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>לחיצה על </span><span
@@ -162,7 +162,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> מקפיצה חלו
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=261
-height=58 id="Picture 12" src="2018_OWASP-IL/images/image008.jpg"></span></p>
+height=58 id="Picture 12" src="images/image008.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>האתגר טען ש&quot;כל
@@ -181,7 +181,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>:</span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=58 id="Picture 7"
-src="2018_OWASP-IL/images/image009.jpg"></span></p>
+src="images/image009.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>פורמט </span><span
@@ -213,7 +213,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>משם, עברתי �
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=593 height=100
-id="Picture 8" src="2018_OWASP-IL/images/image010.jpg"></span></p>
+id="Picture 8" src="images/image010.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>זה השלב שבו נזכרתי
@@ -225,7 +225,7 @@ lang=HE style='font-family:"Arial",sans-serif'>:</span></p>
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=480
-height=360 id="Picture 10" src="2018_OWASP-IL/images/image011.jpg"
+height=360 id="Picture 10" src="images/image011.jpg"
 alt="https://hackadaycom.files.wordpress.com/2014/04/18mpenleoksq8jpg.jpg?w=636"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -236,14 +236,14 @@ dir=RTL></span>, אך זה לא עבד. השלב ההגיוני הבא היה ל
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=511
-height=331 id="Picture 13" src="2018_OWASP-IL/images/image012.jpg"></span></p>
+height=331 id="Picture 13" src="images/image012.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>התוצאה:</span></p>
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=347
-height=239 id="Picture 14" src="2018_OWASP-IL/images/image013.jpg"></span></p>
+height=239 id="Picture 14" src="images/image013.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>רפרנס ל</span><span
@@ -254,7 +254,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>:</span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=185
-id="Picture 15" src="2018_OWASP-IL/images/image014.jpg" alt="Exploits of a Mom"></span></p>
+id="Picture 15" src="images/image014.jpg" alt="Exploits of a Mom"></span></p>
 
 <span lang=HE dir=RTL style='font-size:11.0pt;line-height:107%;font-family:
 "Arial",sans-serif'><br clear=all style='page-break-before:always'>
@@ -296,7 +296,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>האתר עצמו ה
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=601 height=159
-id="Picture 16" src="2018_OWASP-IL/images/image015.jpg"></span></p>
+id="Picture 16" src="images/image015.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אולם, הכיוון הזה לא
@@ -308,7 +308,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הצעד הבא הי
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=152
-id="Picture 17" src="2018_OWASP-IL/images/image016.jpg"></span></p>
+id="Picture 17" src="images/image016.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>ה-</span><span
@@ -329,7 +329,7 @@ dir=RTL></span>/</span></a></span></span><span lang=HE style='font-family:"Arial
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=392
-height=115 id="Picture 18" src="2018_OWASP-IL/images/image017.jpg"></span></p>
+height=115 id="Picture 18" src="images/image017.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>עוד קפיצה לגוגל
@@ -339,14 +339,14 @@ dir=RTL></span>, ואנחנו בתוך ממשק הניהול:</span></p>
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=599
-height=266 id="Picture 19" src="2018_OWASP-IL/images/image018.jpg"></span></p>
+height=266 id="Picture 19" src="images/image018.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>שימו לב לקישור הבא:</span></p>
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=453
-height=161 id="Picture 20" src="2018_OWASP-IL/images/image019.png"></span></p>
+height=161 id="Picture 20" src="images/image019.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>לחיצה על הקישור
@@ -389,7 +389,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>לחיצה על הק
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=602
-height=214 id="Picture 21" src="2018_OWASP-IL/images/image020.jpg"></span></p>
+height=214 id="Picture 21" src="images/image020.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>בדיקה של קוד המקור
@@ -466,7 +466,7 @@ dir=RTL></span> של תמונת הפרופיל של בעל האתר.</span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=263
-id="Picture 22" src="2018_OWASP-IL/images/image021.jpg"></span></p>
+id="Picture 22" src="images/image021.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>נראה שמדובר ב-</span><span
@@ -476,7 +476,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> (הפוך), לאח�
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=239
-id="Picture 23" src="2018_OWASP-IL/images/image022.jpg"></span></p>
+id="Picture 23" src="images/image022.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>(באותה מידה אפשר
@@ -585,7 +585,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>האתר עצמו נ
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=550
-height=207 id="Picture 24" src="2018_OWASP-IL/images/image023.png"></span></p>
+height=207 id="Picture 24" src="images/image023.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>עבור הפתרון השתמשתי
@@ -933,7 +933,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>האתר עצמו מ
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=224
-height=115 id="Picture 51" src="2018_OWASP-IL/images/image024.jpg"></span></p>
+height=115 id="Picture 51" src="images/image024.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כניסה עם שם המשתמש
@@ -953,7 +953,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> שחוזרים מה
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=166
-height=63 id="Picture 52" src="2018_OWASP-IL/images/image025.png"></span></p>
+height=63 id="Picture 52" src="images/image025.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>באופן כללי, זה נחשב
@@ -1023,7 +1023,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>כניסה לאתר 
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=305
-height=235 id="Picture 25" src="2018_OWASP-IL/images/image026.jpg"></span></p>
+height=235 id="Picture 25" src="images/image026.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הוראות האתגר והממשק
@@ -1139,7 +1139,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>התוצאה:</span>
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=425
-height=319 id="Picture 26" src="2018_OWASP-IL/images/image027.jpg"
+height=319 id="Picture 26" src="images/image027.jpg"
 alt="http://challenges.owaspil.ctf.today:8090/uploads/tmpxuig5e.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1263,7 +1263,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>האתר מציג מ
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=483
-height=298 id="Picture 27" src="2018_OWASP-IL/images/image028.png"></span></p>
+height=298 id="Picture 27" src="images/image028.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הפעולות מתורגמות
@@ -1370,7 +1370,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>ואכן, התוצא
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=195
-id="Picture 28" src="2018_OWASP-IL/images/image029.png"></span></p>
+id="Picture 28" src="images/image029.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
@@ -1383,7 +1383,7 @@ dir=RTL></span> על מנת להריץ קוד, נקבל את ההודעה הבא
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=470
-height=251 id="Picture 29" src="2018_OWASP-IL/images/image030.png"></span></p>
+height=251 id="Picture 29" src="images/image030.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>למזלנו, זה לא מפריע
@@ -1392,7 +1392,7 @@ lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span>:</span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=184
-id="Picture 30" src="2018_OWASP-IL/images/image031.jpg"></span></p>
+id="Picture 30" src="images/image031.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הדגל:</span></p>
@@ -1600,7 +1600,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>כניסה לאתר 
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=235
-id="Picture 31" src="2018_OWASP-IL/images/image032.jpg"></span></p>
+id="Picture 31" src="images/image032.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הכנסה של פרטים
@@ -1608,7 +1608,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הכנסה של פר
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=601 height=250
-id="Picture 32" src="2018_OWASP-IL/images/image033.jpg"></span></p>
+id="Picture 32" src="images/image033.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=EN-US dir=LTR>&nbsp;</span></p>
@@ -1627,7 +1627,7 @@ dir=RTL></span>:</span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=184
-id="Picture 33" src="2018_OWASP-IL/images/image034.jpg"></span></p>
+id="Picture 33" src="images/image034.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אולם, הכיוון הזה לא
@@ -1639,7 +1639,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>המשכתי לחפ�
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=262
-height=123 id="Picture 34" src="2018_OWASP-IL/images/image035.png"></span></p>
+height=123 id="Picture 34" src="images/image035.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>חיפשתי </span><span
@@ -2189,7 +2189,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>האתגר החדש 
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=552
-height=283 id="Picture 35" src="2018_OWASP-IL/images/image036.png"></span></p>
+height=283 id="Picture 35" src="images/image036.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אז מה התחדש?</span></p>
@@ -2216,7 +2216,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>נתמקד בינת�
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=323
-height=97 id="Picture 36" src="2018_OWASP-IL/images/image037.jpg"></span></p>
+height=97 id="Picture 36" src="images/image037.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>מהתבוננות בתמונה
@@ -2283,7 +2283,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הנה תוצר של
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=273
-height=146 id="Picture 37" src="2018_OWASP-IL/images/image038.jpg"></span></p>
+height=146 id="Picture 37" src="images/image038.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הבעיה היא שהקווים
@@ -2319,7 +2319,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>צפייה במספ�
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=99
-height=242 id="Picture 38" src="2018_OWASP-IL/images/image039.png"></span></p>
+height=242 id="Picture 38" src="images/image039.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>שימו לב שהטקסט תמיד
@@ -2453,7 +2453,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>.</span></p>
   <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
   text-align:right;line-height:normal;direction:rtl;unicode-bidi:embed'><span
   lang=EN-US dir=LTR><img border=0 width=196 height=59 id="Picture 39"
-  src="2018_OWASP-IL/images/image040.jpg"></span></p>
+  src="images/image040.jpg"></span></p>
   <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
   text-align:right;line-height:normal;direction:rtl;unicode-bidi:embed'><span
   lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
@@ -2466,7 +2466,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>.</span></p>
   <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
   text-align:right;line-height:normal;direction:rtl;unicode-bidi:embed'><span
   lang=EN-US dir=LTR><img border=0 width=203 height=61 id="Picture 40"
-  src="2018_OWASP-IL/images/image041.jpg"></span></p>
+  src="images/image041.jpg"></span></p>
   </td>
  </tr>
 </table>
@@ -2851,7 +2851,7 @@ href="https://challenges.owaspil.ctf.today:8443/">https://challenges.owaspil.ctf
 lang=en-IL>If you see this message</span></p>
 
 <p><span lang=EN-US style='font-size:11.0pt;font-family:"Calibri",sans-serif'><img
-border=0 width=622 height=96 id="Picture 41" src="2018_OWASP-IL/images/image042.png"></span><b><span
+border=0 width=622 height=96 id="Picture 41" src="images/image042.png"></span><b><span
 lang=en-IL>You already have the flag, just sniff around.... <br>
 And please shut down your proxy it could scare the flag.</span></b></p>
 
@@ -2868,7 +2868,7 @@ lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span> לא מוכ
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=411 height=268
-id="Picture 42" src="2018_OWASP-IL/images/image043.png"></span></p>
+id="Picture 42" src="images/image043.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>את האתגר התחלתי
@@ -2923,7 +2923,7 @@ lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span>. נותר
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=310 height=62
-id="Picture 43" src="2018_OWASP-IL/images/image044.png"></span></p>
+id="Picture 43" src="images/image044.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם נחדד קצת את
@@ -2931,7 +2931,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם נחדד קצת
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=310 height=62
-id="Picture 44" src="2018_OWASP-IL/images/image045.png"></span></p>
+id="Picture 44" src="images/image045.png"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם נמדוד את הגדלים
@@ -2946,14 +2946,14 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>במקרה, הקיש
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=601
-height=51 id="Picture 45" src="2018_OWASP-IL/images/image046.jpg"></span></p>
+height=51 id="Picture 45" src="images/image046.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>ואכן:</span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=49
-id="Picture 46" src="2018_OWASP-IL/images/image047.jpg"></span></p>
+id="Picture 46" src="images/image047.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>איך היה אפשר למצוא
@@ -3030,7 +3030,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>כך זה נראה:<
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=622 height=252
-id="Picture 47" src="2018_OWASP-IL/images/image048.jpg"></span></p>
+id="Picture 47" src="images/image048.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>את החלק הראשון (</span><span
@@ -3512,7 +3512,7 @@ dir=RTL></span> בתחתית המסך:</span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=180
-id="Picture 48" src="2018_OWASP-IL/images/image049.jpg"></span></p>
+id="Picture 48" src="images/image049.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הדגל:</span></p>
@@ -3558,7 +3558,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הקישור מבי�
 
 <p class=MsoNormal align=center dir=RTL style='text-align:center;direction:
 rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=393
-height=206 id="Picture 49" src="2018_OWASP-IL/images/image050.jpg"></span></p>
+height=206 id="Picture 49" src="images/image050.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הכתובת משתנה בהתאם
@@ -3606,7 +3606,7 @@ dir=RTL></span>.</span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=570 height=260
-id="Picture 50" src="2018_OWASP-IL/images/image051.jpg"></span></p>
+id="Picture 50" src="images/image051.jpg"></span></p>
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הכלי מזהה שקיימת
