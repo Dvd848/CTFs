@@ -38,7 +38,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>פתרון:</span></
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>לחיצה על הקישור
 מובילה לדף שמציג שגיאת זמן ריצה של פייתון:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=575 height=288
 id="Picture 2" src="images/image002.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -51,7 +51,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> של כל פונק�
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>למשל, אם מחפשים קוד
 שנכלל באפליקציה עצמה (בניגוד לקוד של ספריות עזר), מגיעים לקטע הבא:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=350
 id="Picture 3" src="images/image003.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -66,13 +66,13 @@ lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span> שמופי�
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>לחיצה עליו ויש לנו </span><span
 lang=EN-US dir=LTR>Console</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span> אינטראקטיבי!</span></p>
-<p class=MsoNormal align=right dir=RTL style='text-align:left;direction:rtl;
+<p class=MsoNormal align=center dir=RTL style='text-align:center;direction:rtl;
 unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=255 height=57
 id="Picture 4" src="images/image004.png"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>מפה הדרך אל הדגל
 קצרה:</span></p>
-<p class=MsoNormal align=right dir=RTL style='text-align:left;direction:rtl;
+<p class=MsoNormal align=center dir=RTL style='text-align:center;direction:rtl;
 unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=362
 height=277 id="Picture 5" src="images/image005.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -130,7 +130,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> של התמונה. 
 רבים אפשר למצוא שם רמזים חשובים. הפעם, הדבר היחיד שבלט לעין היה ה-</span><span
 lang=EN-US dir=LTR>Thumbnail</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span>:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=58 id="Picture 7"
 src="images/image009.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -158,7 +158,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>בפועל, הכיו
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>משם, עברתי לחפש קבצים
 נסתרים בתוך התמונה (ניתן למשל לכלול קובץ ארכיון מיד אחרי המידע הבינארי של
 התמונה עצמה), אך גם שם לא מצאתי משהו מיוחד:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=593 height=100
 id="Picture 8" src="images/image010.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -191,7 +191,7 @@ class=MsoHyperlink><span lang=EN-US><a href="https://xkcd.com/327/"><span
 lang=HE style='font-family:"Arial",sans-serif'>קומיקס המיתולוגי של </span><span
 dir=LTR>xkcd</span></a></span></span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span>:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=185
 id="Picture 15" src="images/image014.jpg" alt="Exploits of a Mom"></span></p>
 <span lang=HE dir=RTL style='font-size:11.0pt;line-height:107%;font-family:
@@ -222,7 +222,7 @@ dir=RTL></span>&quot;.</span></p>
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>האתר עצמו הוא אתר
 תדמיתי לחברת שקר כלשהי, כאשר הקלט היחיד הבולט לעין הוא מקום להכניס כתובת
 אימייל:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=601 height=159
 id="Picture 16" src="images/image015.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -231,7 +231,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>אולם, הכיוו
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הצעד הבא היה לנסות
 לסייר קצת באתר, למשל – לנסות להיכנס לכתובת שלא קיימת:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=152
 id="Picture 17" src="images/image016.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -332,7 +332,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>כלומר, הפונ
 מריצה קוד שמופיע ב-</span><span lang=EN-US dir=LTR>metadata</span><span
 dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span> של תמונת הפרופיל של בעל האתר.</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=263
 id="Picture 22" src="images/image021.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -340,7 +340,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>נראה שמדוב�
 lang=EN-US dir=LTR>base64</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span> (הפוך), לאחר היפוך
 התהליך מקבלים:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=239
 id="Picture 23" src="images/image022.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -874,8 +874,8 @@ href="http://challenges.owaspil.ctf.today:8083/?calc=7%2B2"><span dir=LTR>http:/
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם ננסה לשחק עם
 הפרמטרים, נקבל את התוצאה הבאה:</span></p>
 <div align=right>
-<table class=MsoTableGrid dir=rtl border=1 cellspacing=0 cellpadding=0
- style='border-collapse:collapse;border:none; margin: 0 auto;'>
+<table class=MsoTableGrid dir=ltr border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none; margin: 0 auto; width:100%;'>
  <tr>
   <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
   border-right:none;padding:0cm 5.4pt 0cm 5.4pt'>
@@ -948,7 +948,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>ואכן, התוצאה לא
 אכזבה (בתקווה שאף בעל חיים לא נפגע במהלך הניסוי): </span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=195
 id="Picture 28" src="images/image029.png"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -965,7 +965,7 @@ height=251 id="Picture 29" src="images/image030.png"></span></p>
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>למזלנו, זה לא מפריע
 כי הדגל נמצא ב-</span><span lang=EN-US dir=LTR>stack trace</span><span dir=RTL></span><span
 lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span>:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=184
 id="Picture 30" src="images/image031.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1103,13 +1103,13 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>פתרון:</span></
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כניסה לאתר מציגה את
 הדף הבא:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=235
 id="Picture 31" src="images/image032.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הכנסה של פרטים
 מייצרת המלצה אקראית:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=601 height=250
 id="Picture 32" src="images/image033.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1123,7 +1123,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הדבר הראשו�
 לב אליו הוא שהאתר פגיע ל-</span><span lang=EN-US dir=LTR>XSS</span><span
 dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span>:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=184
 id="Picture 33" src="images/image034.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1161,8 +1161,8 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>, והתחלתי ל�
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הטבלה הבאה מציגה את
 הקלט והפלט של גישה לכתובת הבאה:</span></p>
 <p class=MsoNormal><span lang=EN-US>http://challenges.owaspil.ctf.today:8087/get_recommendation?name=a&amp;recommender=<b>&lt;input&gt;</b></span></p>
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
- style='border-collapse:collapse;border:none'>
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;width:100%;' dir=ltr>
  <tr>
   <td width=236 valign=top style='width:176.95pt;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
@@ -1609,16 +1609,16 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> היא היקרה �
 lang=EN-US dir=LTR>OCR</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span>.</span></p>
 <div align=right>
-<table class=MsoTableGrid dir=rtl border=1 cellspacing=0 cellpadding=0
- style='border-collapse:collapse;border:none'>
+<table class=MsoTableGrid dir=ltr border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;width:100%;'>
  <tr>
   <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
   text-align:right;line-height:normal;direction:rtl;unicode-bidi:embed'><span
   lang=HE style='font-family:"Arial",sans-serif'>דוגמא למקרה שאינו משתלם:</span></p>
-  <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal;direction:rtl;unicode-bidi:embed'><span
+  <p class=MsoNormal dir=RTL  align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;direction:rtl;unicode-bidi:embed'><span
   lang=EN-US dir=LTR><img border=0 width=196 height=59 id="Picture 39"
   src="images/image040.jpg"></span></p>
   <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
@@ -1630,8 +1630,8 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>.</span></p>
   <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
   text-align:right;line-height:normal;direction:rtl;unicode-bidi:embed'><span
   lang=HE style='font-family:"Arial",sans-serif'>דוגמא למקרה משתלם:</span></p>
-  <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
-  text-align:right;line-height:normal;direction:rtl;unicode-bidi:embed'><span
+  <p class=MsoNormal dir=RTL  align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal;direction:rtl;unicode-bidi:embed'><span
   lang=EN-US dir=LTR><img border=0 width=203 height=61 id="Picture 40"
   src="images/image041.jpg"></span></p>
   </td>
@@ -1836,7 +1836,7 @@ href="https://challenges.owaspil.ctf.today:8443/">https://challenges.owaspil.ctf
 <p class=MsoNormal><span lang=en-IL>Hint</span><span lang=EN-US>: </span><span
 lang=en-IL>If you see this message</span></p>
 <p><span lang=EN-US style='font-size:11.0pt;font-family:"Calibri",sans-serif'><img
-border=0 width=622 height=96 id="Picture 41" src="images/image042.png"></span><b><span
+border=0 width=622 height=96 id="Picture 41" src="images/image042.png"></span><br/><b><span
 lang=en-IL>You already have the flag, just sniff around.... <br>
 And please shut down your proxy it could scare the flag.</span></b></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1848,7 +1848,7 @@ lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span> (עם </spa
 lang=EN-US dir=LTR>self-signed certificate</span><span dir=RTL></span><span
 lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span> לא מוכר)
 שמכיל עשרות דגלים:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=411 height=268
 id="Picture 42" src="images/image043.png"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1902,13 +1902,13 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם כך, המיל�
 צריכה להיות </span><span lang=EN-US dir=LTR>cat</span><span dir=RTL></span><span
 lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span>. נותר
 לגלות מה המילה הראשונה:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=310 height=62
 id="Picture 43" src="images/image044.png"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם נחדד קצת את
 התמונה:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=310 height=62
 id="Picture 44" src="images/image045.png"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1925,7 +1925,7 @@ rtl;unicode-bidi:embed'><span lang=en-IL dir=LTR><img border=0 width=601
 height=51 id="Picture 45" src="images/image046.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>ואכן:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL align=center  style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=49
 id="Picture 46" src="images/image047.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1997,7 +1997,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>, לבצע את הב
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כך זה נראה:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=622 height=252
 id="Picture 47" src="images/image048.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -2232,8 +2232,8 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>ומי מחכה שם
 הדגל, במספר טאבים של </span><span lang=EN-US dir=LTR>Decrypted SSL</span><span
 dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span> בתחתית המסך:</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
-embed'><span lang=en-IL dir=LTR><img border=0 width=602 height=180
+<p class=MsoNormal dir=RTL style='text-align:center;direction:rtl;unicode-bidi:
+embed'><span lang=en-IL  align=center dir=LTR><img border=0 width=602 height=180
 id="Picture 48" src="images/image049.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הדגל:</span></p>
@@ -2303,7 +2303,7 @@ dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span> על האתר, למשל </span><span lang=EN-US dir=LTR>SQLMap</span><span
 dir=RTL></span><span lang=HE style='font-family:"Arial",sans-serif'><span
 dir=RTL></span>.</span></p>
-<p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
+<p class=MsoNormal dir=RTL  align=center style='text-align:center;direction:rtl;unicode-bidi:
 embed'><span lang=en-IL dir=LTR><img border=0 width=570 height=260
 id="Picture 50" src="images/image051.jpg"></span></p>
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -2315,8 +2315,8 @@ dir=RTL></span> (לאחר ההודעה הצבועה באדום מגיעים אי
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>בטבלה הבאה אפשר
 לראות מספר ניסיונות ידניים ואת הפלט שלהם:</span></p>
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
- style='border-collapse:collapse;border:none'>
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 dir=ltr
+ style='border-collapse:collapse;border:none;width:100%;'>
  <tr>
   <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
@@ -2480,8 +2480,8 @@ lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span> הצליח�
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>ניקח את המידע הזה
 וננסה לשלב בין שתי השיטות:</span></p>
-<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
- style='border-collapse:collapse;border:none'>
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 dir=ltr
+ style='border-collapse:collapse;border:none;width:100%;'>
  <tr>
   <td width=302 valign=top style='width:226.55pt;border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
