@@ -357,15 +357,15 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> ונקבל:</span><
 
 ```javascript
 function verify(a)
-     {
-if(a.charCodeAt(0x0)=="79"&&a.charCodeAt(0x1)=="87"&&a.charCodeAt(0x2)=="65"&&a.charCodeAt(0x3)=="83"&&a.charCodeAt(0x4)=="80"&&a.charCodeAt(0x5)=="45"&&a.charCodeAt(0x6)=="73"&&a.charCodeAt(0x7)=="76"&&a.charCodeAt(0x8)=="123"&&a.charCodeAt(0x9)=="74"&&a.charCodeAt(0xa)=="52"&&a.charCodeAt(0xb)=="118"&&a.charCodeAt(0xc)=="52"&&a.charCodeAt(0xd)=="83"&&a.charCodeAt(0xe)=="99"&&a.charCodeAt(0xf)=="114"&&a.charCodeAt(0x10)=="49"&&a.charCodeAt(0x11)=="112"&&a.charCodeAt(0x12)=="116"&&a.charCodeAt(0x13)=="78"&&a.charCodeAt(0x14)=="105"&&a.charCodeAt(0x15)=="110"&&a.charCodeAt(0x16)=="106"&&a.charCodeAt(0x17)=="52"&&a.charCodeAt(0x18)=="33"&&a.charCodeAt(0x19)=="125")
-           {
-           console.log("Contratz! You got the flag!\nFlag: "+a)
-     }
-     else
-           {
-           console.log("You are so wrong.. :)")
-     }
+{
+    if(a.charCodeAt(0x0)=="79"&&a.charCodeAt(0x1)=="87"&&a.charCodeAt(0x2)=="65"&&a.charCodeAt(0x3)=="83"&&a.charCodeAt(0x4)=="80"&&a.charCodeAt(0x5)=="45"&&a.charCodeAt(0x6)=="73"&&a.charCodeAt(0x7)=="76"&&a.charCodeAt(0x8)=="123"&&a.charCodeAt(0x9)=="74"&&a.charCodeAt(0xa)=="52"&&a.charCodeAt(0xb)=="118"&&a.charCodeAt(0xc)=="52"&&a.charCodeAt(0xd)=="83"&&a.charCodeAt(0xe)=="99"&&a.charCodeAt(0xf)=="114"&&a.charCodeAt(0x10)=="49"&&a.charCodeAt(0x11)=="112"&&a.charCodeAt(0x12)=="116"&&a.charCodeAt(0x13)=="78"&&a.charCodeAt(0x14)=="105"&&a.charCodeAt(0x15)=="110"&&a.charCodeAt(0x16)=="106"&&a.charCodeAt(0x17)=="52"&&a.charCodeAt(0x18)=="33"&&a.charCodeAt(0x19)=="125")
+    {
+        console.log("Contratz! You got the flag!\nFlag: "+a)
+    }
+    else
+    {
+        console.log("You are so wrong.. :)")
+    }
 }
 ```
 
@@ -375,7 +375,11 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הלוגיקה פה 
 
 ```javascript
 a = Array();
-a[0x0]="79"; a[0x1]="87"; a[0x2]="65"; a[0x3]="83"; a[0x4]="80"; a[0x5]="45"; a[0x6]="73"; a[0x7]="76"; a[0x8]="123"; a[0x9]="74"; a[0xa]="52"; a[0xb]="118"; a[0xc]="52"; a[0xd]="83"; a[0xe]="99"; a[0xf]="114"; a[0x10]="49"; a[0x11]="112"; a[0x12]="116"; a[0x13]="78"; a[0x14]="105"; a[0x15]="110"; a[0x16]="106"; a[0x17]="52"; a[0x18]="33"; a[0x19]="125";
+a[0x0]="79"; a[0x1]="87"; a[0x2]="65"; a[0x3]="83"; a[0x4]="80"; a[0x5]="45"; 
+a[0x6]="73"; a[0x7]="76"; a[0x8]="123"; a[0x9]="74"; a[0xa]="52"; a[0xb]="118"; 
+a[0xc]="52"; a[0xd]="83"; a[0xe]="99"; a[0xf]="114"; a[0x10]="49"; a[0x11]="112"; 
+a[0x12]="116"; a[0x13]="78"; a[0x14]="105"; a[0x15]="110"; a[0x16]="106"; 
+a[0x17]="52"; a[0x18]="33"; a[0x19]="125";
 s = "";
 for (var i in a) {
     s += String.fromCharCode(a[i]);
@@ -874,7 +878,7 @@ href="http://challenges.owaspil.ctf.today:8083/?calc=7%2B2"><span dir=LTR>http:/
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם ננסה לשחק עם
 הפרמטרים, נקבל את התוצאה הבאה:</span></p>
 <div align=right>
-<table class=MsoTableGrid dir=ltr border=0 cellspacing=0 cellpadding=0
+<table class=MsoTableGrid dir=ltr border=0 cellspacing=0 cellpadding=0 width="100%"
  style='border-collapse:collapse;border:none; margin: 0 auto; width:100%;'>
  <tr>
   <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
@@ -1161,7 +1165,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span>, והתחלתי ל�
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>הטבלה הבאה מציגה את
 הקלט והפלט של גישה לכתובת הבאה:</span></p>
 <p class=MsoNormal><span lang=EN-US>http://challenges.owaspil.ctf.today:8087/get_recommendation?name=a&amp;recommender=<b>&lt;input&gt;</b></span></p>
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
  style='border-collapse:collapse;border:none;width:100%;' dir=ltr>
  <tr>
   <td width=236 valign=top style='width:176.95pt;border:solid windowtext 1.0pt;
@@ -1609,7 +1613,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> היא היקרה �
 lang=EN-US dir=LTR>OCR</span><span dir=RTL></span><span lang=HE
 style='font-family:"Arial",sans-serif'><span dir=RTL></span>.</span></p>
 <div align=right>
-<table class=MsoTableGrid dir=ltr border=0 cellspacing=0 cellpadding=0
+<table class=MsoTableGrid dir=rtl border=0 cellspacing=0 cellpadding=0  width="100%"
  style='border-collapse:collapse;border:none;width:100%;'>
  <tr>
   <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
@@ -1782,7 +1786,7 @@ style='font-family:"Arial",sans-serif'><span dir=RTL></span> עצמו, הפונ�
 מבצעת עיבוד נוסף לתשובה באמצעות המילון הבא:</span></p>
 
 ```python
-SIMILAR_LETTERS_TRANS = string.maketrans(&quot;IOYSBFZXCVMKWUJD0]?&quot;, &quot;lo958fzxcvmkwuj5ol7&quot;)
+SIMILAR_LETTERS_TRANS = string.maketrans("IOYSBFZXCVMKWUJD0]?", "lo958fzxcvmkwuj5ol7")
 ```
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
@@ -1863,37 +1867,18 @@ dir=RTL></span>, וזה הסתדר מצוין עם קוד המקור של האת
 
 
 
-<pre><span lang=en-IL>&nbsp;</span></pre><pre><span lang=en-IL>&lt;<span
-class=start-tag>div</span> <span class=attribute-name>class</span>=&quot;col-lg-1 col-sm-2 col-xs-4&quot;&gt;</span></pre><pre><span
-lang=en-IL> </span><span lang=en-IL>&lt;<span class=start-tag>p</span> <span
-class=attribute-name>class</span>=&quot;blend-link&quot;&gt;</span></pre><pre><span
-lang=EN-US>  </span><span lang=en-IL>&lt;<span class=start-tag>a</span> <span
-class=attribute-name>href</span>=&quot;<span class=MsoHyperlink><a
-href="view-source:https://challenges.owaspil.ctf.today:8443/flags/argentina-flags-cat.png">./flags/argentina-flags-cat.png</a></span>&quot;&gt;</span></pre><pre><span
-lang=EN-US>  </span><span lang=en-IL>&lt;<span class=start-tag>img</span> <span
-class=attribute-name>class</span>=&quot;blend-img&quot; <span
-class=attribute-name>src</span>=&quot;<span class=MsoHyperlink><a
-href="view-source:https://challenges.owaspil.ctf.today:8443/flags/argentina-flags-cat.png">./flags/argentina-<span
-style='background:yellow'>flags</span>-cat.png</a></span>&quot; <span
-class=attribute-name>width</span>=&quot;100%&quot; <span class=attribute-name>alt</span>=&quot;ARGENTINA&quot;&gt;&lt;<span
-class=start-tag>br</span>&gt;ARGENTINA&lt;/<span class=end-tag>a</span>&gt;&lt;/<span
-class=end-tag>p</span>&gt;</span></pre><pre><span lang=en-IL>&lt;/<span
-class=end-tag>div</span>&gt;</span></pre><pre><span lang=en-IL>&lt;<span
-class=start-tag>div</span> <span class=attribute-name>class</span>=&quot;col-lg-1 col-sm-2 col-xs-4&quot;&gt;</span></pre><pre><span
-lang=en-IL> </span><span lang=en-IL>&lt;<span class=start-tag>p</span> <span
-class=attribute-name>class</span>=&quot;blend-link&quot;&gt;</span></pre><pre><span
-lang=EN-US>  </span><span lang=en-IL>&lt;<span class=start-tag>a</span> <span
-class=attribute-name>href</span>=&quot;<span class=MsoHyperlink><a
-href="view-source:https://challenges.owaspil.ctf.today:8443/flags/armenia-flags-cat.png">./flags/armenia-flags-cat.png</a></span>&quot;&gt;</span></pre><pre><span
-lang=EN-US>  </span><span lang=en-IL>&lt;<span class=start-tag>img</span> <span
-class=attribute-name>class</span>=&quot;blend-img&quot; <span
-class=attribute-name>src</span>=&quot;<span class=MsoHyperlink><a
-href="view-source:https://challenges.owaspil.ctf.today:8443/flags/armenia-flags-cat.png">./flags/armenia-<span
-style='background:yellow'>flags</span>-cat.png</a></span>&quot; <span
-class=attribute-name>width</span>=&quot;100%&quot; <span class=attribute-name>alt</span>=&quot;ARMENIA&quot;&gt;&lt;<span
-class=start-tag>br</span>&gt;ARMENIA&lt;/<span class=end-tag>a</span>&gt;&lt;/<span
-class=end-tag>p</span>&gt;</span></pre><pre><span lang=en-IL>&lt;/<span
-class=end-tag>div</span>&gt;</span></pre>
+```html
+<div class="col-lg-1 col-sm-2 col-xs-4">
+ <p class="blend-link">
+  <a href="./flags/argentina-flags-cat.png">
+  <img class="blend-img" src="./flags/argentina-flags-cat.png" width="100%" alt="ARGENTINA"><br>ARGENTINA</a></p>
+</div>
+<div class="col-lg-1 col-sm-2 col-xs-4">
+ <p class="blend-link">
+  <a href="./flags/armenia-flags-cat.png">
+  <img class="blend-img" src="./flags/armenia-flags-cat.png" width="100%" alt="ARMENIA"><br>ARMENIA</a></p>
+</div>
+```
 
 
 <p class=MsoNormal><span lang=en-IL>&nbsp;</span></p>
@@ -1940,40 +1925,19 @@ dir=RTL></span>:</span></p>
 
 <pre><code><span lang=en-IL>&nbsp;</span></code></pre>
 
-<pre><span lang=en-IL>&nbsp;</span></pre><pre><span lang=en-IL
-style='font-size:8.0pt'>&lt;<span class=start-tag>div</span> <span
-class=attribute-name>class</span>=&quot;col-lg-1 col-sm-2 col-xs-4&quot;&gt;</span></pre><pre><span
-lang=en-IL style='font-size:8.0pt'> </span><span lang=en-IL style='font-size:
-8.0pt'>&lt;<span class=start-tag>p</span> <span class=attribute-name>class</span>=&quot;blend-link&quot;&gt;</span></pre><pre><span
-lang=EN-US style='font-size:8.0pt'>  </span><span lang=en-IL style='font-size:
-8.0pt'>&lt;<span class=start-tag>a</span> <span class=attribute-name>href</span>=&quot;<span
-class=MsoHyperlink><span style='background:lime'><a
-href="view-source:https://challenges.owaspil.ctf.today:8443/flags/Netherlands-flags-cat.png">./flags/Netherlands-flags-cat<span
-style='background:red'>.png</span></a></span></span>&quot;&gt;</span></pre><pre><span
-lang=EN-US style='font-size:8.0pt'>  </span><span lang=en-IL style='font-size:
-8.0pt'>&lt;<span class=start-tag>img</span> <span class=attribute-name>class</span>=&quot;blend-img&quot; <span
-class=attribute-name>src</span>=&quot;<span class=MsoHyperlink><a
-href="view-source:https://challenges.owaspil.ctf.today:8443/flags/Netherlands-flags-cat.png">./flags/Netherlands-flags-cat.png</a></span>&quot; <span
-class=attribute-name>width</span>=&quot;100%&quot; <span class=attribute-name>alt</span>=&quot;NETHERLANDS&quot;&gt;&lt;<span
-class=start-tag>br</span>&gt;NETHERLANDS&lt;/<span class=end-tag>a</span>&gt;&lt;/<span
-class=end-tag>p</span>&gt;</span></pre><pre><span lang=en-IL style='font-size:
-8.0pt'>&lt;/<span class=end-tag>div</span>&gt;</span></pre><pre><span
-lang=en-IL style='font-size:8.0pt'>&lt;<span class=start-tag>div</span> <span
-class=attribute-name>class</span>=&quot;col-lg-1 col-sm-2 col-xs-4&quot;&gt;</span></pre><pre><span
-lang=en-IL style='font-size:8.0pt'> </span><span lang=en-IL style='font-size:
-8.0pt'>&lt;<span class=start-tag>p</span> <span class=attribute-name>class</span>=&quot;blend-link&quot;&gt;</span></pre><pre><span
-lang=EN-US style='font-size:8.0pt'>  </span><span lang=en-IL style='font-size:
-8.0pt'>&lt;<span class=start-tag>a</span> <span class=attribute-name>href</span>=&quot;<span
-class=MsoHyperlink><span style='background:lime'><a
-href="view-source:https://challenges.owaspil.ctf.today:8443/flags/NetherlandsAntilles-flags-cat">./flags/NetherlandsAntilles-flags-cat</a></span></span>&quot;&gt;</span></pre><pre><span
-lang=EN-US style='font-size:8.0pt'>  </span><span lang=en-IL style='font-size:
-8.0pt'>&lt;<span class=start-tag>img</span> <span class=attribute-name>class</span>=&quot;blend-img&quot; <span
-class=attribute-name>src</span>=&quot;<span class=MsoHyperlink><a
-href="view-source:https://challenges.owaspil.ctf.today:8443/flags/NetherlandsAntilles-flags-cat.png">./flags/NetherlandsAntilles-flags-cat.png</a></span>&quot; <span
-class=attribute-name>width</span>=&quot;100%&quot; <span class=attribute-name>alt</span>=&quot;NETHERLANDS ANTILLES&quot;&gt;&lt;<span
-class=start-tag>br</span>&gt;NETHERLANDS ANTILLES&lt;/<span class=end-tag>a</span>&gt;&lt;/<span
-class=end-tag>p</span>&gt;</span></pre><pre><span lang=en-IL style='font-size:
-8.0pt'>&lt;/<span class=end-tag>div</span>&gt;</span></pre>
+```html
+<div class="col-lg-1 col-sm-2 col-xs-4">
+ <p class="blend-link">
+  <a href="./flags/Netherlands-flags-cat.png">
+  <img class="blend-img" src="./flags/Netherlands-flags-cat.png" width="100%" alt="NETHERLANDS"><br>NETHERLANDS</a></p>
+</div>
+
+<div class="col-lg-1 col-sm-2 col-xs-4">
+ <p class="blend-link">
+  <a href="./flags/NetherlandsAntilles-flags-cat">
+  <img class="blend-img" src="./flags/NetherlandsAntilles-flags-cat.png" width="100%" alt="NETHERLANDS ANTILLES"><br>NETHERLANDS ANTILLES</a></p>
+</div>
+```
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>כנראה בגלל
@@ -2315,7 +2279,7 @@ dir=RTL></span> (לאחר ההודעה הצבועה באדום מגיעים אי
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>בטבלה הבאה אפשר
 לראות מספר ניסיונות ידניים ואת הפלט שלהם:</span></p>
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 dir=ltr
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 dir=ltr  width="100%"
  style='border-collapse:collapse;border:none;width:100%;'>
  <tr>
   <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
@@ -2480,7 +2444,7 @@ lang=HE style='font-family:"Arial",sans-serif'><span dir=RTL></span> הצליח�
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
 embed'><span lang=HE style='font-family:"Arial",sans-serif'>ניקח את המידע הזה
 וננסה לשלב בין שתי השיטות:</span></p>
-<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 dir=ltr
+<table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 dir=ltr  width="100%"
  style='border-collapse:collapse;border:none;width:100%;'>
  <tr>
   <td width=302 valign=top style='width:226.55pt;border:solid windowtext 1.0pt;
