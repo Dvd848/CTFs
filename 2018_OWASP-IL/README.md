@@ -879,13 +879,13 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם ננסה לשח
 <table class=MsoTableGrid dir=ltr border=0 cellspacing=0 cellpadding=0 width="100%"
  style='border-collapse:collapse;border:none; margin: 0 auto; width:100%;'>
  <tr>
-  <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   border-right:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal dir=RTL style='margin-bottom:0cm;margin-bottom:.0001pt;
   text-align:right;line-height:normal;direction:rtl;unicode-bidi:embed'><span
   lang=EN-US dir=LTR>http://challenges.owaspil.ctf.today:8083/?calc=test</span></p>
   </td>
-  <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal dir=LTR style='margin-bottom:0cm;margin-bottom:.0001pt;
   line-height:normal'><span lang=EN-US>Unrecognized variable: 'test</span><span
@@ -894,7 +894,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם ננסה לשח
   </td>
  </tr>
  <tr>
-  <td width=301 valign=top style='width:225.4pt;border-top:none;border-left:
+  <td width="50%" valign=top style='border-top:none;border-left:
   solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal dir=LTR style='margin-bottom:0cm;margin-bottom:.0001pt;
@@ -902,24 +902,24 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>אם ננסה לשח
   dir=RTL></span><span lang=HE dir=RTL style='font-family:"Arial",sans-serif'><span
   dir=RTL></span>=</span></p>
   </td>
-  <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal dir=LTR style='margin-bottom:0cm;margin-bottom:.0001pt;
   line-height:normal'><span lang=EN-US>Unexpected end found</span></p>
   </td>
  </tr>
  <tr>
-  <td width=301 valign=top style='width:225.4pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal dir=LTR style='margin-bottom:0cm;margin-bottom:.0001pt;
-  line-height:normal'><span lang=EN-US>Unexpected character found: '1' at index
-  2</span></p>
-  </td>
-  <td width=301 valign=top style='width:225.4pt;border-top:none;border-left:
+  <td width="50%" valign=top style='border-top:none;border-left:
   solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:
   none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal dir=LTR style='margin-bottom:0cm;margin-bottom:.0001pt;
   line-height:normal'><span lang=EN-US>http://challenges.owaspil.ctf.today:8083/?calc=1+1</span></p>
+  </td>
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal dir=LTR style='margin-bottom:0cm;margin-bottom:.0001pt;
+  line-height:normal'><span lang=EN-US>Unexpected character found: '1' at index
+  2</span></p>
   </td>
  </tr>
 </table>
@@ -1166,24 +1166,24 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הטבלה הבאה 
 <table class=MsoTableGrid border=0 cellspacing=0 cellpadding=0 width="100%"
  style='border-collapse:collapse;border:none;width:100%;' dir=ltr>
  <tr>
-  <td width=236 valign=top style='width:176.95pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span dir=LTR></span><b><span lang=EN-US><span dir=LTR></span>&lt;input&gt;</span></b></p>
   </td>
-  <td width=365 valign=top style='width:273.85pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span dir=LTR></span><b><span lang=EN-US><span dir=LTR></span>&lt;output&gt;</span></b></p>
   </td>
  </tr>
  <tr>
-  <td width=236 valign=top style='width:176.95pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span lang=EN-US>{{''.__class__}}</span></p>
   </td>
-  <td width=365 valign=top style='width:273.85pt;border-top:none;border-left:
+  <td width="50%" valign=top style='border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
@@ -1192,12 +1192,12 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הטבלה הבאה 
   </td>
  </tr>
  <tr>
-  <td width=236 valign=top style='width:176.95pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span lang=EN-US>{{''.__class__.mro()}}</span></p>
   </td>
-  <td width=365 valign=top style='width:273.85pt;border-top:none;border-left:
+  <td width="50%" valign=top style='border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
@@ -1207,12 +1207,12 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הטבלה הבאה 
   </td>
  </tr>
  <tr>
-  <td width=236 valign=top style='width:176.95pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span lang=EN-US>{{''.__class__.mro()[2].__subclasses__()}}</span></p>
   </td>
-  <td width=365 valign=top style='width:273.85pt;border-top:none;border-left:
+  <td width="50%" valign=top style='border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
@@ -1223,12 +1223,12 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הטבלה הבאה 
   </td>
  </tr>
  <tr>
-  <td width=236 valign=top style='width:176.95pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span lang=EN-US>{{''.__class__.mro()[2].__subclasses__()[59]}}</span></p>
   </td>
-  <td width=365 valign=top style='width:273.85pt;border-top:none;border-left:
+  <td width="50%" valign=top style='border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
@@ -1237,13 +1237,13 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>הטבלה הבאה 
   </td>
  </tr>
  <tr>
-  <td width=236 valign=top style='width:176.95pt;border:solid windowtext 1.0pt;
+  <td width="50%" valign=top style='border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
   normal'><span lang=EN-US>{{''.__class__.mro()[2].__subclasses__()[59]<br>
   .__init__.func_globals['linecache'].__dict__['os']}}</span></p>
   </td>
-  <td width=365 valign=top style='width:273.85pt;border-top:none;border-left:
+  <td width="50%" valign=top style='border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
