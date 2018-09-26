@@ -450,8 +450,7 @@ with requests.Session() as s:
            url = CAPTCHA_BASE_URL + '/captcha.php'
            response = s.get(url, stream=True)
           
-          guess = pytesseract.image_to_string(Image.open(response.raw))
-           guess = guess.replace("I", "l")
+           guess = pytesseract.image_to_string(Image.open(response.raw))
            print (guess)
           
            payload = {'captcha': guess, "submit": ""}
@@ -1360,7 +1359,7 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>המימוש מאו�
 import requests, re
  
 ip_table = {}
-with open("proxy2.txt") as f:
+with open("proxy.txt") as f:
     for line in f:
         line = line.rstrip()
         ip, country = line.split("\t")
