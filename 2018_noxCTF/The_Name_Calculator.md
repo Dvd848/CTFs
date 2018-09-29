@@ -80,6 +80,7 @@ This is your new name: \x15sS\x16x\x04I:
 The next step would be to analyze `secretFunc`.
 
 The function starts with the initialization of some local variables:
+
 ![](images/image005.png)
 
 It then moves on to zero the `input` buffer:
