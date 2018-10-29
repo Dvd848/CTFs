@@ -608,8 +608,14 @@ function populate_data(data_type, data_url, parse_func)
                
                 var newElement = '<li>';
                 newElement += '<a href="javascript:void(0)" class="' + command_class + '">' + escapeHtml(item.command) + '</a>';
+                
+
                 newElement += '<dl class="description">';
+                
+                newElement += '<dt>Command</dt><dd>' + nl2br(escapeHtml(item.command)) + '</dd>';
+                
                 newElement += '<dt>Description</dt><dd>' + nl2br(escapeHtml(item.desc)) + '</dd>';
+                
                 newElement += '<dt>More Information</dt><dd>'
                 
                 if (item.more_info)
