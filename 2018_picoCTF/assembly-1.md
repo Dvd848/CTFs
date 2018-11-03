@@ -1,4 +1,4 @@
-# assembly-01
+# assembly-1
 Reversing, 200 points
 
 ## Description:
@@ -47,7 +47,7 @@ part_d:
 
 ## Solution:
 
-This is how the stack looks after performing the `mov	ebp,esp` command:
+This is how the stack looks like after performing the `mov	ebp,esp` command:
 
 ```
 +---------+

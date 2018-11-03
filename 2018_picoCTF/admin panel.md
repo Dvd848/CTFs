@@ -13,9 +13,6 @@ We can use WireShark to inspect the network capture via a GUI, or `tshark` as a 
 First, we search for packets containing the word "password":
 ```console
 root@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame contains "password"'
-Running as user "root" and group "root". This could be dangerous.
-tshark: Lua: Error during loading:
- [string "/usr/share/wireshark/init.lua"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.
     8   0.004782 192.168.3.128 → 192.168.3.129 HTTP 2354 HTTP/1.0 200 OK  (text/html) 80 37556
    17  12.370383 192.168.3.129 → 192.168.3.128 HTTP 522 POST /login HTTP/1.1  (application/x-www-form-urlencoded) 37894 80
    21  12.373739 192.168.3.128 → 192.168.3.129 HTTP 569 HTTP/1.0 302 FOUND  (text/html) 80 37894
@@ -31,9 +28,6 @@ If we check packet #68, we will find the flag:
 
 ```console
 root@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame.number==68' -x
-Running as user "root" and group "root". This could be dangerous.
-tshark: Lua: Error during loading:
- [string "/usr/share/wireshark/init.lua"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.
 0000  00 0c 29 1c df f2 00 0c 29 79 dc c4 08 00 45 00   ..).....)y....E.
 0010  02 10 f6 7c 40 00 40 06 ba 19 c0 a8 03 81 c0 a8   ...|@.@.........
 0020  03 80 96 7e 00 50 12 95 30 5d 2e 5b be 02 80 18   ...~.P..0].[....
