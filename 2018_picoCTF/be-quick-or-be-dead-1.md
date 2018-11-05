@@ -1,5 +1,5 @@
 # be-quick-or-be-dead-1
-Reversing, 2000 points
+Reversing, 200 points
 
 ## Description:
 > You find [this](https://www.youtube.com/watch?v=CTt1vk9nM9c) when searching for some music, which leads you to **be-quick-or-be-dead-1**. Can you run it fast enough?
@@ -17,7 +17,7 @@ Calculating key...
 You need a faster machine. Bye bye.
 ```
 
-Time to analyze the function. We'll use Radare2.
+Time to analyze the program. We'll use Radare2.
 
 ```console
 r2 be-quick-or-be-dead-1
