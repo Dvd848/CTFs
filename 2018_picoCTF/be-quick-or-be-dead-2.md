@@ -205,7 +205,7 @@ root@kali:/media/sf_CTFs/pico/be-quick-or-be-dead-2# python solve.py
 781077913
 ```
 
-Since patching with Radare2 in write mode is giving me incorrect result for an unknown reason, we'll patch with dd.
+Since patching with Radare2 in write mode is giving me incorrect results for an unknown reason, we'll patch with dd.
 
 First, we need to find the exact place to patch. `get_key` makes most sense:
 ```assembly
