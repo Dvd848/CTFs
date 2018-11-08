@@ -33,25 +33,7 @@ The following script solves the challenge:
 
 ```python
 from pwn import *
-
-##########################################################################################
-# https://rosettacode.org/wiki/Modular_inverse#Python
-def extended_gcd(aa, bb):
-    lastremainder, remainder = abs(aa), abs(bb)
-    x, lastx, y, lasty = 0, 1, 1, 0
-    while remainder:
-        lastremainder, (quotient, remainder) = remainder, divmod(lastremainder, remainder)
-        x, lastx = lastx - quotient*x, x
-        y, lasty = lasty - quotient*y, y
-    return lastremainder, lastx * (-1 if aa < 0 else 1), lasty * (-1 if bb < 0 else 1)
-    
-def modinv(a, m):
-    g, x, y = extended_gcd(a, m)
-    if g != 1:
-        raise ValueError
-    return x % m
-#
-##########################################################################################
+import gmpy2
 
 PARAM_REGEX = re.compile("^(\w+)\s*:\s*(\d+)\s*$")
 def get_parameters(r):
@@ -136,7 +118,7 @@ def phase7():
     params = get_parameters(r)
     n = params["p"] * params["q"]
     ph = (params["p"] - 1) * (params["q"] - 1)
-    d = modinv(params["e"], ph)
+    d = gmpy2.invert(params["e"], ph)
     res = d
     send_answer(r, res)
     return res
@@ -147,7 +129,7 @@ def phase8():
     params = get_parameters(r)
     q = params["n"] // params["p"]
     ph = (params["p"] - 1) * (q - 1)
-    d = modinv(params["e"], ph)
+    d = gmpy2.invert(params["e"], ph)
     plaintext = pow(params["ciphertext"], d, params["n"])
     res = plaintext
     send_answer(r, res)
@@ -161,6 +143,7 @@ print r.recvall()
 
 plaintext = results[-1]
 log.success(unhex(format(plaintext, 'x')))
+
 ```
 
 Output:
