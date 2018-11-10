@@ -88,76 +88,76 @@ This function calls `calc` with 0x19965 as a parameter.
 Here's the logic for `calc`:
 ```
 [0x00400706]> VV @ sym.calc
-                                  .------------------------------------------------------------------------------------------------------------------.
-                                  | [0x400706]                                                                                                       |
-                                  | (fcn) sym.calc 140                                                                                               |
-                                  |   sym.calc (int arg1);                                                                                           |
-                                  | ; var int local_24h @ rbp-0x24                                                                                   |
-                                  | ; var int local_14h @ rbp-0x14                                                                                   |
-                                  | ; arg int arg1 @ rdi                                                                                             |
-                                  | ; XREFS: CALL 0x00400733  CALL 0x00400742  CALL 0x00400751  CALL 0x00400761  CALL 0x00400776  CALL 0x0040079b    |
-                                  | push rbp                                                                                                         |
-                                  | mov rbp, rsp                                                                                                     |
-                                  | push r12                                                                                                         |
-                                  | push rbx                                                                                                         |
-                                  | sub rsp, 0x20                                                                                                    |
-                                  | ; arg1                                                                                                           |
-                                  | mov dword [local_24h], edi                                                                                       |
-                                  | cmp dword [local_24h], 4                                                                                         |
-                                  | ja 0x40072b;[ga]                                                                                                 |
-                                  `------------------------------------------------------------------------------------------------------------------'
-                                          f t
-                                          | |
-                                          | '------------------------------------------------------.
-                                          '--------------.                                         |
-                                                         |                                         |
-                                                     .------------------------------------.    .-----------------------------------.
-                                                     |  0x40071a [gd]                     |    |  0x40072b [ga]                    |
-                                                     | mov eax, dword [local_24h]         |    | mov eax, dword [local_24h]        |
-                                                     | imul eax, dword [local_24h]        |    | sub eax, 1                        |
-                                                     | ; 'E#'                             |    | mov edi, eax                      |
-                                                     | add eax, 0x2345                    |    | call sym.calc;[gb]                |
-                                                     | mov dword [local_14h], eax         |    | mov ebx, eax                      |
-                                                     | jmp 0x400786;[gc]                  |    | mov eax, dword [local_24h]        |
-                                                     `------------------------------------'    | sub eax, 2                        |
-                                                         v                                     | mov edi, eax                      |
-                                                         |                                     | call sym.calc;[gb]                |
-                                                         |                                     | sub ebx, eax                      |
-                                                         |                                     | mov eax, dword [local_24h]        |
-                                                         |                                     | sub eax, 3                        |
-                                                         |                                     | mov edi, eax                      |
-                                                         |                                     | call sym.calc;[gb]                |
-                                                         |                                     | mov r12d, eax                     |
-                                                         |                                     | mov eax, dword [local_24h]        |
-                                                         |                                     | sub eax, 4                        |
-                                                         |                                     | mov edi, eax                      |
-                                                         |                                     | call sym.calc;[gb]                |
-                                                         |                                     | sub r12d, eax                     |
-                                                         |                                     | mov eax, r12d                     |
-                                                         |                                     | add ebx, eax                      |
-                                                         |                                     | mov eax, dword [local_24h]        |
-                                                         |                                     | sub eax, 5                        |
-                                                         |                                     | mov edi, eax                      |
-                                                         |                                     | call sym.calc;[gb]                |
-                                                         |                                     | imul eax, eax, 0x1234             |
-                                                         |                                     | add eax, ebx                      |
-                                                         |                                     | mov dword [local_14h], eax        |
-                                                         |                                     `-----------------------------------'
-                                                         |                                         v
-                                                         |                                         |
-                                                         '--------------------.                    |
-                                                                              | .------------------'
-                                                                              | |
-                                                                        .--------------------------------------.
-                                                                        |  0x400786 [gc]                       |
-                                                                        | ; CODE XREF from sym.calc (0x400729) |
-                                                                        | mov eax, dword [local_14h]           |
-                                                                        | add rsp, 0x20                        |
-                                                                        | pop rbx                              |
-                                                                        | pop r12                              |
-                                                                        | pop rbp                              |
-                                                                        | ret                                  |
-                                                                        `--------------------------------------'     
+ .------------------------------------------------------------------------------------------------------------------.
+ | [0x400706]                                                                                                       |
+ | (fcn) sym.calc 140                                                                                               |
+ |   sym.calc (int arg1);                                                                                           |
+ | ; var int local_24h @ rbp-0x24                                                                                   |
+ | ; var int local_14h @ rbp-0x14                                                                                   |
+ | ; arg int arg1 @ rdi                                                                                             |
+ | ; XREFS: CALL 0x00400733  CALL 0x00400742  CALL 0x00400751  CALL 0x00400761  CALL 0x00400776  CALL 0x0040079b    |
+ | push rbp                                                                                                         |
+ | mov rbp, rsp                                                                                                     |
+ | push r12                                                                                                         |
+ | push rbx                                                                                                         |
+ | sub rsp, 0x20                                                                                                    |
+ | ; arg1                                                                                                           |
+ | mov dword [local_24h], edi                                                                                       |
+ | cmp dword [local_24h], 4                                                                                         |
+ | ja 0x40072b;[ga]                                                                                                 |
+ `------------------------------------------------------------------------------------------------------------------'
+         f t
+         | |
+         | '------------------------------------------------------.
+         '--------------.                                         |
+                        |                                         |
+                    .------------------------------------.    .-----------------------------------.
+                    |  0x40071a [gd]                     |    |  0x40072b [ga]                    |
+                    | mov eax, dword [local_24h]         |    | mov eax, dword [local_24h]        |
+                    | imul eax, dword [local_24h]        |    | sub eax, 1                        |
+                    | ; 'E#'                             |    | mov edi, eax                      |
+                    | add eax, 0x2345                    |    | call sym.calc;[gb]                |
+                    | mov dword [local_14h], eax         |    | mov ebx, eax                      |
+                    | jmp 0x400786;[gc]                  |    | mov eax, dword [local_24h]        |
+                    `------------------------------------'    | sub eax, 2                        |
+                        v                                     | mov edi, eax                      |
+                        |                                     | call sym.calc;[gb]                |
+                        |                                     | sub ebx, eax                      |
+                        |                                     | mov eax, dword [local_24h]        |
+                        |                                     | sub eax, 3                        |
+                        |                                     | mov edi, eax                      |
+                        |                                     | call sym.calc;[gb]                |
+                        |                                     | mov r12d, eax                     |
+                        |                                     | mov eax, dword [local_24h]        |
+                        |                                     | sub eax, 4                        |
+                        |                                     | mov edi, eax                      |
+                        |                                     | call sym.calc;[gb]                |
+                        |                                     | sub r12d, eax                     |
+                        |                                     | mov eax, r12d                     |
+                        |                                     | add ebx, eax                      |
+                        |                                     | mov eax, dword [local_24h]        |
+                        |                                     | sub eax, 5                        |
+                        |                                     | mov edi, eax                      |
+                        |                                     | call sym.calc;[gb]                |
+                        |                                     | imul eax, eax, 0x1234             |
+                        |                                     | add eax, ebx                      |
+                        |                                     | mov dword [local_14h], eax        |
+                        |                                     `-----------------------------------'
+                        |                                         v
+                        |                                         |
+                        '--------------------.                    |
+                                             | .------------------'
+                                             | |
+                                       .--------------------------------------.
+                                       |  0x400786 [gc]                       |
+                                       | ; CODE XREF from sym.calc (0x400729) |
+                                       | mov eax, dword [local_14h]           |
+                                       | add rsp, 0x20                        |
+                                       | pop rbx                              |
+                                       | pop r12                              |
+                                       | pop rbp                              |
+                                       | ret                                  |
+                                       `--------------------------------------'     
 ```
 
 So, we just need to predict the logic for `calc(0x19965)`, and we're done.

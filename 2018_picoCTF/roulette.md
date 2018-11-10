@@ -1,4 +1,4 @@
-# rop chain
+# roulette
 General Skills, 350 points
 
 ## Description:
@@ -398,7 +398,7 @@ Which means that we can't easily predict it. Fortunately, it is leaked:
 ```
 
 So, given the amount of cash (a.k.a. random seed), we can predict all the upcoming random numbers, using the following C program:
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
