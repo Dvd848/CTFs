@@ -14,4 +14,5 @@
 Various writeups for the 2018 Google CTF Beginner's Quest.
 
 My path to the cake:
+
 ![path](images/Path.png)
