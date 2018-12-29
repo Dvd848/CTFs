@@ -7,7 +7,7 @@ Crypto
 
 ## Solution:
 
-This is a "Wee" challenge - see basic explanation [here](/Wee/).
+This is a "Wee" challenge - see basic explanation [here](./Wee/).
 
 The encryption test logic is as follows:
 ```python
@@ -48,7 +48,7 @@ Accessing it gives us the ciphertext:
 
 Basically we have a very long `n`, a tiny `e` and a short message.
 
-This is the same attack as explained [here](../2018_picoCTF/Safe\ RSA.md):
+This is the same attack as explained [here](/2018_picoCTF/Safe%20RSA.md):
 
 ```python
 import gmpy2

@@ -2,4 +2,4 @@
 
 Various writeups for the 2018 35C3 Junior CTF.
 
-Finished 52/520.
+Finished #52 out of 520 participants.
