@@ -144,7 +144,7 @@ As you can see, the `command` buffer allocated by `getline` is freed when the pr
 
 In our case, the buffer will contain `quit; /bin/sh`, causing the program to quit and then calling `free` (i.e. `system`) on the pointer. `system` won't understand what `quit` means, but it will give us a shell due to `/bin/sh`.
 
-Putting in all together:
+Putting it all together:
 ```python
 from pwn import *
 import argparse
