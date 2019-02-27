@@ -150,7 +150,7 @@ module.exports = {
 }
 ```
 
-The ASCII art in `1.js` is a pretty thick hint for checkout out `robots.txt`:
+The ASCII art in `1.js` is a pretty thick hint for checking out `robots.txt`:
 ```
 User-agent: *
 Disallow: /log.log
