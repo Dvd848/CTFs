@@ -123,7 +123,7 @@ def get_key():
     solver = Solver()
 
 
-    # All values are printable characters excluding space (33 - 126)
+    # all values are printable characters excluding space (33 - 126)
     for i in range(KEY_LEN):
         solver.add(key[i] >= ord('!'))
         solver.add(key[i] <= ord('~'))
@@ -204,11 +204,11 @@ def get_key():
         #   uVar1 = (uint)(iVar2 >> 0x1f) >> 0x1e;
         #   return (ulong)((iVar2 + uVar1 & 3) - uVar1 == 1)
 
-    uVar1_09 = BitVec("uVar1_09", 32)
-    iVar2_09 = BitVec("iVar2_09", 32)
+    #uVar1_09 = BitVec("uVar1_09", 32)
+    #iVar2_09 = BitVec("iVar2_09", 32)
 
-    solver.add(iVar2_09 == key[0xf] - key[0x1c])
-    solver.add(uVar1_09 == ((iVar2_09 >> 0x1f) >> 0x1e))
+    iVar2_09 = key[0xf] - key[0x1c]
+    uVar1_09 = (iVar2_09 >> 0x1f) >> 0x1e
     solver.add((iVar2_09 + uVar1_09 & 3) - uVar1_09 == 1)
 
     #Check_10
@@ -220,11 +220,9 @@ def get_key():
         #   uVar1 = (uint)(iVar2 >> 0x1f) >> 0x1e;
         #   return (ulong)((iVar2 + uVar1 & 3) - uVar1 == 3)
 
-    uVar1_10 = BitVec("uVar1_10", 32)
-    iVar2_10 = BitVec("iVar2_10", 32)
-
-    solver.add(iVar2_10 == key[4] + key[0x16])
-    solver.add(uVar1_10 == ((iVar2_10 >> 0x1f) >> 0x1e))
+    
+    iVar2_10 = key[4] + key[0x16]
+    uVar1_10 = (iVar2_10 >> 0x1f) >> 0x1e
     solver.add((iVar2_10 + uVar1_10 & 3) - uVar1_10 == 3)
 
     #Check_11
@@ -251,11 +249,8 @@ def get_key():
         #   uVar2 = (uint)(iVar1 >> 0x1f) >> 0x1c;
         #   return (ulong)((iVar1 + uVar2 & 0xf) - uVar2 == 8)
 
-    iVar1_13 = BitVec("iVar1_13", 32)
-    uVar2_13 = BitVec("uVar2_13", 32)
-
-    solver.add(iVar1_13 == key[0x1b] + key[4] + key[0xf] - 0x12)
-    solver.add(uVar2_13 == (iVar1_13 >> 0x1f) >> 0x1c)
+    iVar1_13 = key[0x1b] + key[4] + key[0xf] - 0x12
+    uVar2_13 = (iVar1_13 >> 0x1f) >> 0x1c
     solver.add(iVar1_13 + uVar2_13 & 0xf - uVar2_13 == 8)
 
     #Check_14
@@ -267,11 +262,8 @@ def get_key():
         #   uVar1 = (uint)(iVar2 >> 0x1f) >> 0x1f;
         #   return (ulong)((iVar2 + uVar1 & 1) - uVar1 == 1);
 
-    uVar1_14 = BitVec("uVar1_14", 32)
-    iVar2_14 = BitVec("iVar2_14", 32)
-
-    solver.add(iVar2_14 == key[0x1c] - key[9])
-    solver.add(uVar1_14 == (iVar2_14 >> 0x1f) >> 0x1f)
+    iVar2_14 = key[0x1c] - key[9]
+    uVar1_14 = (iVar2_14 >> 0x1f) >> 0x1f
     solver.add((iVar2_14 + uVar1_14 & 1) - uVar1_14 == 1)
 
 
