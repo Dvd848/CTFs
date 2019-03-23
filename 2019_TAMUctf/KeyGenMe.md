@@ -311,6 +311,7 @@ I chose to practice my bash skills and implement the whole thing as a bash scrip
 target='[OIonU2_<__nK<KsK'
 echo "Target: $target"
 
+# Key length is len(target)-1
 key_len=$((${#target}-1))
 
 # Create a dummy key of length 16: "################"
@@ -331,7 +332,9 @@ do
         # The new key is key[:i] + replacement + key[i+1:]
         key=$(echo "${key:0:$i}$replacement${key:$(($i+1))}")
         
-        # Run the program through ltrace, using the key, and extract the output of enc() using regex
+        # Run the program through ltrace, using the key, and extract the output of enc() using regex.
+        # grep's "\K" is a lookbehind alternative, telling the engine to start capturing only from the \K itself.
+        # -Po tells grep to work with Perl-compatible expressions (P) and to and to print only the matched (non-empty) parts of a matching line (o).
         res=$(echo $key | ltrace ./keygenme 2>&1 | grep -Po "strcmp\(\".{${#target}}\", \"\K.{$key_len}")
         
         # Extract the character at index i from the output of enc()
