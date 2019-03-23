@@ -73,6 +73,7 @@ Enter the arguments you would like to pass to ls:
 ```
 
 I hoped that `sh` would work, but it unfortunately didn't.
+[Update: From reading other writeups, all I needed was in fact to pass ";sh" instead of "|sh"].
 
 Trying `vi` gave an interesting output but seemed to exit immediately:
 ```console
