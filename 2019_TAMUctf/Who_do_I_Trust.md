@@ -38,4 +38,5 @@ root@kali:/media/sf_CTFs/tamu# curl -vI https://tamuctf.com
 *  expire date: May  5 22:49:02 2019 GMT
 *  subjectAltName: host "tamuctf.com" matched cert's "tamuctf.com"
 *  issuer: C=US; O=Let's Encrypt; CN=Let's Encrypt Authority X3
-*  SSL certificate verify ok.```
+*  SSL certificate verify ok.
+```

@@ -88,7 +88,7 @@ MyPrompt().cmdloop()
 Using it:
 
 ```
-root@kali:/media/sf_CTFs/tamu/Science# python3 1.py
+root@kali:/media/sf_CTFs/tamu/Science# python3 shell.py
 (Cmd) send {{"".__class__}}
 <type 'str'>
 (Cmd) send {{"".__class__.mro()}}

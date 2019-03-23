@@ -43,7 +43,7 @@ YOU CAN TELL ME, A FELLOW NOT-A-ROBOT!
 The whole theme of the site is too anti-robot-pro-human. They also mention Google-Bot. What will happen if we try to access the site as a Google Bot instead, will we still get such anti-robot propaganda?
 
 ```console
-root@kali:~# curl -D – -A "Googlebot" http://web5.tamuctf.com/robots.txt
+root@kali:~# curl -A "Googlebot" http://web5.tamuctf.com/robots.txt
 User-agent: *
 
 THE HUMANS SUSPECT NOTHING!
