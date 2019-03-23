@@ -376,7 +376,7 @@ function setViewMode()
          function()
          {
             var li = $(this).closest("li");
-            var text = $(this).children("dd:first").text();
+            var text = $(this).children("dd.description_content").text();
             if (text && text.length > 0)
             {
                 text = text.trim();
@@ -614,7 +614,7 @@ function populate_data(data_type, data_url, parse_func)
                 
                 newElement += '<dt>Command</dt><dd>' + nl2br(escapeHtml(item.command)) + '</dd>';
                 
-                newElement += '<dt>Description</dt><dd>' + nl2br(escapeHtml(item.desc)) + '</dd>';
+                newElement += '<dt>Description</dt><dd class="description_content">' + nl2br(escapeHtml(item.desc)) + '</dd>';
                 
                 newElement += '<dt>More Information</dt><dd>'
                 
