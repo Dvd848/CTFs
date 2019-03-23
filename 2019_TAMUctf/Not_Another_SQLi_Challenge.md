@@ -260,7 +260,6 @@ Table: login
 
 Got the password, let's use it to log in:
 ```console
-root@kali:~# curl -d "username=admin" --data-urlencode "password=tS&LjHue6Z&m*&JeTU#U%b
-tyA8gmJXh" -X POST http://web1.tamuctf.com/web/login.php
+root@kali:~# curl -d "username=admin" --data-urlencode "password=tS&LjHue6Z&m*&JeTU#U%btyA8gmJXh" -X POST http://web1.tamuctf.com/web/login.php
 <html>gigem{f4rm3r5_f4rm3r5_w3'r3_4ll_r16h7}!</html>
 ```
