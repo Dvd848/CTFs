@@ -8,7 +8,7 @@ Web, 100 points
 
 ## Solution
 
-We visit the attaches site and see a login page:
+We visit the attached site and see a login page:
 
 ```html
 <div class="login-form">
