@@ -84,9 +84,11 @@ Microsoft Windows v.%d.%d
 Some retro gaming sites offer packages which allow running old games on Windows 3.11. We can use one of those to run the executables and see what happens:
 
 Running the server:
+
 ![](images/server.png)
 
 Running the client:
+
 ![](images/client.png)
 
 Looks like they are trying to communicate in some way (obviously, given they are a client and server) but nothing seems to happen.
@@ -355,6 +357,7 @@ Note: A different approach to extract the key, used by another team member, was 
 Now we have to send the data back, feeding the server. We setup the virtual COM device as a server and implement a TCP client.
 
 The VirtualBox settings:
+
 ![](images/vbox_server.png)
 
 The implementation:
@@ -394,6 +397,7 @@ Looks good! We now should have a DOS executable. However, when we try to run in 
 Time to take a look at the server disassembly.
 
 We start from the strings:
+
 ![](images/server_stringref.png)
 
 We follow `"Decrypted OK. Outputfile: MAIN.EXE"` and arrive to:
