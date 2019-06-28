@@ -280,7 +280,7 @@ import string
 import json
 
 def send_request(payload):
-    headers = {'User-Agent': 'ed9ae2c0-9b15-4556-a393-23d500675d4b'}
+    headers = {'User-Agent': 'iWalk-v2'}
     r = requests.post("http://35.246.158.51:8070/auth/v2", json={"Seed":"12345", "Password": payload}, headers = headers)
     j = json.loads(r.text)
     return j
