@@ -84,7 +84,7 @@ root@kali:/media/sf_CTFs/bsidestlv/The_Lost_Award# echo A0D06333933353E213534333
 Doesn't look good. 
 
 This is the time to mention that most if not all base64 strings had a common prefix:
-```
+```console
 root@kali:/media/sf_CTFs/bsidestlv/The_Lost_Award# strings BSidesTLV.gnpacp | grep "==" | head
 lNHQVpUT05BPQ==
 SUVZRUlNQlRHTVlER1JKU0dVWlRHTVpSR000VEtNQlNIQVpUQU1aWUdOQ1RFTVJUR1FaVENNWllHVVlERU1CVEdBWlRBTVpaR00zRElNQlNHQVpUT05BPQ==
