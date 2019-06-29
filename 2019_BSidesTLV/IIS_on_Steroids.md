@@ -38,8 +38,8 @@ Nothing much, apart from the fact that they are using IIS 7.5.
 
 Searching for `"IIS 7.5" vulnerability` brings up [this link](https://www.exploit-db.com/exploits/19525) as one of the top results.
 
-> The vulnerability is caused by a tilde character "~" in a Get request, which could allow remote attackers to disclose File and Folder names.
-> Tilde character "~" can be used to find short names of files and folders when the website is running on IIS.
+> The vulnerability is caused by a tilde character "`~`" in a Get request, which could allow remote attackers to disclose File and Folder names.
+> Tilde character "`~`" can be used to find short names of files and folders when the website is running on IIS.
 The attacker can find important file and folders that they are not normally visible.
 
 The attack is based on the [8.3 Filename](https://en.wikipedia.org/wiki/8.3_filename) format, which dates back to DOS days. In short, without going into all the corner cases, file names could contains a maximum of 8 characters, a period and three more characters for the extension. Longer file names would be truncated, and the convention was to include the first six characters, a `~` character, and a number (starting from 1).
@@ -126,7 +126,7 @@ for file in found_files:
 
 The script found the following files, the third one contained the flag:
 ```
-l3v3lupah1dd3n:
-l3v3lupqh1dd3nd1r3ct0ry:
-l3v3luph1dd3nd1r3ct0ryandn0tm3:
+l3v3lupah1dd3n
+l3v3lupqh1dd3nd1r3ct0ry
+l3v3luph1dd3nd1r3ct0ryandn0tm3
 ```
