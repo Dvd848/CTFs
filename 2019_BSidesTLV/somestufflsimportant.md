@@ -252,4 +252,4 @@ $ python3 solve.py
 BSidesTLV{cypheR54r31mp0rtanN7!@$%)*+[}
 ```
 
-the challenge name is `somestufflsimportant` (with `LS Important`) is a hint for `S`ome`S`tuff`L`s(`SSL`)ץ
+Note: The challenge name is `somestufflsimportant` (with `LS Important`) as a hint for **S**ome**S**tuff**L**s (`SSL`).
