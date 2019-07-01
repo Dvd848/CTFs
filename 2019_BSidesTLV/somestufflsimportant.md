@@ -252,4 +252,4 @@ $ python3 solve.py
 BSidesTLV{cypheR54r31mp0rtanN7!@$%)*+[}
 ```
 
-We will never know why the challenge is called `somestufflsimportant` (with `LS Important`) and not `somestuffisimportant` (`IS important`).
+the challenge name is `somestufflsimportant` (with `LS Important`) is a hint for `S`ome`S`tuff`L`s(`SSL`)ץ
