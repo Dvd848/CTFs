@@ -7,6 +7,8 @@ Cryptography, 400 points
 
 ## Solution: 
 
+This challenge is similar to last year's [Super Safe RSA 2](/2018_picoCTF/Super%20Safe%20RSA%202.md).
+
 Let's connect to the attached service:
 
 ```console
