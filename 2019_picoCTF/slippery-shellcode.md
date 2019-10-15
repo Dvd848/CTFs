@@ -50,7 +50,17 @@ int main(int argc, char **argv){
 
 ## Solution:
 
-(Initial commit with just the script)
+This challenge is similar to last year's [shellcode](/2018_picoCTF/shellcode.md). The difference is that last year the program jumped to the start of the buffer, and this year it jumps to a random location within the first 256 bytes of the buffer. So, to overcome this, we prepend a *nop slide* to our shellcode. 
+
+In other words, our payload will look like:
+
+```
+nop;nop;nop;...;nop;shellcode;
+```
+
+It doesn't matter where we fall within the nop-slide, we will execute `nop`s until we get to the shellcode.
+
+The script:
 
 ```python
 # First, generate a pwntools template using:

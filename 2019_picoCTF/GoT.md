@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 
 ## Solution:
 
-(Initial commit with just the script)
+This challenge is similar to last year's [got-shell](/2018_picoCTF/got-shell.md). We overwrite the `.got.plt` entry for `exit` with the address of `win`, and `win` gets called instead of `exit`, printing the flag.
 
 ```python
 # First, generate a pwntools template using:

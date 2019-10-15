@@ -38,7 +38,11 @@ int main(int argc, char **argv){
 
 ## Solution:
 
-(Initial commit with just the script)
+This challenge is similar to last year's [can-you-gets-me](/2018_picoCTF/can-you-gets-me.md). We use the same strategy as last year, utilizing [ROPGadget](https://github.com/JonathanSalwan/ROPgadget) to create the ROP gadget for us.
+
+Note that we had to supply a `--badbytes 0a` to `ROPGadget` in order to receive an exploit that doesn't contain a line feed (a.k.a. newline, `\n`, or `0xa` in ASCII). Otherwise, `gets()` will remove anything after it and the ROP chain will fail: 
+
+> The C library function char *gets(char *str) reads a line from stdin and stores it into the string pointed to by str. It stops when either the newline character is read or when the end-of-file is reached, whichever comes first.
 
 ```python
 # First, generate a pwntools template using:

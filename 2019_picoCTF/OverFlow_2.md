@@ -52,7 +52,7 @@ int main(int argc, char **argv){
 
 ## Solution:
 
-(Initial commit with just the script)
+This challenge is similar to last year's [buffer overflow 2](/2018_picoCTF/buffer%20overflow%202.md). We just create a ROP chain using `pwntools` and feed it the appropriate parameters.
 
 ```python
 # First, generate a pwntools template using:

@@ -86,7 +86,7 @@ int main(int argc, char **argv){
 
 ## Solution:
 
-(Initial commit with just the script)
+This challenge is similar to last year's [buffer overflow 3](/2018_picoCTF/buffer%20overflow%203.md). We can brute-force the canary byte-by-byte just like last year.
 
 ```python
 # First, generate a pwntools template using:

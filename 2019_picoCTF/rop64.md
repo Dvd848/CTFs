@@ -38,7 +38,7 @@ int main(int argc, char **argv){
 
 ## Solution:
 
-(Initial commit with just the script)
+This is the follow-up for [rop32](rop32.md) and is solved using the same strategy (using ROPGadget to generate a ROP chain).
 
 ```python
 # First, generate a pwntools template using:
