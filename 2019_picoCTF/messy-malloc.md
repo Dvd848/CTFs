@@ -151,7 +151,51 @@ int main(int argc, char **argv) {
 
 ## Solution:
 
-(Initial commit with just the script)
+This challenge is similar to last year's [are you root?](/2018_picoCTF/are%20you%20root.md).
+
+We need to login as a user which has an access code allowing him to print the flag. However, there is no API to set access codes.
+
+A user is represented using the following structure:
+```c
+struct user {
+  char *username;
+  char access_code[ACCESS_CODE_LEN];
+  char *files;
+};
+```
+
+The vulnerability here is the fact that after allocating memory for the user, the program only initializes the `username` field, meaning that the other members of the structure will contain leftover values from whatever the memory was previously used for.
+
+When the program creates a user, it also asks us to enter a username with the length of our choice. So, we can ask for a username of length `sizeof(struct user)`, and fill it as if it was a `struct user` - with the correct access code (`ROOT_ACCESS_CODE`) sitting in the correct location (offset 8 from the start of the buffer). We then free the allocation by logging out, and immediately request to create a new user. The heap manager will probably provide us with the same buffer we just freed, since the requested buffer size is equal to a previously freed buffer size (an optimization to reduce memory fragmentation). This new user will have the "leftover" access code and will be able to access the flag.
+
+```
+1. Allocate First user:
+
+          struct user
++------------------------------------+                  username buffer
+| char *username: pointer            |------->+----------------------------------+
++------------------------------------+        | aaaaaaaaROOT_ACCESS_CODEbbbbbbbb |
+| char access_code: unknown leftover |        +----------------------------------+
++------------------------------------+
+| char *files: unknown leftover      |
++------------------------------------+
+
+2. Free first user
+
+3. Allocate second user (Heap Manager provides "username buffer" as buffer for user struct):
+
+struct user (previously: username buffer)
++------------------------------------+        new username buffer
+| char *username: pointer            |------->+---+
++------------------------------------+        | A |
+| char access_code: ROOT_ACCESS_CODE |        +---+
++------------------------------------+
+| char *files: bbbbbbbb              |
++------------------------------------+
+
+```
+
+The script:
 
 ```python
 # First, generate a pwntools template using:
@@ -203,6 +247,7 @@ print io.recvall()
 ```
 
 Output:
+
 ```console
 root@kali:/media/sf_CTFs/pico/messy-malloc# python exploit.py
 [*] '/media/sf_CTFs/pico/messy-malloc/auth'

@@ -27,7 +27,7 @@ root@kali:/media/sf_CTFs/pico/c0rrupt# xxd -g 1 mystery | head
 
 `file` won't recognize it, but inspecting the header we can see strings which are common in PNG files. According to the [PNG specs], the first 8 bytes of the file are constant, so let's go ahead and fix that:
 
-```
+```console
 root@kali:/media/sf_CTFs/pico/c0rrupt# cp mystery fixed.png
 root@kali:/media/sf_CTFs/pico/c0rrupt# printf '\x89\x50\x4E\x47\x0D\x0A\x1A\x0A' | dd of=fixed.png bs=1 seek=0 count=8 conv=notrunc
 8+0 records in
