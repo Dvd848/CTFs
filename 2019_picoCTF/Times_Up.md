@@ -63,7 +63,7 @@ read(0, 0x5569a8f2d670, 1024)           = ? ERESTARTSYS (To be restarted if SA_R
 Alarm clock
 ```
 
-We can see that the alarm is set for 500 uSeconds - not much. In this time, we must evaluate the equation and input the answer back to the program.
+We can see that the alarm is set for 5000 uSeconds - not much. In this time, we must evaluate the equation and input the answer back to the program.
 
 We can evaluate the equation using `bc`:
 
