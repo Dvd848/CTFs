@@ -31,7 +31,7 @@ Compressed: 295964
 ```
 
 We get the following contents:
-```
+```console
 E:\CTFs\pico\B1g_Mac>dir /s
  Volume in drive E is CTF
  Volume Serial Number is 3C2B-8C21
@@ -77,7 +77,7 @@ E:\CTFs\pico\B1g_Mac>dir /s
 We have an executable and a folder named `test`, with 18 images.
 
 Let's run the executable:
-```
+```console
 E:\CTFs\pico\B1g_Mac>main.exe
 No flag found, please make sure this is run on the server
 ```
@@ -297,7 +297,7 @@ This will set a breakpoint in main, right after initializing _folderName:
 
 We run and hit the breakpoint. Now we just need to change `eip` to `_decode` and run:
 ```
-EIP=00401afe
+> EIP=00401afe
 ```
 
 Now we just need to run, and we get the flag:
