@@ -385,45 +385,7 @@ root@kali:/media/sf_CTFs/pico/leap-frog# python exploit.py
 picoCTF{h0p_r0p_t0p_y0uR_w4y_t0_v1ct0rY_0db32718}
 ```
 
----
-
-[Edit]
-
-As mentioned, earlier, the first binary published during this challenge had PIE enabled:
-```console
-root@kali:/media/sf_CTFs/pico/leap-frog# checksec.sh -f rop_original
-RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         FORTIFY Fortified     Fortifiable  FILE
-Full RELRO      No canary found   NX enabled    PIE enabled     No RPATH   No RUNPATH   84 Symbols      No      0             6            rop_original
-```
-
-After a while, this file was (silently?) replaced with a PIE-disabled file:
-```console
-root@kali:/media/sf_CTFs/pico/leap-frog# checksec.sh -f rop
-RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         FORTIFY Fortified     Fortifiable  FILE
-Partial RELRO   No canary found   NX enabled    No PIE          No RPATH   No RUNPATH   82 Symbols      No      0             6            rop
-```
-
-Of course, the PIE binary had the `win` globals in a position independent location:
-```console
-root@kali:/media/sf_CTFs/pico/leap-frog# r2 rop_original
- -- r2 -- leading options since 2006
-[0x000005a0]> is~win
-044 ---------- 0x00002009 GLOBAL    OBJ    1 win1
-045 ---------- 0x0000200b GLOBAL    OBJ    1 win3
-066 ---------- 0x0000200a GLOBAL    OBJ    1 win2
-```
-
-And in the PIE-disabled version, they were placed at a fixed address:
-```console
-root@kali:/media/sf_CTFs/pico/leap-frog# r2 rop
- -- I script in C, because I can.
-[0x080484d0]> is~win
-045 ---------- 0x0804a03d GLOBAL    OBJ    1 win1
-046 ---------- 0x0804a03f GLOBAL    OBJ    1 win3
-064 ---------- 0x0804a03e GLOBAL    OBJ    1 win2
-```
-
-While moving from the PIE version to the non-PIE version, I forgot to take into account this change and continued working with a mindset locked on the need to attack a position-independent global. Therefore, the solution above is a bit more complicated than needed. On the other hand, it forced me to manually build a less-trivial ROP chain which overall is a good thing. 
+## Alternative Solution:
 
 An alternative solution which is much simpler is to use `gets` to set all three globals to `true` (thanks to [Yaakov](https://twitter.com/YaakovCohen88) for this elegant solution):
 
