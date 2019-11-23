@@ -82,41 +82,68 @@ root@kali:/media/sf_CTFs/pico/Java_Script_Kiddie# xxd -g 1 ../Flags/flag.png | h
 
 Since we know how the first 16 bytes of a PNG file should look like, we can guess the key.
 
-For each character of the key, we just need to try all digits until we find one that places the expected value in the current location.
+For each character of the key, we just need to try all digits until we find one that places the expected value in the current location. 
+
+Note that depending on our input, we might end up with several keys that correctly recreate the first 16 bytes of the PNG file. We should ignore any solution which doesn't produce a valid PNG file though.
 
 Here's a script that does this:
-```
+```python
+from PIL import Image
+import itertools, io, os
 KEY_LEN = 16
 
-shifters = [-1] * KEY_LEN
+def create_png(bytes_arr, key, out_dir_path):
+    if not os.path.isdir(out_dir_path):
+        raise Exception("Output folder ('{}') does not exist!".format(out_dir_path))
+    result = [0] * len(bytes_arr)
+    for i in range(KEY_LEN):
+        shifter = int(key[i])
+        for j in range(len(bytes_arr) // KEY_LEN):
+            result[(j * KEY_LEN) + i] = bytes_arr[(((j + shifter) * KEY_LEN) % len(bytes_arr)) + i]
+    img_bytes = io.BytesIO(bytes(result))
+
+    try:
+        img = Image.open(img_bytes)
+        img.save(os.path.join(out_dir_path, "{}.png".format(key)))
+        print ("Key {} produces a valid PNG - Saving".format(key))
+    except IOError:
+        print ("Key {} produces an invalid PNG - Ignoring".format(key))
+
+
+shifters = []
+for i in range(KEY_LEN):
+    shifters.append([])
 expected = [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D, 0x49, 0x48, 0x44, 0x52]
 with open("bytes.txt") as f:
-    bytes_arr = map(int, f.read().split(" "))
+    bytes_arr = list(map(int, f.read().split(" ")))
     for i in range(KEY_LEN):
         for shifter in range(10):
             j = 0
             offset = (((j + shifter) * KEY_LEN) % len(bytes_arr)) + i
             if bytes_arr[offset] == expected[i]:
-                shifters[i] = shifter
-                break
+                shifters[i].append(shifter)               
 
-print "".join(str(n) for n in shifters)
+for p in itertools.product(*shifters):
+    key = "".join("{}".format(n) for n in p)
+    create_png(bytes_arr, key, "out")
 ```
 
 Running the script produces the following key:
 ```console
-root@kali:/media/sf_CTFs/pico/Java_Script_Kiddie# python solve.py
-0438892208991464
+root@kali:/media/sf_CTFs/pico/Java_Script_Kiddie# python3 solve.py
+[[0], [4], [3], [8], [8], [9], [2], [2], [0], [8, 9], [9], [9], [1], [4], [6], [4]]
+Key 0438892208991464 produces a valid PNG - Saving
+Key 0438892209991464 produces an invalid PNG - Ignoring
 ```
 
-Using this key, we get the following image:
+Using the valid key, we get the following image:
 
 ![](images/qr.png)
 
 Which translates to the flag:
 
 ```console
-root@kali:/media/sf_CTFs/pico/Java_Script_Kiddie# zbarimg qr.png
+root@kali:/media/sf_CTFs/pico/Java_Script_Kiddie# zbarimg out/0438892208991464.png
 QR-Code:picoCTF{905765bf9ae368ad98261c10914d894e}
 scanned 1 barcode symbols from 1 images in 0.11 seconds
 ```
