@@ -53,8 +53,6 @@ Output:
 root@kali:/media/sf_CTFs/pico/Mr-Worldwide# python solve.py
 picoCTF{KODIAK_ALANKA}
 ```
-Although the output from the console is picoCTF{KODIAK_ALANKA} the final answer is picoCTF{KODIAK_ALASKA} as mentioned above.
-
-Sleepy Hollow has a `geocode` of `NEWCITY-LCIXI` and an `altgeocode` of `SLEEPYUS-LCIXI`, however there was no clear rule when to prefer the `altgeocode` over the `geocode`, at least from a programmatic perspective.
+Although the output from the console is `picoCTF{KODIAK_ALANKA}`, the final answer is `picoCTF{KODIAK_ALASKA}` as mentioned above. Sleepy Hollow has a `geocode` of `NEWCITY-LCIXI` and an `altgeocode` of `SLEEPYUS-LCIXI`, however there was no clear rule when to prefer the `altgeocode` over the `geocode`, at least from a programmatic perspective.
 
 Using other fields such as `city` or `region` provided worse results.
