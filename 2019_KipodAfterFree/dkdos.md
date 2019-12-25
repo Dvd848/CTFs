@@ -41,7 +41,7 @@ root@kali:/media/sf_CTFs/kaf/dkdos# r2 dkdos.exe
 0x00000038    4 24           fcn.00000038
 ```
 
-We have four functions. We start from the main function:
+We start from the main function:
 ```
 [0000:0050]> s entry0
 [0000:0050]> e asm.comments = false
