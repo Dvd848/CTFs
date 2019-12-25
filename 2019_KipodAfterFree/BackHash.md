@@ -67,3 +67,5 @@ root@kali:/media/sf_CTFs/kaf/BackHash# echo -n "812" | md5sum
 root@kali:/media/sf_CTFs/kaf/BackHash# curl 'http://ctf.kaf.sh:1070/scripts/backend/backhash/backhash.php' -H 'Content-Type: application/x-www-form-urlencoded' --data-binary 'backhash={"action":"generate","parameters":{"input":"812"}}' && echo
 {"backhash":{"status":{"generate":true},"result":{"generate":"81e74d678581a3bb7a720b019f4KAF{Dn4k_f1a9z___much_f1a9_l0t5_h4ppy}3"}}}
 ```
+
+(Update: Based on [this writeup](https://blog.vihan.org/kipodafterfree-ctf-2019/#backhash), the algorithm is decided according to the length of the input. If `len(input) % 3 == 0`, the result is `MD5(input)`. If the remainder is 1, the result is `MD5(SHA1(input))`. Otherwise, the result is `MD5(SHA1(Base64(input)))`).
