@@ -152,7 +152,8 @@ First, I have to make sure you're allowed to.
 Please log in with you password:
 Congrats! You are allowed to buy some KIPODIM!
 You can do it with `nc ctf.kaf.sh 6000`
-No KIPODIM today :|```
+No KIPODIM today :|
+```
 
 We obviously want to get to the "Congrats!" string. Radare2 can't identify the strings or their references correctly (maybe because DOS defines dollar-terminated strings instead of null-terminated strings) but we'll see them used later on.
 
