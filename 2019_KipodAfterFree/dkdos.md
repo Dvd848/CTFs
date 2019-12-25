@@ -142,16 +142,19 @@ Let's take a look at it:
 ```
 
 We'll analyze the function block-by-block. In parallel, we can follow the flow with the DOSBox-X debugger (to open the debugger, hit `ALT-Break`). But before we start, let's take a quick look at the program strings:
-```
-[0000:0050]> izz
-[Strings]
-Num Paddr      Vaddr      Len Size Section  Type  String
-000 0x00000214 0x00000014   6   7 (seg_000) ascii /)\a[CI
-001 0x000002c0 0x000000c0 181 182 (seg_001) ascii MS-DOS KIPOD SHOP\n\r------------------------------------------------\n\r\n\rWanna buy some KIPODIM?\n\rFirst, I have to make sure you're allowed to.\n\r\n\rPlease log in with you password:\n\r$\t
-002 0x00000382 0x00000182 118 118 (seg_001) ascii \n\r\n\rCongrats! You are allowed to buy some KIPODIM!\n\rYou can do it with `nc ctf.kaf.sh 6000`\n\r$\n\rNo KIPODIM today :|\n\r$
-```
 
-We obviously want to get to the "Congrats!" string. Radare2 can't identify the correct reference but we'll see it later on.
+```console
+root@kali:/media/sf_CTFs/kaf/dkdos# strings dkdos.exe
+MS-DOS KIPOD SHOP
+------------------------------------------------
+Wanna buy some KIPODIM?
+First, I have to make sure you're allowed to.
+Please log in with you password:
+Congrats! You are allowed to buy some KIPODIM!
+You can do it with `nc ctf.kaf.sh 6000`
+No KIPODIM today :|```
+
+We obviously want to get to the "Congrats!" string. Radare2 can't identify the strings or their references correctly (maybe because DOS defines dollar-terminated strings instead of null-terminated strings) but we'll see them used later on.
 
 Anyway, let's start with the first block, which starts at `0x50`.
 
