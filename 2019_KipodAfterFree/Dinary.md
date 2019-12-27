@@ -40,7 +40,7 @@ for x in range(w):
         elif m[y,x] == BLACK:
             res += "0"
         else:
-            raise Exception("Unexpected value {}".format(m[x,y]))
+            raise Exception("Unexpected value {}".format(m[y,x]))
         if len(res) == 8:
             print("".join(chr(int(res,2))), end='', flush=True)
             res = ""
