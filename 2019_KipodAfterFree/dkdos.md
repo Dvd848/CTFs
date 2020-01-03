@@ -539,7 +539,7 @@ We can see that these instructions are modifying values within the code segment,
 ```
 
 And after:
-```
+```assembly
 0339:00000000 55                  push bp          
 0339:00000001 8BEC                mov  bp,sp       
 0339:00000003 8B5E06              mov  bx,[bp+06]  
