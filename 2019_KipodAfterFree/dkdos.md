@@ -182,7 +182,7 @@ This section sets the data segment to `0xC` and calls `fcn.00000021`:
 
 The function simply calls [int 21,9](http://stanislavs.org/helppc/int_21-9.html) to print the `$` terminated string at `DS:DX`. Let's check it out using the DOSBox-X Debugger. First, we set a breakpoint to catch `int 21,9` using the `bpint 21 9` command, and press `F5` to resume execution. Then, we run the program in the console and wait for the breakpoint to hit.
 
-```
+```assembly
 ────Code Overview───────────────────────────────────────────────────────────────
 0339:00000021 BA0000              mov  dx,0000                                  
 0339:00000024 B409                mov  ah,09                                    
@@ -402,7 +402,7 @@ This prints `DS:C2`, which is:
 ```
 
 To conclude, we need an 8-character string who's hash equals to 0xcfe1. We have the algorithm used to perform the hash, but if we use the debugger to extract runtime logs (by setting a breakpoint at the entry to the function (`bp cs:18`) and requesting the debugger to log the next `n` instructions (e.g. `log 110`)) we see something strange:
-```
+```assembly
 0339:00000000  push bp                                                EAX:00000A68 EBX:000000C0 ECX:00000008 EDX:000000B4 ESI:00000050 EDI:00000100 EBP:0000091C ESP:000000F8 DS:0345 ES:0329 FS:0000 GS:0000 SS:0359 CF:0 ZF:0 SF:0 OF:0 AF:0 PF:0 IF:1
 0339:00000001  mov  bp,sp                                             EAX:00000A68 EBX:000000C0 ECX:00000008 EDX:000000B4 ESI:00000050 EDI:00000100 EBP:0000091C ESP:000000F6 DS:0345 ES:0329 FS:0000 GS:0000 SS:0359 CF:0 ZF:0 SF:0 OF:0 AF:0 PF:0 IF:1
 0339:00000003  mov  bx,[bp+06]                 ss:[00FC]=00B6         EAX:00000A68 EBX:000000C0 ECX:00000008 EDX:000000B4 ESI:00000050 EDI:00000100 EBP:000000F6 ESP:000000F6 DS:0345 ES:0329 FS:0000 GS:0000 SS:0359 CF:0 ZF:0 SF:0 OF:0 AF:0 PF:0 IF:1
@@ -524,7 +524,7 @@ mov word cs:[0x15], 0x701
 ```
 
 We can see that these instructions are modifying values within the code segment, and specifically within the hash function. Before the commands are executed, the hash function implementation is:
-```
+```assembly
 0339:00000000 55                  push bp          
 0339:00000001 8BEC                mov  bp,sp       
 0339:00000003 8B5E06              mov  bx,[bp+06]  
