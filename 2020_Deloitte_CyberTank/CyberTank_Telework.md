@@ -99,7 +99,7 @@ Clicking the "About" button pops up the following window:
 
 ![](images/rdpweb4.png)
 
-That's a link right there. And when we click it, we get a good-old-browser running in the remote host. And browsers let up open all kinds of files, even local ones.
+That's a link right there. And when we click it, we get a good-old-browser running in the remote host. And browsers let us open all kinds of files, even local ones.
 
 ![](images/rdpweb5.png)
 

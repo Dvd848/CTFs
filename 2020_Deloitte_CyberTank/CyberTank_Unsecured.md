@@ -187,7 +187,7 @@ exported_objects/key_research_server.zip: Zip archive data, at least v2.0 to ext
 ```
 
 Now, let's extract the file:
-```
+```console
 root@kali:/media/sf_CTFs/hackazon/CyberTank_Unsecured# unzip exported_objects/key_research_server.zip
 Archive:  exported_objects/key_research_server.zip
   inflating: CyberTank_Research_Server.pem
