@@ -104,3 +104,13 @@ That's a link right there. And when we click it, we get a good-old-browser runni
 ![](images/rdpweb5.png)
 
 The flag: `CTF{3ed5dedc2e94dea5da0faab2811ce2e1}`
+
+## Metadata (100 points)
+
+> The CyberTank IT team wants to reimage the server but seem to have lost the SafeMode Administrator password... Can you find it?
+> 
+> Hint: this is a cloud challenge ;)
+
+Didn't solve this one (the server crashed as some stage) but here's a short description I got from `H O` after the competition ended:
+
+> The solution for "Metadata" is to enter the Metadata Server IP for the AWS cloud services (169.254.169.254), and dig around to get the needed password.
