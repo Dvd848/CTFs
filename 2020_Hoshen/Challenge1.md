@@ -520,7 +520,7 @@ All OK
 ```
 
 We receive another encrypted RAR file:
-```
+```console
 root@kali:/media/sf_CTFs/hoshen/1/decrypt.rar# ls
 decrypt.rar
 ```

