@@ -92,7 +92,7 @@ As you can see, when we sign in to as guests, we receive a response which contai
 
 Our solution might be unintended since we used data URLs to get the bot to run Javascript for us. Here's how we did it:
 
-First, we created a [https://requestbin.com](Request Bin) which is a service that logs all requests to a given endpoint. This allows us to "debug" and later on leak information from the bot's actions.
+First, we created a [Request Bin](https://requestbin.com) which is a service that logs all requests to a given endpoint. This allows us to "debug" and later on leak information from the bot's actions.
 
 Then, we created the following script:
 ```html
