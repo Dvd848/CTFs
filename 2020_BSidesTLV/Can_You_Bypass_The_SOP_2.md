@@ -90,7 +90,7 @@ The flow is as follows:
 
 As you can see, when we sign in to as guests, we receive a response which contains a "flag" member. Ours says "You are on the right track!" but probably when the bot logs in he receives the real flag. So, the trick is to get the bot to log in and leak us the response.
 
-Our solution might be unintended since we used data URLs to get the bot to run Javascript for us. Here's how we did it:
+In our solution we used data URLs to get the bot to run Javascript for us. Here's how we did it:
 
 First, we created a [Request Bin](https://requestbin.com) which is a service that logs all requests to a given endpoint. This allows us to "debug" and later on leak information from the bot's actions.
 
