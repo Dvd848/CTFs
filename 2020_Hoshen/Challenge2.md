@@ -284,8 +284,6 @@ root@kali:/media/sf_CTFs/hoshen/2# stat output.bin output/jpg/* | egrep "File|Si
   Size: 2192            Blocks: 8          IO Block: 4096   regular file
   File: output/jpg/00000330.jpg
   Size: 34844           Blocks: 72         IO Block: 4096   regular file
-root@kali:/media/sf_CTFs/hoshen/2# $((273064 - (166799 + 2192 + 34844) ))
--bash: 69229: command not found
 root@kali:/media/sf_CTFs/hoshen/2# echo $((273064 - (166799 + 2192 + 34844) ))
 69229
 ```
