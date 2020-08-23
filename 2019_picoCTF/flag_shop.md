@@ -191,7 +191,7 @@ root@kali:/media/sf_CTFs/pico/flag_shop# diff exploit.py ../../pico_2018/store/e
 > buy_imitation_flag(2222222)
 ```
 
-2222222 flags won't do anymore, since that would bring us to a negative balance, we mut buy 3333333 instead to trigger the overflow.
+2222222 flags won't do anymore, since that would bring us to a negative balance, we must buy 3333333 instead to trigger the overflow.
 
 ```python
 >>> 1100 - numpy.int32(2222222*900)
