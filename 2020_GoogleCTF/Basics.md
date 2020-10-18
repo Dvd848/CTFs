@@ -71,7 +71,7 @@ So this is basically a HW module representation in Verilog.
 
 The C++ part reads a password and feeds it to the HW module. The HW module reads one character at time into the `data` input, then stores it in a `memory` register, which is an array of 8 element, where each element is 7 bits wide (just enough for an ASCII character). This causes the `magic` and `kittens` wires to get a value based on the memory, and if the value is right - the `open_safe` wire is set, allowing us to read the flag.
 
-We can use a [Verilog simulator](https://www.tutorialspoint.com/compile_verilog_online.php) to simulate the flow. We'll add a print for the expected value of `kittens` based on the constant in the code, and we'll use trial an error to populate the different memory registers until the end result matches the expected result.
+We can use a [Verilog simulator](https://www.tutorialspoint.com/compile_verilog_online.php) to simulate the flow. We'll add a print for the expected value of `kittens` based on the constant in the code, and we'll use trial and error to populate the different memory registers until the end result matches the expected result.
 
 We start with the following template, where all eight `memory` elements are zero:
 
