@@ -1,4 +1,4 @@
-Challenge 3
+# Challenge 3
 
 In the previous challenge, we got a PNG file.
 

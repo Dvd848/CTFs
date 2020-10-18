@@ -20,6 +20,7 @@ root@kali:/media/sf_CTFs/hoshen/intro# sox KdBf-wvEaCM.wav -n spectrogram
 ```
 
 Output:
+
 ![](images/spectrogram.png)
 
 We can easily see the dots and dashes, we just need to translate them to text:
