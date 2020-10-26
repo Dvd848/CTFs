@@ -233,7 +233,7 @@ To ssh://come-and-git-it.appsecil.ctf.today:2222/~/ctf-repo
 error: failed to push some refs to 'ssh://gamemaster@come-and-git-it.appsecil.ctf.today:2222/~/ctf-repo'
 ```
 
-Now the email is unauthorized. Well, we can't see we didn't see that coming.
+Now the email is unauthorized. Well, we can't say we didn't see that coming.
 
 So, we reconfigure the mail via `git config user.email "johnnycash@build.system"` and try again:
 
