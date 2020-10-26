@@ -59,14 +59,13 @@ The Python file is tempting, but it's always a good idea to start from the READM
 root@kali:/media/sf_CTFs/appsec/come-and-git-it-1/ctf-repo# cat README.md
 # Welcome to make-git-better
 
-```
-_____  _    _  ___   ___________
-|  _  || |  | |/ _ \ /  ___| ___ \
-| | | || |  | / /_\ \\ `--.| |_/ /
-| | | || |/\| |  _  | `--. \  __/
-\ \_/ /\  /\  / | | |/\__/ / |
- \___/  \/  \/\_| |_/\____/\_|
-```
+ _____  _    _  ___   ___________
+ |  _  || |  | |/ _ \ /  ___| ___ \
+ | | | || |  | / /_\ \\ `--.| |_/ /
+ | | | || |/\| |  _  | `--. \  __/
+ \ \_/ /\  /\  / | | |/\__/ / |
+  \___/  \/  \/\_| |_/\____/\_|
+
 
 There's a script called `capture_ze_flag.py`. What else do you need? (=｀ω´=)
 ```
