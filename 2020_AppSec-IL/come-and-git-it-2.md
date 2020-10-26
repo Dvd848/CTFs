@@ -50,14 +50,12 @@ Let's check the README:
 root@kali:/media/sf_CTFs/appsec/come-and-git-it-2/ctf-repo# cat README.md
 # Welcome to make-git-better
 
-```
 _____  _    _  ___   ___________
 |  _  || |  | |/ _ \ /  ___| ___ \
 | | | || |  | / /_\ \\ `--.| |_/ /
 | | | || |/\| |  _  | `--. \  __/
 \ \_/ /\  /\  / | | |/\__/ / |
  \___/  \/  \/\_| |_/\____/\_|
-```
 
 Welcome to the awesome build system! Each push, the awesome build system will build.
 
