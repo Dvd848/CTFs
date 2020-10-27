@@ -97,9 +97,9 @@ root@kali:/media/sf_CTFs/appsec/goWAF# curl -s 'https://gowaf.appsecil.ctf.today
         webmaster and enclose the following incident ID:<br /><br />[ <b>FRUDJw==</b> ]
 ```
 
-So this is somehow encoded in some base. Let's try to encrypt our way to the expected output.
+So this is (probably) somehow encoded in some base. We'll start by assuming that this is base64, and reconsider if needed. 
 
-We'll have to make some assumptions. First, let's assume that the output is encoded in base64. 
+Now, let's try to encrypt our way to the expected output.
 
 For the first character, we'll try to encrypt every possible printable ASCII letter until we arrive to a result which if decoded as base64, is equal to the base64-decoded first character of the encrypted flag file we got.
 
