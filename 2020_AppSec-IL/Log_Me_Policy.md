@@ -72,7 +72,7 @@ We get an exception originating from `/app/app.js`.
 
 Let's try to read it:
 
-```
+```console
 root@kali:/media/sf_CTFs/appsec/Log_Me_Policy# curl https://logmepolicy.appsecil.ctf.today/app.js
 <!DOCTYPE html>
 <html lang="en">
