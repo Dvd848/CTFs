@@ -12,7 +12,7 @@
 
 ## Preface
 
-This one is really complicated and really cool. We weren't able to solve it during the competition (only one team got it, impressive!). After the competition ended, we got the following resources from the one of the CTF creators (thanks!):
+This one is really complicated and really cool. We weren't able to solve it during the competition (only [one team](https://cmdengineer.medium.com/jsonp-some-xss-87b200ef7d02) got it, impressive!). After the competition ended, we got the following resources from the one of the CTF creators (thanks!):
 
 * https://vulnerabledoma.in/xss_2020-06/
 * http://challenge.benhayak.com/mini_2020/
