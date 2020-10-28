@@ -86,7 +86,7 @@ Token payload values:
 [+] email = "paula74@hunter-harris.net"
 ```
 
-The second is a user-id. 
+The second is a user-id. Using the user-id, we can query `/api/getUserDetails` and get the personal details of the user.
 
 We tried many things for this challenge - attacking the token, injections, etc. but with no success. At some point, after no one was able to solve the challenge, a hint was released:
 
