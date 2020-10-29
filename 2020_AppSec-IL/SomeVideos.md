@@ -127,6 +127,19 @@ High-level overview of our attack:
 * Use `document.write` as the JSONP callback to render the HTML
    * This will execute the Javascript
 
+When passing an object to `document.write`, it calls the object's `toString` in order to translate it to a string. The default implementation will produce `[object Object]`. However, in this case we're lucky and the website contains code to override the default `toString` implementation to `JSON.stringify`:
+
+```javascript
+if (location.hash == '#debug') {
+  // ...
+  // Easy way to display objects within a string
+  Object.prototype.toString = function () {
+    return JSON.stringify(this);
+  };
+}
+```
+
+All we need to do in order to utilize this is to append `#debug` to our URL, enabling the website's debug mode. This allows us to write a string such as `{"success":true,"data":{"title":"My Title","description":"My&#x20;Description","source":"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_20MB.mp4"}}` instead of writing `[object Object]`.
 
 #### 1. Hiding the HTML
 
