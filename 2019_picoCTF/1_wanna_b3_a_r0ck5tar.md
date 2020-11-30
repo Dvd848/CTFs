@@ -191,3 +191,14 @@ BONJOVI
 ```
 
 So the flag is `picoCTF{BONJOVI}`.
+
+### Update (November 2020)
+
+It seems as though the Rockstar language specs have changed since the original challange was posted, and the hyphen has received a special meaning:
+
+> The hyphen (-) is counted as a letter – so you can use terms like ‘all-consuming’ (13 letters > 3) and ‘power-hungry’ (12 letters > 2) instead of having to think of 12- and 13-letter words.
+
+Therefore, using the updated specs, `a six-string` should count as `10` and `a billboard-burning razzmatazz` now equals `170`.
+
+See [https://github.com/Dvd848/CTFs/issues/8](here) and [https://github.com/Dvd848/CTFs/issues/9](here) for more details.
+
