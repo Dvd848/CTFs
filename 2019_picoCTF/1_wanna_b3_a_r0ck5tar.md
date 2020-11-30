@@ -200,5 +200,5 @@ It seems as though the Rockstar language specs have changed since the original c
 
 Therefore, using the updated specs, `a six-string` should count as `10` and `a billboard-burning razzmatazz` now equals `170`.
 
-See [https://github.com/Dvd848/CTFs/issues/8](here) and [https://github.com/Dvd848/CTFs/issues/9](here) for more details.
+See [here](https://github.com/Dvd848/CTFs/issues/8) and [here](https://github.com/Dvd848/CTFs/issues/9) for more details.
 
