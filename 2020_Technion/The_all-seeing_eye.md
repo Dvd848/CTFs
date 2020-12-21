@@ -20,7 +20,7 @@ Finally, searching for the sentence in the description gave a lead: "Remember - 
 
 > "Remember: reality is an illusion. The universe is a hologram. Buy gold. Bye!".
 
-Investigating this lead further reveals the following key:
+Investigating this lead further reveals the following key ([source](https://www.pinterest.com/pin/426575395956010392/)):
 
 ![](images/bill_cipher.png)
 
