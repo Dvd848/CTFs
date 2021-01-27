@@ -146,7 +146,7 @@ namespace PuzzleSolver
 }
 ```
 
-So we can see that the program stores the expected username and password in plaintext: `Test_User:SecretPassw0rd`. We also see a few more APIs which we'll get to later on. For now, let's try to spoof the API server in order to provide the program with the credentials it wants. For that, we exit our `hosts` file and add an entry for `127.0.0.1 puzzle.shieldchallenges.com`. Then, we launch the following Python script:
+So we can see that the program stores the expected username and password in plaintext: `Test_User:SecretPassw0rd`. We also see a few more APIs which we'll get to later on. For now, let's try to spoof the API server in order to provide the program with the credentials it wants. For that, we edit our `hosts` file and add an entry for `127.0.0.1 puzzle.shieldchallenges.com`. Then, we launch the following Python script:
 
 ```python
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -194,7 +194,7 @@ root@kali:/media/sf_CTFs/shabak/Puzzle# curl http://puzzle.shieldchallenges.com/
 {"puzzles": [{"id": 0, "name": "SpaceInvaders", "rows": "1 1,1 1,7,2 3 2,11,1 7 1,1 1 1 1,2 2,0", "columns": "3,2,1 5,2 2 1,4 1,4,4 1,2 2 1,1 5,2,3"}, {"id": 1, "name": "X", "rows": "1 1,1,1 1", "columns": "1 1,1,1 1"}, {"id": 2, "name": "1337", "rows": "1 3 3 3,1 1 1 1,1 3 3 1,1 1 1 1,1 3 3 1", "columns": "5,0,1 1 1,1 1 1,5,0,1 1 1,1 1 1,5,0,1,1 2,3"}, {"id": 3, "name": "TopSecret", "rows": "7,12,3 2 2 4,4 2 2 2,2 2 2 2 2,3 2 2 2 2,4 2 2 2 2,4 2 2 2 2,1 2 2 2 2 2,2 2 2 2 2 2,2 2 2 2 2 2,4 2 2 2 2,3 2 2 2 2,2 2 2 2 2,2 4 2 2 2,5 2 2 2,3 2 2 2, 2 3 2 2,7 2 2,4 3 2,2 3 2,2 4 3,4 3,13,9", "columns": "8,13,3 2 5,8 2 3,8 2 4,2 2 2 2,13 2 2,12 2 3,1 2 4,17 2 2,16 3 2,2 2 2,2 3 2,19 2,17 2,2 2,2 2,2 2,2 2,2 2,2 2,2 3,3 3,13,9"}, {"id": 4, "name": "StarOfDavid", "rows": "1,3,2 2,13,1 2 2 1,2 2,2 2,2 2,2 2,1 2 2 1,13,2 2,3,1", "columns": "1 1,2 2,1 4 1,8,3 3,3 3,2 1 1 2,3 3,3 3,8,1 4 1,2 2,1 1"}, {"id": 5, "name": "QR", "rows": "7 2 1 7,1 1 1 1 1 1,1 3 1 1 1 1 1 3 1,1 3 1 1 2 1 3 1,1 3 1 3 1 3 1,1 1 1 1,7 1 1 1 7,2,4 1 1 1 1 3 1,1 2 1 1 1 1 3,1 1 2 1 1 5 3,2 3 2 1,2 1 2 1 2 1 1 1 1,1 1 1 1 1 1,7 2 1 2,1 1 6 1 1,1 3 1 2 1 1 1,1 3 1 1 1 1 1,1 3 1 1 1 3,1 1 5 1 2 2,7 2 2 1 1 1", "columns": "7 1 1 1 7,1 1 1 1 1 1,1 3 1 2 1 3 1,1 3 1 1 1 1 1 3 1,1 3 1 1 1 1 3 1,1 1 4 1 1,7 1 1 1 7,1 1,1 3 1 1 4 4,2 1 1 1 1 2,1 1 5 2 2 1,1 1 2 3,4 1 3 1 2,1 6 1,7 1 3 1,1 1 2 1 1,1 3 1 1 1 1 1 3,1 3 1 2 2 3,1 3 1 3 3 1,1 1 3 2 1 2,7 1 1 2 1 1 "}]}
 ```
 
-We can modify our script to return this when queries for `/api/puzzle` and try to run the program again:
+We can modify our script to return this when the server is queried for `/api/puzzle` and try to run the program again:
 
 ![](images/puzzle3.png)
 
