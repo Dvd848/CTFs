@@ -4,7 +4,7 @@ Category: Data Science, 200 points
 
 ## Description
 
-See [Data_Science_1.md](Data Science 1)
+See [Data Science 1](Data_Science_1.md).
 
 ## Solution:
 
