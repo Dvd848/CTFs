@@ -1,5 +1,5 @@
 # Double DES
-Category: Forensics, 130 points
+Category: Crypto, 120 points
 
 ## Description
 > I wanted an encryption service that's more secure than regular DES, but not as slow as 3DES... The flag is not in standard format.
