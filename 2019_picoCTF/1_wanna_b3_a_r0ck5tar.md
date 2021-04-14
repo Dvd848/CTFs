@@ -44,7 +44,7 @@ Same as before, we paste the program into the [online interpreter](https://codew
 We can either choose to understand the [Language Specification](https://codewithrockstar.com/docs) or just use a [Python transpiler](https://github.com/yanorestes/rockstar-py) to translate the program to Python. Using the transpiler seems faster.
 
 ```console
-root@kali:/media/sf_CTFs/pico/1_wanna_b3_a_r0ck5tar# rockstar-py --output rockstar.py lyrics.txt
+root@kali:/media/sf_CTFs/pico/1_wanna_b3_a_r0ck5tar# rockstar-py --output rockstar.py -i lyrics.txt
 root@kali:/media/sf_CTFs/pico/1_wanna_b3_a_r0ck5tar# cat rockstar.py
 Rocknroll = True
 Silence = False
