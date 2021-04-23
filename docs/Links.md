@@ -17,6 +17,7 @@
 * [GOT and PLT for pwning](https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html)
 * [Heap Exploitation](https://heap-exploitation.dhavalkapil.com/attacks/forging_chunks.html)
 * [Heap Exploitation 2](https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/)
+* [Format string on Heap](https://activities.tjhsst.edu/csc/writeups/picoctf-2021-stonk-market)
 
 ## Crypto
 
