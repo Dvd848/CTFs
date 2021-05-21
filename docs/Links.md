@@ -18,6 +18,7 @@
 * [Heap Exploitation](https://heap-exploitation.dhavalkapil.com/attacks/forging_chunks.html)
 * [Heap Exploitation 2](https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/)
 * [Format string on Heap](https://activities.tjhsst.edu/csc/writeups/picoctf-2021-stonk-market)
+* [LibC Simulation Methods](https://github.com/152334H/pwnscripts/issues/10)
 
 ## Crypto
 
