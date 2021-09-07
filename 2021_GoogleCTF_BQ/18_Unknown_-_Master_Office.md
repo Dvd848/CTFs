@@ -44,7 +44,7 @@ Let's check the attached files:
 vm/
 vm/Cargo.toml
 vm/src/
-`vm/src/lib.rs`
+vm/src/lib.rs
 vm/.gitignore
 vm-cli/
 vm-cli/Cargo.toml
