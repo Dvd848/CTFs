@@ -277,7 +277,7 @@ Today's password:
 CTF|V1de0_g?aphi?s_4???y|
 ```
 
-So, we're close, but we need to identify the missing letters. However, it's pretty hard given the image. Notice how the reg, green and blue pixels don't seem to overlap in the image we've received. Again, there probably is a better way of fixing this, but with more trial and error I was able to get a better quality image by manually applying offsets to align all colors:
+So, we're close, but we need to identify the missing letters. However, it's pretty hard given the image. Notice how the red, green and blue pixels don't seem to overlap in the image we've received. Again, there probably is a better way of fixing this, but with more trial and error I was able to get a better quality image by manually applying offsets to align all colors:
 
 ```python
 import csv
