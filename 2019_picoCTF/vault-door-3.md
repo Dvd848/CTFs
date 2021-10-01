@@ -57,8 +57,8 @@ Let's reverse the logic with Javascript since the syntax is similar:
 
 ```javascript
 root@kali:/media/sf_CTFs/pico/vault-door-3# node
-> password = "jU5t_a_sna_3lpm1dg347_u_4_mfr54b"
-'jU5t_a_sna_3lpm1dg347_u_4_mfr54b'
+> password = "jU5t_a_sna_3lpm1dg347_u_4_mfr340"
+'jU5t_a_sna_3lpm1dg347_u_4_mfr340'
 >
 > var i;
 undefined
