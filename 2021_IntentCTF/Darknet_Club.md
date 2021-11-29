@@ -1,5 +1,5 @@
 # Darknet Club
-* Category: web
+* Category: Web
 * 200 Points
 * Solved by the JCTF Team
 
