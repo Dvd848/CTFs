@@ -29,3 +29,6 @@ Technion students probably will just know this, for outsiders it's harder but ev
 
 The flag: `cstechnion{the_gaster_center_is_the_best_gaster}`.
 
+### Intended Solution
+
+After the CTF, I got a tip from [@dezutterjoachim](https://twitter.com/dezutterjoachim) that the font being used in the challenge is actually known as "W.D. Gaster's Alphabet" (more about that [here](https://wingdingstranslator.com/undertale/)). Using an online translator such as [this one](https://lingojam.com/W-D-Gaster) we can easily decrypt the flag.
