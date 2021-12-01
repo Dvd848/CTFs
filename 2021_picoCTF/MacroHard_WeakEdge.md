@@ -17,7 +17,7 @@ The attached file is a PowerPoint presentation:
 Forensics_is_fun.pptm: Microsoft PowerPoint 2007+
 ```
 
-Let's start with `oldtools` to check for macros, as the title suggests:
+Let's start with `oletools` to check for macros, as the title suggests:
 
 ```console
 ┌──(user@kali)-[/media/sf_CTFs/pico/MacroHard_WeakEdge]
