@@ -195,7 +195,6 @@ Finally, the computed output is verified:
 
 ```c
 void check_input(void)
-
 {
   int i;
   int j;
