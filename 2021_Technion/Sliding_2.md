@@ -554,7 +554,7 @@ Putting together everything that we've discovered, this all looks very much like
    * Each operation shifts three colors from face to face and changed the order of the colors within another face
  * The puzzle is solved when each of the faces contains just one color
 
-To solve the puzzle, we can use a Rubik's Cube solver such as [https://github.com/muodov/kociemba](https://github.com/muodov/kociemba), but we first have to create some mapping between the colors, faces and operations of both programs.
+To solve the puzzle, we can use a Rubik's Cube solver such as [kociemba](https://github.com/muodov/kociemba), but we first have to create some mapping between the colors, faces and operations of both programs.
 
 Let's name the different faces based on the LSB of the matching array. So `DAT_00104010` becomes `10`, and we also have `20`, `30`, `40`, `50` and `60`.
 
