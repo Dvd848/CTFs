@@ -146,9 +146,11 @@ What is the unhashed key?
 
 Now we need to provide some unhashed key. The value at `$esp+0x4` looked like a hash, and if we Google it we find that it's the MD5 of `goldfish`:
 
+```console
 ┌──(user@kali)-[/media/sf_CTFs/pico/gogo]
 └─$ echo -n "goldfish" | md5sum
 861836f13e3d627dfa375bdb8389214e  -
+```
 
 So let's enter that:
 
