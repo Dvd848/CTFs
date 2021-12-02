@@ -14,3 +14,6 @@ Finished 2nd in the forth division and 9th altogether:
 ![](images/top5_d4.png)
 
 ![](images/top10_all.png)
+
+
+Additional resources (including other writeups) can be found [here](https://github.com/Dvd848/CTFs/discussions/20).
