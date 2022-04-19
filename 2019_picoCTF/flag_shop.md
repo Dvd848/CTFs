@@ -52,7 +52,13 @@ int main()
                     else{
                         printf("Not enough funds to complete purchase\n");
                     }
+                                    
+                    
                 }
+                    
+                    
+                    
+                
             }
             else if(auction_choice == 2){
                 printf("1337 flags cost 100000 dollars, and we only have 1 in stock\n");
@@ -77,8 +83,8 @@ int main()
                     
                     else{
                         printf("\nNot enough funds for transaction\n\n\n");
-                    }
-                }
+                    }}
+
             }
         }
         else{
@@ -94,10 +100,7 @@ int main()
 
 ## Solution: 
 
-
-This challenge is similar to last year's [store](/2018_picoCTF/store.md). 
-
-Most of the differences are related to strings:
+We can see many differences related to strings:
 ```console
 root@kali:/media/sf_CTFs/pico/flag_shop# diff store.c ../../pico_2018/store/source.c
 5d4
@@ -191,7 +194,7 @@ root@kali:/media/sf_CTFs/pico/flag_shop# diff exploit.py ../../pico_2018/store/e
 > buy_imitation_flag(2222222)
 ```
 
-2222222 flags won't do anymore, since that would bring us to a negative balance, we must buy 3333333 instead to trigger the overflow.
+# 2222222 flags won't do anymore, since that would bring us to a negative balance, we must buy 3333333 instead to trigger the overflow.
 
 ```python
 >>> 1100 - numpy.int32(2222222*900)
