@@ -125,7 +125,7 @@ www.idf.il/h4ppy_5ukk0t
 הגענו לדף חדש:
 </p>
 
-<pre dir="left">
+<pre dir="ltr">
 <div class=image-slider-wrap>
     <div class=image-slider>
         <div class=item-slide>
