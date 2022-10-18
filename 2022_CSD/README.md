@@ -125,7 +125,7 @@ www.idf.il/h4ppy_5ukk0t
 הגענו לדף חדש:
 </p>
 
-```
+<pre dir="left">
 <div class=image-slider-wrap>
     <div class=image-slider>
         <div class=item-slide>
@@ -143,7 +143,7 @@ www.idf.il/h4ppy_5ukk0t
     <p><strong>י פה, מכאן, עליכם לחשוב על הקנקן.</strong></p>
     <p><strong>פ ה עליכם להסתכל על מה שבתוכו.</strong></p>
 </div>
-```
+</pre>
 
 <p>
 הדף הכיל את התמונה הבאה:
@@ -227,6 +227,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 <ul>
     <li><a href="https://www.idf.il/%D7%90%D7%AA%D7%A8%D7%99-%D7%99%D7%97%D7%99%D7%93%D7%95%D7%AA/%D7%90%D7%92%D7%A3-%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%91-%D7%95%D7%94%D7%94%D7%92%D7%A0%D7%94-%D7%91%D7%A1%D7%91-%D7%A8/%D7%9B%D7%9C-%D7%94%D7%9B%D7%AA%D7%91%D7%95%D7%AA/2022/%D7%97%D7%99%D7%93%D7%AA-%D7%AA%D7%A7%D7%A9%D7%95%D7%91-%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%90%D7%A1%D7%A7%D7%99%D7%99%D7%A4-%D7%A8%D7%95%D7%9D-%D7%91%D7%A1%D7%9E%D7%97-%D7%9E%D7%97%D7%A9%D7%91-%D7%A6%D7%95%D7%A4%D7%9F-%D7%A7%D7%95%D7%93-%D7%A1%D7%95%D7%9B%D7%95%D7%AA/">החידה באתר צה"ל</a></li>
     <li><a href="https://www.ynet.co.il/news/article/skdki8nzj">כתבה ב-YNet</a></li>
+    <li><a href="https://www.idf.il/%D7%90%D7%AA%D7%A8%D7%99-%D7%99%D7%97%D7%99%D7%93%D7%95%D7%AA/%D7%90%D7%92%D7%A3-%D7%94%D7%AA%D7%A7%D7%A9%D7%95%D7%91-%D7%95%D7%94%D7%94%D7%92%D7%A0%D7%94-%D7%91%D7%A1%D7%91-%D7%A8/%D7%9B%D7%9C-%D7%94%D7%9B%D7%AA%D7%91%D7%95%D7%AA/2022/%D7%97%D7%99%D7%93%D7%AA-%D7%AA%D7%A7%D7%A9%D7%95%D7%91-%D7%91%D7%A1%D7%9E-%D7%97-%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%A8%D7%9E%D7%96%D7%99%D7%9D-%D7%A4%D7%AA%D7%A8%D7%95%D7%A0%D7%95%D7%AA-%D7%9E%D7%97%D7%A9%D7%91-%D7%A7%D7%95%D7%93-%D7%A6%D7%95%D7%A4%D7%9F-%D7%99%D7%95%D7%95%D7%A0%D7%99%D7%9D-%D7%A1%D7%99%D7%96%D7%99%D7%A4%D7%95%D7%A1-%D7%A7%D7%99%D7%A1%D7%A8/">הפתרון הרשמי</a></li>
 </ul>
 
 </div>
