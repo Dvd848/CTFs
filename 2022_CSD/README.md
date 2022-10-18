@@ -125,7 +125,8 @@ www.idf.il/h4ppy_5ukk0t
 הגענו לדף חדש:
 </p>
 
-<pre dir="ltr">
+<div dir="ltr">
+```
 <div class=image-slider-wrap>
     <div class=image-slider>
         <div class=item-slide>
@@ -143,7 +144,8 @@ www.idf.il/h4ppy_5ukk0t
     <p><strong>י פה, מכאן, עליכם לחשוב על הקנקן.</strong></p>
     <p><strong>פ ה עליכם להסתכל על מה שבתוכו.</strong></p>
 </div>
-</pre>
+```
+</div>
 
 <p>
 הדף הכיל את התמונה הבאה:
