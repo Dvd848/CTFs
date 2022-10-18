@@ -125,7 +125,7 @@ www.idf.il/h4ppy_5ukk0t
 הגענו לדף חדש:
 </p>
 
-<div dir="ltr">
+
 ```
 <div class=image-slider-wrap>
     <div class=image-slider>
@@ -145,7 +145,7 @@ www.idf.il/h4ppy_5ukk0t
     <p><strong>פ ה עליכם להסתכל על מה שבתוכו.</strong></p>
 </div>
 ```
-</div>
+
 
 <p>
 הדף הכיל את התמונה הבאה:
