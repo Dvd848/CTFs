@@ -64,7 +64,6 @@ It's a .NET executable, we can decompile it with dotPeek.
 <details>
   <summary>Full source code</summary>
 
-  ### Some Code
   ```csharp
 // Decompiled with JetBrains decompiler
 // Type: TeaParty.TeaParty
