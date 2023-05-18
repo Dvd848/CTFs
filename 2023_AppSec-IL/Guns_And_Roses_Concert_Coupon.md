@@ -14,7 +14,7 @@ An APK file was attached.
 
 ## Solution
 
-Let's extract the APK file with ``:
+Let's extract the APK file with `jadx`:
 
 ```console
 ┌──(user@kali)-[/media/sf_CTFs/appsec/Guns_And_Roses_Concert_Coupon]
