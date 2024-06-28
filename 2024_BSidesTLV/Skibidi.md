@@ -1,4 +1,4 @@
-# On1nsH3vE1aYr3s
+# Skibidi
 
  * Category: Forensics
  * 70 Points
