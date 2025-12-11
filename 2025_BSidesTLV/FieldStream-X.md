@@ -102,3 +102,15 @@ TPXSIDZSTLV2025RF101CTFSPGINT50
 ```
 
 The flag: `BSidesTLV2025{RF101CTFSIGINT}`
+
+After the competition ended, one of the participants (`captainB`) shared in the Discord channel the
+following command, which gives a much more accurate result:
+
+```console
+$ minimodem --rx --baudot --startbits 1 --stopbits 1 -f right.wav 50
+### CARRIER 50.00 @ 1590.0 Hz ###
+50VVBSIDESTLV2025RF101CTFSIGINT50
+```
+
+According to his explanation, he looked at the spectrogram and determined that shortest signal length is 0.02 seconds. 
+Then, using an LLM, he deduced that it's baud rate is 50.
