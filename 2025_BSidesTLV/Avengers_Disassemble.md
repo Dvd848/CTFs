@@ -332,15 +332,15 @@ class Agent:
 
 The script defines an Agent class that:
 
-    * Connects outbound to a specified TCP server and port.
-        * Uses AES-256-CBC + a custom byte-reversal (`shift`) to encrypt all traffic with a hard-coded key and IV from a file.
-        * On connection, sends a big banner and some system info (hostname, OS, local IP).
-        * Then enters a loop where it:
-            * Accepts encrypted commands from the server.
-            * Supports three main operations:
-                * Exit: Special magic string to terminate connection.
-                * Execute arbitrary shell commands and return `stdout`/`stderr`.
-                * Read arbitrary files from disk and return the contents.
+* Connects outbound to a specified TCP server and port.
+    * Uses AES-256-CBC + a custom byte-reversal (`shift`) to encrypt all traffic with a hard-coded key and IV from a file.
+    * On connection, sends a big banner and some system info (hostname, OS, local IP).
+    * Then enters a loop where it:
+        * Accepts encrypted commands from the server.
+        * Supports three main operations:
+            * Exit: Special magic string to terminate connection.
+            * Execute arbitrary shell commands and return `stdout`/`stderr`.
+            * Read arbitrary files from disk and return the contents.
 
 The encryption flow includes PKCS#7 padding, then AES-CBC encryption with a hardcoded key,
 followed by a custom byte shift. So, in order to decrypt the payload, we need to unshift
