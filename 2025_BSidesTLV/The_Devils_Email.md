@@ -74,7 +74,7 @@ Importance: High
 </html> 
 ```
 
-Like the name suggest, tt looks like a phishing email. We follow the link and arrive to a website
+Like the name suggest, it looks like a phishing email. We follow the link and arrive to a website
 containing the following:
 
 ```html
